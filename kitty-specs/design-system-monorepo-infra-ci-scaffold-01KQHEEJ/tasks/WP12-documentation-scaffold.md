@@ -431,3 +431,4 @@ Follow `docs/contributing/adding-a-token.md` step-by-step. If you get stuck or n
 ## Activity Log
 
 - 2026-05-01T20:24:24Z – claude:claude-sonnet-4-6:curator-carla:curator – shell_pid=3481688 – Started implementation via action command
+- 2026-05-01T20:27:42Z – claude:claude-sonnet-4-6:curator-carla:curator – shell_pid=3481688 – Contributor guide, 4 sub-guides, angular/html-js READMEs, ADR-003 token value addendum placeholder
