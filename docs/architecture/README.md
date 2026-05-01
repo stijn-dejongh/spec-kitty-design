@@ -23,6 +23,7 @@ All Accepted decisions are in [`decisions/`](decisions/). Any mission spec that 
 | [ADR-004](decisions/2026-05-01-4-org-layer-doctrine-distribution.md) | Org-Layer Doctrine Distribution | Accepted |
 | [ADR-005](decisions/2026-05-01-5-npm-supply-chain-security-posture.md) | npm Supply Chain Security Posture | Accepted |
 | [ADR-006](decisions/2026-05-01-6-storybook-multi-framework-rendering.md) | Storybook Multi-Framework Rendering Strategy | Accepted |
+| [ADR-007](decisions/2026-05-01-7-storybook-version-10x-adoption.md) | Storybook 10.x Adoption — Angular 21 Compatibility | Accepted |
 
 ## Research
 
