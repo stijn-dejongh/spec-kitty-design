@@ -158,6 +158,13 @@ As a maintainer, I want to publish all updated packages to npm by pushing a vers
 | FR-037 | Two project doctrine directives are authored and schema-validated: one encoding the `--sk-*` token authority rule and one encoding the illustration content boundary (mascot assets excluded from software packages) | Proposed |
 | FR-038 | Two project doctrine styleguides are authored and schema-validated: one covering brand voice and terminology rules, one covering visual identity and token usage rules for agents generating UI | Proposed |
 | FR-039 | The `SKILL.md` is enhanced to follow the `deployable-skill-authoring` styleguide: progressive disclosure sub-rules, governance directive references, anti-patterns with code examples, and a live context hint | Proposed |
+| FR-040 | A `.github/dependabot.yml` is configured for npm packages and GitHub Actions, grouping framework family updates and excluding major version auto-PRs from automated merges | Proposed |
+| FR-041 | The CI pipeline runs an npm CVE audit at `high` severity as a hard gate on every PR; a scheduled nightly audit also runs on the default branch | Proposed |
+| FR-042 | A lockfile integrity check blocks PRs where the npm lockfile has drifted from the package manifest, equivalent to the Python `uv lock --check` gate in spec-kitty | Proposed |
+| FR-043 | All GitHub Actions referenced in CI workflow files are pinned to immutable commit SHAs rather than mutable version tags | Proposed |
+| FR-044 | npm packages are published with the `--provenance` flag in the GitHub Actions release workflow, linking each published package to its source commit and CI build | Proposed |
+| FR-045 | A CycloneDX SBOM is generated and published as a GitHub Release artifact alongside each package release, equivalent to spec-kitty's `cyclonedx-py` SBOM step | Proposed |
+| FR-046 | The CI install step uses `npm ci` with `--ignore-scripts`; any package requiring a postinstall hook is documented in a security allowlist file with explicit rationale | Proposed |
 
 ## Non-Functional Requirements
 
@@ -184,6 +191,7 @@ As a maintainer, I want to publish all updated packages to npm by pushing a vers
 | C-006 | The token package must be usable in a plain HTML document with no build tooling, via direct file reference or CDN link | Confirmed |
 | C-007 | The Angular package targets the current Angular Long-Term Support (LTS) version | Confirmed |
 | C-008 | Cartoon/mascot illustrations (the bespectacled cat) are exclusively for supporting materials (marketing, docs, slidedecks) and must never appear as embedded assets inside any software distribution package | Confirmed |
+| C-009 | No `*` or `latest` version specifiers are permitted in any `package.json` file; all dependencies use exact or caret-bounded ranges; the npm lockfile is always committed and never gitignored | Confirmed |
 
 ## Key Entities
 

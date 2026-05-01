@@ -112,6 +112,18 @@ answers:
     CHANGELOG with migration instructions at least one minor release before
     the major bump that removes the old name.
 
+  security_posture_policy: >
+    Consuming npm packages is permitted under explicit controls. Any new direct
+    dependency must satisfy: scope credibility (established publisher, preferably
+    an org scope), minimum 10,000 weekly downloads, at least 3 active
+    contributors, and zero known CVEs at time of addition. No wildcard or
+    `latest` version specifiers. The npm lockfile is always committed. Major
+    version bumps require explicit maintainer review and a PR rationale. GitHub
+    Actions are pinned to commit SHAs. npm packages are published with provenance
+    attestation. A CycloneDX SBOM is generated at every release. Postinstall
+    scripts from new dependencies require explicit review and allowlisting.
+    Dependabot is configured for both npm and GitHub Actions.
+
   token_schema_governance: >
     The token schema — all `--sk-*` property categories, naming conventions,
     and their values reconciled against the Claude Design reference and the
