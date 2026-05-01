@@ -19,14 +19,19 @@ npm run quality:all    # ESLint + Stylelint + HTMLHint
 | npm audit | `bash scripts/npm-audit-gate.sh` | Known CVEs in dependencies | After adding or updating dependencies |
 | Lockfile | `npm ci --dry-run --ignore-scripts` | Lockfile drift detection | After any `package.json` change |
 | Action SHA pins | `bash scripts/check-action-pins.sh` | Mutable `@v*` tags in workflows | After editing `.github/workflows/` |
+| Token breaking changes | `bash scripts/check-token-breaking-changes.sh` | Removed or renamed `--sk-*` tokens | Before bumping package version |
 
 ## Storybook-specific
 
 ```bash
 npx nx run storybook:storybook:build    # build to storybook-static/
-node scripts/run-axe-storybook.js       # WCAG 2.1 AA check
-npx playwright test                     # cross-browser + visual regression
+node scripts/run-axe-storybook.js       # WCAG 2.1 AA check — iterates ALL stories
+npx playwright test                     # cross-browser + visual regression + CDN smoke test
 ```
+
+The `run-axe-storybook.js` script reads `storybook-static/index.json` to discover all story
+IDs and runs axe against each story's iframe URL. A missing build will print a clear error
+and exit non-zero rather than silently passing.
 
 ## Visual regression
 
@@ -43,6 +48,48 @@ git add apps/storybook/src/tests/visual.spec.ts-snapshots/
 
 Baseline snapshots must be committed alongside the component change so that CI
 can compare against the correct reference.
+
+### macOS contributors: platform-specific baselines
+
+Visual regression snapshots are **platform-specific**. The committed baselines
+in `apps/storybook/src/tests/visual.spec.ts-snapshots/` were generated on
+Linux (CI uses `ubuntu-latest`). If you are on macOS or Windows, Playwright
+will produce screenshots with different pixel renders and your local tests will
+fail with "screenshot does not match."
+
+**This is expected.** To run visual regression locally on macOS:
+
+```bash
+# 1. Build Storybook first
+npx nx run storybook:storybook:build
+
+# 2. Generate macOS-specific baselines (stored alongside the Linux ones)
+npx playwright test apps/storybook/src/tests/visual.spec.ts --update-snapshots
+
+# 3. Verify the new platform snapshots look correct, then commit them
+git add apps/storybook/src/tests/visual.spec.ts-snapshots/
+git commit -m "test(visual): add macOS baseline snapshots"
+```
+
+Playwright will automatically use the correct platform baseline at test time
+(it keys snapshots by `<name>-<browser>-<platform>.png`). The Linux baselines
+used by CI remain intact alongside your macOS baselines.
+
+**Do not delete the Linux baselines** — they are used by the CI `visual-regression` job.
+
+## Breaking token change check
+
+After renaming or removing a `--sk-*` token, verify no breaking changes were
+introduced before publishing:
+
+```bash
+bash scripts/check-token-breaking-changes.sh
+# Compares current token-catalogue.json against the most recent git tag
+# Exits 1 with a list of removed tokens if a breaking change is detected
+```
+
+This check requires a previous git tag to exist. On the first release, it will
+report "No previous tag found" and exit 0 — that is correct behavior.
 
 ## CI parity note
 
