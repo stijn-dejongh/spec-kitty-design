@@ -1,0 +1,18 @@
+vcs:
+  type: git
+agents:
+  available:
+  - copilot
+  - claude
+  - gemini
+  - cursor
+  - qwen
+  - opencode
+  - codex
+  - vibe
+  auto_commit: true
+project:
+  uuid: c5970476-a956-4ffe-aa95-38643e6e81fb
+  slug: spec-kitty-design
+  node_id: 26ae9a8b6053
+  build_id: 85202551-6e2c-4fe5-b9ad-15f2f3721846
