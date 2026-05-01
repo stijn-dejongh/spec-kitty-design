@@ -1,7 +1,7 @@
 {
-  "event_count": 34,
-  "last_event_id": "01KQJB5XHPYST7WDXDSEW2DKET",
-  "materialized_at": "2026-05-01T18:00:26.934395+00:00",
+  "event_count": 35,
+  "last_event_id": "01KQJB7QJ631BD8047CBA1TDZT",
+  "materialized_at": "2026-05-01T18:01:26.342317+00:00",
   "mission_number": "",
   "mission_slug": "design-system-monorepo-infra-ci-scaffold-01KQHEEJ",
   "mission_type": "software-dev",
@@ -11,8 +11,8 @@
     "canceled": 0,
     "claimed": 0,
     "done": 0,
-    "for_review": 0,
-    "in_progress": 1,
+    "for_review": 1,
+    "in_progress": 0,
     "in_review": 0,
     "planned": 9
   },
@@ -53,11 +53,11 @@
       "last_transition_at": "2026-05-01T17:51:41.009745+00:00"
     },
     "WP06": {
-      "actor": "claude:claude-sonnet-4-6:implementer-ivan:implementer",
+      "actor": "user",
       "force_count": 2,
-      "lane": "in_progress",
-      "last_event_id": "01KQJB5XHPYST7WDXDSEW2DKET",
-      "last_transition_at": "2026-05-01T18:00:26.934395+00:00"
+      "lane": "for_review",
+      "last_event_id": "01KQJB7QJ631BD8047CBA1TDZT",
+      "last_transition_at": "2026-05-01T18:01:26.342317+00:00"
     },
     "WP07": {
       "actor": "finalize-tasks",
