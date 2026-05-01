@@ -54,12 +54,12 @@
 | T041 | Add Storybook build job to CI (gate on component + token path changes) | WP07 | | [D] |
 | T042 | Wire `gate` final job (all hard gates must pass before merge) | WP07 | | [D] |
 | T043 | Add `lint-feedback` job (PR comments for lint failures) | WP07 | | [D] |
-| T044 | Configure `@storybook/addon-a11y` + `axe-playwright` WCAG 2.1 AA CI gate (FR-021) | WP08 | |
-| T045 | Configure Playwright 1.x cross-browser smoke (Chrome, Firefox, Safari) (FR-023) | WP08 | [P] |
-| T046 | Configure Playwright visual regression + baseline snapshots (FR-024) | WP08 | |
-| T047 | Configure Lighthouse CI (`@lhci/cli`) advisory thresholds (FR-022) | WP08 | [P] |
-| T048 | Configure Storybook interaction tests (`@storybook/test`) for stub stories (FR-025) | WP08 | [P] |
-| T049 | Extend `ci-quality.yml` with visual/a11y/browser job block (path-scoped) | WP08 | |
+| T044 | Configure `@storybook/addon-a11y` + `axe-playwright` WCAG 2.1 AA CI gate (FR-021) | WP08 | | [D] |
+| T045 | Configure Playwright 1.x cross-browser smoke (Chrome, Firefox, Safari) (FR-023) | WP08 | [D] |
+| T046 | Configure Playwright visual regression + baseline snapshots (FR-024) | WP08 | | [D] |
+| T047 | Configure Lighthouse CI (`@lhci/cli`) advisory thresholds (FR-022) | WP08 | [D] |
+| T048 | Configure Storybook interaction tests (`@storybook/test`) for stub stories (FR-025) | WP08 | [D] |
+| T049 | Extend `ci-quality.yml` with visual/a11y/browser job block (path-scoped) | WP08 | | [D] |
 | T050 | Write `storybook-deploy.yml` — GitHub Pages on main merge, SHA-pinned (FR-033) | WP09 | |
 | T051 | Write `pr-preview.yml` — surge.sh preview + PR comment URL (NFR-008) | WP09 | [P] |
 | T052 | Write `release.yml` — vX.Y.Z tag; build; SBOM; `npm publish --provenance` (FR-044, FR-045) | WP09 | |
@@ -234,12 +234,12 @@
 **Estimated prompt size**: ~450 lines
 **Prompt**: [WP08-visual-a11y-browser-gates.md](tasks/WP08-visual-a11y-browser-gates.md)
 
-- [ ] T044 Configure `@storybook/addon-a11y` + `axe-playwright` WCAG 2.1 AA gate (WP08)
-- [ ] T045 Configure Playwright cross-browser smoke tests (WP08)
-- [ ] T046 Configure Playwright visual regression + baseline snapshots (WP08)
-- [ ] T047 Configure Lighthouse CI advisory thresholds (WP08)
-- [ ] T048 Configure Storybook interaction tests for stub stories (WP08)
-- [ ] T049 Extend `ci-quality.yml` with visual/a11y/browser job block (WP08)
+- [x] T044 Configure `@storybook/addon-a11y` + `axe-playwright` WCAG 2.1 AA gate (WP08)
+- [x] T045 Configure Playwright cross-browser smoke tests (WP08)
+- [x] T046 Configure Playwright visual regression + baseline snapshots (WP08)
+- [x] T047 Configure Lighthouse CI advisory thresholds (WP08)
+- [x] T048 Configure Storybook interaction tests for stub stories (WP08)
+- [x] T049 Extend `ci-quality.yml` with visual/a11y/browser job block (WP08)
 
 **Dependencies**: WP04, WP07
 
