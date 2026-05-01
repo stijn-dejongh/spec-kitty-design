@@ -70,10 +70,10 @@
 | T057 | Author `doctrine/styleguides/sk-visual-identity.styleguide.yaml` | WP10 | [D] |
 | T058 | Stub `doctrine/graph.yaml` (org-layer DRG entry point, ADR-004) | WP10 | | [D] |
 | T059 | Validate all doctrine artifacts: `spec-kitty charter synthesize --dry-run` | WP10 | | [D] |
-| T060 | Write `skills/spec-kitty-design/SKILL.md` (progressive disclosure, governance refs) | WP11 | |
-| T061 | Write `skills/spec-kitty-design/rules/brand-voice.md` (anti-patterns + examples) | WP11 | [P] |
-| T062 | Write `skills/spec-kitty-design/rules/visual-identity.md` (token rules + code examples) | WP11 | [P] |
-| T063 | Write `skills/spec-kitty-design/rules/component-authoring.md` (story structure, stub ref) | WP11 | [P] |
+| T060 | Write `skills/spec-kitty-design/SKILL.md` (progressive disclosure, governance refs) | WP11 | | [D] |
+| T061 | Write `skills/spec-kitty-design/rules/brand-voice.md` (anti-patterns + examples) | WP11 | [D] |
+| T062 | Write `skills/spec-kitty-design/rules/visual-identity.md` (token rules + code examples) | WP11 | [D] |
+| T063 | Write `skills/spec-kitty-design/rules/component-authoring.md` (story structure, stub ref) | WP11 | [D] |
 | T064 | Write `docs/contributing/README.md` (FR-028: overview + quick links) | WP12 | |
 | T065 | Write `docs/contributing/adding-a-token.md` (step-by-step token addition) | WP12 | [P] |
 | T066 | Write `docs/contributing/adding-a-component.md` (component authoring walkthrough) | WP12 | [P] |
@@ -290,10 +290,10 @@
 **Estimated prompt size**: ~340 lines
 **Prompt**: [WP11-enhanced-skill.md](tasks/WP11-enhanced-skill.md)
 
-- [ ] T060 Write `skills/spec-kitty-design/SKILL.md` (WP11)
-- [ ] T061 Write `skills/spec-kitty-design/rules/brand-voice.md` (WP11)
-- [ ] T062 Write `skills/spec-kitty-design/rules/visual-identity.md` (WP11)
-- [ ] T063 Write `skills/spec-kitty-design/rules/component-authoring.md` (WP11)
+- [x] T060 Write `skills/spec-kitty-design/SKILL.md` (WP11)
+- [x] T061 Write `skills/spec-kitty-design/rules/brand-voice.md` (WP11)
+- [x] T062 Write `skills/spec-kitty-design/rules/visual-identity.md` (WP11)
+- [x] T063 Write `skills/spec-kitty-design/rules/component-authoring.md` (WP11)
 
 **Dependencies**: WP01
 **Parallel with**: WP10
