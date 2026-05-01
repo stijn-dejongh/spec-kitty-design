@@ -335,3 +335,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Test the progressive disclosure: given only `SKILL.md`, can you determine which sub-rule to open for a CSS token usage question? For a brand copy question? For a story authoring question? If not, the routing table in SKILL.md needs improvement.
+
+## Activity Log
+
+- 2026-05-01T18:51:01Z – claude – Level 3 SKILL.md with brand-voice, visual-identity, component-authoring sub-rules
