@@ -20,7 +20,8 @@ subtasks:
 - T067
 - T068
 - T069
-agent: claude
+agent: "claude:claude-sonnet-4-6:curator-carla:curator"
+shell_pid: "3481688"
 history:
 - date: '2026-05-01'
   event: created
@@ -426,3 +427,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Follow `docs/contributing/adding-a-token.md` step-by-step. If you get stuck or need information not in the guide, the guide needs improvement. Check that the brand voice is consistent (sentence case, no emoji, SK canonical nouns).
+
+## Activity Log
+
+- 2026-05-01T20:24:24Z – claude:claude-sonnet-4-6:curator-carla:curator – shell_pid=3481688 – Started implementation via action command
