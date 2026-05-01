@@ -286,3 +286,4 @@ Open the built Storybook (`apps/storybook/storybook-static/`). Both "SkStub (Ang
 ## Activity Log
 
 - 2026-05-01T18:53:07Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=3105699 – Started implementation via action command
+- 2026-05-01T19:15:25Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=3105699 – Storybook 10.x configured for Angular + HTML renderers with working build. ADR-006 fallback used: separate story files with (Angular)/(HTML) naming convention. Build completes in ~10s. Key adaptations: (1) Storybook 10.x used instead of 8.x due to Angular 21 incompatibility with SB8, (2) angular.json added for angularBrowserTarget requirement, (3) story paths use 3-level traversal from .storybook/ to workspace packages/, (4) addon-essentials replaced by addon-docs in 10.x, (5) autodocs type changed to defaultName in DocsOptions.
