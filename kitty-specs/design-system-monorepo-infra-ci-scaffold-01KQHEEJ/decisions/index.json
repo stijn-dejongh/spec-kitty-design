@@ -1,0 +1,52 @@
+{
+  "entries": [
+    {
+      "created_at": "2026-05-01T11:32:12.456783Z",
+      "decision_id": "01KQHMZ118CPSCH0X7M94QAT7D",
+      "final_answer": "nx",
+      "input_key": "monorepo_orchestrator",
+      "mission_id": "01KQHEEJWTWH6CPPRZ287SPH2G",
+      "mission_slug": "design-system-monorepo-infra-ci-scaffold-01KQHEEJ",
+      "options": [
+        "nx",
+        "turborepo"
+      ],
+      "origin_flow": "plan",
+      "other_answer": false,
+      "question": "Which monorepo orchestrator should this repo use: nx or turborepo?",
+      "rationale": null,
+      "resolved_at": "2026-05-01T11:34:43.320149Z",
+      "resolved_by": null,
+      "slot_key": "plan.architecture.monorepo-orchestrator",
+      "status": "resolved",
+      "step_id": null,
+      "summary_json": null
+    },
+    {
+      "created_at": "2026-05-01T11:32:14.075612Z",
+      "decision_id": "01KQHMZ2KVZ9QSS4M6HVSZ8AH8",
+      "final_answer": "surge.sh via GitHub Actions",
+      "input_key": "pr_preview_tooling",
+      "mission_id": "01KQHEEJWTWH6CPPRZ287SPH2G",
+      "mission_slug": "design-system-monorepo-infra-ci-scaffold-01KQHEEJ",
+      "options": [
+        "Chromatic",
+        "Netlify",
+        "surge.sh (GitHub Actions)",
+        "defer to follow-up mission"
+      ],
+      "origin_flow": "plan",
+      "other_answer": false,
+      "question": "Which PR preview deployment tool for the Storybook (NFR-008)?",
+      "rationale": null,
+      "resolved_at": "2026-05-01T11:34:44.020661Z",
+      "resolved_by": null,
+      "slot_key": "plan.ci.pr-preview-tooling",
+      "status": "resolved",
+      "step_id": null,
+      "summary_json": null
+    }
+  ],
+  "mission_id": "01KQHEEJWTWH6CPPRZ287SPH2G",
+  "version": 1
+}
