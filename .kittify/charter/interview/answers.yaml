@@ -1,0 +1,132 @@
+schema_version: "1.0.0"
+mission: "software-dev"
+profile: "comprehensive"
+answers:
+  project_intent: >
+    A reusable, multi-framework design system for the Spec Kitty ecosystem.
+    Publishes SCSS/CSS custom-property tokens, HTML primitives, JavaScript
+    utilities, Angular components, and docsite theme elements as importable
+    artifacts consumed by the SK operator dashboard, public documentation site,
+    blog surfaces, marketing pages, and slidedecks. Also ships pluggable
+    doctrine elements — YAML + prose brand-voice and visual-style guidelines —
+    for use inside agentic workflows (Claude Code skill, charter voice policy).
+    Primary v1 consumers: SK dashboard UI overhaul (issue #650) and docsite
+    refresh (issue #648). The Claude Design reference set (tmp/) is the
+    authoritative visual baseline for v1.
+
+  languages_frameworks: >
+    SCSS for design tokens and base styles; vanilla HTML for primitive
+    component markup; JavaScript (ES modules) for interactive component
+    behavior; Angular for the primary framework-specific component library;
+    Storybook as the component documentation and visual-regression baseline.
+    CSS custom properties (--sk-* namespace) are the single authoritative
+    token distribution format consumed across all framework targets.
+    Secondary: docsite theme integration (static site generator TBD).
+    No unit-test framework — quality signal is visual conformance and
+    accessibility audit, not line coverage.
+
+  testing_requirements: >
+    Every component requires a Storybook story covering at minimum: default
+    state, all interactive states (hover, focus, active, disabled), and
+    responsive breakpoints. Automated WCAG 2.1 AA accessibility scans via
+    axe-core (or Storybook a11y addon) are required before a work package is
+    marked done. Visual diff against the Claude Design reference screenshots
+    (tmp/) is required for new and modified components. Cross-browser smoke
+    tests (Chrome, Firefox, Safari latest) are required before a release tag.
+    No minimum line-coverage threshold — visual and accessibility conformance
+    is the primary quality bar.
+
+  quality_gates: >
+    A component is done when: (1) Storybook story renders without console
+    errors; (2) axe-core reports zero WCAG 2.1 AA violations; (3) visual
+    review against the reference screenshots is approved; (4) the component
+    documents its token dependencies (which --sk-* variables it uses).
+    CSS/SCSS output must use only --sk-* tokens — no hardcoded color, spacing,
+    or type values outside the token file. Conventional commits enforced via
+    commitlint. One maintainer approval required for PRs touching component
+    files or the core token layer; documentation-only PRs (Storybook stories,
+    README) may self-merge if CI passes.
+
+  review_policy: >
+    PRs must include a screenshot or visual diff for any component change.
+    Token additions or renames require maintainer sign-off. Storybook build
+    must pass in CI before merge. One human approval required for any change
+    to the --sk-* token namespace (colors_and_type.scss or equivalent).
+    Exception: documentation-only changes (stories, README, SKILL.md) can
+    self-merge when CI is green.
+
+  performance_targets: >
+    Base CSS token file (colors_and_type.css) must remain under 20 KB
+    uncompressed. Full Angular component bundle under 150 KB compressed per
+    component chunk. Storybook CI build time under 3 minutes. No runtime
+    performance targets beyond standard browser rendering — these are
+    static/presentational components, not application logic.
+
+  deployment_constraints: >
+    Versioned with semantic versioning (semver). Token file and component
+    distributions published to npm under the @spec-kitty scope; plain
+    HTML/CSS layer optionally mirrored to a CDN. The Claude Code skill
+    (SKILL.md) and doctrine elements (YAML + prose) are distributed as files
+    within the published package, not as a separate registry. Breaking changes
+    to --sk-* token names require a major version bump. Additive framework
+    ports (e.g., Vue, Svelte) may be added as sub-packages without a major
+    bump. tmp/ is gitignored and not distributed.
+
+  documentation_policy: >
+    Every component must have: a Storybook story as its living documentation;
+    a brief prose description of intended use and target surfaces; a token
+    dependency list. Design decisions (token naming rationale, accessibility
+    trade-offs, framework choices) are recorded as lightweight ADRs in
+    docs/decisions/. The brand README and SKILL.md are authoritative
+    references and must stay in sync with the shipped token file. Doctrine
+    elements must include a brief explanation of intended use in agentic
+    workflows. The Storybook serves as the primary public-facing reference for
+    component consumers.
+
+  risk_boundaries: >
+    Highest-cost failure: brand drift — components or token values that diverge
+    from the Claude Design reference, causing visual inconsistency across
+    consuming repos. Second: accessibility regression — a published component
+    with WCAG 2.1 AA violations shipped to a public-facing surface. Third:
+    versioning incompatibility — a token rename that silently breaks consuming
+    repos without a major version bump. Privacy and security risk is minimal
+    (static assets, no user data, no auth). Breaking changes to --sk-* token
+    names are blocked without a major version increment and must be flagged
+    prominently in CHANGELOG.
+
+  amendment_process: >
+    Charter and governance amendments via PR with rationale comment; no
+    special approval beyond the standard review policy. Changes to the atomic
+    design hierarchy classification or the core token naming convention require
+    maintainer sign-off and an ADR entry. The Claude Design reference set
+    (tmp/) is the fixed visual baseline for v1 — token values derived from it
+    cannot be overridden by individual PRs without producing a new design
+    reference first.
+
+  exception_policy: >
+    Components may be added under an @experimental tag in Storybook without
+    passing the full quality gate, provided they are clearly marked and
+    excluded from the stable package export. Framework ports by community
+    contributors (Vue, Svelte, etc.) do not require maintainer sign-off
+    provided they pass CI and visually match the reference Storybook story.
+    Accessibility waivers for known browser-limitation issues may be noted
+    in the component story with a tracking issue — they do not block release
+    but must be documented.
+
+selected_paradigms:
+  - atomic-design
+
+selected_directives:
+  - DIRECTIVE_001
+  - DIRECTIVE_003
+  - DIRECTIVE_010
+  - DIRECTIVE_031
+  - DIRECTIVE_032
+  - DIRECTIVE_037
+
+available_tools:
+  - git
+  - spec-kitty
+  - storybook
+  - angular-cli
+  - sass
