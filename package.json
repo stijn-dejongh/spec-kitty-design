@@ -15,6 +15,12 @@
     "tokens:catalogue": "node scripts/generate-token-catalogue.js",
     "security:lockfile-check": "npm ci --dry-run --ignore-scripts"
   },
+  "overrides": {
+    "brace-expansion": "^5.0.5",
+    "follow-redirects": "^1.16.0",
+    "yaml": "^2.8.3",
+    "tmp": "^0.2.5"
+  },
   "devDependencies": {
     "@angular-devkit/architect": "^0.2102.9",
     "@angular-devkit/build-angular": "^21.2.9",
@@ -48,7 +54,7 @@
     "htmlhint": "^1.9.2",
     "http-server": "^14.1.1",
     "ng-packagr": "^21.2.3",
-    "nx": "^20.0.0",
+    "nx": "^22.7.1",
     "storybook": "^10.3.6",
     "stylelint": "^16.26.1",
     "stylelint-declaration-strict-value": "^1.11.1",

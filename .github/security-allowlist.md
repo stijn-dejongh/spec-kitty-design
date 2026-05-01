@@ -12,6 +12,14 @@ postinstall hook must be listed here with rationale.
 | (none at v1.0.0) | | | | |
 | surge | Global install for PR preview deployment; postinstall is empty for surge | node-norris | 2026-05-01 | Annual |
 
+## Accepted residual CVE risks (npm audit — cannot fix without breaking changes)
+
+| Package | CVE | Advisory | Why not fixed | Exploitability in this repo | Reviewed | Expiry |
+|---|---|---|---|---|---|---|
+| `uuid@8.3.2` | GHSA-w5hq-g745-h8pq | Missing buffer bounds check in v3/v5/v6 when `buf` is provided | Fix requires uuid v14 (breaking API change); downgrading `webpack-dev-server` would break Angular build | **Not exploitable here** — `sockjs` and `@lhci/cli` use `uuid.v4()` without a `buf` param; the vulnerable code path is never triggered | stijn-dejongh | 2027-05-01 |
+
+Mitigation: monitor for uuid patches compatible with uuid 8.x, or track `webpack-dev-server` for a uuid 14.x upgrade.
+
 ## Adding an exception
 
 1. Review the postinstall script source on the package's GitHub repo
