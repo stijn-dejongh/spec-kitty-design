@@ -11,15 +11,15 @@
 
 | ID | Description | WP | Parallel |
 |---|---|---|---|
-| T001 | Init nx 20.x workspace at repo root | WP01 | |
-| T002 | Configure root `package.json` (private, workspaces, quality scripts) | WP01 | |
-| T003 | Configure `nx.json` (cache, targetDefaults, affected base) | WP01 | |
-| T004 | Create `packages/tokens/` skeleton (package.json, project.json, src/) | WP01 | [P] |
-| T005 | Create `packages/angular/` skeleton (package.json, project.json, ng-package.json) | WP01 | [P] |
-| T006 | Create `packages/html-js/` skeleton (package.json, project.json, src/) | WP01 | [P] |
-| T007 | Create `apps/storybook/` skeleton (package.json, project.json) | WP01 | [P] |
-| T008 | Configure `.npmrc` for `@spec-kitty` npm scope | WP01 | |
-| T009 | Commit initial lockfile; verify `npm ci --ignore-scripts` clean install | WP01 | |
+| T001 | Init nx 20.x workspace at repo root | WP01 | | [D] |
+| T002 | Configure root `package.json` (private, workspaces, quality scripts) | WP01 | | [D] |
+| T003 | Configure `nx.json` (cache, targetDefaults, affected base) | WP01 | | [D] |
+| T004 | Create `packages/tokens/` skeleton (package.json, project.json, src/) | WP01 | [D] |
+| T005 | Create `packages/angular/` skeleton (package.json, project.json, ng-package.json) | WP01 | [D] |
+| T006 | Create `packages/html-js/` skeleton (package.json, project.json, src/) | WP01 | [D] |
+| T007 | Create `apps/storybook/` skeleton (package.json, project.json) | WP01 | [D] |
+| T008 | Configure `.npmrc` for `@spec-kitty` npm scope | WP01 | | [D] |
+| T009 | Commit initial lockfile; verify `npm ci --ignore-scripts` clean install | WP01 | | [D] |
 | T010 | Write `packages/tokens/src/tokens.css` from reconciled token catalogue | WP02 | |
 | T011 | Write `scripts/generate-token-catalogue.js` (tokens.css → token-catalogue.json) | WP02 | |
 | T012 | Configure and run nx `catalogue` target; commit `token-catalogue.json` | WP02 | |
@@ -93,15 +93,15 @@
 **Estimated prompt size**: ~380 lines
 **Prompt**: [WP01-nx-workspace-foundation.md](tasks/WP01-nx-workspace-foundation.md)
 
-- [ ] T001 Init nx 20.x workspace at repo root (WP01)
-- [ ] T002 Configure root `package.json` (private, workspaces, quality scripts) (WP01)
-- [ ] T003 Configure `nx.json` (cache, targetDefaults, affected base) (WP01)
-- [ ] T004 Create `packages/tokens/` skeleton (WP01)
-- [ ] T005 Create `packages/angular/` skeleton (WP01)
-- [ ] T006 Create `packages/html-js/` skeleton (WP01)
-- [ ] T007 Create `apps/storybook/` skeleton (WP01)
-- [ ] T008 Configure `.npmrc` for `@spec-kitty` npm scope (WP01)
-- [ ] T009 Commit initial lockfile; verify `npm ci --ignore-scripts` (WP01)
+- [x] T001 Init nx 20.x workspace at repo root (WP01)
+- [x] T002 Configure root `package.json` (private, workspaces, quality scripts) (WP01)
+- [x] T003 Configure `nx.json` (cache, targetDefaults, affected base) (WP01)
+- [x] T004 Create `packages/tokens/` skeleton (WP01)
+- [x] T005 Create `packages/angular/` skeleton (WP01)
+- [x] T006 Create `packages/html-js/` skeleton (WP01)
+- [x] T007 Create `apps/storybook/` skeleton (WP01)
+- [x] T008 Configure `.npmrc` for `@spec-kitty` npm scope (WP01)
+- [x] T009 Commit initial lockfile; verify `npm ci --ignore-scripts` (WP01)
 
 **Dependencies**: none (pre-flight gates must be complete)
 **Risks**: nx workspace init may conflict with existing `package.json` at repo root — must be handled carefully; existing `package-lock.json` must be replaced.
