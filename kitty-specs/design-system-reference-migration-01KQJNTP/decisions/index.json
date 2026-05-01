@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {
+      "created_at": "2026-05-01T21:06:42.197494Z",
+      "decision_id": "01KQJNTYWND9N9D3FN8D1KMNJW",
+      "final_answer": "bundled-in-tokens",
+      "input_key": "font_bundling_strategy",
+      "mission_id": "01KQJNTP49SPQNNXQ1TG3BKKKW",
+      "mission_slug": "design-system-reference-migration-01KQJNTP",
+      "options": [
+        "bundled-in-tokens",
+        "storybook-only",
+        "separate-package"
+      ],
+      "origin_flow": "specify",
+      "other_answer": false,
+      "question": "Where should the brand font files be distributed?",
+      "rationale": null,
+      "resolved_at": "2026-05-01T21:07:28.493337Z",
+      "resolved_by": null,
+      "slot_key": "specify.distribution.font-bundling",
+      "status": "resolved",
+      "step_id": null,
+      "summary_json": null
+    }
+  ],
+  "mission_id": "01KQJNTP49SPQNNXQ1TG3BKKKW",
+  "version": 1
+}
