@@ -31,12 +31,12 @@
 | T018 | Write HTML/JS stub primitive in `packages/html-js/src/stub/` | WP03 | [D] |
 | T019 | Export stubs from each package's public API entry point | WP03 | | [D] |
 | T020 | Verify `nx run-many --target=build --projects=tokens,angular,html-js` succeeds | WP03 | | [D] |
-| T021 | Install + configure Storybook 8.x with `@nx/storybook` and Angular renderer | WP04 | |
-| T022 | Configure `apps/storybook/.storybook/preview.ts` (SK dark background, a11y addon) | WP04 | |
-| T023 | Write Angular stub story (default + hover + focus + disabled + responsive) | WP04 | [P] |
-| T024 | Write HTML stub story (default + breakpoints) | WP04 | [P] |
-| T025 | Write Getting Started MDX page (FR-031: install, import, usage) | WP04 | |
-| T026 | Verify Storybook build completes < 3 min (NFR-003) | WP04 | |
+| T021 | Install + configure Storybook 8.x with `@nx/storybook` and Angular renderer | WP04 | | [D] |
+| T022 | Configure `apps/storybook/.storybook/preview.ts` (SK dark background, a11y addon) | WP04 | | [D] |
+| T023 | Write Angular stub story (default + hover + focus + disabled + responsive) | WP04 | [D] |
+| T024 | Write HTML stub story (default + breakpoints) | WP04 | [D] |
+| T025 | Write Getting Started MDX page (FR-031: install, import, usage) | WP04 | | [D] |
+| T026 | Verify Storybook build completes < 3 min (NFR-003) | WP04 | | [D] |
 | T027 | Configure ESLint 9.x flat config with security plugin + nx boundary rules | WP05 | | [D] |
 | T028 | Configure Stylelint 16.x with `--sk-*` token enforcement rule | WP05 | [D] |
 | T029 | Configure HTMLHint (`.htmlhintrc`) with accessibility-aware ruleset | WP05 | [D] |
@@ -155,12 +155,12 @@
 **Estimated prompt size**: ~420 lines
 **Prompt**: [WP04-storybook-multi-framework.md](tasks/WP04-storybook-multi-framework.md)
 
-- [ ] T021 Install + configure Storybook 8.x with `@nx/storybook` and Angular renderer (WP04)
-- [ ] T022 Configure `preview.ts` (SK dark background, a11y addon) (WP04)
-- [ ] T023 Write Angular stub story (default + all interactive states + responsive) (WP04)
-- [ ] T024 Write HTML stub story (default + breakpoints) (WP04)
-- [ ] T025 Write Getting Started MDX page (FR-031) (WP04)
-- [ ] T026 Verify Storybook build < 3 min (NFR-003) (WP04)
+- [x] T021 Install + configure Storybook 8.x with `@nx/storybook` and Angular renderer (WP04)
+- [x] T022 Configure `preview.ts` (SK dark background, a11y addon) (WP04)
+- [x] T023 Write Angular stub story (default + all interactive states + responsive) (WP04)
+- [x] T024 Write HTML stub story (default + breakpoints) (WP04)
+- [x] T025 Write Getting Started MDX page (FR-031) (WP04)
+- [x] T026 Verify Storybook build < 3 min (NFR-003) (WP04)
 
 **Dependencies**: WP03
 **Risks**: Storybook 8.x multi-framework rendering (Angular + HTML in one catalog) has known configuration complexity; fallback is separate story files per framework with naming convention.
