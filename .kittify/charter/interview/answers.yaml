@@ -133,6 +133,17 @@ answers:
     workstream. No component or package work may proceed until the token
     schema ADR is approved.
 
+  architectural_review_requirement: >
+    Before a mission specification is accepted as ready for planning, the
+    author must review the architectural overview in docs/architecture/ and
+    confirm that the spec does not contradict any Accepted ADR in
+    docs/architecture/decisions/. If no up-to-date architectural overview
+    exists, the ADRs themselves serve as the authoritative architectural
+    reference. Any new mission that would require amending an Accepted ADR
+    must include an explicit ADR update or supersession PR as a tracked
+    work item before implementation begins. This review is not optional and
+    is part of the spec readiness gate.
+
   amendment_process: >
     Charter and governance amendments via PR with rationale comment; no
     special approval beyond the standard review policy. Changes to the atomic
