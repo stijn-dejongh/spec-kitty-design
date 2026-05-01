@@ -20,12 +20,12 @@
 | T007 | Create `apps/storybook/` skeleton (package.json, project.json) | WP01 | [D] |
 | T008 | Configure `.npmrc` for `@spec-kitty` npm scope | WP01 | | [D] |
 | T009 | Commit initial lockfile; verify `npm ci --ignore-scripts` clean install | WP01 | | [D] |
-| T010 | Write `packages/tokens/src/tokens.css` from reconciled token catalogue | WP02 | |
-| T011 | Write `scripts/generate-token-catalogue.js` (tokens.css → token-catalogue.json) | WP02 | |
-| T012 | Configure and run nx `catalogue` target; commit `token-catalogue.json` | WP02 | |
-| T013 | Configure `stylelint-declaration-strict-value` with catalogue allowlist | WP02 | |
-| T014 | Write `packages/tokens/README.md` (FR-030) | WP02 | |
-| T015 | Validate token file size < 20 KB uncompressed (NFR-004) | WP02 | |
+| T010 | Write `packages/tokens/src/tokens.css` from reconciled token catalogue | WP02 | | [D] |
+| T011 | Write `scripts/generate-token-catalogue.js` (tokens.css → token-catalogue.json) | WP02 | | [D] |
+| T012 | Configure and run nx `catalogue` target; commit `token-catalogue.json` | WP02 | | [D] |
+| T013 | Configure `stylelint-declaration-strict-value` with catalogue allowlist | WP02 | | [D] |
+| T014 | Write `packages/tokens/README.md` (FR-030) | WP02 | | [D] |
+| T015 | Validate token file size < 20 KB uncompressed (NFR-004) | WP02 | | [D] |
 | T016 | Generate Angular stub component via `@nx/angular` generator | WP03 | |
 | T017 | Write stub Angular component (minimal, one `--sk-color-yellow` usage) | WP03 | |
 | T018 | Write HTML/JS stub primitive in `packages/html-js/src/stub/` | WP03 | [P] |
@@ -116,12 +116,12 @@
 **Estimated prompt size**: ~320 lines
 **Prompt**: [WP02-token-package.md](tasks/WP02-token-package.md)
 
-- [ ] T010 Write `packages/tokens/src/tokens.css` from reconciled catalogue (WP02)
-- [ ] T011 Write `scripts/generate-token-catalogue.js` (WP02)
-- [ ] T012 Configure and run nx `catalogue` target; commit `token-catalogue.json` (WP02)
-- [ ] T013 Configure `stylelint-declaration-strict-value` with catalogue allowlist (WP02)
-- [ ] T014 Write `packages/tokens/README.md` (WP02)
-- [ ] T015 Validate token file size < 20 KB (WP02)
+- [x] T010 Write `packages/tokens/src/tokens.css` from reconciled catalogue (WP02)
+- [x] T011 Write `scripts/generate-token-catalogue.js` (WP02)
+- [x] T012 Configure and run nx `catalogue` target; commit `token-catalogue.json` (WP02)
+- [x] T013 Configure `stylelint-declaration-strict-value` with catalogue allowlist (WP02)
+- [x] T014 Write `packages/tokens/README.md` (WP02)
+- [x] T015 Validate token file size < 20 KB (WP02)
 
 **Dependencies**: WP01, WP05; ADR-003 value reconciliation (FR-034) complete
 **Risks**: Token reconciliation may reveal discrepancies requiring ADR-003 addendum before values are finalized.
