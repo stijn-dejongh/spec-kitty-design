@@ -22,7 +22,8 @@ subtasks:
 - T013
 - T014
 - T015
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "2915056"
 history:
 - date: '2026-05-01'
   event: created
@@ -269,3 +270,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Spot-check 5 random token names for ADR-003 naming convention compliance (`--sk-<category>-<name>`). Verify the Stylelint rule rejects `color: #F5C518` and accepts `color: var(--sk-color-yellow)`. Check token file size.
+
+## Activity Log
+
+- 2026-05-01T18:05:34Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=2915056 – Started implementation via action command
