@@ -74,12 +74,12 @@
 | T061 | Write `skills/spec-kitty-design/rules/brand-voice.md` (anti-patterns + examples) | WP11 | [D] |
 | T062 | Write `skills/spec-kitty-design/rules/visual-identity.md` (token rules + code examples) | WP11 | [D] |
 | T063 | Write `skills/spec-kitty-design/rules/component-authoring.md` (story structure, stub ref) | WP11 | [D] |
-| T064 | Write `docs/contributing/README.md` (FR-028: overview + quick links) | WP12 | |
-| T065 | Write `docs/contributing/adding-a-token.md` (step-by-step token addition) | WP12 | [P] |
-| T066 | Write `docs/contributing/adding-a-component.md` (component authoring walkthrough) | WP12 | [P] |
-| T067 | Write `docs/contributing/running-quality-checks.md` (local check commands) | WP12 | [P] |
-| T068 | Write `docs/architecture/decisions/ADR-003-addendum-token-values.md` (FR-034 placeholder) | WP12 | |
-| T069 | Write per-package READMEs for `angular` and `html-js` (FR-030) | WP12 | [P] |
+| T064 | Write `docs/contributing/README.md` (FR-028: overview + quick links) | WP12 | | [D] |
+| T065 | Write `docs/contributing/adding-a-token.md` (step-by-step token addition) | WP12 | [D] |
+| T066 | Write `docs/contributing/adding-a-component.md` (component authoring walkthrough) | WP12 | [D] |
+| T067 | Write `docs/contributing/running-quality-checks.md` (local check commands) | WP12 | [D] |
+| T068 | Write `docs/architecture/decisions/ADR-003-addendum-token-values.md` (FR-034 placeholder) | WP12 | | [D] |
+| T069 | Write per-package READMEs for `angular` and `html-js` (FR-030) | WP12 | [D] |
 
 ---
 
@@ -308,12 +308,12 @@
 **Estimated prompt size**: ~360 lines
 **Prompt**: [WP12-documentation-scaffold.md](tasks/WP12-documentation-scaffold.md)
 
-- [ ] T064 Write `docs/contributing/README.md` (WP12)
-- [ ] T065 Write `docs/contributing/adding-a-token.md` (WP12)
-- [ ] T066 Write `docs/contributing/adding-a-component.md` (WP12)
-- [ ] T067 Write `docs/contributing/running-quality-checks.md` (WP12)
-- [ ] T068 Write ADR-003 addendum placeholder (`docs/architecture/decisions/`) (WP12)
-- [ ] T069 Write READMEs for `packages/angular/` and `packages/html-js/` (WP12)
+- [x] T064 Write `docs/contributing/README.md` (WP12)
+- [x] T065 Write `docs/contributing/adding-a-token.md` (WP12)
+- [x] T066 Write `docs/contributing/adding-a-component.md` (WP12)
+- [x] T067 Write `docs/contributing/running-quality-checks.md` (WP12)
+- [x] T068 Write ADR-003 addendum placeholder (`docs/architecture/decisions/`) (WP12)
+- [x] T069 Write READMEs for `packages/angular/` and `packages/html-js/` (WP12)
 
 **Dependencies**: WP04, WP07
 
