@@ -19,7 +19,8 @@ subtasks:
 - T030
 - T031
 - T032
-agent: claude
+agent: "claude:claude-sonnet-4-6:node-norris:implementer"
+shell_pid: "2807698"
 history:
 - date: '2026-05-01'
   event: created
@@ -223,3 +224,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Test the ESLint boundary rule by adding a direct import from `packages/angular` into `packages/html-js` — it must fail. Test Stylelint by adding `color: red` to any package CSS file — it must fail.
+
+## Activity Log
+
+- 2026-05-01T17:39:10Z – claude:claude-sonnet-4-6:node-norris:implementer – shell_pid=2807698 – Started implementation via action command
