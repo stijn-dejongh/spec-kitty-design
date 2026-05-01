@@ -43,12 +43,12 @@
 | T030 | Configure commitlint with conventional commits + SK scopes | WP05 | [D] |
 | T031 | Write `package.json` quality scripts (`quality:lint`, `quality:all`) | WP05 | | [D] |
 | T032 | Write `.github/security-allowlist.md` (FR-046 postinstall exception registry) | WP05 | | [D] |
-| T033 | Write `dependabot.yml` — npm + Actions, grouped by framework family (FR-040) | WP06 | |
-| T034 | Write `scripts/npm-audit-gate.sh` for `npm audit --audit-level=high` | WP06 | [P] |
-| T035 | Configure lockfile drift check (`npm ci` enforcement + diff verification) | WP06 | [P] |
-| T036 | Write `scripts/check-action-pins.sh` — scan workflows for mutable `@v*` tags | WP06 | [P] |
-| T037 | Write `.npmignore` files for all three publishable packages (dist contents policy, no source maps) | WP06 | [P] |
-| T038 | Validate `npm pack --dry-run` for tokens package (no secrets, no source maps) | WP06 | |
+| T033 | Write `dependabot.yml` — npm + Actions, grouped by framework family (FR-040) | WP06 | | [D] |
+| T034 | Write `scripts/npm-audit-gate.sh` for `npm audit --audit-level=high` | WP06 | [D] |
+| T035 | Configure lockfile drift check (`npm ci` enforcement + diff verification) | WP06 | [D] |
+| T036 | Write `scripts/check-action-pins.sh` — scan workflows for mutable `@v*` tags | WP06 | [D] |
+| T037 | Write `.npmignore` files for all three publishable packages (dist contents policy, no source maps) | WP06 | [D] |
+| T038 | Validate `npm pack --dry-run` for tokens package (no secrets, no source maps) | WP06 | | [D] |
 | T039 | Write `.github/workflows/ci-quality.yml` — path filter + lint + security jobs | WP07 | |
 | T040 | Configure `nx affected` for path-scoped triggering (FR-035) | WP07 | |
 | T041 | Add Storybook build job to CI (gate on component + token path changes) | WP07 | |
@@ -195,12 +195,12 @@
 **Estimated prompt size**: ~340 lines
 **Prompt**: [WP06-security-gates.md](tasks/WP06-security-gates.md)
 
-- [ ] T033 Write `dependabot.yml` — npm + Actions, grouped (WP06)
-- [ ] T034 Write `scripts/npm-audit-gate.sh` (WP06)
-- [ ] T035 Configure lockfile drift check scripts (WP06)
-- [ ] T036 Write `scripts/check-action-pins.sh` — SHA pin verifier (WP06)
-- [ ] T037 Configure dist contents policy (`.npmignore` or `package.json` `files`) (WP06)
-- [ ] T038 Validate `npm pack --dry-run` for tokens package (WP06)
+- [x] T033 Write `dependabot.yml` — npm + Actions, grouped (WP06)
+- [x] T034 Write `scripts/npm-audit-gate.sh` (WP06)
+- [x] T035 Configure lockfile drift check scripts (WP06)
+- [x] T036 Write `scripts/check-action-pins.sh` — SHA pin verifier (WP06)
+- [x] T037 Configure dist contents policy (`.npmignore` or `package.json` `files`) (WP06)
+- [x] T038 Validate `npm pack --dry-run` for tokens package (WP06)
 
 **Dependencies**: WP01
 **Parallel with**: WP02, WP05
