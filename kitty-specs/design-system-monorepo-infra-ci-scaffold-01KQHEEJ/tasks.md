@@ -64,12 +64,12 @@
 | T051 | Write `pr-preview.yml` — surge.sh preview + PR comment URL (NFR-008) | WP09 | [P] |
 | T052 | Write `release.yml` — vX.Y.Z tag; build; SBOM; `npm publish --provenance` (FR-044, FR-045) | WP09 | |
 | T053 | Validate release pipeline gates (provenance, SBOM format, dist contents) | WP09 | |
-| T054 | Author `doctrine/directives/SK-D01-token-authority.directive.yaml` | WP10 | |
-| T055 | Author `doctrine/directives/SK-D02-illustration-boundary.directive.yaml` | WP10 | [P] |
-| T056 | Author `doctrine/styleguides/sk-brand-voice.styleguide.yaml` | WP10 | [P] |
-| T057 | Author `doctrine/styleguides/sk-visual-identity.styleguide.yaml` | WP10 | [P] |
-| T058 | Stub `doctrine/graph.yaml` (org-layer DRG entry point, ADR-004) | WP10 | |
-| T059 | Validate all doctrine artifacts: `spec-kitty charter synthesize --dry-run` | WP10 | |
+| T054 | Author `doctrine/directives/SK-D01-token-authority.directive.yaml` | WP10 | | [D] |
+| T055 | Author `doctrine/directives/SK-D02-illustration-boundary.directive.yaml` | WP10 | [D] |
+| T056 | Author `doctrine/styleguides/sk-brand-voice.styleguide.yaml` | WP10 | [D] |
+| T057 | Author `doctrine/styleguides/sk-visual-identity.styleguide.yaml` | WP10 | [D] |
+| T058 | Stub `doctrine/graph.yaml` (org-layer DRG entry point, ADR-004) | WP10 | | [D] |
+| T059 | Validate all doctrine artifacts: `spec-kitty charter synthesize --dry-run` | WP10 | | [D] |
 | T060 | Write `skills/spec-kitty-design/SKILL.md` (progressive disclosure, governance refs) | WP11 | |
 | T061 | Write `skills/spec-kitty-design/rules/brand-voice.md` (anti-patterns + examples) | WP11 | [P] |
 | T062 | Write `skills/spec-kitty-design/rules/visual-identity.md` (token rules + code examples) | WP11 | [P] |
@@ -270,12 +270,12 @@
 **Estimated prompt size**: ~380 lines
 **Prompt**: [WP10-doctrine-bundle.md](tasks/WP10-doctrine-bundle.md)
 
-- [ ] T054 Author `SK-D01-token-authority.directive.yaml` (WP10)
-- [ ] T055 Author `SK-D02-illustration-boundary.directive.yaml` (WP10)
-- [ ] T056 Author `sk-brand-voice.styleguide.yaml` (WP10)
-- [ ] T057 Author `sk-visual-identity.styleguide.yaml` (WP10)
-- [ ] T058 Stub `doctrine/graph.yaml` (WP10)
-- [ ] T059 Validate with `spec-kitty charter synthesize --dry-run` (WP10)
+- [x] T054 Author `SK-D01-token-authority.directive.yaml` (WP10)
+- [x] T055 Author `SK-D02-illustration-boundary.directive.yaml` (WP10)
+- [x] T056 Author `sk-brand-voice.styleguide.yaml` (WP10)
+- [x] T057 Author `sk-visual-identity.styleguide.yaml` (WP10)
+- [x] T058 Stub `doctrine/graph.yaml` (WP10)
+- [x] T059 Validate with `spec-kitty charter synthesize --dry-run` (WP10)
 
 **Dependencies**: WP01 (directory structure)
 **Parallel with**: WP02, WP05, WP06
