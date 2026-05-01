@@ -154,6 +154,10 @@ As a maintainer, I want to publish all updated packages to npm by pushing a vers
 | FR-033 | The Storybook static build is automatically deployed to GitHub Pages on every merge to the main branch, making the current catalog publicly accessible at a stable URL without manual steps | Proposed |
 | FR-034 | Before the token package is implemented, a token schema document is published that defines all `--sk-*` property categories, naming conventions, and values reconciled against the Claude Design reference and the live marketing site CSS | Proposed |
 | FR-035 | The CI pipeline uses path-scoped triggering so that token-only changes, component changes, and documentation-only changes each run only the quality checks relevant to the changed files | Proposed |
+| FR-036 | A `doctrine/` directory is established with org-layer-compatible structure and a `graph.yaml` stub, ready for `spec-kitty doctrine fetch` integration when the org-layer DRG feature ships | Proposed |
+| FR-037 | Two project doctrine directives are authored and schema-validated: one encoding the `--sk-*` token authority rule and one encoding the illustration content boundary (mascot assets excluded from software packages) | Proposed |
+| FR-038 | Two project doctrine styleguides are authored and schema-validated: one covering brand voice and terminology rules, one covering visual identity and token usage rules for agents generating UI | Proposed |
+| FR-039 | The `SKILL.md` is enhanced to follow the `deployable-skill-authoring` styleguide: progressive disclosure sub-rules, governance directive references, anti-patterns with code examples, and a live context hint | Proposed |
 
 ## Non-Functional Requirements
 
