@@ -83,6 +83,14 @@ answers:
     workflows. The Storybook serves as the primary public-facing reference for
     component consumers.
 
+  illustration_usage_policy: >
+    Cartoon/mascot illustrations (the bespectacled cat character) are for
+    supporting materials only — marketing pages, documentation, slidedecks,
+    and blog posts. They must never be embedded inside software distribution
+    packages (npm packages, CDN bundles, component libraries). Any CI or
+    review process must flag illustration assets being added to a distribution
+    package as a policy violation.
+
   risk_boundaries: >
     Highest-cost failure: brand drift — components or token values that diverge
     from the Claude Design reference, causing visual inconsistency across
