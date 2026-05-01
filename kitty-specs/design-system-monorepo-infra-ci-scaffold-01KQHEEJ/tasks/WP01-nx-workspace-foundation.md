@@ -272,3 +272,7 @@ Planning base: `main`. Merge target: `main`. The worktree for this WP is allocat
 ## Reviewer Guidance
 
 Verify `npx nx graph` renders a valid dependency graph with no cross-framework edges. Check `package-lock.json` was committed (not gitignored). Confirm no `*` version specifiers via `grep -r '"latest"' packages/ apps/`.
+
+## Activity Log
+
+- 2026-05-01T17:26:22Z – claude – shell_pid=2391053 – nx workspace scaffolded, 4 package skeletons created, lockfile committed, npm ci clean install verified
