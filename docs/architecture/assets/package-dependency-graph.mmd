@@ -1,0 +1,64 @@
+%%{init: {'theme':'base','themeVariables': {
+  'fontFamily': 'ui-sans-serif, system-ui, sans-serif',
+  'fontSize': '14px',
+  'primaryColor': '#161619',
+  'primaryTextColor': '#e8e8eb',
+  'primaryBorderColor': '#F5C518',
+  'lineColor': '#A9C7E8',
+  'secondaryColor': '#1C1C20',
+  'tertiaryColor': '#0A0A0B',
+  'edgeLabelBackground': '#1C1C20',
+  'clusterBkg': '#1C1C20',
+  'clusterBorder': '#26262C'
+}}}%%
+flowchart LR
+    subgraph Source["Authoritative Sources  (gitignored / external)"]
+        ref["Claude Design Reference\ntmp/colors_and_type.css"]
+        live["spec-kitty.ai\nlive CSS"]
+    end
+
+    subgraph TokenPkg["@spec-kitty/tokens  v1.x"]
+        css["tokens.css\n:root { --sk-* }"]
+        catalogue["token-catalogue.json\nenumerated schema"]
+    end
+
+    subgraph FrameworkPkgs["Framework Packages"]
+        angular["@spec-kitty/angular  v1.x\n(peer: @spec-kitty/tokens)"]
+        html_js["@spec-kitty/html-js  v1.x\n(peer: @spec-kitty/tokens)"]
+    end
+
+    subgraph Future["Future Framework Targets\n(additive  —  no existing pkg changes)"]
+        vue["@spec-kitty/vue"]
+        svelte["@spec-kitty/svelte"]
+    end
+
+    subgraph Consumers["Consuming Projects"]
+        dashboard["spec-kitty\ndashboard"]
+        docsite["Future Docsite\nJekyll / Hugo"]
+        custom["Custom Angular App"]
+        static["Static HTML Page"]
+    end
+
+    ref -->|"reconcile  FR-034"| css
+    live -->|"reconcile  FR-034"| css
+    css --> angular
+    css --> html_js
+    css -.->|"future"| vue
+    css -.->|"future"| svelte
+
+    angular -->|"npm install"| dashboard
+    angular -->|"npm install"| custom
+    html_js -->|"npm install or CDN"| docsite
+    css -->|"CDN link  zero build-step"| static
+
+    classDef source fill:#1C1C20,stroke:#B8A9E0,color:#B8A9E0,stroke-width:1.5px
+    classDef token fill:#1a1a08,stroke:#F5C518,color:#F5C518,stroke-width:2px
+    classDef framework fill:#14202E,stroke:#A9C7E8,color:#A9C7E8,stroke-width:1.5px
+    classDef future_cls fill:#161619,stroke:#26262C,color:#545458,stroke-width:1px,stroke-dasharray: 4 4
+    classDef consumer fill:#161619,stroke:#8FCB8F,color:#8FCB8F,stroke-width:1.5px
+
+    class ref,live source
+    class css,catalogue token
+    class angular,html_js framework
+    class vue,svelte future_cls
+    class dashboard,docsite,custom,static consumer

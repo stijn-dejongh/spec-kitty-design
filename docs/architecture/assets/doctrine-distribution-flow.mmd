@@ -1,0 +1,65 @@
+%%{init: {'theme':'base','themeVariables': {
+  'fontFamily': 'ui-sans-serif, system-ui, sans-serif',
+  'fontSize': '14px',
+  'primaryColor': '#161619',
+  'primaryTextColor': '#e8e8eb',
+  'primaryBorderColor': '#F5C518',
+  'lineColor': '#A9C7E8',
+  'secondaryColor': '#1C1C20',
+  'tertiaryColor': '#0A0A0B',
+  'edgeLabelBackground': '#1C1C20',
+  'clusterBkg': '#1C1C20',
+  'clusterBorder': '#26262C'
+}}}%%
+flowchart TB
+    subgraph DesignSystem["spec-kitty-design  ·  org doctrine source"]
+        direction LR
+        d01["SK-D01\nToken Authority Directive"]
+        d02["SK-D02\nIllustration Boundary Directive"]
+        voice["sk-brand-voice\nstyleguide"]
+        visual["sk-visual-identity\nstyleguide"]
+        drg_graph["doctrine/graph.yaml\nDRG entry point"]
+    end
+
+    subgraph SK["spec-kitty shipped doctrine"]
+        shipped["src/doctrine/*/shipped/\nDirectives · Tactics · Paradigms\nStylguides · Agent Profiles"]
+    end
+
+    subgraph ConsumeNow["Interim path  (before #832)"]
+        manual["Manual copy into\n.kittify/doctrine/\n(project layer)"]
+    end
+
+    subgraph Consume832["After spec-kitty #832 ships"]
+        config[".kittify/config.yaml\norg_doctrine_source:\n  spec-kitty-design"]
+        fetch["spec-kitty doctrine fetch\npulls + validates snapshot"]
+        local[".kittify/org-doctrine/\nlocal validated snapshot"]
+        context["spec-kitty charter context\n--action implement|review\n  ↳ includes org-layer artifacts"]
+    end
+
+    subgraph AgentRuntime["Agent governance context"]
+        agent["AI Agent\n(Claude Code · Cursor · Codex)\nreceives brand voice + token\nauthority in governance context"]
+        skill["SKILL.md\nread by agent at session start"]
+    end
+
+    shipped -->|"layer: shipped"| Consume832
+    DesignSystem -->|"layer: org  (precedence: shipped < org < project)"| Consume832
+    DesignSystem -->|"interim"| ConsumeNow
+
+    config --> fetch
+    fetch --> local
+    local --> context
+    context --> agent
+
+    skill --> agent
+
+    classDef ds fill:#1a1a08,stroke:#F5C518,color:#F5C518,stroke-width:2px
+    classDef shipped_cls fill:#1C1C20,stroke:#B8A9E0,color:#B8A9E0,stroke-width:1.5px
+    classDef interim fill:#161619,stroke:#26262C,color:#545458,stroke-width:1px,stroke-dasharray: 4 4
+    classDef future fill:#14202E,stroke:#A9C7E8,color:#A9C7E8,stroke-width:1.5px
+    classDef agent_cls fill:#0d1f0d,stroke:#8FCB8F,color:#8FCB8F,stroke-width:1.5px
+
+    class d01,d02,voice,visual,drg_graph ds
+    class shipped shipped_cls
+    class manual interim
+    class config,fetch,local,context future
+    class agent,skill agent_cls

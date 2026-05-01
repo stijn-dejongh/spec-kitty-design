@@ -61,6 +61,11 @@
 
 ---
 
+## CI Quality Pipeline
+
+![CI Quality Pipeline](assets/ci-quality-pipeline.svg)
+> Source: [`assets/ci-quality-pipeline.mmd`](assets/ci-quality-pipeline.mmd)
+
 ## Mitigation Plan
 
 | Risk ID | Prevention | Detection | Response | Owner |

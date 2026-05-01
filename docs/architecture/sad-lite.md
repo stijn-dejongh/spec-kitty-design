@@ -27,6 +27,9 @@ This document describes the architecture of the Spec Kitty Design System — a m
 
 ## 2. C4 Level 1: System Context
 
+![C4 Level 1 — System Context](assets/c4-l1-system-context.svg)
+> Source: [`assets/c4-l1-system-context.mmd`](assets/c4-l1-system-context.mmd)
+
 ```mermaid
 flowchart TB
     subgraph Consumers["Consumers"]
@@ -86,6 +89,9 @@ flowchart TB
 
 ## 3. C4 Level 2: Package / Container View
 
+![C4 Level 2 — Package Topology](assets/c4-l2-package-topology.svg)
+> Source: [`assets/c4-l2-package-topology.mmd`](assets/c4-l2-package-topology.mmd)
+
 ```mermaid
 flowchart TB
     subgraph Monorepo["spec-kitty-design monorepo (nx/turborepo)"]
@@ -137,6 +143,14 @@ flowchart TB
 ---
 
 ## 4. Bounded Contexts
+
+![Bounded Context Map](assets/bounded-context-map.svg)
+> Source: [`assets/bounded-context-map.mmd`](assets/bounded-context-map.mmd)
+
+**Package dependency chain:**
+
+![Package Dependency Graph](assets/package-dependency-graph.svg)
+> Source: [`assets/package-dependency-graph.mmd`](assets/package-dependency-graph.mmd)
 
 ### 4.1 Token Authority Context
 
@@ -200,6 +214,9 @@ flowchart TB
 
 ## 5. Quality Attributes
 
+![Token Schema Categories](assets/token-schema-categories.svg)
+> Token namespace overview — Source: [`assets/token-schema-categories.mmd`](assets/token-schema-categories.mmd)
+
 Assessed using the AMMERSE framework. Full analysis in [`quality-attribute-assessment.md`](quality-attribute-assessment.md).
 
 | Attribute | Rating | Key factor |
@@ -215,6 +232,9 @@ Assessed using the AMMERSE framework. Full analysis in [`quality-attribute-asses
 ---
 
 ## 6. Risk Landscape
+
+![Supply Chain Security Controls](assets/supply-chain-security-controls.svg)
+> Supply chain control layers — Source: [`assets/supply-chain-security-controls.mmd`](assets/supply-chain-security-controls.mmd)
 
 Full risk register in [`risk-register.md`](risk-register.md). Top-5 prioritised risks:
 

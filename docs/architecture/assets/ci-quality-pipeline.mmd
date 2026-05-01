@@ -1,0 +1,83 @@
+%%{init: {'theme':'base','themeVariables': {
+  'fontFamily': 'ui-sans-serif, system-ui, sans-serif',
+  'fontSize': '13px',
+  'primaryColor': '#161619',
+  'primaryTextColor': '#e8e8eb',
+  'primaryBorderColor': '#F5C518',
+  'lineColor': '#A9C7E8',
+  'secondaryColor': '#1C1C20',
+  'tertiaryColor': '#0A0A0B',
+  'edgeLabelBackground': '#1C1C20',
+  'clusterBkg': '#1C1C20',
+  'clusterBorder': '#26262C'
+}}}%%
+flowchart TD
+    PR(["Pull Request opened / updated"])
+
+    subgraph PathFilter["Path-scoped trigger  FR-035"]
+        chg_tok["Token files changed?"]
+        chg_cmp["Component files changed?"]
+        chg_doc["Docs only changed?"]
+    end
+
+    subgraph CodeQuality["Code Quality Gates  —  always"]
+        commitlint["commitlint\nconventional commits"]
+        lockcheck["Lockfile integrity\nnpm ci check"]
+        npm_audit["npm audit\n--audit-level=high  🔴 hard gate"]
+        eslint["ESLint\nsecurity plugin"]
+        stylelint["Stylelint\n--sk-* token rule"]
+        htmlhint["HTMLHint\nmarkup correctness"]
+    end
+
+    subgraph VisualQuality["Visual + A11y Gates  —  component / token changes"]
+        storybook_build["Storybook build\n< 3 min  NFR-003"]
+        axe["axe-core\nWCAG 2.1 AA  🔴 hard gate"]
+        visual_reg["Visual regression\nvs baseline snapshots  🔴 hard gate"]
+        lighthouse["Lighthouse audit\nperformance + a11y"]
+        playwright["Playwright\nChrome · Firefox · Safari"]
+    end
+
+    subgraph Deployment["Deployment  —  merge to main only"]
+        gh_pages["GitHub Pages\nStorybook deploy  FR-033"]
+        pr_preview["PR Preview deploy\nNFR-008  tooling TBD"]
+    end
+
+    subgraph Release["Release  —  version tag push"]
+        sbom["CycloneDX SBOM\ngenerate + attach to release"]
+        provenance["npm publish --provenance\npackage attestation  FR-044"]
+    end
+
+    Gate{"All hard gates\npassed?"}
+    Merge(["Merge eligible"])
+    Block(["PR blocked\nfix required"])
+
+    PR --> PathFilter
+    PathFilter --> CodeQuality
+    chg_cmp --> VisualQuality
+    chg_tok --> VisualQuality
+
+    CodeQuality --> Gate
+    VisualQuality --> Gate
+
+    Gate -->|"YES"| Merge
+    Gate -->|"NO"| Block
+
+    Merge -->|"merge to main"| gh_pages
+    PR -->|"each push"| pr_preview
+
+    Merge -->|"tag push vX.Y.Z"| sbom
+    Merge -->|"tag push vX.Y.Z"| provenance
+
+    classDef trigger fill:#14202E,stroke:#A9C7E8,color:#A9C7E8,stroke-width:1.5px
+    classDef hardgate fill:#2a0a00,stroke:#E97373,color:#E97373,stroke-width:2px
+    classDef softgate fill:#1C1C20,stroke:#D9B36A,color:#D9B36A,stroke-width:1.5px
+    classDef deploy fill:#0d1f0d,stroke:#8FCB8F,color:#8FCB8F,stroke-width:1.5px
+    classDef decision fill:#1a1a08,stroke:#F5C518,color:#F5C518,stroke-width:2px
+    classDef terminal fill:#161619,stroke:#26262C,color:#e8e8eb,stroke-width:1px
+
+    class PR trigger
+    class npm_audit,axe,visual_reg hardgate
+    class commitlint,lockcheck,eslint,stylelint,htmlhint,storybook_build,lighthouse,playwright softgate
+    class gh_pages,pr_preview,sbom,provenance deploy
+    class Gate decision
+    class Merge,Block terminal

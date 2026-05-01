@@ -1,0 +1,54 @@
+%%{init: {'theme':'base','themeVariables': {
+  'fontFamily': 'ui-sans-serif, system-ui, sans-serif',
+  'fontSize': '13px',
+  'primaryColor': '#161619',
+  'primaryTextColor': '#e8e8eb',
+  'primaryBorderColor': '#F5C518',
+  'lineColor': '#A9C7E8',
+  'secondaryColor': '#1C1C20',
+  'tertiaryColor': '#0A0A0B',
+  'edgeLabelBackground': '#1C1C20',
+  'clusterBkg': '#1C1C20',
+  'clusterBorder': '#26262C'
+}}}%%
+flowchart TB
+    subgraph Prevention["Prevention  ·  stop attacks before they reach the repo"]
+        scope["@spec-kitty scope\nowned + 2FA enforced\npre-flight  R01"]
+        pinned["All Actions pinned\nto commit SHA\nFR-043  R13"]
+        nodlx["npm ci --ignore-scripts\nno postinstall exec\nFR-046  R11"]
+        nostar["No * or latest\nversion specifiers\nC-009"]
+        depbot["Dependabot weekly\nnpm + Actions\nFR-040  R12"]
+    end
+
+    subgraph Detection["Detection  ·  surface issues before merge"]
+        audit["npm audit\n--audit-level=high\nFR-041  hard gate"]
+        lockcheck2["Lockfile integrity\nnpm ci check\nFR-042  hard gate"]
+        sast["ESLint security plugin\nSemgrep JS\nFR-018"]
+        dep_review["GitHub Dependency\nReview Action\nevery PR"]
+        nightly["Nightly scheduled\nnpm audit on main"]
+    end
+
+    subgraph Release["Release  ·  traceability and verification"]
+        prov["npm publish --provenance\nsigned attestation\nFR-044"]
+        sbom["CycloneDX SBOM\nGitHub Release artifact\nFR-045"]
+        pack_audit["npm pack --dry-run\ndist contents check\nno secrets  no source maps"]
+    end
+
+    subgraph Accepted["Accepted Residual Risks  (ADR-005)"]
+        r03["R03  Transitive dev-tool\npostinstall  Low-Medium\n--ignore-scripts mitigates"]
+        r06["R06  Storybook major\nversion churn  Medium\npinned  planned upgrade"]
+        r13["R13  Actions SHA malicious\nat creation  Low\nuse only official Actions"]
+    end
+
+    Prevention --> Detection
+    Detection --> Release
+
+    classDef prevent fill:#14202E,stroke:#A9C7E8,color:#A9C7E8,stroke-width:1.5px
+    classDef detect fill:#2a0a00,stroke:#E97373,color:#E97373,stroke-width:1.5px
+    classDef release_cls fill:#0d1f0d,stroke:#8FCB8F,color:#8FCB8F,stroke-width:1.5px
+    classDef accepted fill:#1C1C20,stroke:#26262C,color:#545458,stroke-width:1px,stroke-dasharray: 4 4
+
+    class scope,pinned,nodlx,nostar,depbot prevent
+    class audit,lockcheck2,sast,dep_review,nightly detect
+    class prov,sbom,pack_audit release_cls
+    class r03,r06,r13 accepted

@@ -7,6 +7,9 @@
 
 ---
 
+![Token Schema Categories](../assets/token-schema-categories.svg)
+> Source: [`../assets/token-schema-categories.mmd`](../assets/token-schema-categories.mmd)
+
 ## Context and Problem Statement
 
 The charter and spec establish `--sk-*` CSS custom properties as the single authoritative token namespace. However, no schema has been defined for what properties exist, how they are named, or how the Claude Design reference values (`tmp/colors_and_type.css`) reconcile against the live marketing site CSS.

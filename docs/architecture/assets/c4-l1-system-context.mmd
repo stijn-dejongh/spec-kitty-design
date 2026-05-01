@@ -1,0 +1,64 @@
+%%{init: {'theme':'base','themeVariables': {
+  'fontFamily': 'ui-sans-serif, system-ui, sans-serif',
+  'fontSize': '14px',
+  'primaryColor': '#161619',
+  'primaryTextColor': '#e8e8eb',
+  'primaryBorderColor': '#F5C518',
+  'lineColor': '#A9C7E8',
+  'secondaryColor': '#1C1C20',
+  'tertiaryColor': '#0A0A0B',
+  'edgeLabelBackground': '#1C1C20',
+  'clusterBkg': '#1C1C20',
+  'clusterBorder': '#26262C',
+  'titleColor': '#F5C518'
+}}}%%
+flowchart TB
+    subgraph Consumers["Consumers"]
+        angular_dev["Angular Developer\n(SK dashboard · custom apps)"]
+        html_dev["Static / HTML Developer\n(Jekyll · Hugo · blog)"]
+        agent["AI Coding Agent\n(Claude Code · Cursor · Codex · Gemini)"]
+    end
+
+    subgraph DS["spec-kitty-design  ·  this repository"]
+        ds["Design System\ntokens · components · Storybook\ndoctrine bundle · SKILL.md"]
+    end
+
+    subgraph Registries["External Registries"]
+        npm["npm Registry\n@spec-kitty scope"]
+        pages["GitHub Pages\nStorybook public URL"]
+    end
+
+    subgraph Upstream["Upstream References"]
+        mk["spec-kitty.ai\nMarketing Site\ncanonical --sk-* values"]
+        ref["Claude Design Reference\ntmp/  —  gitignored"]
+    end
+
+    subgraph Downstream["Consuming Repositories"]
+        sk_repo["spec-kitty\ndashboard  #650"]
+        docsite["Future Docsite\nJekyll / Hugo  #648"]
+    end
+
+    angular_dev -->|"npm install @spec-kitty/angular"| npm
+    html_dev -->|"CDN link or @spec-kitty/tokens"| npm
+    agent -->|"reads SKILL.md + doctrine/"| ds
+
+    ds -->|"publishes packages"| npm
+    ds -->|"auto-deploy on merge to main"| pages
+
+    mk -->|"token value reconciliation  FR-034"| ds
+    ref -->|"visual baseline"| ds
+
+    sk_repo -->|"@spec-kitty/tokens\n@spec-kitty/angular"| npm
+    docsite -->|"@spec-kitty/tokens"| npm
+
+    classDef consumer fill:#14202E,stroke:#A9C7E8,color:#A9C7E8,stroke-width:1.5px
+    classDef core fill:#1a1a08,stroke:#F5C518,color:#F5C518,stroke-width:2px
+    classDef registry fill:#161619,stroke:#8FCB8F,color:#8FCB8F,stroke-width:1.5px
+    classDef upstream fill:#1C1C20,stroke:#B8A9E0,color:#B8A9E0,stroke-width:1.5px
+    classDef downstream fill:#161619,stroke:#D9B36A,color:#D9B36A,stroke-width:1.5px
+
+    class angular_dev,html_dev,agent consumer
+    class ds core
+    class npm,pages registry
+    class mk,ref upstream
+    class sk_repo,docsite downstream

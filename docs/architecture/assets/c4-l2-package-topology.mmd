@@ -1,0 +1,48 @@
+%%{init: {'theme':'base','themeVariables': {
+  'fontFamily': 'ui-sans-serif, system-ui, sans-serif',
+  'fontSize': '14px',
+  'primaryColor': '#161619',
+  'primaryTextColor': '#e8e8eb',
+  'primaryBorderColor': '#F5C518',
+  'lineColor': '#A9C7E8',
+  'secondaryColor': '#1C1C20',
+  'tertiaryColor': '#0A0A0B',
+  'edgeLabelBackground': '#1C1C20',
+  'clusterBkg': '#1C1C20',
+  'clusterBorder': '#26262C',
+  'titleColor': '#F5C518'
+}}}%%
+flowchart TB
+    subgraph Monorepo["spec-kitty-design  ·  monorepo  (nx / turborepo)"]
+
+        subgraph Published["Published Packages  ·  @spec-kitty scope"]
+            tokens["@spec-kitty/tokens\n─────────────────\n--sk-* CSS custom properties\nZero build-step · CDN + npm\n< 20 KB uncompressed"]
+            angular["@spec-kitty/angular\n─────────────────\nAngular LTS components\nTokens by reference\nStorybook stories\n< 150 KB / chunk"]
+            html_js["@spec-kitty/html-js\n─────────────────\nFramework-agnostic primitives\nVanilla HTML + ES modules\nNo build step for consumers\nStorybook stories"]
+        end
+
+        subgraph Internal["Internal  ·  not published"]
+            storybook["Storybook\n─────────────────\nMulti-framework renderer\nAngular + plain HTML tabs\nVisual regression baseline\nGitHub Pages on main merge"]
+            doctrine["doctrine/\n─────────────────\nSK-D01  SK-D02  directives\nsk-brand-voice styleguide\nsk-visual-identity styleguide\ngraph.yaml  org-layer stub\nSKILL.md  enhanced"]
+        end
+
+        subgraph CI["CI / Quality Pipeline  ·  not published"]
+            ci["GitHub Actions\n─────────────────\nnpm audit  hard gate\nESLint · Stylelint · HTMLHint\naxe-core  WCAG 2.1 AA\nPlaywright  cross-browser\nVisual regression\nLighthouse\nDependabot · CycloneDX SBOM"]
+        end
+
+    end
+
+    tokens -->|"peer dep"| angular
+    tokens -->|"peer dep"| html_js
+    angular -->|"stories"| storybook
+    html_js -->|"stories"| storybook
+    storybook -->|"baseline snapshots"| ci
+    doctrine -->|"governance context"| storybook
+
+    classDef pub fill:#1a1a08,stroke:#F5C518,color:#F5C518,stroke-width:2px
+    classDef internal fill:#14202E,stroke:#A9C7E8,color:#A9C7E8,stroke-width:1.5px
+    classDef tooling fill:#1C1C20,stroke:#B8A9E0,color:#B8A9E0,stroke-width:1.5px
+
+    class tokens,angular,html_js pub
+    class storybook,doctrine internal
+    class ci tooling

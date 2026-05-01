@@ -7,6 +7,9 @@
 
 ---
 
+![Doctrine Distribution Flow](../assets/doctrine-distribution-flow.svg)
+> Source: [`../assets/doctrine-distribution-flow.mmd`](../assets/doctrine-distribution-flow.mmd)
+
 ## Context and Problem Statement
 
 The `spec-kitty-design` repository produces two distinct output categories. The first is the visual distribution — CSS tokens, Angular components, HTML primitives. The second is a doctrine bundle: brand voice rules, visual identity constraints, illustration usage policy, and token authority directives that govern how any AI agent working on Spec Kitty or Priivacy-ai projects should reason about brand and UI.

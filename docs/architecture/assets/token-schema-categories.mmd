@@ -1,0 +1,79 @@
+%%{init: {'theme':'base','themeVariables': {
+  'fontFamily': 'ui-sans-serif, system-ui, sans-serif',
+  'fontSize': '14px',
+  'primaryColor': '#161619',
+  'primaryTextColor': '#e8e8eb',
+  'primaryBorderColor': '#F5C518',
+  'lineColor': '#A9C7E8',
+  'secondaryColor': '#1C1C20',
+  'tertiaryColor': '#0A0A0B',
+  'edgeLabelBackground': '#1C1C20',
+  'clusterBkg': '#1C1C20',
+  'clusterBorder': '#26262C'
+}}}%%
+flowchart LR
+    TOKEN["--sk-*\ntoken namespace\nauthority"]
+
+    subgraph Color["Color  --sk-color-*"]
+        c1["--sk-color-yellow\n#F5C518  primary CTA"]
+        c2["--sk-color-haygold\n#D9B36A  resting warm"]
+        c3["--sk-color-blue\n#A9C7E8  calm context"]
+        c4["--sk-color-purple\n#B8A9E0  cerebral"]
+        c5["--sk-color-green\n#8FCB8F  success"]
+        c6["--sk-color-red\n#E97373  error only"]
+    end
+
+    subgraph Surface["Surfaces  --sk-surface-*"]
+        s1["--sk-surface-page\n#0A0A0B  almost-black"]
+        s2["--sk-surface-card\n#161619"]
+        s3["--sk-surface-input\n#1C1C20"]
+        s4["--sk-border-default\n#26262C  hairline"]
+    end
+
+    subgraph Foreground["Foreground  --sk-fg-*"]
+        f1["--sk-fg-default\n~91% white over dark"]
+        f2["--sk-fg-muted"]
+        f3["--sk-fg-on-primary\ndark ink on yellow"]
+        f4["Semantic pair rule:\nSurface + fg-on-Surface"]
+    end
+
+    subgraph Type["Typography  --sk-font-* --sk-text-* --sk-weight-*"]
+        t1["--sk-font-display\nFalling Sky  headlines"]
+        t2["--sk-font-sans\nui-sans-serif  body"]
+        t3["--sk-font-mono\nJetBrains Mono  code"]
+        t4["--sk-font-reference\nSwansea  editorial"]
+    end
+
+    subgraph Layout["Layout  --sk-space-* --sk-radius-* --sk-shadow-*"]
+        l1["--sk-space-1 … --sk-space-12\nspacing scale"]
+        l2["--sk-radius-sm  md  pill\n8px  16px  999px"]
+        l3["--sk-shadow-glow-primary\nyellow glow on CTA hover"]
+    end
+
+    subgraph Motion["Motion  --sk-motion-*"]
+        m1["--sk-motion-duration-fast\n120ms  hover"]
+        m2["--sk-motion-ease-out\ncomposed  no bounce"]
+    end
+
+    TOKEN --> Color
+    TOKEN --> Surface
+    TOKEN --> Foreground
+    TOKEN --> Type
+    TOKEN --> Layout
+    TOKEN --> Motion
+
+    classDef root fill:#1a1a08,stroke:#F5C518,color:#F5C518,stroke-width:2px
+    classDef color_cls fill:#2a200a,stroke:#D9B36A,color:#D9B36A,stroke-width:1.5px
+    classDef surface_cls fill:#161619,stroke:#A9C7E8,color:#A9C7E8,stroke-width:1.5px
+    classDef fg_cls fill:#14202E,stroke:#8FCB8F,color:#8FCB8F,stroke-width:1.5px
+    classDef type_cls fill:#1f1428,stroke:#B8A9E0,color:#B8A9E0,stroke-width:1.5px
+    classDef layout_cls fill:#1C1C20,stroke:#A9C7E8,color:#A9C7E8,stroke-width:1.5px
+    classDef motion_cls fill:#1C1C20,stroke:#26262C,color:#545458,stroke-width:1px
+
+    class TOKEN root
+    class c1,c2,c3,c4,c5,c6 color_cls
+    class s1,s2,s3,s4 surface_cls
+    class f1,f2,f3,f4 fg_cls
+    class t1,t2,t3,t4 type_cls
+    class l1,l2,l3 layout_cls
+    class m1,m2 motion_cls
