@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "mission_slug": "design-system-monorepo-infra-ci-scaffold-01KQHEEJ",
+  "mission_id": "01KQHEEJWTWH6CPPRZ287SPH2G",
+  "mission_branch": "kitty/mission-design-system-monorepo-infra-ci-scaffold-01KQHEEJ",
+  "target_branch": "main",
+  "lanes": [
+    {
+      "lane_id": "lane-a",
+      "wp_ids": [
+        "WP01",
+        "WP02",
+        "WP03",
+        "WP04",
+        "WP05",
+        "WP06",
+        "WP07",
+        "WP08",
+        "WP09",
+        "WP10",
+        "WP11",
+        "WP12"
+      ],
+      "write_scope": [
+        ".github/dependabot.yml",
+        ".github/security-allowlist.md",
+        ".github/workflows/ci-quality.yml",
+        ".github/workflows/pr-preview.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/storybook-deploy.yml",
+        ".htmlhintrc",
+        ".npmrc",
+        "apps/storybook/.storybook/main.ts",
+        "apps/storybook/.storybook/preview.ts",
+        "apps/storybook/.visual-baselines/**",
+        "apps/storybook/package.json",
+        "apps/storybook/project.json",
+        "apps/storybook/src/stories/getting-started.mdx",
+        "apps/storybook/src/tests/**",
+        "commitlint.config.cjs",
+        "docs/architecture/decisions/ADR-003-addendum-token-values.md",
+        "docs/contributing/**",
+        "doctrine/**",
+        "eslint.config.mjs",
+        "nx.json",
+        "package-lock.json",
+        "package.json",
+        "packages/angular/.npmignore",
+        "packages/angular/README.md",
+        "packages/angular/ng-package.json",
+        "packages/angular/package.json",
+        "packages/angular/project.json",
+        "packages/angular/src/index.ts",
+        "packages/angular/src/lib/stub/sk-stub.component.css",
+        "packages/angular/src/lib/stub/sk-stub.component.html",
+        "packages/angular/src/lib/stub/sk-stub.component.ts",
+        "packages/angular/src/lib/stub/sk-stub.stories.ts",
+        "packages/html-js/.npmignore",
+        "packages/html-js/README.md",
+        "packages/html-js/package.json",
+        "packages/html-js/project.json",
+        "packages/html-js/src/index.ts",
+        "packages/html-js/src/stub/index.ts",
+        "packages/html-js/src/stub/sk-stub-html.stories.ts",
+        "packages/html-js/src/stub/sk-stub.css",
+        "packages/html-js/src/stub/sk-stub.html",
+        "packages/tokens/.npmignore",
+        "packages/tokens/README.md",
+        "packages/tokens/dist/token-catalogue.json",
+        "packages/tokens/package.json",
+        "packages/tokens/project.json",
+        "packages/tokens/src/tokens.css",
+        "playwright.config.ts",
+        "scripts/check-action-pins.sh",
+        "scripts/generate-token-catalogue.js",
+        "scripts/npm-audit-gate.sh",
+        "scripts/run-axe-storybook.js",
+        "skills/spec-kitty-design/**",
+        "stylelint.config.mjs"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering",
+        "dashboard",
+        "legacy-cleanup",
+        "tracker-integration",
+        "workspace"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    }
+  ],
+  "computed_at": "2026-05-01T12:55:07.960712+00:00",
+  "computed_from": "dependency_graph+ownership",
+  "planning_artifact_wps": [],
+  "collapse_report": {
+    "events": [
+      {
+        "wp_a": "WP02",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP02 depends on WP01"
+      },
+      {
+        "wp_a": "WP03",
+        "wp_b": "WP02",
+        "rule": "dependency",
+        "evidence": "WP03 depends on WP02"
+      },
+      {
+        "wp_a": "WP04",
+        "wp_b": "WP03",
+        "rule": "dependency",
+        "evidence": "WP04 depends on WP03"
+      },
+      {
+        "wp_a": "WP05",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP05 depends on WP01"
+      },
+      {
+        "wp_a": "WP06",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP06 depends on WP01"
+      },
+      {
+        "wp_a": "WP07",
+        "wp_b": "WP05",
+        "rule": "dependency",
+        "evidence": "WP07 depends on WP05"
+      },
+      {
+        "wp_a": "WP08",
+        "wp_b": "WP04",
+        "rule": "dependency",
+        "evidence": "WP08 depends on WP04"
+      },
+      {
+        "wp_a": "WP09",
+        "wp_b": "WP04",
+        "rule": "dependency",
+        "evidence": "WP09 depends on WP04"
+      },
+      {
+        "wp_a": "WP10",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP10 depends on WP01"
+      },
+      {
+        "wp_a": "WP11",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP11 depends on WP01"
+      },
+      {
+        "wp_a": "WP12",
+        "wp_b": "WP04",
+        "rule": "dependency",
+        "evidence": "WP12 depends on WP04"
+      }
+    ],
+    "total_merges": 11,
+    "independent_wps_collapsed": 0,
+    "by_rule": {
+      "dependency": 11
+    }
+  }
+}
