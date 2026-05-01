@@ -6,7 +6,8 @@
     "storybook": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx storybook dev --config-dir apps/storybook/.storybook --port 4400"
+        "command": "node_modules/.bin/ng run storybook:storybook",
+        "forwardAllArgs": false
       },
       "dependsOn": ["^build"]
     },

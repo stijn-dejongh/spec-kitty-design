@@ -3,7 +3,6 @@ import type { StorybookConfig } from '@storybook/angular';
 const config: StorybookConfig = {
   stories: [
     '../../../packages/**/*.stories.@(ts|tsx)',
-    '../../../packages/**/*.stories.html.ts',
     '../src/**/*.mdx',
   ],
   addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
