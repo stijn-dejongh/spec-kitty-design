@@ -21,7 +21,8 @@ subtasks:
 - T024
 - T025
 - T026
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "3105699"
 history:
 - date: '2026-05-01'
   event: created
@@ -281,3 +282,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Open the built Storybook (`apps/storybook/storybook-static/`). Both "SkStub (Angular)" and "SkStub (HTML)" stories must render on dark background with the Getting Started page accessible from the sidebar.
+
+## Activity Log
+
+- 2026-05-01T18:53:07Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=3105699 – Started implementation via action command
