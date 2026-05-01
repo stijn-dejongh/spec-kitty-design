@@ -26,11 +26,11 @@
 | T013 | Configure `stylelint-declaration-strict-value` with catalogue allowlist | WP02 | | [D] |
 | T014 | Write `packages/tokens/README.md` (FR-030) | WP02 | | [D] |
 | T015 | Validate token file size < 20 KB uncompressed (NFR-004) | WP02 | | [D] |
-| T016 | Generate Angular stub component via `@nx/angular` generator | WP03 | |
-| T017 | Write stub Angular component (minimal, one `--sk-color-yellow` usage) | WP03 | |
-| T018 | Write HTML/JS stub primitive in `packages/html-js/src/stub/` | WP03 | [P] |
-| T019 | Export stubs from each package's public API entry point | WP03 | |
-| T020 | Verify `nx run-many --target=build --projects=tokens,angular,html-js` succeeds | WP03 | |
+| T016 | Generate Angular stub component via `@nx/angular` generator | WP03 | | [D] |
+| T017 | Write stub Angular component (minimal, one `--sk-color-yellow` usage) | WP03 | | [D] |
+| T018 | Write HTML/JS stub primitive in `packages/html-js/src/stub/` | WP03 | [D] |
+| T019 | Export stubs from each package's public API entry point | WP03 | | [D] |
+| T020 | Verify `nx run-many --target=build --projects=tokens,angular,html-js` succeeds | WP03 | | [D] |
 | T021 | Install + configure Storybook 8.x with `@nx/storybook` and Angular renderer | WP04 | |
 | T022 | Configure `apps/storybook/.storybook/preview.ts` (SK dark background, a11y addon) | WP04 | |
 | T023 | Write Angular stub story (default + hover + focus + disabled + responsive) | WP04 | [P] |
@@ -136,11 +136,11 @@
 **Estimated prompt size**: ~260 lines
 **Prompt**: [WP03-stub-components.md](tasks/WP03-stub-components.md)
 
-- [ ] T016 Generate Angular stub component via `@nx/angular` generator (WP03)
-- [ ] T017 Write stub Angular component (one `--sk-color-yellow` usage) (WP03)
-- [ ] T018 Write HTML/JS stub primitive in `packages/html-js/src/stub/` (WP03)
-- [ ] T019 Export stubs from each package's public API entry point (WP03)
-- [ ] T020 Verify `nx run-many --target=build` succeeds for all packages (WP03)
+- [x] T016 Generate Angular stub component via `@nx/angular` generator (WP03)
+- [x] T017 Write stub Angular component (one `--sk-color-yellow` usage) (WP03)
+- [x] T018 Write HTML/JS stub primitive in `packages/html-js/src/stub/` (WP03)
+- [x] T019 Export stubs from each package's public API entry point (WP03)
+- [x] T020 Verify `nx run-many --target=build` succeeds for all packages (WP03)
 
 **Dependencies**: WP02
 **Risks**: Angular Ivy partial compilation may require specific `tsconfig` settings in nx; confirm `@nx/angular` version matches Angular 19.x LTS.
