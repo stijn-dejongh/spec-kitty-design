@@ -1,0 +1,28 @@
+schema_version: "1.0"
+id: SK-DIRECTIVE-D01
+title: Token Authority Rule
+intent: >
+  All CSS output produced for any Spec Kitty or Priivacy-ai surface must use
+  --sk-* CSS custom properties exclusively. No hardcoded color, spacing,
+  typography, or radius values are permitted outside the token source file
+  (packages/tokens/src/tokens.css). This rule applies to component CSS,
+  story CSS, documentation styles, and any design system artefact.
+enforcement: required
+scope: >
+  Applies whenever an agent generates, reviews, or modifies CSS, SCSS, or
+  inline styles for any Spec Kitty ecosystem surface. Applies during implement
+  and review actions.
+procedures:
+  - Before writing any CSS, identify the appropriate --sk-* token for each
+    visual decision. Consult the token catalogue at
+    packages/tokens/dist/token-catalogue.json.
+  - Never write a hex, rgb, hsl, oklch, or named color value outside
+    packages/tokens/src/tokens.css.
+  - Never write a hardcoded px or rem spacing value outside tokens.css.
+  - When reviewing CSS, flag any property value that is not a var(--sk-*)
+    reference as a violation of this directive.
+integrity_rules:
+  - The Stylelint stylelint-declaration-strict-value rule encodes this
+    directive as an automated check. CI enforcement is a proxy for this rule.
+  - The token catalogue is the enumerated allowlist of valid --sk-* property
+    names. Any --sk-* name not in the catalogue is a typo, not an extension.

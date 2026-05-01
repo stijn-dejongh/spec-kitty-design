@@ -1,0 +1,21 @@
+# Spec Kitty Design System — org-layer DRG entry point
+# This file is the entry point for `spec-kitty doctrine fetch` once issue #832 ships.
+# Format: spec-kitty DRG v1 (compatible with shipped graph.yaml schema)
+schema_version: "1.0"
+graph_id: "spec-kitty-design-org-doctrine"
+description: >
+  Org-layer doctrine for the Spec Kitty design system and Priivacy-ai ecosystem.
+  Provides brand voice, visual identity, and token authority governance for all
+  AI agents working on Spec Kitty or adjacent repositories.
+source_repo: "https://github.com/stijn-dejongh/spec-kitty-design"
+artifacts:
+  directives:
+    - id: SK-DIRECTIVE-D01
+      file: directives/SK-D01-token-authority.directive.yaml
+    - id: SK-DIRECTIVE-D02
+      file: directives/SK-D02-illustration-boundary.directive.yaml
+  styleguides:
+    - id: sk-brand-voice
+      file: styleguides/sk-brand-voice.styleguide.yaml
+    - id: sk-visual-identity
+      file: styleguides/sk-visual-identity.styleguide.yaml

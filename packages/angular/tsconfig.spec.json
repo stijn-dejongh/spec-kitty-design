@@ -1,0 +1,13 @@
+{
+  "$schema": "../../node_modules/typescript/lib/tsconfig-schema.json",
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": ["jasmine"]
+  },
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/test.ts"
+  ]
+}

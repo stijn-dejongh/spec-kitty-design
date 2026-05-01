@@ -1,0 +1,76 @@
+/* @spec-kitty/tokens — ADR-003 naming schema: --sk-<category>-<name> */
+:root {
+  /* ── Brand Colors ────────────────── */
+  --sk-color-yellow:   #F5C518;
+  --sk-color-haygold:  #D9B36A;
+  --sk-color-blue:     #A9C7E8;
+  --sk-color-purple:   #B8A9E0;
+  --sk-color-green:    #8FCB8F;
+  --sk-color-red:      #E97373;
+
+  /* ── Dark Surfaces ───────────────── */
+  --sk-surface-page:   #0A0A0B;
+  --sk-surface-card:   #161619;
+  --sk-surface-input:  #1C1C20;
+
+  /* ── Foreground / Text ───────────── */
+  --sk-fg-default:     rgba(255,255,255,0.91);
+  --sk-fg-muted:       rgba(255,255,255,0.55);
+  --sk-fg-on-primary:  #0A0A0B;
+  --sk-fg-on-card:     rgba(255,255,255,0.91);
+
+  /* ── Borders ─────────────────────── */
+  --sk-border-default: #26262C;
+  --sk-border-strong:  #3a3a42;
+  --sk-border-focus:   #F5C518;
+
+  /* ── Typography — Families ───────── */
+  --sk-font-display:   "Falling Sky", ui-sans-serif, system-ui, sans-serif;
+  --sk-font-sans:      ui-sans-serif, system-ui, sans-serif;
+  --sk-font-mono:      "JetBrains Mono", ui-monospace, monospace;
+  --sk-font-reference: "Swansea", Georgia, serif;
+
+  /* ── Typography — Scale ──────────── */
+  --sk-text-xs:   0.75rem;
+  --sk-text-sm:   0.875rem;
+  --sk-text-base: 1rem;
+  --sk-text-lg:   1.125rem;
+  --sk-text-xl:   1.25rem;
+  --sk-text-2xl:  1.5rem;
+  --sk-text-3xl:  1.875rem;
+
+  /* ── Typography — Weights ────────── */
+  --sk-weight-normal:    400;
+  --sk-weight-medium:    500;
+  --sk-weight-bold:      700;
+  --sk-weight-extrabold: 800;
+
+  /* ── Spacing ─────────────────────── */
+  --sk-space-1:  0.25rem;
+  --sk-space-2:  0.5rem;
+  --sk-space-3:  0.75rem;
+  --sk-space-4:  1rem;
+  --sk-space-5:  1.25rem;
+  --sk-space-6:  1.5rem;
+  --sk-space-7:  2rem;
+  --sk-space-8:  2.5rem;
+  --sk-space-9:  3rem;
+  --sk-space-10: 4rem;
+  --sk-space-11: 6rem;
+  --sk-space-12: 8rem;
+
+  /* ── Radius ──────────────────────── */
+  --sk-radius-sm:   0.5rem;
+  --sk-radius-md:   1rem;
+  --sk-radius-lg:   1.5rem;
+  --sk-radius-pill: 999px;
+
+  /* ── Shadows ─────────────────────── */
+  --sk-shadow-card:         0 1px 3px rgba(0,0,0,0.5);
+  --sk-shadow-glow-primary: 0 0 12px rgba(245,197,24,0.4);
+
+  /* ── Motion ──────────────────────── */
+  --sk-motion-duration-fast: 120ms;
+  --sk-motion-duration-base: 200ms;
+  --sk-motion-ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+}

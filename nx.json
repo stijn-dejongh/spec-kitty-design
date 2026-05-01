@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "storybook:build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true
+    },
+    "test": {
+      "cache": true
+    }
+  },
+  "defaultProject": "storybook",
+  "generators": {
+    "@nx/angular:component": {
+      "style": "css"
+    }
+  },
+  "defaultBase": "main"
+}

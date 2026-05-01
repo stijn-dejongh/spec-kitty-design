@@ -1,0 +1,21 @@
+{
+  "name": "tokens",
+  "projectType": "library",
+  "sourceRoot": "packages/tokens/src",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": { "command": "cp packages/tokens/src/tokens.css packages/tokens/dist/tokens.css" }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": { "command": "stylelint --allow-empty-input 'packages/tokens/src/**/*.css'" }
+    },
+    "catalogue": {
+      "executor": "nx:run-commands",
+      "options": { "command": "node scripts/generate-token-catalogue.js" },
+      "dependsOn": []
+    }
+  },
+  "tags": ["scope:tokens", "type:publishable"]
+}

@@ -1,0 +1,4 @@
+src/
+*.map
+*.md.bak
+node_modules/

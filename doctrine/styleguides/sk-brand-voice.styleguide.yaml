@@ -1,0 +1,60 @@
+schema_version: "1.0"
+id: sk-brand-voice
+title: Spec Kitty Brand Voice Styleguide
+scope: docs
+applies_to_languages: []
+
+principles:
+  - "Sentence case for all headlines and labels — never title case."
+  - "No emoji on any surface — none observed across 21 reference screenshots."
+  - "No exclamation marks — the brand voice is composed, not exclamatory."
+  - "Concrete outcomes over abstract benefits: 'Developers spend time building,
+     not being blocked' not 'improved developer productivity'."
+  - "POV: Spec Kitty (third-person product) with 'you/your team' for the reader.
+     Rarely 'we'. Never 'I'."
+  - "Canonical product nouns are always capitalized when referring to SK concepts:
+     Specs, Plans, Work Packages, Missions, Decision Moments, Charter, Doctrine.
+     Never capitalize when used generically."
+  - "Inline code uses monospace with a faint pill background mid-sentence:
+     `spec-kitty orchestrator`, `kitty-specs`."
+  - "Eyebrow labels and stat captions in ALL-CAPS mono with wide tracking:
+     'COMPETITIVE MATRIX', 'BY THE NUMBERS', 'TOTAL COMMITS'."
+  - "The arrow convention in CLI flow text uses literal hyphen-plus-greater-than:
+     spec -> plan -> tasks -> implement -> review -> merge.
+     Never render this as an SVG arrow or Unicode right arrow."
+  - "Vibe: quirky-but-serious. The cat mascot sets a friendly mood;
+     the typography and density keep it credible for engineering buyers."
+
+patterns:
+  - name: CTA copy
+    description: "Short, imperative, sentence case. Occasional title case for two-word CTAs."
+    bad_example: "GET STARTED NOW!"
+    good_example: "Get started"
+
+  - name: Feature benefit statement
+    description: "Lead with the concrete outcome, not the mechanism."
+    bad_example: "Our AI-powered workflow engine optimises your delivery pipeline."
+    good_example: "Developers spend time building, not being blocked on finalized requirements."
+
+  - name: Canonical term usage
+    description: "Use SK canonical nouns with initial caps when referring to SK concepts."
+    bad_example: "Create a feature spec and break it into tasks."
+    good_example: "Create a Spec and break it into Work Packages."
+
+anti_patterns:
+  - name: Title Case Headlines
+    description: "Title casing headlines is off-brand. Use sentence case."
+    bad_example: "Bring Structure To AI-Assisted Delivery"
+    good_example: "Bring structure to AI-assisted delivery"
+
+  - name: Emoji in copy
+    description: "No emoji anywhere — not in docs, not in UI, not in commit messages."
+    bad_example: "All checks passed! "
+    good_example: "All checks passed."
+
+  - name: Abstract benefit claims
+    description: "Avoid generic productivity language. Be specific."
+    bad_example: "Spec Kitty improves team velocity."
+    good_example: "Spec Kitty catches requirement drift before code is written."
+
+quality_test: "Can a new contributor write a UI label or documentation sentence that matches the brand voice without looking at examples? If they naturally reach for title case or an exclamation mark, the training failed."

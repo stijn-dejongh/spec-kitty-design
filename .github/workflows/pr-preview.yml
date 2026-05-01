@@ -1,0 +1,49 @@
+name: PR Preview (surge.sh)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # actions/setup-node v4.4.0
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci --ignore-scripts
+      - run: npx nx run-many --target=build --projects=tokens,angular,html-js
+      - run: npx nx run storybook:storybook:build
+      - name: Install surge
+        run: npm install --global surge --ignore-scripts
+      - name: Deploy to surge.sh
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: |
+          PREVIEW_URL="https://spec-kitty-design-pr-${{ github.event.pull_request.number }}.surge.sh"
+          surge apps/storybook/storybook-static/ "$PREVIEW_URL" --token "$SURGE_TOKEN"
+          echo "PREVIEW_URL=$PREVIEW_URL" >> $GITHUB_ENV
+      - name: Post preview URL as PR comment
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # actions/github-script v7.1.0
+        with:
+          script: |
+            const url = process.env.PREVIEW_URL;
+            const body = `📦 **Storybook preview**: ${url}\n\n*Deployed from commit \`${{ github.sha }}\`*`;
+            // Find and update existing preview comment, or create new one
+            const comments = await github.rest.issues.listComments({
+              ...context.repo, issue_number: context.payload.pull_request.number
+            });
+            const existing = comments.data.find(c => c.body.includes('Storybook preview'));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                ...context.repo, comment_id: existing.id, body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                ...context.repo, issue_number: context.payload.pull_request.number, body
+              });
+            }

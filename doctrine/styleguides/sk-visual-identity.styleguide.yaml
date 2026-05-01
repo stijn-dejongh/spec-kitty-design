@@ -1,0 +1,81 @@
+schema_version: "1.0"
+id: sk-visual-identity
+title: Spec Kitty Visual Identity Styleguide
+scope: code
+applies_to_languages:
+  - css
+  - scss
+  - html
+
+principles:
+  - "--sk-* CSS custom properties are the single authoritative token source.
+     No hardcoded color, spacing, typography, or radius values (see SK-D01)."
+  - "Dark mode is the default surface — --sk-surface-page (#0A0A0B) is the base."
+  - "Semantic pairing: always use --sk-fg-on-* foreground tokens with their
+     paired --sk-surface-* background. Never mix unpaired surface/foreground."
+  - "Primary accent is yellow (--sk-color-yellow: #F5C518). Use it sparingly:
+     primary CTAs, active indicators, focus rings, the cat's bow tie."
+  - "No gradients on body backgrounds. Sections use flat dark surfaces
+     differentiated by tint, not gradient."
+  - "Card radius is --sk-radius-md (16px). Button radius is --sk-radius-pill (999px).
+     Eyebrow chips are --sk-radius-sm (8px)."
+  - "Iconography: Lucide-style stroke icons (2px, rounded caps). No emoji."
+  - "Mascot illustrations are for supporting materials only (see SK-D02)."
+  - "Borders use --sk-border-default (1px hairline) for depth, not drop shadows."
+
+patterns:
+  - name: Primary CTA button
+    description: "Yellow fill, dark ink text, pill shape, optional yellow glow on hover."
+    bad_example: |
+      .btn-primary {
+        background: #F5C518;
+        color: #000;
+        border-radius: 999px;
+      }
+    good_example: |
+      .btn-primary {
+        background: var(--sk-color-yellow);
+        color: var(--sk-fg-on-primary);
+        border-radius: var(--sk-radius-pill);
+      }
+      .btn-primary:hover {
+        box-shadow: var(--sk-shadow-glow-primary);
+      }
+
+  - name: Card surface
+    description: "Card uses --sk-surface-card with a 1px hairline border at --sk-border-default."
+    bad_example: |
+      .card { background: #161619; border: 1px solid #26262C; border-radius: 16px; }
+    good_example: |
+      .card {
+        background: var(--sk-surface-card);
+        border: 1px solid var(--sk-border-default);
+        border-radius: var(--sk-radius-md);
+      }
+
+  - name: Text on dark surface
+    description: "Body text uses --sk-fg-default (~91% white). Muted text uses --sk-fg-muted."
+    bad_example: |
+      p { color: rgba(255,255,255,0.91); }
+    good_example: |
+      p { color: var(--sk-fg-default); }
+
+anti_patterns:
+  - name: Hardcoded hex values
+    description: "Never write hex, rgb, or hsl values in component CSS."
+    bad_example: "color: #F5C518;"
+    good_example: "color: var(--sk-color-yellow);"
+
+  - name: Unpaired surface/foreground
+    description: "Never use a surface token without its paired foreground token."
+    bad_example: |
+      .hero { background: var(--sk-color-yellow); color: white; }
+    good_example: |
+      .hero { background: var(--sk-color-yellow); color: var(--sk-fg-on-primary); }
+
+  - name: Gradients on backgrounds
+    description: "Section backgrounds are flat — no gradient fills."
+    bad_example: "background: linear-gradient(to bottom, #0A0A0B, #161619);"
+    good_example: "background: var(--sk-surface-page);"
+
+quality_test: "Can an agent generate a new component's CSS using only this styleguide and the token catalogue, without producing any hardcoded values or contrast violations?"

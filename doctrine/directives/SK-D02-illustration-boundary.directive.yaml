@@ -1,0 +1,30 @@
+schema_version: "1.0"
+id: SK-DIRECTIVE-D02
+title: Illustration Content Boundary
+intent: >
+  The Spec Kitty mascot (the bespectacled cat character) and associated
+  watercolour/hand-drawn illustrations are for supporting materials only:
+  marketing pages, documentation narrative, slidedecks, and blog posts.
+  They must never appear as embedded assets inside software distribution
+  packages — npm package dist directories, Angular component bundles,
+  CDN bundles, or any installable artefact.
+enforcement: required
+scope: >
+  Applies during implement and review actions whenever an agent is working
+  on a distribution package or CI release pipeline.
+procedures:
+  - When adding image assets to any packages/ or apps/ directory, confirm
+    the asset is an icon (SVG line art, Lucide-style) or a photograph —
+    not a mascot illustration.
+  - When reviewing a PR that adds binary assets (.png, .webp, .jpg, .svg)
+    to a package dist directory, check that no mascot illustrations are
+    included.
+  - If a mascot illustration is needed for documentation (e.g., a Storybook
+    "Getting Started" page), link to the published URL on spec-kitty.ai
+    rather than bundling the file.
+integrity_rules:
+  - The npm pack --dry-run CI gate should not list any *.webp or
+    illustration-* files in the package contents.
+  - The assets/ directory in the Claude Design reference (tmp/assets/)
+    contains the official illustrations — they are gitignored and must
+    not be committed to the repository.

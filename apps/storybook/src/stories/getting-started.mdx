@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Getting Started" />
+
+# Getting Started with Spec Kitty Design System
+
+## Installation
+
+**Token package (zero build-step)**
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@spec-kitty/tokens/dist/tokens.css">
+```
+
+or via npm:
+```bash
+npm install @spec-kitty/tokens
+```
+
+**Angular components**
+```bash
+npm install @spec-kitty/angular @spec-kitty/tokens
+```
+
+## Using tokens in your CSS
+
+Once the token file is loaded, reference `--sk-*` custom properties:
+```css
+.my-button {
+  background: var(--sk-color-yellow);
+  color: var(--sk-fg-on-primary);
+  border-radius: var(--sk-radius-pill);
+  padding: var(--sk-space-2) var(--sk-space-6);
+}
+```
+
+## Token catalogue
+
+See the full list of available tokens in the
+[token catalogue](https://cdn.jsdelivr.net/npm/@spec-kitty/tokens/dist/token-catalogue.json).
+
+## Semantic pairing rule
+
+Always pair surface tokens with their foreground counterpart:
+
+| Surface | Use with |
+|---|---|
+| `--sk-surface-page` | `--sk-fg-default` |
+| `--sk-surface-card` | `--sk-fg-on-card` |
+| `--sk-color-yellow` (CTA) | `--sk-fg-on-primary` |

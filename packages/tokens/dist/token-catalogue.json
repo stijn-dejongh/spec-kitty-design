@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-05-01T18:30:34.905Z",
+  "generated_from": "packages/tokens/src/tokens.css",
+  "categories": {
+    "color": {
+      "prefix": "--sk-color-",
+      "tokens": [
+        "--sk-color-yellow",
+        "--sk-color-haygold",
+        "--sk-color-blue",
+        "--sk-color-purple",
+        "--sk-color-green",
+        "--sk-color-red"
+      ]
+    },
+    "surface": {
+      "prefix": "--sk-surface-",
+      "tokens": [
+        "--sk-surface-page",
+        "--sk-surface-card",
+        "--sk-surface-input"
+      ]
+    },
+    "fg": {
+      "prefix": "--sk-fg-",
+      "tokens": [
+        "--sk-fg-default",
+        "--sk-fg-muted",
+        "--sk-fg-on-primary",
+        "--sk-fg-on-card"
+      ]
+    },
+    "border": {
+      "prefix": "--sk-border-",
+      "tokens": [
+        "--sk-border-default",
+        "--sk-border-strong",
+        "--sk-border-focus"
+      ]
+    },
+    "font": {
+      "prefix": "--sk-font-",
+      "tokens": [
+        "--sk-font-display",
+        "--sk-font-sans",
+        "--sk-font-mono",
+        "--sk-font-reference"
+      ]
+    },
+    "text": {
+      "prefix": "--sk-text-",
+      "tokens": [
+        "--sk-text-xs",
+        "--sk-text-sm",
+        "--sk-text-base",
+        "--sk-text-lg",
+        "--sk-text-xl",
+        "--sk-text-2xl",
+        "--sk-text-3xl"
+      ]
+    },
+    "weight": {
+      "prefix": "--sk-weight-",
+      "tokens": [
+        "--sk-weight-normal",
+        "--sk-weight-medium",
+        "--sk-weight-bold",
+        "--sk-weight-extrabold"
+      ]
+    },
+    "space": {
+      "prefix": "--sk-space-",
+      "tokens": [
+        "--sk-space-1",
+        "--sk-space-2",
+        "--sk-space-3",
+        "--sk-space-4",
+        "--sk-space-5",
+        "--sk-space-6",
+        "--sk-space-7",
+        "--sk-space-8",
+        "--sk-space-9",
+        "--sk-space-10",
+        "--sk-space-11",
+        "--sk-space-12"
+      ]
+    },
+    "radius": {
+      "prefix": "--sk-radius-",
+      "tokens": [
+        "--sk-radius-sm",
+        "--sk-radius-md",
+        "--sk-radius-lg",
+        "--sk-radius-pill"
+      ]
+    },
+    "shadow": {
+      "prefix": "--sk-shadow-",
+      "tokens": [
+        "--sk-shadow-card",
+        "--sk-shadow-glow-primary"
+      ]
+    },
+    "motion": {
+      "prefix": "--sk-motion-",
+      "tokens": [
+        "--sk-motion-duration-fast",
+        "--sk-motion-duration-base",
+        "--sk-motion-ease-out"
+      ]
+    }
+  }
+}

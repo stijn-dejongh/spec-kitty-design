@@ -1,0 +1,24 @@
+{
+  "name": "storybook",
+  "projectType": "application",
+  "sourceRoot": "apps/storybook/src",
+  "targets": {
+    "storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx storybook dev --config-dir apps/storybook/.storybook --port 4400"
+      },
+      "dependsOn": ["^build"]
+    },
+    "storybook:build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/apps/storybook/storybook-static"],
+      "options": {
+        "command": "node_modules/.bin/ng run storybook:build-storybook",
+        "forwardAllArgs": false
+      },
+      "dependsOn": ["^build"]
+    }
+  },
+  "tags": ["scope:storybook", "type:app"]
+}

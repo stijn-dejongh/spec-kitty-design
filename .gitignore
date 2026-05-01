@@ -1,3 +1,18 @@
+# Node.js / npm
+node_modules/
+
+# Ignore all dist directories — with exceptions below for committed artefacts
+dist/
+packages/*/dist/
+!packages/tokens/dist/
+packages/tokens/dist/*
+!packages/tokens/dist/token-catalogue.json
+.nx/cache
+.nx/workspace-data
+
+# npm
+npm-debug.log*
+
 .sass-cache/
 *.css.map
 *.sass.map
@@ -31,6 +46,16 @@
 .kittify/missions/__pycache__/
 .kittify/runtime/
 .kittify/workspaces/
+
+# Storybook build output
+apps/storybook/storybook-static/
+
+# Playwright test artifacts (reports and diffs — not baseline snapshots)
+playwright-report/
+test-results/
+
+# Angular CLI cache
+.angular/
 
 # Design reference working files (not distributed)
 tmp/

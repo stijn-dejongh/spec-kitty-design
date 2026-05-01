@@ -1,0 +1,63 @@
+name: Publish Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write   # for GitHub Release creation
+  id-token: write   # for npm provenance attestation (FR-044)
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # actions/setup-node v4.4.0
+        with:
+          node-version: '22'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci --ignore-scripts
+
+      - name: "[ENFORCED] Security gate before publish (ADR-005)"
+        run: bash scripts/npm-audit-gate.sh
+
+      - name: Build all packages
+        run: npx nx run-many --target=build --projects=tokens,angular,html-js
+
+      - name: "[ENFORCED] Dist contents audit — no secrets/sourcemaps (ADR-005)"
+        run: |
+          for pkg in tokens angular html-js; do
+            echo "=== packages/$pkg ==="
+            cd packages/$pkg && npm pack --dry-run 2>&1 | grep "npm notice" | grep -v "==="
+            cd ../..
+          done
+
+      - name: Generate CycloneDX SBOM (FR-045)
+        run: |
+          npx @cyclonedx/cyclonedx-npm \
+            --output-format json \
+            --output-file spec-kitty-design-sbom.cdx.json
+          echo "SBOM components: $(node -e "const d=require('./spec-kitty-design-sbom.cdx.json'); console.log(d.components.length)")"
+
+      - name: Publish @spec-kitty/tokens (FR-044)
+        run: npm publish --provenance --access public
+        working-directory: packages/tokens
+
+      - name: Publish @spec-kitty/angular (FR-044)
+        run: npm publish --provenance --access public
+        working-directory: packages/angular
+
+      - name: Publish @spec-kitty/html-js (FR-044)
+        run: npm publish --provenance --access public
+        working-directory: packages/html-js
+
+      - name: Create GitHub Release with SBOM
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda  # softprops/action-gh-release v3.0.0
+        with:
+          files: spec-kitty-design-sbom.cdx.json
+          generate_release_notes: true

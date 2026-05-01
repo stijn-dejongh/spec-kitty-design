@@ -1,0 +1,274 @@
+name: CI Quality
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    # FR-041: nightly CVE audit on main branch
+    # Offset from top of hour to avoid busy scheduling window (matches SK pattern)
+    - cron: '17 2 * * *'
+
+concurrency:
+  group: ci-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write   # needed for lint-feedback job
+
+jobs:
+  # ── Path filter ──────────────────────────────────────────────────────────────
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      tokens:     ${{ steps.filter.outputs.tokens }}
+      components: ${{ steps.filter.outputs.components }}
+      docs:       ${{ steps.filter.outputs.docs }}
+      ci:         ${{ steps.filter.outputs.ci }}
+      doctrine:   ${{ steps.filter.outputs.doctrine }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - uses: dorny/paths-filter@d1c1ffe0248fe513906c8e24db8ea791d46f8590  # dorny/paths-filter v3.0.3
+        id: filter
+        with:
+          filters: |
+            tokens:
+              - 'packages/tokens/**'
+            components:
+              - 'packages/angular/**'
+              - 'packages/html-js/**'
+              - 'apps/storybook/**'
+            docs:
+              - 'docs/**'
+              - '*.md'
+            ci:
+              - '.github/workflows/**'
+              - 'scripts/**'
+            doctrine:
+              - 'doctrine/**'
+              - 'skills/**'
+
+  # ── Security ─────────────────────────────────────────────────────────────────
+  security:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'schedule' || github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # actions/setup-node v4.4.0
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci --ignore-scripts
+      - name: "[ENFORCED] npm audit — high/critical gate (FR-041)"
+        run: bash scripts/npm-audit-gate.sh
+      - name: "[ENFORCED] Lockfile integrity check (FR-042)"
+        run: npm ci --dry-run --ignore-scripts
+
+  # ── Workflow pin check ───────────────────────────────────────────────────────
+  workflow-pin-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - name: "[ENFORCED] Check all Actions are SHA-pinned (FR-043)"
+        run: bash scripts/check-action-pins.sh
+
+  # ── Code lint ────────────────────────────────────────────────────────────────
+  lint-code:
+    runs-on: ubuntu-latest
+    outputs:
+      eslint_failures: ${{ steps.eslint.outputs.has_failures }}
+      stylelint_failures: ${{ steps.stylelint.outputs.has_failures }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # actions/setup-node v4.4.0
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci --ignore-scripts
+      - name: Compute nx affected
+        run: |
+          echo "NX_BASE=${{ github.event.pull_request.base.sha || 'HEAD~1' }}" >> $GITHUB_ENV
+          echo "NX_HEAD=${{ github.sha }}" >> $GITHUB_ENV
+      - name: "[ENFORCED] ESLint (FR-018)"
+        id: eslint
+        continue-on-error: true
+        run: |
+          if npx nx affected --target=lint --base="$NX_BASE" --head="$NX_HEAD" 2>&1 | tee /tmp/eslint-out.txt; then
+            echo "has_failures=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_failures=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: "[ENFORCED] Stylelint (FR-017)"
+        id: stylelint
+        continue-on-error: true
+        run: |
+          if npm run quality:stylelint 2>&1 | tee /tmp/stylelint-out.txt; then
+            echo "has_failures=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_failures=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: "[ENFORCED] HTMLHint (FR-019)"
+        run: npm run quality:htmlhint
+      - name: "[ENFORCED] commitlint (FR-020)"
+        if: github.event_name == 'pull_request'
+        run: npx commitlint --from=${{ github.event.pull_request.base.sha }} --to=${{ github.sha }}
+      - name: "[ENFORCED] Fail if lint errors"
+        if: always()
+        run: |
+          if [ "${{ steps.eslint.outputs.has_failures }}" = "true" ] || \
+             [ "${{ steps.stylelint.outputs.has_failures }}" = "true" ]; then
+            echo "Lint failures detected. See job summary."
+            exit 1
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # actions/upload-artifact v4.6.2
+        if: always()
+        with:
+          name: lint-reports
+          path: /tmp/*-out.txt
+          if-no-files-found: ignore
+
+  # ── Storybook build ──────────────────────────────────────────────────────────
+  storybook-build:
+    runs-on: ubuntu-latest
+    needs: [changes]
+    if: needs.changes.outputs.tokens == 'true' || needs.changes.outputs.components == 'true'
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # actions/setup-node v4.4.0
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci --ignore-scripts
+      - name: "[ENFORCED] Storybook build (NFR-003 < 3 min)"
+        run: npx nx run storybook:storybook:build
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # actions/upload-artifact v4.6.2
+        with:
+          name: storybook-static
+          path: apps/storybook/storybook-static/
+          retention-days: 3
+
+  # ── Accessibility gate ────────────────────────────────────────────────────
+  a11y:
+    runs-on: ubuntu-latest
+    needs: [storybook-build]
+    if: needs.storybook-build.result == 'success'
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # actions/setup-node v4.4.0
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093  # actions/download-artifact v4.3.0
+        with: { name: storybook-static, path: apps/storybook/storybook-static }
+      - name: "[ENFORCED] axe WCAG 2.1 AA gate (FR-021)"
+        run: npx playwright install chromium && node scripts/run-axe-storybook.js
+
+  # ── Visual regression ──────────────────────────────────────────────────────
+  visual-regression:
+    runs-on: ubuntu-latest
+    needs: [storybook-build]
+    if: needs.storybook-build.result == 'success'
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # actions/setup-node v4.4.0
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093  # actions/download-artifact v4.3.0
+        with: { name: storybook-static, path: apps/storybook/storybook-static }
+      - run: npx playwright install --with-deps chromium
+      - name: "[ENFORCED] Visual regression (FR-024)"
+        run: npx playwright test apps/storybook/src/tests/visual.spec.ts
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # actions/upload-artifact v4.6.2
+        if: failure()
+        with:
+          name: visual-regression-diffs
+          path: playwright-report/
+
+  # ── Cross-browser smoke ────────────────────────────────────────────────────
+  playwright:
+    runs-on: ubuntu-latest
+    needs: [storybook-build]
+    if: needs.storybook-build.result == 'success'
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # actions/setup-node v4.4.0
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093  # actions/download-artifact v4.3.0
+        with: { name: storybook-static, path: apps/storybook/storybook-static }
+      - run: npx playwright install --with-deps
+      - name: "[ENFORCED] Cross-browser smoke (FR-023)"
+        run: npx playwright test apps/storybook/src/tests/smoke.spec.ts
+
+  # ── Lighthouse (advisory) ──────────────────────────────────────────────────
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: [storybook-build]
+    if: needs.storybook-build.result == 'success'
+    continue-on-error: true   # advisory only
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # actions/setup-node v4.4.0
+        with: { node-version: '22', cache: 'npm' }
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093  # actions/download-artifact v4.3.0
+        with: { name: storybook-static, path: apps/storybook/storybook-static }
+      - name: "[INFO] Lighthouse audit (FR-022)"
+        run: npx lhci autorun
+
+  # ── Merge gate ──────────────────────────────────────────────────────────────
+  gate:
+    runs-on: ubuntu-latest
+    needs: [security, workflow-pin-check, lint-code, a11y, visual-regression, playwright]
+    if: always()
+    steps:
+      - name: "[ENFORCED] All hard gates must pass (FR-026)"
+        run: |
+          echo "security: ${{ needs.security.result }}"
+          echo "workflow-pin-check: ${{ needs.workflow-pin-check.result }}"
+          echo "lint-code: ${{ needs.lint-code.result }}"
+          echo "a11y: ${{ needs.a11y.result }}"
+          echo "visual-regression: ${{ needs.visual-regression.result }}"
+          echo "playwright: ${{ needs.playwright.result }}"
+          # a11y / visual-regression / playwright are skipped when storybook-build is skipped (no component changes)
+          a11y_ok="${{ needs.a11y.result }}"
+          vr_ok="${{ needs.visual-regression.result }}"
+          pw_ok="${{ needs.playwright.result }}"
+          # Treat 'skipped' as acceptable (no components changed, gates not applicable)
+          if [ "$a11y_ok" != "success" ] && [ "$a11y_ok" != "skipped" ]; then a11y_ok="fail"; fi
+          if [ "$vr_ok"   != "success" ] && [ "$vr_ok"   != "skipped" ]; then vr_ok="fail"; fi
+          if [ "$pw_ok"   != "success" ] && [ "$pw_ok"   != "skipped" ]; then pw_ok="fail"; fi
+          if [ "${{ needs.security.result }}"          != "success" ] || \
+             [ "${{ needs.workflow-pin-check.result }}" != "success" ] || \
+             [ "${{ needs.lint-code.result }}"          != "success" ] || \
+             [ "$a11y_ok" = "fail" ] || \
+             [ "$vr_ok"   = "fail" ] || \
+             [ "$pw_ok"   = "fail" ]; then
+            echo "One or more hard gates failed. Merge blocked."
+            exit 1
+          fi
+          echo "All hard gates passed."
+
+  # ── Lint feedback ────────────────────────────────────────────────────────────
+  lint-feedback:
+    runs-on: ubuntu-latest
+    needs: lint-code
+    if: >-
+      always() && github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      (needs.lint-code.outputs.eslint_failures == 'true' ||
+      needs.lint-code.outputs.stylelint_failures == 'true')
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # actions/checkout v4.3.1
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093  # actions/download-artifact v4.3.0
+        with: { name: lint-reports, path: /tmp/reports }
+      - uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # actions/github-script v7.1.0
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '## Lint failures\n\n';
+            for (const f of ['eslint-out.txt', 'stylelint-out.txt']) {
+              const p = `/tmp/reports/${f}`;
+              if (fs.existsSync(p)) body += `**${f}**\n\`\`\`\n${fs.readFileSync(p,'utf8').slice(0,2000)}\n\`\`\`\n\n`;
+            }
+            github.rest.issues.createComment({
+              ...context.repo, issue_number: context.payload.pull_request.number, body
+            });
