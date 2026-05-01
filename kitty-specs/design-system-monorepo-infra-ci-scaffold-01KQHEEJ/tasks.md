@@ -37,12 +37,12 @@
 | T024 | Write HTML stub story (default + breakpoints) | WP04 | [P] |
 | T025 | Write Getting Started MDX page (FR-031: install, import, usage) | WP04 | |
 | T026 | Verify Storybook build completes < 3 min (NFR-003) | WP04 | |
-| T027 | Configure ESLint 9.x flat config with security plugin + nx boundary rules | WP05 | |
-| T028 | Configure Stylelint 16.x with `--sk-*` token enforcement rule | WP05 | [P] |
-| T029 | Configure HTMLHint (`.htmlhintrc`) with accessibility-aware ruleset | WP05 | [P] |
-| T030 | Configure commitlint with conventional commits + SK scopes | WP05 | [P] |
-| T031 | Write `package.json` quality scripts (`quality:lint`, `quality:all`) | WP05 | |
-| T032 | Write `.github/security-allowlist.md` (FR-046 postinstall exception registry) | WP05 | |
+| T027 | Configure ESLint 9.x flat config with security plugin + nx boundary rules | WP05 | | [D] |
+| T028 | Configure Stylelint 16.x with `--sk-*` token enforcement rule | WP05 | [D] |
+| T029 | Configure HTMLHint (`.htmlhintrc`) with accessibility-aware ruleset | WP05 | [D] |
+| T030 | Configure commitlint with conventional commits + SK scopes | WP05 | [D] |
+| T031 | Write `package.json` quality scripts (`quality:lint`, `quality:all`) | WP05 | | [D] |
+| T032 | Write `.github/security-allowlist.md` (FR-046 postinstall exception registry) | WP05 | | [D] |
 | T033 | Write `dependabot.yml` — npm + Actions, grouped by framework family (FR-040) | WP06 | |
 | T034 | Write `scripts/npm-audit-gate.sh` for `npm audit --audit-level=high` | WP06 | [P] |
 | T035 | Configure lockfile drift check (`npm ci` enforcement + diff verification) | WP06 | [P] |
@@ -175,12 +175,12 @@
 **Estimated prompt size**: ~360 lines
 **Prompt**: [WP05-linting-quality-tools.md](tasks/WP05-linting-quality-tools.md)
 
-- [ ] T027 Configure ESLint 9.x flat config with security plugin + nx boundary rules (WP05)
-- [ ] T028 Configure Stylelint 16.x with `--sk-*` token enforcement (WP05)
-- [ ] T029 Configure HTMLHint with accessibility-aware ruleset (WP05)
-- [ ] T030 Configure commitlint with conventional commits + SK scopes (WP05)
-- [ ] T031 Write `package.json` quality scripts (WP05)
-- [ ] T032 Write `.github/security-allowlist.md` (WP05)
+- [x] T027 Configure ESLint 9.x flat config with security plugin + nx boundary rules (WP05)
+- [x] T028 Configure Stylelint 16.x with `--sk-*` token enforcement (WP05)
+- [x] T029 Configure HTMLHint with accessibility-aware ruleset (WP05)
+- [x] T030 Configure commitlint with conventional commits + SK scopes (WP05)
+- [x] T031 Write `package.json` quality scripts (WP05)
+- [x] T032 Write `.github/security-allowlist.md` (WP05)
 
 **Dependencies**: WP01
 **Parallel with**: WP02 (no file overlap)
