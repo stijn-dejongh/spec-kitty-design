@@ -17,7 +17,8 @@ subtasks:
 - T057
 - T058
 - T059
-agent: claude
+agent: "claude:claude-sonnet-4-6:curator-carla:curator"
+shell_pid: "3022015"
 history:
 - date: '2026-05-01'
   event: created
@@ -332,3 +333,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Read each doctrine artifact and verify: principles are actionable (not vague), anti-patterns have concrete bad/good examples, and terminology matches the spec-kitty glossary. Check that all hardcoded values in the styleguide examples reference `--sk-*` in the "good" column.
+
+## Activity Log
+
+- 2026-05-01T18:32:43Z – claude:claude-sonnet-4-6:curator-carla:curator – shell_pid=3022015 – Started implementation via action command
