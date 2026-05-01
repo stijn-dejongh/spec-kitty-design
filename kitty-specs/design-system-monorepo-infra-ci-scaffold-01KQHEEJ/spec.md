@@ -152,6 +152,8 @@ As a maintainer, I want to publish all updated packages to npm by pushing a vers
 | FR-031 | The Storybook includes a "Getting Started" page for consumers describing how to install and use the token package | Proposed |
 | FR-032 | A single minimal stub component is present in each framework target package and has a passing Storybook story, to confirm the full pipeline is wired end to end | Proposed |
 | FR-033 | The Storybook static build is automatically deployed to GitHub Pages on every merge to the main branch, making the current catalog publicly accessible at a stable URL without manual steps | Proposed |
+| FR-034 | Before the token package is implemented, a token schema document is published that defines all `--sk-*` property categories, naming conventions, and values reconciled against the Claude Design reference and the live marketing site CSS | Proposed |
+| FR-035 | The CI pipeline uses path-scoped triggering so that token-only changes, component changes, and documentation-only changes each run only the quality checks relevant to the changed files | Proposed |
 
 ## Non-Functional Requirements
 
@@ -164,6 +166,7 @@ As a maintainer, I want to publish all updated packages to npm by pushing a vers
 | NFR-005 | Framework package size | Each framework-specific distribution package remains under **150 KB compressed** when a representative set of components is included | Proposed |
 | NFR-006 | Accessibility compliance | Zero WCAG 2.1 AA violations in all CI-verified Storybook story snapshots at the time the pipeline reports a pass | Proposed |
 | NFR-007 | CI result legibility | Quality gate results are reported in human-readable format on the pull request; no result requires navigating to an external URL to understand what failed and why | Proposed |
+| NFR-008 | PR preview deployments | A preview of the Storybook is accessible for review on every pull request that modifies a component or story; the preview URL is posted to the PR automatically (tooling choice deferred to planning) | Proposed |
 
 ## Constraints
 

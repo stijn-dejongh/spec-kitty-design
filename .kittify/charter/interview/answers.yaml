@@ -102,6 +102,25 @@ answers:
     names are blocked without a major version increment and must be flagged
     prominently in CHANGELOG.
 
+  consumer_update_policy: >
+    Consuming repositories (SK dashboard, docsite, others) are expected to
+    track design system releases on a defined cadence. The design system
+    guarantees a compatibility window of one major version: deprecated token
+    names are retained with a deprecation notice for one full major version
+    before removal. Consuming teams are responsible for updating their pin
+    within that window. Breaking token renames must be announced in the
+    CHANGELOG with migration instructions at least one minor release before
+    the major bump that removes the old name.
+
+  token_schema_governance: >
+    The token schema — all `--sk-*` property categories, naming conventions,
+    and their values reconciled against the Claude Design reference and the
+    live marketing site CSS — must be defined and documented in an
+    Architecture Decision Record (ADR) before any token package implementation
+    begins. This is a precondition for implementation, not a parallel
+    workstream. No component or package work may proceed until the token
+    schema ADR is approved.
+
   amendment_process: >
     Charter and governance amendments via PR with rationale comment; no
     special approval beyond the standard review policy. Changes to the atomic
