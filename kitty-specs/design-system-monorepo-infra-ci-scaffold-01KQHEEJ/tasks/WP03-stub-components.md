@@ -16,7 +16,8 @@ subtasks:
 - T018
 - T019
 - T020
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "3051928"
 history:
 - date: '2026-05-01'
   event: created
@@ -196,3 +197,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Run Stylelint against stub CSS files: must pass. Run `nx build angular` and confirm `dist/` is not empty. Check no `@spec-kitty/tokens` is listed in `dependencies` (must be `peerDependencies`).
+
+## Activity Log
+
+- 2026-05-01T18:40:18Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=3051928 – Started implementation via action command
