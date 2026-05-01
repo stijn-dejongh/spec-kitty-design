@@ -21,7 +21,8 @@ subtasks:
 - T047
 - T048
 - T049
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "3249614"
 history:
 - date: '2026-05-01'
   event: created
@@ -312,3 +313,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Temporarily add `aria-hidden="true"` to the stub component. Verify the `a11y` CI job fails. Remove it and verify green. Check that visual diff artifacts are uploaded on failure.
+
+## Activity Log
+
+- 2026-05-01T19:28:21Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=3249614 – Started implementation via action command
