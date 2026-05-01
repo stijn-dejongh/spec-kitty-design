@@ -10,6 +10,7 @@ requirement_refs:
 - FR-023
 - FR-024
 - FR-025
+- NFR-006
 planning_base_branch: main
 merge_target_branch: main
 branch_strategy: Planning artifacts for this feature were generated on main. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into main unless the human explicitly redirects the landing branch.
@@ -29,7 +30,7 @@ authoritative_surface: playwright.config.ts
 execution_mode: code_change
 owned_files:
 - playwright.config.ts
-- apps/storybook/.visual-baselines/**
+- apps/storybook/src/tests/visual.spec.ts-snapshots/**
 - apps/storybook/src/tests/**
 - scripts/run-axe-storybook.js
 role: implementer

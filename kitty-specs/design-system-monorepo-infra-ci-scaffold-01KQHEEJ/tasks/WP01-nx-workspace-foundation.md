@@ -216,21 +216,15 @@ Similar pattern to tokens. Tags: `["scope:html-js", "type:publishable", "framewo
 
 ### T007 — `apps/storybook/` skeleton
 
-`apps/storybook/project.json`:
-```json
-{
-  "name": "storybook",
-  "projectType": "application",
-  "sourceRoot": "apps/storybook/src",
-  "targets": {
-    "storybook": { "executor": "@nx/storybook:storybook", "options": { "port": 6006, "configDir": "apps/storybook/.storybook" }, "dependsOn": ["^build"] },
-    "storybook:build": { "executor": "@nx/storybook:build", "options": { "outputDir": "apps/storybook/storybook-static", "configDir": "apps/storybook/.storybook" }, "dependsOn": ["^build"] }
-  },
-  "tags": ["scope:docs", "type:internal"]
-}
+Create the directory structure with placeholder files only. **WP04 owns `apps/storybook/package.json` and `apps/storybook/project.json`** — do not create those files here.
+
+```bash
+mkdir -p apps/storybook/src apps/storybook/.storybook
+touch apps/storybook/src/.gitkeep
+touch apps/storybook/.storybook/.gitkeep
 ```
 
-Create `apps/storybook/src/.gitkeep` and `apps/storybook/.storybook/.gitkeep`.
+WP04 will install Storybook and populate `package.json` and `project.json` when it runs.
 
 ### T008 — `.npmrc`
 

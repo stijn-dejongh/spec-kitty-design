@@ -6,6 +6,7 @@ dependencies:
 requirement_refs:
 - FR-002
 - FR-032
+- NFR-005
 planning_base_branch: main
 merge_target_branch: main
 branch_strategy: Planning artifacts for this feature were generated on main. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into main unless the human explicitly redirects the landing branch.
@@ -157,13 +158,23 @@ export { SkStubComponent } from './lib/stub/sk-stub.component';
 export { SkStubHTML } from './stub/index';
 ```
 
-### T020 — Verify builds
+### T020 — Verify builds and package sizes (NFR-005)
 
 ```bash
 npx nx run-many --target=build --projects=tokens,angular,html-js
 ```
 
 All three must exit 0. Check `packages/angular/dist/` and `packages/html-js/dist/` are populated.
+
+**NFR-005 size gate** — run after build. At stub-component scale these will trivially pass, but establishes the gate for later:
+```bash
+# Angular package compressed size
+tar -czf /tmp/angular-test.tgz packages/angular/dist/ && wc -c /tmp/angular-test.tgz
+# Must be < 153600 bytes (150 KB). Remove /tmp/angular-test.tgz after check.
+
+# HTML/JS package
+tar -czf /tmp/html-js-test.tgz packages/html-js/dist/ && wc -c /tmp/html-js-test.tgz
+```
 
 ## Branch Strategy
 

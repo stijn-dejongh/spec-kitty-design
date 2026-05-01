@@ -9,6 +9,7 @@ requirement_refs:
 - FR-029
 - FR-030
 - FR-034
+- NFR-001
 planning_base_branch: main
 merge_target_branch: main
 branch_strategy: Planning artifacts for this feature were generated on main. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into main unless the human explicitly redirects the landing branch.
@@ -58,6 +59,10 @@ Write the contributor guide (FR-028), per-package READMEs for angular and html-j
 ## Subtask Guidance
 
 ### T064 — `docs/contributing/README.md`
+
+> **FR-029 status:** This requirement ("ADR directory pre-seeded with monorepo topology and token authority entries") is already satisfied by the existing `docs/architecture/decisions/` directory, which contains ADR-001 (token distribution format, covering the token authority rule) and ADR-002 (monorepo package topology). No new ADR files are required for FR-029 compliance. T068 (ADR-003 addendum placeholder) is additive documentation, not FR-029 fulfillment.
+
+
 
 ```markdown
 # Contributing to the Spec Kitty Design System

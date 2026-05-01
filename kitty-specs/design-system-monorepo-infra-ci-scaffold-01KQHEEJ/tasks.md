@@ -47,7 +47,7 @@
 | T034 | Write `scripts/npm-audit-gate.sh` for `npm audit --audit-level=high` | WP06 | [P] |
 | T035 | Configure lockfile drift check (`npm ci` enforcement + diff verification) | WP06 | [P] |
 | T036 | Write `scripts/check-action-pins.sh` — scan workflows for mutable `@v*` tags | WP06 | [P] |
-| T037 | Write `packages/tokens/ng-package.json` (whitelist dist contents, no source maps) | WP06 | |
+| T037 | Write `.npmignore` files for all three publishable packages (dist contents policy, no source maps) | WP06 | [P] |
 | T038 | Validate `npm pack --dry-run` for tokens package (no secrets, no source maps) | WP06 | |
 | T039 | Write `.github/workflows/ci-quality.yml` — path filter + lint + security jobs | WP07 | |
 | T040 | Configure `nx affected` for path-scoped triggering (FR-035) | WP07 | |

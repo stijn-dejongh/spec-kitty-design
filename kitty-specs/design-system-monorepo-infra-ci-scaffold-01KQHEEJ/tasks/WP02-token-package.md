@@ -9,8 +9,8 @@ requirement_refs:
 - FR-013
 - FR-014
 - FR-015
-- FR-016
 - FR-034
+- NFR-004
 planning_base_branch: main
 merge_target_branch: main
 branch_strategy: Planning artifacts for this feature were generated on main. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into main unless the human explicitly redirects the landing branch.
@@ -188,6 +188,8 @@ Update `packages/tokens/project.json` to add:
 ```
 
 Run `npx nx run tokens:catalogue` and commit the generated `packages/tokens/dist/token-catalogue.json`.
+
+**FR-015 — Breaking change detection:** The catalogue diff between releases is the mechanism for detecting removed or renamed tokens. When a token name changes, the old name will be absent from the new catalogue. A future CI script (`scripts/check-token-breaking-changes.sh`) should compare the current catalogue against the previous release tag's catalogue and fail if any property name has been removed without a major version bump. For v1, this check is manual: reviewers must verify that no existing `--sk-*` property names are removed or renamed without a semver major increment.
 
 ### T013 — Stylelint `--sk-*` enforcement rule
 

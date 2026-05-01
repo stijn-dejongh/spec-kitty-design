@@ -176,9 +176,10 @@ echo "✅ All GitHub Actions are pinned to commit SHAs."
 
 Make executable: `chmod +x scripts/check-action-pins.sh`
 
-### T037 — Package dist contents policy (`.npmignore`)
+### T037 — Package dist contents policy (`.npmignore` for all three packages)
 
 Each publishable package must exclude source files, test files, and build tooling from published artifacts.
+**Note:** `packages/tokens/` is a pure CSS package — it has no `ng-package.json` and no Angular build pipeline. Its dist policy is enforced via `.npmignore` only.
 
 **`packages/tokens/.npmignore`**:
 ```

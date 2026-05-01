@@ -8,6 +8,7 @@ requirement_refs:
 - FR-033
 - FR-044
 - FR-045
+- NFR-008
 planning_base_branch: main
 merge_target_branch: main
 branch_strategy: Planning artifacts for this feature were generated on main. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into main unless the human explicitly redirects the landing branch.
@@ -150,6 +151,11 @@ jobs:
 ```
 
 **Secrets setup reminder**: Add `SURGE_TOKEN` to repository secrets (Settings → Secrets → Actions).
+
+**Security allowlist note (ADR-005, FR-046):** The `npm install --global surge --ignore-scripts` step bypasses the `--ignore-scripts` policy for a global install. Before merging this workflow, add an entry to `.github/security-allowlist.md`:
+```
+| surge | Global install for PR preview deployment; postinstall is empty for surge | <reviewer> | 2026-05-01 | Annual |
+```
 
 ### T052 — `release.yml` — npm publish + SBOM
 

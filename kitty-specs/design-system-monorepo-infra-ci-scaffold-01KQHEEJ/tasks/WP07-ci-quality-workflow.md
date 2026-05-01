@@ -12,6 +12,8 @@ requirement_refs:
 - FR-041
 - FR-042
 - FR-043
+- NFR-002
+- NFR-007
 planning_base_branch: main
 merge_target_branch: main
 branch_strategy: Planning artifacts for this feature were generated on main. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into main unless the human explicitly redirects the landing branch.
@@ -66,6 +68,10 @@ on:
     branches: [main]
   push:
     branches: [main]
+  schedule:
+    # FR-041: nightly CVE audit on main branch
+    # Offset from top of hour to avoid busy scheduling window (matches SK pattern)
+    - cron: '17 2 * * *'
 
 concurrency:
   group: ci-quality-${{ github.ref }}
@@ -214,6 +220,12 @@ jobs:
             exit 1
           fi
           echo "✅ All hard gates passed."
+```
+
+**Note — nightly audit (FR-041):** The `schedule:` block runs only the `security` job nightly on `main`. Add a conditional to the security job:
+```yaml
+  security:
+    if: github.event_name != 'schedule' || github.ref == 'refs/heads/main'
 ```
 
 **CRITICAL**: Replace every `REPLACE_WITH_SHA` with the actual current SHA for that Action before committing. Look up current SHAs at:
