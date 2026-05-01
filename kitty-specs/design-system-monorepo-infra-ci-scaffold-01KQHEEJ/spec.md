@@ -151,6 +151,7 @@ As a maintainer, I want to publish all updated packages to npm by pushing a vers
 | FR-030 | Each distribution package includes a README describing: what the package contains, how to install it, and which other packages it depends on | Proposed |
 | FR-031 | The Storybook includes a "Getting Started" page for consumers describing how to install and use the token package | Proposed |
 | FR-032 | A single minimal stub component is present in each framework target package and has a passing Storybook story, to confirm the full pipeline is wired end to end | Proposed |
+| FR-033 | The Storybook static build is automatically deployed to GitHub Pages on every merge to the main branch, making the current catalog publicly accessible at a stable URL without manual steps | Proposed |
 
 ## Non-Functional Requirements
 
@@ -198,6 +199,7 @@ As a maintainer, I want to publish all updated packages to npm by pushing a vers
 | SC-003 | The Storybook renders all stub components in all supported framework targets after a single deploy command | Visual inspection of the deployed Storybook |
 | SC-004 | A new package version is published to npm within **5 minutes** of a maintainer pushing a version tag, with zero manual steps beyond the tag | Timed from tag push to registry availability |
 | SC-005 | No WCAG 2.1 AA violations exist in any Storybook story at the time the CI pipeline reports a full pass | CI accessibility report shows zero violations |
+| SC-006 | The Storybook is publicly accessible at a stable URL within **5 minutes** of a merge to main, with no manual deployment steps | Timed from merge to URL availability; URL is stable across deployments |
 
 ## Assumptions
 
