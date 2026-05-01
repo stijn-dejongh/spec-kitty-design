@@ -11,6 +11,9 @@
 
 ---
 
+![C4 Level 1 — System Context](assets/c4-l1-system-context.svg)
+> Source: [`assets/c4-l1-system-context.mmd`](assets/c4-l1-system-context.mmd)
+
 ## 1. Problem Statement
 
 **Current reality:** Three Spec Kitty surfaces — the operator dashboard, the marketing website, and the documentation site — have diverged visually and terminologically. The dashboard uses an informal, ad-hoc CSS token vocabulary (`--baby-blue`, `--sunny-yellow`). The marketing site uses a distinct `--sk-*` namespace. The docs site uses an older unrelated theme. AI agents working on these surfaces have no shared brand governance reference.

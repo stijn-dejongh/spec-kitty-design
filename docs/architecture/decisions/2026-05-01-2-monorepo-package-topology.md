@@ -7,6 +7,9 @@
 
 ---
 
+![Package Dependency Graph](../assets/package-dependency-graph.svg)
+> Source: [`../assets/package-dependency-graph.mmd`](../assets/package-dependency-graph.mmd)
+
 ## Context and Problem Statement
 
 The design system must distribute artifacts to consumers using different frontend stacks: Angular applications, plain JavaScript projects, static HTML surfaces, and future framework targets. The repository structure decision determines how independently these targets are versioned, how consumers scope their dependencies, and how the project scales when new framework targets are added.

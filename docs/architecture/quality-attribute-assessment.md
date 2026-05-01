@@ -11,6 +11,9 @@
 
 ---
 
+![Bounded Context Map](assets/bounded-context-map.svg)
+> Source: [`assets/bounded-context-map.mmd`](assets/bounded-context-map.mmd)
+
 ## Scope
 
 The architectural choices under assessment:

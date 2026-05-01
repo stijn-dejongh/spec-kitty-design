@@ -7,6 +7,9 @@
 
 ---
 
+![Supply Chain Security Controls](../assets/supply-chain-security-controls.svg)
+> Source: [`../assets/supply-chain-security-controls.mmd`](../assets/supply-chain-security-controls.mmd)
+
 ## Context and Problem Statement
 
 The design system enters the npm ecosystem, which has a materially different risk profile from spec-kitty's Python stack. npm hosts ~2.4 million packages with no publication review. Deep transitive trees (800–1,500 packages per Angular/Storybook project), lifecycle hook execution at install time, and a documented history of high-severity supply chain attacks (event-stream 2018, ua-parser-js 2021, node-ipc 2022) make this a higher-risk dependency surface than PyPI.
