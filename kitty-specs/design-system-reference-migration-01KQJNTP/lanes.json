@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "mission_slug": "design-system-reference-migration-01KQJNTP",
+  "mission_id": "01KQJNTP49SPQNNXQ1TG3BKKKW",
+  "mission_branch": "kitty/mission-design-system-reference-migration-01KQJNTP",
+  "target_branch": "main",
+  "lanes": [
+    {
+      "lane_id": "lane-a",
+      "wp_ids": [
+        "WP01",
+        "WP02",
+        "WP03",
+        "WP04",
+        "WP05",
+        "WP06",
+        "WP07",
+        "WP08"
+      ],
+      "write_scope": [
+        "apps/storybook/.storybook/preview.ts",
+        "apps/storybook/src/stories/getting-started.mdx",
+        "apps/storybook/src/stories/tokens/**",
+        "apps/storybook/src/tests/visual.spec.ts-snapshots/sk-button*",
+        "apps/storybook/src/tests/visual.spec.ts-snapshots/sk-feature*",
+        "apps/storybook/src/tests/visual.spec.ts-snapshots/sk-form*",
+        "apps/storybook/src/tests/visual.spec.ts-snapshots/sk-ribbon*",
+        "docs/architecture/decisions/ADR-003-addendum-token-values.md",
+        "packages/angular/src/lib/button/**",
+        "packages/angular/src/lib/button/sk-button-primary.stories.ts",
+        "packages/angular/src/lib/check-bullet/**",
+        "packages/angular/src/lib/feature-card/**",
+        "packages/angular/src/lib/form-field/**",
+        "packages/angular/src/lib/nav-pill/**",
+        "packages/angular/src/lib/pill-tag/**",
+        "packages/angular/src/lib/ribbon-card/**",
+        "packages/angular/src/lib/section-banner/**",
+        "packages/html-js/src/button/**",
+        "packages/html-js/src/check-bullet/**",
+        "packages/html-js/src/feature-card/**",
+        "packages/html-js/src/form-field/**",
+        "packages/html-js/src/nav-pill/**",
+        "packages/html-js/src/pill-tag/**",
+        "packages/html-js/src/ribbon-card/**",
+        "packages/html-js/src/section-banner/**",
+        "packages/tokens/.npmignore",
+        "packages/tokens/assets/**",
+        "packages/tokens/dist/token-catalogue.json",
+        "packages/tokens/fonts/**",
+        "packages/tokens/package.json",
+        "packages/tokens/project.json",
+        "packages/tokens/src/tokens.css"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering",
+        "legacy-cleanup"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    }
+  ],
+  "computed_at": "2026-05-01T21:52:58.611835+00:00",
+  "computed_from": "dependency_graph+ownership",
+  "planning_artifact_wps": [],
+  "collapse_report": {
+    "events": [
+      {
+        "wp_a": "WP02",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP02 depends on WP01"
+      },
+      {
+        "wp_a": "WP03",
+        "wp_b": "WP02",
+        "rule": "dependency",
+        "evidence": "WP03 depends on WP02"
+      },
+      {
+        "wp_a": "WP04",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP04 depends on WP01"
+      },
+      {
+        "wp_a": "WP05",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP05 depends on WP01"
+      },
+      {
+        "wp_a": "WP06",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP06 depends on WP01"
+      },
+      {
+        "wp_a": "WP07",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP07 depends on WP01"
+      },
+      {
+        "wp_a": "WP08",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP08 depends on WP01"
+      }
+    ],
+    "total_merges": 7,
+    "independent_wps_collapsed": 0,
+    "by_rule": {
+      "dependency": 7
+    }
+  }
+}
