@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-05-01T09:38:22.234933+00:00",
+  "friendly_name": "Design System Monorepo Infrastructure & CI Scaffold",
+  "mission_id": "01KQHEEJWTWH6CPPRZ287SPH2G",
+  "mission_number": null,
+  "mission_slug": "design-system-monorepo-infra-ci-scaffold-01KQHEEJ",
+  "mission_type": "software-dev",
+  "purpose_context": "The Spec Kitty design system will be consumed by multiple frontend targets — Angular, plain JavaScript, and static HTML for Jekyll/Hugo sites. This mission wires up the repository structure (nx monorepo with separate publishable packages), configures Storybook to serve all three targets, establishes the documentation scaffold, and installs a CI quality pipeline enforcing linting, accessibility, visual regression, Playwright cross-browser tests, and Lighthouse audits. No visual components are built in this mission — only the infrastructure that makes every future component correct by default.",
+  "purpose_tldr": "Establish the monorepo structure, multi-framework Storybook, distribution packages, and CI quality pipeline for the Spec Kitty design system before any component work begins.",
+  "slug": "design-system-monorepo-infra-ci-scaffold-01KQHEEJ",
+  "target_branch": "main"
+}
