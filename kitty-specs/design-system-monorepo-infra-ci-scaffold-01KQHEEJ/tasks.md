@@ -123,7 +123,7 @@
 - [ ] T014 Write `packages/tokens/README.md` (WP02)
 - [ ] T015 Validate token file size < 20 KB (WP02)
 
-**Dependencies**: WP01; ADR-003 value reconciliation (FR-034) complete
+**Dependencies**: WP01, WP05; ADR-003 value reconciliation (FR-034) complete
 **Risks**: Token reconciliation may reveal discrepancies requiring ADR-003 addendum before values are finalized.
 
 ---

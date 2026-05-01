@@ -33,7 +33,6 @@ owned_files:
 - apps/storybook/src/tests/visual.spec.ts-snapshots/**
 - apps/storybook/src/tests/**
 - scripts/run-axe-storybook.js
-- .github/workflows/ci-quality.yml
 role: implementer
 tags: []
 ---

@@ -9,10 +9,10 @@
       "lane_id": "lane-a",
       "wp_ids": [
         "WP01",
+        "WP05",
         "WP02",
         "WP03",
         "WP04",
-        "WP05",
         "WP06",
         "WP07",
         "WP08",
@@ -32,11 +32,11 @@
         ".npmrc",
         "apps/storybook/.storybook/main.ts",
         "apps/storybook/.storybook/preview.ts",
-        "apps/storybook/.visual-baselines/**",
         "apps/storybook/package.json",
         "apps/storybook/project.json",
         "apps/storybook/src/stories/getting-started.mdx",
         "apps/storybook/src/tests/**",
+        "apps/storybook/src/tests/visual.spec.ts-snapshots/**",
         "commitlint.config.cjs",
         "docs/architecture/decisions/ADR-003-addendum-token-values.md",
         "docs/contributing/**",
@@ -91,7 +91,7 @@
       "parallel_group": 0
     }
   ],
-  "computed_at": "2026-05-01T12:55:07.960712+00:00",
+  "computed_at": "2026-05-01T15:29:10.583771+00:00",
   "computed_from": "dependency_graph+ownership",
   "planning_artifact_wps": [],
   "collapse_report": {
@@ -101,6 +101,12 @@
         "wp_b": "WP01",
         "rule": "dependency",
         "evidence": "WP02 depends on WP01"
+      },
+      {
+        "wp_a": "WP02",
+        "wp_b": "WP05",
+        "rule": "dependency",
+        "evidence": "WP02 depends on WP05"
       },
       {
         "wp_a": "WP03",
@@ -113,12 +119,6 @@
         "wp_b": "WP03",
         "rule": "dependency",
         "evidence": "WP04 depends on WP03"
-      },
-      {
-        "wp_a": "WP05",
-        "wp_b": "WP01",
-        "rule": "dependency",
-        "evidence": "WP05 depends on WP01"
       },
       {
         "wp_a": "WP06",
