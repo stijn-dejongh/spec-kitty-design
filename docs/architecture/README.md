@@ -22,6 +22,7 @@ All Accepted decisions are in [`decisions/`](decisions/). Any mission spec that 
 | [ADR-003](decisions/2026-05-01-3-token-schema-naming-convention.md) | Token Schema and Naming Convention | Accepted |
 | [ADR-004](decisions/2026-05-01-4-org-layer-doctrine-distribution.md) | Org-Layer Doctrine Distribution | Accepted |
 | [ADR-005](decisions/2026-05-01-5-npm-supply-chain-security-posture.md) | npm Supply Chain Security Posture | Accepted |
+| [ADR-006](decisions/2026-05-01-6-storybook-multi-framework-rendering.md) | Storybook Multi-Framework Rendering Strategy | Accepted |
 
 ## Research
 

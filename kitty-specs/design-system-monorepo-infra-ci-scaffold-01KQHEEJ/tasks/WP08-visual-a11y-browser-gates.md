@@ -33,6 +33,7 @@ owned_files:
 - apps/storybook/src/tests/visual.spec.ts-snapshots/**
 - apps/storybook/src/tests/**
 - scripts/run-axe-storybook.js
+- .github/workflows/ci-quality.yml
 role: implementer
 tags: []
 ---
@@ -215,6 +216,8 @@ export const Hover: Story = {
 These interaction tests run during `npx nx run storybook:storybook:build` — no separate runner needed.
 
 ### T049 — Extend `ci-quality.yml`
+
+> **Ownership note (AR-02, DIRECTIVE_001):** This WP owns `.github/workflows/ci-quality.yml` jointly with WP07. WP07 creates the file; WP08 appends to it. The implementer must merge carefully — do not overwrite WP07's existing jobs, only add the new job blocks below after `storybook-build`.
 
 Add these jobs to `.github/workflows/ci-quality.yml` after the `storybook-build` job:
 

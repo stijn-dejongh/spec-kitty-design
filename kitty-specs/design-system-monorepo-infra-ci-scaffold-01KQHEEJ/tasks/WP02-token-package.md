@@ -3,6 +3,7 @@ work_package_id: WP02
 title: Token Package
 dependencies:
 - WP01
+- WP05
 requirement_refs:
 - FR-010
 - FR-012
@@ -49,6 +50,8 @@ Frontend Freddy owns CSS, tokens, and design system implementation. Apply fronte
 ---
 
 ## Objective
+
+> **Sequencing note:** This WP depends on WP05 (Linting & Code Quality Tools) because WP05 creates `stylelint.config.mjs`. WP02:T013 extends that file to add the `--sk-*` token enforcement rule. WP02 must not run until WP05 has committed its `stylelint.config.mjs` baseline.
 
 Implement `@spec-kitty/tokens`: write `tokens.css` with the full `--sk-*` custom property namespace from the reconciled ADR-003 token catalogue, generate `token-catalogue.json` for tooling, and wire the Stylelint enforcement rule that blocks hardcoded values.
 
