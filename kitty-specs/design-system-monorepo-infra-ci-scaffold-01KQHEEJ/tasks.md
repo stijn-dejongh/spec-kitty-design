@@ -60,10 +60,10 @@
 | T047 | Configure Lighthouse CI (`@lhci/cli`) advisory thresholds (FR-022) | WP08 | [D] |
 | T048 | Configure Storybook interaction tests (`@storybook/test`) for stub stories (FR-025) | WP08 | [D] |
 | T049 | Extend `ci-quality.yml` with visual/a11y/browser job block (path-scoped) | WP08 | | [D] |
-| T050 | Write `storybook-deploy.yml` — GitHub Pages on main merge, SHA-pinned (FR-033) | WP09 | |
-| T051 | Write `pr-preview.yml` — surge.sh preview + PR comment URL (NFR-008) | WP09 | [P] |
-| T052 | Write `release.yml` — vX.Y.Z tag; build; SBOM; `npm publish --provenance` (FR-044, FR-045) | WP09 | |
-| T053 | Validate release pipeline gates (provenance, SBOM format, dist contents) | WP09 | |
+| T050 | Write `storybook-deploy.yml` — GitHub Pages on main merge, SHA-pinned (FR-033) | WP09 | | [D] |
+| T051 | Write `pr-preview.yml` — surge.sh preview + PR comment URL (NFR-008) | WP09 | [D] |
+| T052 | Write `release.yml` — vX.Y.Z tag; build; SBOM; `npm publish --provenance` (FR-044, FR-045) | WP09 | | [D] |
+| T053 | Validate release pipeline gates (provenance, SBOM format, dist contents) | WP09 | | [D] |
 | T054 | Author `doctrine/directives/SK-D01-token-authority.directive.yaml` | WP10 | | [D] |
 | T055 | Author `doctrine/directives/SK-D02-illustration-boundary.directive.yaml` | WP10 | [D] |
 | T056 | Author `doctrine/styleguides/sk-brand-voice.styleguide.yaml` | WP10 | [D] |
@@ -253,10 +253,10 @@
 **Estimated prompt size**: ~400 lines
 **Prompt**: [WP09-deployment-workflows.md](tasks/WP09-deployment-workflows.md)
 
-- [ ] T050 Write `storybook-deploy.yml` — GitHub Pages on main merge (WP09)
-- [ ] T051 Write `pr-preview.yml` — surge.sh preview + PR comment (WP09)
-- [ ] T052 Write `release.yml` — vX.Y.Z tag; build; SBOM; provenance publish (WP09)
-- [ ] T053 Validate release pipeline gates (WP09)
+- [x] T050 Write `storybook-deploy.yml` — GitHub Pages on main merge (WP09)
+- [x] T051 Write `pr-preview.yml` — surge.sh preview + PR comment (WP09)
+- [x] T052 Write `release.yml` — vX.Y.Z tag; build; SBOM; provenance publish (WP09)
+- [x] T053 Validate release pipeline gates (WP09)
 
 **Dependencies**: WP04, WP07
 
