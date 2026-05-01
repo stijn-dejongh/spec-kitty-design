@@ -269,3 +269,4 @@ Check every `uses:` is a SHA (not `@v*`). Verify `id-token: write` is present in
 ## Activity Log
 
 - 2026-05-01T20:19:46Z – claude:claude-sonnet-4-6:node-norris:implementer – shell_pid=3461377 – Started implementation via action command
+- 2026-05-01T20:22:39Z – claude:claude-sonnet-4-6:node-norris:implementer – shell_pid=3461377 – storybook-deploy.yml, pr-preview.yml, release.yml — all SHA-pinned
