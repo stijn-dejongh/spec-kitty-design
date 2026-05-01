@@ -276,3 +276,4 @@ Spot-check 5 random token names for ADR-003 naming convention compliance (`--sk-
 - 2026-05-01T18:05:34Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=2915056 – Started implementation via action command
 - 2026-05-01T18:10:40Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=2915056 – tokens.css with --sk-* properties, token-catalogue.json generated, Stylelint enhanced with catalogue allowlist, README added
 - 2026-05-01T18:11:15Z – claude:claude-sonnet-4-6:reviewer-renata:reviewer – shell_pid=2937587 – Started review via action command
+- 2026-05-01T18:24:08Z – claude:claude-sonnet-4-6:reviewer-renata:reviewer – shell_pid=2937587 – Changes requested: ADR-003 naming schema violations in surface, typography, and motion token categories; missing addendum file
