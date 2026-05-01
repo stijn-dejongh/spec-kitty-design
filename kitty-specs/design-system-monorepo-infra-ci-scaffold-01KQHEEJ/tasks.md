@@ -49,11 +49,11 @@
 | T036 | Write `scripts/check-action-pins.sh` — scan workflows for mutable `@v*` tags | WP06 | [D] |
 | T037 | Write `.npmignore` files for all three publishable packages (dist contents policy, no source maps) | WP06 | [D] |
 | T038 | Validate `npm pack --dry-run` for tokens package (no secrets, no source maps) | WP06 | | [D] |
-| T039 | Write `.github/workflows/ci-quality.yml` — path filter + lint + security jobs | WP07 | |
-| T040 | Configure `nx affected` for path-scoped triggering (FR-035) | WP07 | |
-| T041 | Add Storybook build job to CI (gate on component + token path changes) | WP07 | |
-| T042 | Wire `gate` final job (all hard gates must pass before merge) | WP07 | |
-| T043 | Add `lint-feedback` job (PR comments for lint failures) | WP07 | |
+| T039 | Write `.github/workflows/ci-quality.yml` — path filter + lint + security jobs | WP07 | | [D] |
+| T040 | Configure `nx affected` for path-scoped triggering (FR-035) | WP07 | | [D] |
+| T041 | Add Storybook build job to CI (gate on component + token path changes) | WP07 | | [D] |
+| T042 | Wire `gate` final job (all hard gates must pass before merge) | WP07 | | [D] |
+| T043 | Add `lint-feedback` job (PR comments for lint failures) | WP07 | | [D] |
 | T044 | Configure `@storybook/addon-a11y` + `axe-playwright` WCAG 2.1 AA CI gate (FR-021) | WP08 | |
 | T045 | Configure Playwright 1.x cross-browser smoke (Chrome, Firefox, Safari) (FR-023) | WP08 | [P] |
 | T046 | Configure Playwright visual regression + baseline snapshots (FR-024) | WP08 | |
@@ -215,11 +215,11 @@
 **Estimated prompt size**: ~400 lines
 **Prompt**: [WP07-ci-quality-workflow.md](tasks/WP07-ci-quality-workflow.md)
 
-- [ ] T039 Write `.github/workflows/ci-quality.yml` (path filter + lint + security jobs) (WP07)
-- [ ] T040 Configure `nx affected` for path-scoped triggering (FR-035) (WP07)
-- [ ] T041 Add Storybook build job to CI (WP07)
-- [ ] T042 Wire `gate` final job (all hard gates must pass) (WP07)
-- [ ] T043 Add `lint-feedback` job (PR comment on failure) (WP07)
+- [x] T039 Write `.github/workflows/ci-quality.yml` (path filter + lint + security jobs) (WP07)
+- [x] T040 Configure `nx affected` for path-scoped triggering (FR-035) (WP07)
+- [x] T041 Add Storybook build job to CI (WP07)
+- [x] T042 Wire `gate` final job (all hard gates must pass) (WP07)
+- [x] T043 Add `lint-feedback` job (PR comment on failure) (WP07)
 
 **Dependencies**: WP05, WP06
 **Risks**: GitHub Actions SHA pinning must be applied to every `uses:` in this file as it is written (FR-043 must be enforced here too).
