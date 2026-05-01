@@ -19,7 +19,8 @@ subtasks:
 - T036
 - T037
 - T038
-agent: claude
+agent: "claude:claude-sonnet-4-6:implementer-ivan:implementer"
+shell_pid: "2864832"
 history:
 - date: '2026-05-01'
   event: created
@@ -235,3 +236,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Run `bash scripts/check-action-pins.sh` — must exit 0 (all workflows SHA-pinned by the time this WP is merged). Test the audit gate: temporarily add a known-vulnerable package and confirm the script fails.
+
+## Activity Log
+
+- 2026-05-01T17:53:27Z – claude:claude-sonnet-4-6:implementer-ivan:implementer – shell_pid=2864832 – Started implementation via action command
