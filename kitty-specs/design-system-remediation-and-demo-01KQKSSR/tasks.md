@@ -19,11 +19,11 @@
 | T006 | Add `import './sk-section-banner.css'` to `sk-section-banner-html.stories.ts` | WP01 | [P] |
 | T007 | Create `packages/html-js/src/button/sk-button-html.stories.ts` with Default, Secondary, Ghost, Small, Disabled exports | WP01 | |
 | T008 | Verify `npx nx run storybook:storybook:build` still exits 0 after all CSS changes | WP01 | |
-| T009 | Implement `packages/html-js/src/card/sk-card.css` — Default, Blue, Purple, Inset variants using `--sk-*` tokens | WP02 | |
-| T010 | Implement `packages/html-js/src/card/sk-card.html` template and `index.ts` exports | WP02 | |
-| T011 | Implement `packages/angular/src/lib/card/sk-card.component.*` with `variant` input | WP02 | [P] |
-| T012 | Write Storybook stories: Default, Blue, Purple, Inset, BlogCardExample (card with heading + tag + muted text) | WP02 | |
-| T013 | Export sk-card from both package entry points; verify axe passes | WP02 | |
+| T009 | Implement `packages/html-js/src/card/sk-card.css` — Default, Blue, Purple, Inset variants using `--sk-*` tokens | WP02 | | [D] |
+| T010 | Implement `packages/html-js/src/card/sk-card.html` template and `index.ts` exports | WP02 | | [D] |
+| T011 | Implement `packages/angular/src/lib/card/sk-card.component.*` with `variant` input | WP02 | [D] |
+| T012 | Write Storybook stories: Default, Blue, Purple, Inset, BlogCardExample (card with heading + tag + muted text) | WP02 | | [D] |
+| T013 | Export sk-card from both package entry points; verify axe passes | WP02 | | [D] |
 | T014 | Create `apps/demo/` directory; write `blog-demo.html` — self-contained static page loading `tokens.css` | WP03 | |
 | T015 | Add navigation section using `sk-nav-pill` classes | WP03 | |
 | T016 | Add hero section using `--sk-font-display` heading, muted subtext, and primary CTA button | WP03 | |
@@ -71,11 +71,11 @@
 **Estimated prompt size**: ~360 lines
 **Prompt**: [WP02-sk-card-component.md](tasks/WP02-sk-card-component.md)
 
-- [ ] T009 `sk-card.css` with all variants (WP02)
-- [ ] T010 `sk-card.html` + `index.ts` exports (WP02)
-- [ ] T011 Angular `SkCardComponent` (WP02)
-- [ ] T012 Storybook stories including BlogCardExample (WP02)
-- [ ] T013 Entry point exports + axe verification (WP02)
+- [x] T009 `sk-card.css` with all variants (WP02)
+- [x] T010 `sk-card.html` + `index.ts` exports (WP02)
+- [x] T011 Angular `SkCardComponent` (WP02)
+- [x] T012 Storybook stories including BlogCardExample (WP02)
+- [x] T013 Entry point exports + axe verification (WP02)
 
 **Dependencies**: none
 **Parallel with**: WP01
