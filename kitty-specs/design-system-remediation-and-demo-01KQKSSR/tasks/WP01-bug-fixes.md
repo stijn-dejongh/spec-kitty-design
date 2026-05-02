@@ -190,3 +190,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Open Storybook in a browser. Verify: (1) Angular ButtonPrimary shows yellow fill, pill shape; (2) each previously-broken html-js story now shows styled output; (3) the new html-js button story shows all variants. Run axe on the new button story.
+
+## Activity Log
+
+- 2026-05-02T07:50:52Z – claude – shell_pid=1979642 – Angular buttons styled via styleUrls; sk-button.css rules inlined into component CSS files (cross-package styleUrls path rejected by ng-packagr/webpack); 5 html-js stories now import CSS; html-js button story created with 6 exports
