@@ -320,14 +320,19 @@
       flex-direction: column;
       gap: var(--sk-space-2);
       cursor: default;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      transition: border-color var(--sk-motion-duration-fast) var(--sk-motion-ease-out),
+                  box-shadow var(--sk-motion-duration-fast) var(--sk-motion-ease-out);
       flex-shrink: 0;
     }
 
-    /* Planned / Done: default subtle border, no accent trim */
+    /* Border technique: always 2px on all 4 sides — only colour changes.
+       This prevents layout shift (no width change on hover/activation).
+       Non-accent sides use --sk-border-default (slightly visible, not jarring). */
+
+    /* Planned / Done: uniform default border, no accent */
     .dash-card--planned,
     .dash-card--done {
-      border: 1px solid var(--sk-border-default);
+      border: 2px solid var(--sk-border-default);
     }
 
     .dash-card--done {
@@ -339,37 +344,31 @@
       border-color: var(--sk-border-strong);
     }
 
-    /* Doing: left accent trim at rest; full accent border on hover */
+    /* Doing: always 2px — left accent + default on other 3 sides; full accent on hover */
     .dash-card--doing {
-      border-top: 1px solid var(--sk-border-default);
-      border-right: 1px solid var(--sk-border-default);
-      border-bottom: 1px solid var(--sk-border-default);
-      border-left: 3px solid var(--sk-color-blue);
+      border: 2px solid var(--sk-border-default);
+      border-left-color: var(--sk-color-blue);
     }
     .dash-card--doing:hover {
-      border: 2px solid var(--sk-color-blue);
+      border-color: var(--sk-color-blue);
     }
 
-    /* For Review: left accent trim at rest; full accent border on hover */
+    /* For Review: same no-jump pattern */
     .dash-card--review {
-      border-top: 1px solid var(--sk-border-default);
-      border-right: 1px solid var(--sk-border-default);
-      border-bottom: 1px solid var(--sk-border-default);
-      border-left: 3px solid var(--sk-color-yellow);
+      border: 2px solid var(--sk-border-default);
+      border-left-color: var(--sk-color-yellow);
     }
     .dash-card--review:hover {
-      border: 2px solid var(--sk-color-yellow);
+      border-color: var(--sk-color-yellow);
     }
 
-    /* Approved: left accent trim at rest; full accent border on hover */
+    /* Approved: same no-jump pattern */
     .dash-card--approved {
-      border-top: 1px solid var(--sk-border-default);
-      border-right: 1px solid var(--sk-border-default);
-      border-bottom: 1px solid var(--sk-border-default);
-      border-left: 3px solid var(--sk-color-green);
+      border: 2px solid var(--sk-border-default);
+      border-left-color: var(--sk-color-green);
     }
     .dash-card--approved:hover {
-      border: 2px solid var(--sk-color-green);
+      border-color: var(--sk-color-green);
     }
 
     .dash-card__id {
