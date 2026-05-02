@@ -31,12 +31,12 @@
 | T018 | Export both button components from each package's `src/index.ts` | WP04 | | [D] |
 | T019 | Write button Storybook stories: Default, Hover, Focus, Disabled, Light-bg states; verify axe passes | WP04 | | [D] |
 | T020 | Update visual regression baseline for button stories | WP04 | | [D] |
-| T021 | Implement `NavPill` HTML primitive in `packages/html-js/src/nav-pill/` (nav bar with active/hover states) | WP05 | |
-| T022 | Implement `NavPillComponent` in `packages/angular/src/lib/nav-pill/` | WP05 | [P] |
-| T023 | Implement `PillTag` and `EyebrowPill` HTML primitives in `packages/html-js/src/pill-tag/` | WP05 | [P] |
-| T024 | Implement `PillTagComponent` and `EyebrowPillComponent` in `packages/angular/src/lib/pill-tag/` | WP05 | |
-| T025 | Export NavPill, PillTag, EyebrowPill from package entry points | WP05 | |
-| T026 | Write stories: NavPill (Default, Active, Hover variants), PillTag (Default, Green, Purple, Breaking); verify axe | WP05 | |
+| T021 | Implement `NavPill` HTML primitive in `packages/html-js/src/nav-pill/` (nav bar with active/hover states) | WP05 | | [D] |
+| T022 | Implement `NavPillComponent` in `packages/angular/src/lib/nav-pill/` | WP05 | [D] |
+| T023 | Implement `PillTag` and `EyebrowPill` HTML primitives in `packages/html-js/src/pill-tag/` | WP05 | [D] |
+| T024 | Implement `PillTagComponent` and `EyebrowPillComponent` in `packages/angular/src/lib/pill-tag/` | WP05 | | [D] |
+| T025 | Export NavPill, PillTag, EyebrowPill from package entry points | WP05 | | [D] |
+| T026 | Write stories: NavPill (Default, Active, Hover variants), PillTag (Default, Green, Purple, Breaking); verify axe | WP05 | | [D] |
 | T027 | Implement `CheckBullet` HTML primitive in `packages/html-js/src/check-bullet/` | WP06 | | [D] |
 | T028 | Implement `SectionBanner` HTML primitive in `packages/html-js/src/section-banner/` | WP06 | [D] |
 | T029 | Implement `CheckBulletComponent` and `SectionBannerComponent` in `packages/angular/src/lib/` | WP06 | | [D] |
@@ -148,12 +148,12 @@
 **Estimated prompt size**: ~360 lines
 **Prompt**: [WP05-navigation-tag-components.md](tasks/WP05-navigation-tag-components.md)
 
-- [ ] T021 Implement NavPill HTML primitive (WP05)
-- [ ] T022 Implement NavPillComponent Angular (WP05)
-- [ ] T023 Implement PillTag + EyebrowPill HTML primitives (WP05)
-- [ ] T024 Implement PillTagComponent + EyebrowPillComponent Angular (WP05)
-- [ ] T025 Export from package entry points (WP05)
-- [ ] T026 Write NavPill and PillTag stories; verify axe (WP05)
+- [x] T021 Implement NavPill HTML primitive (WP05)
+- [x] T022 Implement NavPillComponent Angular (WP05)
+- [x] T023 Implement PillTag + EyebrowPill HTML primitives (WP05)
+- [x] T024 Implement PillTagComponent + EyebrowPillComponent Angular (WP05)
+- [x] T025 Export from package entry points (WP05)
+- [x] T026 Write NavPill and PillTag stories; verify axe (WP05)
 
 **Dependencies**: WP01, WP02
 **Parallel with**: WP04, WP06, WP07, WP08
