@@ -22,7 +22,8 @@ subtasks:
 - T012
 - T013
 - T014
-agent: claude
+agent: "claude:sonnet-4-6:implementer-ivan:implementer"
+shell_pid: "914367"
 history:
 - date: '2026-05-02'
   event: created
@@ -296,3 +297,7 @@ If it does contain an inline `skToggleDrawer`, apply the same pattern as T010:
 - Open Storybook `CollapsedHamburger` story, click hamburger — drawer must open/close
 - Open `dashboard-demo.html` locally, click hamburger at ≤720px — drawer must open/close
 - Confirm `sk-nav-pill.js` contains no `window.*` assignment in its export
+
+## Activity Log
+
+- 2026-05-02T13:01:47Z – claude:sonnet-4-6:implementer-ivan:implementer – shell_pid=914367 – Started implementation via action command
