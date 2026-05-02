@@ -15,12 +15,12 @@
 | T002 | Update `packages/tokens/src/tokens.css` with reconciled canonical values + new token categories | WP01 | | [D] |
 | T003 | Regenerate `token-catalogue.json`; verify Stylelint passes on updated tokens | WP01 | | [D] |
 | T004 | Complete `ADR-003-addendum-token-values.md` with final values, OKLCH/hex decision, and resolved discrepancies | WP01 | | [D] |
-| T005 | Copy 30 OTF font files from `tmp/fonts/` to `packages/tokens/fonts/` | WP02 | |
-| T006 | Add `@font-face` declarations to `tokens.css` with `./fonts/` relative paths; update `--sk-font-*` variables | WP02 | |
-| T007 | Copy `logo.png`, `logo.webp`, `favicon.png` to `packages/tokens/assets/` | WP02 | [P] |
-| T008 | Update `packages/tokens/package.json` `files` array + `.npmignore` to include `fonts/` and `assets/` | WP02 | |
-| T009 | Update Storybook `preview.ts` to ensure brand fonts render in all stories | WP02 | |
-| T010 | Validate `npm pack --dry-run` shows fonts and assets; check compressed package size (NFR-101 < 5 MB) | WP02 | |
+| T005 | Copy 30 OTF font files from `tmp/fonts/` to `packages/tokens/fonts/` | WP02 | | [D] |
+| T006 | Add `@font-face` declarations to `tokens.css` with `./fonts/` relative paths; update `--sk-font-*` variables | WP02 | | [D] |
+| T007 | Copy `logo.png`, `logo.webp`, `favicon.png` to `packages/tokens/assets/` | WP02 | [D] |
+| T008 | Update `packages/tokens/package.json` `files` array + `.npmignore` to include `fonts/` and `assets/` | WP02 | | [D] |
+| T009 | Update Storybook `preview.ts` to ensure brand fonts render in all stories | WP02 | | [D] |
+| T010 | Validate `npm pack --dry-run` shows fonts and assets; check compressed package size (NFR-101 < 5 MB) | WP02 | | [D] |
 | T011 | Create `apps/storybook/src/stories/tokens/colours.mdx` — all colour tokens as labelled swatches | WP03 | |
 | T012 | Create `typography.mdx` — font family specimens, scale steps, weight variants | WP03 | [P] |
 | T013 | Create `spacing.mdx` — space scale rulers, radius shapes, shadow + motion tokens | WP03 | [P] |
@@ -85,12 +85,12 @@
 **Estimated prompt size**: ~340 lines
 **Prompt**: [WP02-font-bundle-brand-assets.md](tasks/WP02-font-bundle-brand-assets.md)
 
-- [ ] T005 Copy 30 OTF font files to `packages/tokens/fonts/` (WP02)
-- [ ] T006 Add `@font-face` declarations to `tokens.css` with `./fonts/` paths; update `--sk-font-*` vars (WP02)
-- [ ] T007 Copy `logo.png`, `logo.webp`, `favicon.png` to `packages/tokens/assets/` (WP02)
-- [ ] T008 Update `packages/tokens/package.json` files array + `.npmignore` (WP02)
-- [ ] T009 Update Storybook `preview.ts` to ensure brand fonts render (WP02)
-- [ ] T010 Validate `npm pack --dry-run` and compressed size (WP02)
+- [x] T005 Copy 30 OTF font files to `packages/tokens/fonts/` (WP02)
+- [x] T006 Add `@font-face` declarations to `tokens.css` with `./fonts/` paths; update `--sk-font-*` vars (WP02)
+- [x] T007 Copy `logo.png`, `logo.webp`, `favicon.png` to `packages/tokens/assets/` (WP02)
+- [x] T008 Update `packages/tokens/package.json` files array + `.npmignore` (WP02)
+- [x] T009 Update Storybook `preview.ts` to ensure brand fonts render (WP02)
+- [x] T010 Validate `npm pack --dry-run` and compressed size (WP02)
 
 **Dependencies**: WP01 (fonts sit alongside the reconciled `tokens.css`)
 **Risks**: Swansea font files are TTF (not OTF) — ensure `@font-face` format declaration is correct; font file sizes may push package over 5 MB limit, requiring selective inclusion of font variants.
