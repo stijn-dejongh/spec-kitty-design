@@ -110,3 +110,11 @@ As a stakeholder evaluating the design system, I want a self-contained static HT
 - The `tmp/reference_system/ui_kits/marketing-website/kit.css` is the authoritative source for `sk-card` token values (using old flat `--sk-*` naming that maps to current ADR-003 tokens).
 - The demo page targets modern browsers — no IE11 compatibility needed.
 - `apps/demo/` is a new directory; it is not a publishable npm package and is not built by nx.
+
+## Amendment: Dashboard demo page (2026-05-02)
+
+| ID | Description | Status |
+|---|---|---|
+| FR-213 | `apps/demo/dashboard-demo.html` exists as a self-contained static HTML page showing a Kanban-style task board mockup using `--sk-*` tokens | Proposed |
+| FR-214 | The dashboard demo includes: a header with Falling Sky logo, mission name, and progress bar; 5 Kanban columns (Planned, Doing, For Review, Approved, Done); WP cards with coloured left-border status indicators; realistic WP data | Proposed |
+| FR-215 | `apps/demo/index.html` exists linking to both demo pages | Proposed |
