@@ -1,3 +1,4 @@
+import './sk-check-bullet.css';
 import type { Meta, StoryObj } from '@storybook/html';
 import { SkCheckBulletHTML } from './index';
 

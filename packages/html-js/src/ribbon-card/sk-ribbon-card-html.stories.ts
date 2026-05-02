@@ -1,3 +1,4 @@
+import './sk-ribbon-card.css';
 import type { Meta, StoryObj } from '@storybook/html';
 import { skRibbonCardHTML, SkRibbonCardDefaultHTML, SkRibbonCardWithRibbonHTML } from './index';
 

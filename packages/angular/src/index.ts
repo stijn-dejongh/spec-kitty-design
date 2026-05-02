@@ -12,3 +12,4 @@ export { SkPillTagComponent, type PillTagVariant } from './lib/pill-tag/sk-pill-
 export { SkEyebrowPillComponent } from './lib/pill-tag/sk-eyebrow-pill';
 export { SkFeatureCardComponent } from './lib/feature-card/sk-feature-card';
 export { SkRibbonCardComponent } from './lib/ribbon-card/sk-ribbon-card';
+export { SkCardComponent } from './lib/card/sk-card.component';

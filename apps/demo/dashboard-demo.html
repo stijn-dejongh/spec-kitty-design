@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!--
+  Spec Kitty — Task Dashboard Demo
+  =================================
+  Static HTML mockup of the SK Tasks operator dashboard, restyled with
+  --sk-* design tokens. Shows a 5-column Kanban board for a mid-sprint
+  mission state.
+
+  Open via file:// or a local static server:
+    npx serve .   (from repo root)
+
+  Path assumptions (relative to this file at apps/demo/):
+    - Tokens CSS:      ../../packages/tokens/dist/tokens.css
+    - Component CSS:   ../../packages/html-js/src/<component>/sk-<component>.css
+
+  Reference: /home/stijnd/Documents/code/forks/spec-kitty/src/specify_cli/dashboard/templates/index.html
+-->
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spec Kitty — Task Dashboard</title>
+
+  <!-- Design system tokens (includes @font-face for Falling Sky) -->
+  <link rel="stylesheet" href="../../packages/tokens/dist/tokens.css" />
+
+  <!-- Component CSS -->
+  <link rel="stylesheet" href="../../packages/html-js/src/pill-tag/sk-pill-tag.css" />
+  <link rel="stylesheet" href="../../packages/html-js/src/button/sk-button.css" />
+
+  <style>
+    /* -----------------------------------------------------------------------
+       Dashboard layout — token values ONLY; no hardcoded colours
+    ----------------------------------------------------------------------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--sk-surface-page);
+      color: var(--sk-fg-default);
+      font-family: var(--sk-font-sans);
+      font-size: var(--sk-text-sm);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* -----------------------------------------------------------------------
+       Header
+    ----------------------------------------------------------------------- */
+    .dash-header {
+      background: var(--sk-surface-card);
+      border-bottom: 1px solid var(--sk-border-default);
+      padding: var(--sk-space-3) var(--sk-space-6);
+      display: flex;
+      align-items: center;
+      gap: var(--sk-space-4);
+      flex-shrink: 0;
+      min-height: 52px;
+    }
+
+    .dash-logo {
+      font-family: var(--sk-font-display);
+      font-weight: var(--sk-weight-bold);
+      font-size: var(--sk-text-base);
+      color: var(--sk-fg-default);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .dash-logo span {
+      color: var(--sk-color-yellow);
+    }
+
+    .dash-divider {
+      color: var(--sk-border-strong);
+      font-weight: var(--sk-weight-light);
+      user-select: none;
+    }
+
+    .dash-mission {
+      font-size: var(--sk-text-xs);
+      color: var(--sk-fg-muted);
+      font-family: var(--sk-font-mono);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 280px;
+    }
+
+    .dash-progress-group {
+      display: flex;
+      align-items: center;
+      gap: var(--sk-space-2);
+      flex-shrink: 0;
+    }
+
+    .dash-progress-bar {
+      width: 120px;
+      height: 4px;
+      background: var(--sk-surface-input);
+      border-radius: var(--sk-radius-pill);
+      overflow: hidden;
+    }
+
+    .dash-progress-fill {
+      height: 100%;
+      background: var(--sk-color-yellow);
+      border-radius: var(--sk-radius-pill);
+      transition: width 0.3s ease;
+    }
+
+    .dash-progress-label {
+      font-size: var(--sk-text-xs);
+      color: var(--sk-fg-muted);
+      font-family: var(--sk-font-mono);
+      white-space: nowrap;
+    }
+
+    .dash-header-actions {
+      margin-left: auto;
+      display: flex;
+      gap: var(--sk-space-3);
+      align-items: center;
+    }
+
+    /* -----------------------------------------------------------------------
+       Mission summary bar (below header)
+    ----------------------------------------------------------------------- */
+    .dash-summary-bar {
+      background: var(--sk-surface-input);
+      border-bottom: 1px solid var(--sk-border-default);
+      padding: var(--sk-space-2) var(--sk-space-6);
+      display: flex;
+      align-items: center;
+      gap: var(--sk-space-5);
+      flex-shrink: 0;
+      font-size: var(--sk-text-xs);
+      color: var(--sk-fg-muted);
+      font-family: var(--sk-font-mono);
+    }
+
+    .dash-summary-bar__item {
+      display: flex;
+      align-items: center;
+      gap: var(--sk-space-1);
+    }
+
+    .dash-summary-bar__value {
+      color: var(--sk-fg-default);
+      font-weight: var(--sk-weight-medium);
+    }
+
+    .dash-summary-bar__sep {
+      color: var(--sk-border-strong);
+      user-select: none;
+    }
+
+    /* -----------------------------------------------------------------------
+       Kanban board
+    ----------------------------------------------------------------------- */
+    .dash-board {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(200px, 1fr));
+      gap: var(--sk-space-3);
+      padding: var(--sk-space-4);
+      overflow-x: auto;
+      overflow-y: hidden;
+      min-height: 0;
+    }
+
+    /* -----------------------------------------------------------------------
+       Lane column
+    ----------------------------------------------------------------------- */
+    .dash-lane {
+      background: var(--sk-surface-input);
+      border-radius: var(--sk-radius-md);
+      padding: var(--sk-space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sk-space-2);
+      overflow-y: auto;
+      min-width: 0;
+    }
+
+    .dash-lane__header {
+      font-size: var(--sk-text-xs);
+      font-family: var(--sk-font-mono);
+      font-weight: var(--sk-weight-bold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--sk-fg-muted);
+      padding-bottom: var(--sk-space-2);
+      border-bottom: 1px solid var(--sk-border-default);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .dash-lane__count {
+      background: var(--sk-surface-card);
+      border-radius: var(--sk-radius-pill);
+      padding: 2px var(--sk-space-2);
+      font-size: 10px;
+      font-weight: var(--sk-weight-regular);
+      color: var(--sk-fg-muted);
+    }
+
+    /* -----------------------------------------------------------------------
+       WP card
+    ----------------------------------------------------------------------- */
+    .dash-card {
+      background: var(--sk-surface-card);
+      border: 1px solid var(--sk-border-default);
+      border-left-width: 3px;
+      border-left-color: var(--sk-border-default);
+      border-radius: var(--sk-radius-sm);
+      padding: var(--sk-space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sk-space-2);
+      cursor: default;
+      transition: border-color 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .dash-card:hover {
+      border-color: var(--sk-border-strong);
+      border-left-color: inherit;
+    }
+
+    /* Status accent colours via left border */
+    .dash-card--doing {
+      border-left-color: var(--sk-color-blue);
+    }
+
+    .dash-card--review {
+      border-left-color: var(--sk-color-yellow);
+    }
+
+    .dash-card--approved {
+      border-left-color: var(--sk-color-green);
+    }
+
+    .dash-card--done {
+      border-left-color: var(--sk-border-default);
+      opacity: 0.6;
+    }
+
+    .dash-card--planned {
+      border-left-color: var(--sk-border-default);
+    }
+
+    .dash-card__id {
+      font-family: var(--sk-font-mono);
+      font-size: 10px;
+      color: var(--sk-fg-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .dash-card__title {
+      font-size: var(--sk-text-xs);
+      font-weight: var(--sk-weight-medium);
+      color: var(--sk-fg-default);
+      line-height: 1.4;
+    }
+
+    .dash-card__subtask-bar {
+      height: 2px;
+      background: var(--sk-surface-input);
+      border-radius: var(--sk-radius-pill);
+      overflow: hidden;
+      margin-top: var(--sk-space-1);
+    }
+
+    .dash-card__subtask-fill {
+      height: 100%;
+      background: var(--sk-color-green);
+      border-radius: var(--sk-radius-pill);
+    }
+
+    .dash-card__meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: var(--sk-space-1);
+    }
+
+    .dash-card__agent {
+      font-size: 10px;
+      color: var(--sk-fg-muted);
+      font-family: var(--sk-font-mono);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dash-card__subtasks {
+      font-size: 10px;
+      color: var(--sk-fg-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* -----------------------------------------------------------------------
+       Footer
+    ----------------------------------------------------------------------- */
+    .dash-footer {
+      background: var(--sk-surface-card);
+      border-top: 1px solid var(--sk-border-default);
+      padding: var(--sk-space-2) var(--sk-space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      font-size: 10px;
+      color: var(--sk-fg-muted);
+      font-family: var(--sk-font-mono);
+    }
+
+    .dash-footer__legend {
+      display: flex;
+      align-items: center;
+      gap: var(--sk-space-4);
+    }
+
+    .dash-footer__legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--sk-space-2);
+    }
+
+    .dash-footer__swatch {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+
+    .dash-footer__swatch--doing   { background: var(--sk-color-blue); }
+    .dash-footer__swatch--review  { background: var(--sk-color-yellow); }
+    .dash-footer__swatch--approved { background: var(--sk-color-green); }
+    .dash-footer__swatch--planned { background: var(--sk-border-default); }
+  </style>
+</head>
+<body>
+
+  <!-- =====================================================================
+       Header bar
+  ====================================================================== -->
+  <header class="dash-header">
+    <span class="dash-logo">Spec <span>Kitty</span></span>
+    <span class="dash-divider">|</span>
+    <span class="dash-mission">design-system-remediation-and-demo-01KQKSSR</span>
+    <div class="dash-progress-group">
+      <div class="dash-progress-bar" title="6 of 9 WPs done">
+        <div class="dash-progress-fill" style="width: 67%"></div>
+      </div>
+      <span class="dash-progress-label">6 / 9 · 67%</span>
+    </div>
+    <div class="dash-header-actions">
+      <span class="sk-tag">lane-a</span>
+      <span class="sk-tag sk-tag--green">mission #3</span>
+      <a href="blog-demo.html" class="sk-btn sk-btn--ghost sk-btn--sm">← Blog demo</a>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       Mission summary bar
+  ====================================================================== -->
+  <div class="dash-summary-bar">
+    <div class="dash-summary-bar__item">
+      <span>mission</span>
+      <span class="dash-summary-bar__value">design-system-remediation-and-demo</span>
+    </div>
+    <span class="dash-summary-bar__sep">·</span>
+    <div class="dash-summary-bar__item">
+      <span>total WPs</span>
+      <span class="dash-summary-bar__value">9</span>
+    </div>
+    <span class="dash-summary-bar__sep">·</span>
+    <div class="dash-summary-bar__item">
+      <span>done</span>
+      <span class="dash-summary-bar__value">6</span>
+    </div>
+    <span class="dash-summary-bar__sep">·</span>
+    <div class="dash-summary-bar__item">
+      <span>in flight</span>
+      <span class="dash-summary-bar__value">3</span>
+    </div>
+    <span class="dash-summary-bar__sep">·</span>
+    <div class="dash-summary-bar__item">
+      <span>branch</span>
+      <span class="dash-summary-bar__value">kitty/mission-design-system-remediation-and-demo-01KQKSSR-lane-a</span>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       Kanban board — 5 columns
+  ====================================================================== -->
+  <main class="dash-board">
+
+    <!-- ----------------------------------------------------------------
+         Column 1: Planned
+    ----------------------------------------------------------------- -->
+    <div class="dash-lane">
+      <div class="dash-lane__header">
+        Planned <span class="dash-lane__count">2</span>
+      </div>
+
+      <div class="dash-card dash-card--planned">
+        <span class="dash-card__id">WP03</span>
+        <span class="dash-card__title">Storybook token documentation pages</span>
+        <div class="dash-card__subtask-bar">
+          <div class="dash-card__subtask-fill" style="width: 0%"></div>
+        </div>
+        <div class="dash-card__meta">
+          <span class="dash-card__agent">curator-carla</span>
+          <span class="dash-card__subtasks">5 tasks</span>
+        </div>
+      </div>
+
+      <div class="dash-card dash-card--planned">
+        <span class="dash-card__id">WP09</span>
+        <span class="dash-card__title">User guide documentation</span>
+        <div class="dash-card__subtask-bar">
+          <div class="dash-card__subtask-fill" style="width: 0%"></div>
+        </div>
+        <div class="dash-card__meta">
+          <span class="dash-card__agent">curator-carla</span>
+          <span class="dash-card__subtasks">5 tasks</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ----------------------------------------------------------------
+         Column 2: Doing
+    ----------------------------------------------------------------- -->
+    <div class="dash-lane">
+      <div class="dash-lane__header">
+        Doing <span class="dash-lane__count">2</span>
+      </div>
+
+      <div class="dash-card dash-card--doing">
+        <span class="dash-card__id">WP02</span>
+        <span class="dash-card__title">Generic SkCard component</span>
+        <div class="dash-card__subtask-bar">
+          <div class="dash-card__subtask-fill" style="width: 60%"></div>
+        </div>
+        <div class="dash-card__meta">
+          <span class="dash-card__agent">frontend-freddy</span>
+          <span class="dash-card__subtasks">5 tasks · 3 done</span>
+        </div>
+      </div>
+
+      <div class="dash-card dash-card--doing">
+        <span class="dash-card__id">WP04</span>
+        <span class="dash-card__title">Static dashboard demo page</span>
+        <div class="dash-card__subtask-bar">
+          <div class="dash-card__subtask-fill" style="width: 40%"></div>
+        </div>
+        <div class="dash-card__meta">
+          <span class="dash-card__agent">frontend-freddy</span>
+          <span class="dash-card__subtasks">5 tasks · 2 done</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ----------------------------------------------------------------
+         Column 3: For Review
+    ----------------------------------------------------------------- -->
+    <div class="dash-lane">
+      <div class="dash-lane__header">
+        For Review <span class="dash-lane__count">2</span>
+      </div>
+
+      <div class="dash-card dash-card--review">
+        <span class="dash-card__id">WP01</span>
+        <span class="dash-card__title">Bug fixes — Angular buttons + html-js CSS imports</span>
+        <div class="dash-card__subtask-bar">
+          <div class="dash-card__subtask-fill" style="width: 100%"></div>
+        </div>
+        <div class="dash-card__meta">
+          <span class="dash-card__agent">reviewer-renata</span>
+          <span class="dash-card__subtasks">8 tasks · 8 done</span>
+        </div>
+      </div>
+
+      <div class="dash-card dash-card--review">
+        <span class="dash-card__id">WP05</span>
+        <span class="dash-card__title">Navigation + tag components</span>
+        <div class="dash-card__subtask-bar">
+          <div class="dash-card__subtask-fill" style="width: 100%"></div>
+        </div>
+        <div class="dash-card__meta">
+          <span class="dash-card__agent">reviewer-renata</span>
+          <span class="dash-card__subtasks">6 tasks · 6 done</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ----------------------------------------------------------------
+         Column 4: Approved
+    ----------------------------------------------------------------- -->
+    <div class="dash-lane">
+      <div class="dash-lane__header">
+        Approved <span class="dash-lane__count">3</span>
+      </div>
+
+      <div class="dash-card dash-card--approved">
+        <span class="dash-card__id">WP06</span>
+        <span class="dash-card__title">Content marker components</span>
+        <div class="dash-card__subtask-bar">
+          <div class="dash-card__subtask-fill" style="width: 100%"></div>
+        </div>
+        <div class="dash-card__meta">
+          <span class="dash-card__agent">frontend-freddy</span>
+          <span class="dash-card__subtasks">5 tasks · 5 done</span>
+        </div>
+      </div>
+
+      <div class="dash-card dash-card--approved">
+        <span class="dash-card__id">WP07</span>
+        <span class="dash-card__title">Card components</span>
+        <div class="dash-card__subtask-bar">
+          <div class="dash-card__subtask-fill" style="width: 100%"></div>
+        </div>
+        <div class="dash-card__meta">
+          <span class="dash-card__agent">frontend-freddy</span>
+          <span class="dash-card__subtasks">6 tasks · 6 done</span>
+        </div>
+      </div>
+
+      <div class="dash-card dash-card--approved">
+        <span class="dash-card__id">WP08</span>
+        <span class="dash-card__title">Form field components</span>
+        <div class="dash-card__subtask-bar">
+          <div class="dash-card__subtask-fill" style="width: 100%"></div>
+        </div>
+        <div class="dash-card__meta">
+          <span class="dash-card__agent">frontend-freddy</span>
+          <span class="dash-card__subtasks">6 tasks · 6 done</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ----------------------------------------------------------------
+         Column 5: Done
+    ----------------------------------------------------------------- -->
+    <div class="dash-lane">
+      <div class="dash-lane__header">
+        Done <span class="dash-lane__count">0</span>
+      </div>
+
+      <!-- Placeholder — no fully merged WPs yet in this sprint state -->
+      <div style="
+        padding: var(--sk-space-4) var(--sk-space-3);
+        text-align: center;
+        color: var(--sk-fg-muted);
+        font-size: var(--sk-text-xs);
+        font-family: var(--sk-font-mono);
+        border: 1px dashed var(--sk-border-default);
+        border-radius: var(--sk-radius-sm);
+      ">
+        no merged WPs yet
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       Footer — legend
+  ====================================================================== -->
+  <footer class="dash-footer">
+    <div class="dash-footer__legend">
+      <div class="dash-footer__legend-item">
+        <span class="dash-footer__swatch dash-footer__swatch--doing"></span>
+        doing
+      </div>
+      <div class="dash-footer__legend-item">
+        <span class="dash-footer__swatch dash-footer__swatch--review"></span>
+        for review
+      </div>
+      <div class="dash-footer__legend-item">
+        <span class="dash-footer__swatch dash-footer__swatch--approved"></span>
+        approved
+      </div>
+      <div class="dash-footer__legend-item">
+        <span class="dash-footer__swatch dash-footer__swatch--planned"></span>
+        planned / done
+      </div>
+    </div>
+    <span>Spec Kitty Design System — static mockup · no JS required</span>
+  </footer>
+
+</body>
+</html>

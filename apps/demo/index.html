@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--
+  Spec Kitty Design System — Demo Index
+  =======================================
+  Simple landing page linking to all static demo pages.
+
+  Open via file:// or a local static server (npx serve . from repo root).
+-->
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spec Kitty Design System — Demos</title>
+
+  <link rel="stylesheet" href="../../packages/tokens/dist/tokens.css" />
+  <link rel="stylesheet" href="../../packages/html-js/src/button/sk-button.css" />
+  <link rel="stylesheet" href="../../packages/html-js/src/pill-tag/sk-pill-tag.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--sk-surface-page);
+      color: var(--sk-fg-default);
+      font-family: var(--sk-font-sans);
+      font-size: var(--sk-text-base);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sk-space-8);
+    }
+
+    .index-card {
+      background: var(--sk-surface-card);
+      border: 1px solid var(--sk-border-default);
+      border-radius: var(--sk-radius-lg);
+      padding: var(--sk-space-8) var(--sk-space-10);
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .index-logo {
+      font-family: var(--sk-font-display);
+      font-weight: var(--sk-weight-extrabold);
+      font-size: var(--sk-text-2xl);
+      color: var(--sk-fg-default);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--sk-space-2);
+    }
+
+    .index-logo span {
+      color: var(--sk-color-yellow);
+    }
+
+    .index-subtitle {
+      font-size: var(--sk-text-sm);
+      color: var(--sk-fg-muted);
+      font-family: var(--sk-font-mono);
+      margin-bottom: var(--sk-space-8);
+    }
+
+    .index-divider {
+      border: none;
+      border-top: 1px solid var(--sk-border-default);
+      margin-bottom: var(--sk-space-6);
+    }
+
+    .index-section-label {
+      font-size: var(--sk-text-xs);
+      font-family: var(--sk-font-mono);
+      font-weight: var(--sk-weight-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sk-fg-muted);
+      margin-bottom: var(--sk-space-4);
+    }
+
+    .index-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sk-space-3);
+    }
+
+    .index-link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--sk-space-3) var(--sk-space-4);
+      background: var(--sk-surface-input);
+      border: 1px solid var(--sk-border-default);
+      border-radius: var(--sk-radius-md);
+      text-decoration: none;
+      color: var(--sk-fg-default);
+      transition: border-color 0.15s ease;
+    }
+
+    .index-link-row:hover {
+      border-color: var(--sk-border-strong);
+    }
+
+    .index-link-row:hover .index-link-title {
+      color: var(--sk-color-yellow);
+    }
+
+    .index-link-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .index-link-title {
+      font-size: var(--sk-text-sm);
+      font-weight: var(--sk-weight-medium);
+      color: var(--sk-fg-default);
+      transition: color 0.15s ease;
+    }
+
+    .index-link-desc {
+      font-size: var(--sk-text-xs);
+      color: var(--sk-fg-muted);
+      font-family: var(--sk-font-mono);
+    }
+
+    .index-link-arrow {
+      color: var(--sk-fg-muted);
+      font-size: var(--sk-text-base);
+      flex-shrink: 0;
+    }
+
+    .index-footer {
+      margin-top: var(--sk-space-8);
+      font-size: var(--sk-text-xs);
+      color: var(--sk-fg-muted);
+      font-family: var(--sk-font-mono);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="index-card">
+    <h1 class="index-logo">Spec <span>Kitty</span></h1>
+    <p class="index-subtitle">design-system — static demo pages</p>
+
+    <hr class="index-divider" />
+
+    <p class="index-section-label">Demo pages</p>
+
+    <nav class="index-links">
+      <a href="blog-demo.html" class="index-link-row">
+        <div class="index-link-info">
+          <span class="index-link-title">Blog demo</span>
+          <span class="index-link-desc">blog-demo.html · content layout, cards, tags</span>
+        </div>
+        <span class="index-link-arrow">→</span>
+      </a>
+
+      <a href="dashboard-demo.html" class="index-link-row">
+        <div class="index-link-info">
+          <span class="index-link-title">Dashboard demo</span>
+          <span class="index-link-desc">dashboard-demo.html · Kanban task board mockup</span>
+        </div>
+        <span class="index-link-arrow">→</span>
+      </a>
+    </nav>
+
+    <p class="index-footer">
+      All pages use <code>--sk-*</code> tokens only · open via <code>file://</code> or <code>npx serve .</code>
+    </p>
+  </div>
+
+</body>
+</html>

@@ -16,3 +16,4 @@ export { SkFeatureCardYellowHTML, SkFeatureCardGreenHTML, SkFeatureCardPurpleHTM
 export { skRibbonCardHTML, SkRibbonCardDefaultHTML, SkRibbonCardWithRibbonHTML } from './ribbon-card/index';
 export { SkNavPillHTML } from './nav-pill/index';
 export { SkTagHTML, SkEyebrowPillHTML, SkPillTagHTML, type PillTagVariant } from './pill-tag/index';
+export { SkCardHTML, SkCardBlueHTML, SkCardPurpleHTML, SkCardInsetHTML } from './card/index';

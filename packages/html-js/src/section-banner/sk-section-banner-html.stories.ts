@@ -1,3 +1,4 @@
+import './sk-section-banner.css';
 import type { Meta, StoryObj } from '@storybook/html';
 import { SkSectionBannerNeutralHTML, SkSectionBannerPurpleHTML, SkSectionBannerGreenHTML } from './index';
 

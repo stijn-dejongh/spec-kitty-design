@@ -1,3 +1,4 @@
+import './sk-feature-card.css';
 import type { Meta, StoryObj } from '@storybook/html';
 import { SkFeatureCardYellowHTML, SkFeatureCardGreenHTML, SkFeatureCardPurpleHTML } from './index';
 

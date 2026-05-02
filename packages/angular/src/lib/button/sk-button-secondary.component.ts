@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './sk-button-secondary.component.html',
-  styleUrl: './sk-button-secondary.component.css',
+  styleUrls: ['./sk-button-secondary.component.css'],
 })
 export class SkButtonSecondaryComponent {
   @Input() disabled: boolean = false;
