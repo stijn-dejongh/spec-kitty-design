@@ -11,10 +11,10 @@
 
 | ID | Description | WP | Parallel |
 |---|---|---|---|
-| T001 | Audit `colors_and_type.css` vs current `tokens.css` — document all value discrepancies | WP01 | |
-| T002 | Update `packages/tokens/src/tokens.css` with reconciled canonical values + new token categories | WP01 | |
-| T003 | Regenerate `token-catalogue.json`; verify Stylelint passes on updated tokens | WP01 | |
-| T004 | Complete `ADR-003-addendum-token-values.md` with final values, OKLCH/hex decision, and resolved discrepancies | WP01 | |
+| T001 | Audit `colors_and_type.css` vs current `tokens.css` — document all value discrepancies | WP01 | | [D] |
+| T002 | Update `packages/tokens/src/tokens.css` with reconciled canonical values + new token categories | WP01 | | [D] |
+| T003 | Regenerate `token-catalogue.json`; verify Stylelint passes on updated tokens | WP01 | | [D] |
+| T004 | Complete `ADR-003-addendum-token-values.md` with final values, OKLCH/hex decision, and resolved discrepancies | WP01 | | [D] |
 | T005 | Copy 30 OTF font files from `tmp/fonts/` to `packages/tokens/fonts/` | WP02 | |
 | T006 | Add `@font-face` declarations to `tokens.css` with `./fonts/` relative paths; update `--sk-font-*` variables | WP02 | |
 | T007 | Copy `logo.png`, `logo.webp`, `favicon.png` to `packages/tokens/assets/` | WP02 | [P] |
@@ -67,10 +67,10 @@
 **Estimated prompt size**: ~280 lines
 **Prompt**: [WP01-token-value-reconciliation.md](tasks/WP01-token-value-reconciliation.md)
 
-- [ ] T001 Audit `colors_and_type.css` vs current `tokens.css` — document value discrepancies (WP01)
-- [ ] T002 Update `packages/tokens/src/tokens.css` with reconciled canonical values + new token categories (WP01)
-- [ ] T003 Regenerate `token-catalogue.json`; verify Stylelint passes (WP01)
-- [ ] T004 Complete `ADR-003-addendum-token-values.md` (WP01)
+- [x] T001 Audit `colors_and_type.css` vs current `tokens.css` — document value discrepancies (WP01)
+- [x] T002 Update `packages/tokens/src/tokens.css` with reconciled canonical values + new token categories (WP01)
+- [x] T003 Regenerate `token-catalogue.json`; verify Stylelint passes (WP01)
+- [x] T004 Complete `ADR-003-addendum-token-values.md` (WP01)
 
 **Dependencies**: none (pre-work gate for all other WPs)
 **Risks**: Reference uses flat naming (`--sk-yellow`) while ADR-003 requires `--sk-color-yellow` — careful mapping required; don't lose the soft/deep colour variants that exist in the reference.
