@@ -1,0 +1,49 @@
+# spec-kitty-design
+
+> A token-driven, Storybook-published web component library. Tokens are the single source of truth; component packages depend only on @spec-kitty/tokens; colour pairings follow a semantic surface/foreground rule. Two demo pages (blog, dashboard) showcase real-world composition.
+
+## Live design system
+
+- [Storybook (live)](https://stijn-dejongh.github.io/spec-kitty-design/): Browse all components and variants by category.
+- [Storybook stories index (JSON)](https://stijn-dejongh.github.io/spec-kitty-design/index.json): Machine-readable map of every story's title, id, tags, and metaId.
+- [Token catalogue (JSON)](https://stijn-dejongh.github.io/spec-kitty-design/token-catalogue.json): All design tokens grouped by category (colour, spacing, typography, radius, shadow, motion).
+
+## Demo pages
+
+- [Blog demo](https://stijn-dejongh.github.io/spec-kitty-design/blog-demo.html): Article layout with nav-pill, ribbon-card, feature-card, site-footer.
+- [Dashboard demo](https://stijn-dejongh.github.io/spec-kitty-design/dashboard-demo.html): Dashboard layout demonstrating drawer toggle, pill-tag, section-banner, and sk-card variants.
+
+## Packages
+
+- [@spec-kitty/tokens README](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/packages/tokens/README.md): Token categories, semantic pairing rules, light mode, linting.
+- [@spec-kitty/html-js README](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/packages/html-js/README.md): Framework-agnostic CSS + minimal JS modules.
+- [@spec-kitty/angular README](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/packages/angular/README.md): Angular component wrappers, peer deps Angular >=19.
+
+## Architecture & doctrine
+
+- [Architecture index](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/architecture/README.md): Reading order for the architectural record (SAD-lite, system context, quality attributes, risks, ADRs).
+- [SAD-lite](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/architecture/sad-lite.md): System context, package topology, bounded contexts, quality attributes, risk landscape.
+- [ADR directory](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/architecture/decisions/): All Accepted architectural decision records.
+- [ADR-001 Token Distribution Format](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/architecture/decisions/2026-05-01-1-token-distribution-format.md): CSS Custom Properties as the token distribution mechanism.
+- [ADR-002 Monorepo Package Topology](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/architecture/decisions/2026-05-01-2-monorepo-package-topology.md): Separate publishable packages for tokens and component frameworks.
+- [ADR-003 Token Schema and Naming Convention](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/architecture/decisions/2026-05-01-3-token-schema-naming-convention.md): Naming rules and semantic pairing for design tokens.
+- [Quality attribute assessment](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/architecture/quality-attribute-assessment.md): AMMERSE impact analysis of the core architectural choices.
+- [Risk register](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/architecture/risk-register.md): Full risk inventory with mitigations and owners.
+- [Charter](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/.kittify/charter/charter.md): Project mission, scope, governance.
+
+## Contributing
+
+- [Contributing index](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/contributing/README.md): Entry point for contributor guides.
+- [Adding a component](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/contributing/adding-a-component.md): Step-by-step recipe (CSS file, story file, light/dark variants).
+- [Adding a token](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/contributing/adding-a-token.md): When to add new tokens vs. reuse existing.
+- [Running quality checks](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/docs/contributing/running-quality-checks.md): Lint, test, and validation commands for contributors.
+
+## Agent guidance
+
+- [CLAUDE.md](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/CLAUDE.md): Canonical agent guide — repo map, hard rules, common commands, decision trees.
+- [AGENTS.md](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/AGENTS.md): Same content for non-Claude agents (Cursor, Codex, Copilot) — pointer to CLAUDE.md.
+- [Project skill: spec-kitty-design](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/skills/spec-kitty-design/SKILL.md): Claude Code skill for component scaffolding, brand voice, and design system work.
+
+## Optional
+
+- [Detailed LLM context (llms-full.txt)](https://stijn-dejongh.github.io/spec-kitty-design/llms-full.txt): Full token catalogue, component manifest, and doctrine summary in one file.

@@ -82,3 +82,22 @@ Always pair surface tokens with their foreground counterpart:
 | `--sk-surface-page` | `--sk-fg-default` |
 | `--sk-surface-card` | `--sk-fg-on-card` |
 | `--sk-color-yellow` (CTA) | `--sk-fg-on-primary` |
+
+## AI / LLM resources
+
+This Storybook deploy ships machine-readable indexes for AI coding agents
+(Claude, Cursor, Codex, Copilot). Point your agent at:
+
+- [`/llms.txt`](./llms.txt) — sectioned link index (~4 KB) per
+  [llmstxt.org](https://llmstxt.org/).
+- [`/llms-full.txt`](./llms-full.txt) — full context bundle (~40 KB):
+  ADR summaries, token catalogue, every component's title and variants,
+  install snippets, and an agent recipe.
+- [`/index.json`](./index.json) — Storybook's auto-emitted stories index
+  (machine-readable).
+- [`/token-catalogue.json`](./token-catalogue.json) — every design token
+  with category, value, and metadata.
+
+Repo-side: [`CLAUDE.md`](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/CLAUDE.md)
+and [`AGENTS.md`](https://github.com/stijn-dejongh/spec-kitty-design/blob/main/AGENTS.md)
+contain the canonical agent guide.
