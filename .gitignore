@@ -57,5 +57,8 @@ test-results/
 # Angular CLI cache
 .angular/
 
+# Storybook debug log (runtime artefact, not source)
+debug-storybook.log
+
 # Design reference working files (not distributed)
 tmp/

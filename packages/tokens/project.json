@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "options": { "command": "cp packages/tokens/src/tokens.css packages/tokens/dist/tokens.css" }
+      "options": {
+        "command": "cp packages/tokens/src/tokens.css packages/tokens/dist/tokens.css && mkdir -p packages/tokens/dist/fonts && cp packages/tokens/fonts/* packages/tokens/dist/fonts/ && cp -r packages/tokens/assets packages/tokens/dist/assets"
+      }
     },
     "lint": {
       "executor": "nx:run-commands",

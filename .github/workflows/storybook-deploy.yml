@@ -37,6 +37,17 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npx nx run-many --target=build --projects=tokens,angular,html-js
       - run: npx nx run storybook:storybook:build
+      - name: Copy demo pages into Storybook deploy artifact
+        run: |
+          # Demo pages reference component CSS and tokens via relative paths from apps/demo/.
+          # When deployed under /demo/ on Pages, those relative paths must still resolve.
+          # We copy the packages/ source alongside the demo pages so ../.. still works.
+          mkdir -p apps/storybook/storybook-static/demo
+          cp apps/demo/*.html apps/storybook/storybook-static/demo/
+          # Expose the packages directory tree (tokens dist, html-js src CSS) under the artifact
+          mkdir -p apps/storybook/storybook-static/packages
+          cp -r packages/tokens/dist  apps/storybook/storybook-static/packages/tokens/
+          cp -r packages/html-js/src  apps/storybook/storybook-static/packages/html-js/
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # actions/configure-pages v6.0.0
         with:
           enablement: true  # auto-enable Pages if not already configured via Settings → Pages → GitHub Actions
