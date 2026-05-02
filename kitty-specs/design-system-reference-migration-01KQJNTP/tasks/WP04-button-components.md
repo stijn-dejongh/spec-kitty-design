@@ -199,3 +199,4 @@ Check that `sk-btn--primary:hover` shows the yellow glow (not just a colour chan
 - 2026-05-02T06:28:28Z – claude:claude-sonnet-4-6:reviewer-renata:reviewer – shell_pid=1654523 – Started review via action command
 - 2026-05-02T06:33:01Z – claude – shell_pid=1654523 – Review rejected: angular:build fails due to missing @angular/forms peer dependency in packages/angular/package.json. Button CSS, tokens, hover/disabled states all pass. See review-cycle-1.md.
 - 2026-05-02T06:39:26Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1713625 – Started implementation via action command
+- 2026-05-02T06:43:21Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1713625 – Cycle 2: @angular/forms added to peerDependencies in systemic fix; Angular build passes
