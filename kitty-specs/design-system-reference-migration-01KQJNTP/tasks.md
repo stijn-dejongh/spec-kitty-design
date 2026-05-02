@@ -42,12 +42,12 @@
 | T029 | Implement `CheckBulletComponent` and `SectionBannerComponent` in `packages/angular/src/lib/` | WP06 | | [D] |
 | T030 | Export from package entry points | WP06 | | [D] |
 | T031 | Write stories: CheckBullet (Default, List), SectionBanner (Default, purple, green); verify axe | WP06 | | [D] |
-| T032 | Implement `FeatureCard` HTML primitive in `packages/html-js/src/feature-card/` | WP07 | |
-| T033 | Implement `RibbonCard` HTML primitive in `packages/html-js/src/ribbon-card/` (card + ribbon banner) | WP07 | [P] |
-| T034 | Implement `FeatureCardComponent` and `RibbonCardComponent` in `packages/angular/src/lib/` | WP07 | |
-| T035 | Export from package entry points | WP07 | |
-| T036 | Write stories: FeatureCard (Default, light), RibbonCard (Default, with ribbon, without ribbon); verify axe | WP07 | |
-| T037 | Update visual regression baselines for card stories | WP07 | |
+| T032 | Implement `FeatureCard` HTML primitive in `packages/html-js/src/feature-card/` | WP07 | | [D] |
+| T033 | Implement `RibbonCard` HTML primitive in `packages/html-js/src/ribbon-card/` (card + ribbon banner) | WP07 | [D] |
+| T034 | Implement `FeatureCardComponent` and `RibbonCardComponent` in `packages/angular/src/lib/` | WP07 | | [D] |
+| T035 | Export from package entry points | WP07 | | [D] |
+| T036 | Write stories: FeatureCard (Default, light), RibbonCard (Default, with ribbon, without ribbon); verify axe | WP07 | | [D] |
+| T037 | Update visual regression baselines for card stories | WP07 | | [D] |
 | T038 | Implement `FormField` container HTML primitive in `packages/html-js/src/form-field/` | WP08 | | [D] |
 | T039 | Implement `FormInput` and `FormTextarea` HTML primitives with all validation states | WP08 | | [D] |
 | T040 | Implement `FormFieldComponent`, `FormInputComponent`, `FormTextareaComponent` in Angular package | WP08 | | [D] |
@@ -187,12 +187,12 @@
 **Estimated prompt size**: ~370 lines
 **Prompt**: [WP07-card-components.md](tasks/WP07-card-components.md)
 
-- [ ] T032 Implement FeatureCard HTML primitive (WP07)
-- [ ] T033 Implement RibbonCard HTML primitive (WP07)
-- [ ] T034 Implement both Angular components (WP07)
-- [ ] T035 Export from entry points (WP07)
-- [ ] T036 Write card stories with states; verify axe (WP07)
-- [ ] T037 Update visual regression baselines (WP07)
+- [x] T032 Implement FeatureCard HTML primitive (WP07)
+- [x] T033 Implement RibbonCard HTML primitive (WP07)
+- [x] T034 Implement both Angular components (WP07)
+- [x] T035 Export from entry points (WP07)
+- [x] T036 Write card stories with states; verify axe (WP07)
+- [x] T037 Update visual regression baselines (WP07)
 
 **Dependencies**: WP01, WP02
 **Parallel with**: WP04, WP05, WP06, WP08
