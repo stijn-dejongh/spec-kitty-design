@@ -15,7 +15,8 @@ subtasks:
 - T028
 - T029
 - T030
-agent: claude
+agent: "claude:sonnet-4-6:implementer-ivan:implementer"
+shell_pid: "919520"
 history:
 - date: '2026-05-02'
   event: created
@@ -169,3 +170,7 @@ Zero errors expected. If TypeScript errors appear related to template syntax (mi
 - Specifically check button primary: text should be dark, background should be light (token-driven)
 - `grep -rn "LightBackground" packages/angular/src/ --include="*.stories.ts"` — should return zero after rename
 - **Charter gate**: compare LightMode renders against `tmp/` reference screenshots; flag any divergence in PR review
+
+## Activity Log
+
+- 2026-05-02T13:15:11Z – claude:sonnet-4-6:implementer-ivan:implementer – shell_pid=919520 – Started implementation via action command
