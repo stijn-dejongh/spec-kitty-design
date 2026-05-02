@@ -1,6 +1,6 @@
 ---
 work_package_id: WP05
-title: html-js LightMode Stories — All 10 Non-Stub Components
+title: html-js LightMode Stories — 9 Non-Stub Non-NavPill Components
 dependencies:
 - WP01
 - WP02
@@ -9,14 +9,13 @@ requirement_refs:
 - FR-011
 planning_base_branch: feature/post-review-remediation-and-demo-deploy
 merge_target_branch: feature/post-review-remediation-and-demo-deploy
-branch_strategy: WP05 executes after WP01+WP02+WP03 are approved. Work in the lane worktree allocated by spec-kitty.
+branch_strategy: Planning artifacts for this feature were generated on feature/post-review-remediation-and-demo-deploy. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feature/post-review-remediation-and-demo-deploy unless the human explicitly redirects the landing branch.
 subtasks:
 - T015
 - T016
 - T017
 - T018
 - T019
-- T020
 - T021
 - T022
 - T023
@@ -35,7 +34,6 @@ owned_files:
 - packages/html-js/src/check-bullet/sk-check-bullet-html.stories.ts
 - packages/html-js/src/feature-card/sk-feature-card-html.stories.ts
 - packages/html-js/src/form-field/sk-form-field-html.stories.ts
-- packages/html-js/src/nav-pill/sk-nav-pill.stories.ts
 - packages/html-js/src/pill-tag/sk-pill-tag.stories.ts
 - packages/html-js/src/ribbon-card/sk-ribbon-card-html.stories.ts
 - packages/html-js/src/section-banner/sk-section-banner-html.stories.ts

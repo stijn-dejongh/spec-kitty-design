@@ -8,11 +8,11 @@ requirement_refs:
 - FR-004
 planning_base_branch: feature/post-review-remediation-and-demo-deploy
 merge_target_branch: feature/post-review-remediation-and-demo-deploy
-branch_strategy: WP02 executes in its own lane worktree branched from the approved WP01 lane. Merge back into feature/post-review-remediation-and-demo-deploy on approval.
+branch_strategy: Planning artifacts for this feature were generated on feature/post-review-remediation-and-demo-deploy. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feature/post-review-remediation-and-demo-deploy unless the human explicitly redirects the landing branch.
 subtasks:
 - T004
 - T005
-- T006
+- T006-build
 agent: claude
 history:
 - date: '2026-05-02'
@@ -24,7 +24,6 @@ execution_mode: code_change
 owned_files:
 - packages/html-js/src/nav-pill/sk-nav-pill-drawer.css
 - packages/html-js/src/nav-pill/sk-nav-pill.css
-- packages/html-js/src/nav-pill/sk-nav-pill.stories.ts
 role: implementer
 tags: []
 ---
