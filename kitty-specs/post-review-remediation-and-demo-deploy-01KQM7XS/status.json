@@ -1,19 +1,19 @@
 {
-  "event_count": 35,
-  "last_event_id": "01KQMF6SZ2GDP7BYNVDR9TQ2KF",
-  "materialized_at": "2026-05-02T13:49:19.202626+00:00",
+  "event_count": 36,
+  "last_event_id": "01KQMHFQKWR2AV6Z59R12ND7AT",
+  "materialized_at": "2026-05-02T14:29:08.860175+00:00",
   "mission_number": "",
   "mission_slug": "post-review-remediation-and-demo-deploy-01KQM7XS",
   "mission_type": "software-dev",
   "summary": {
-    "approved": 5,
+    "approved": 6,
     "blocked": 0,
     "canceled": 0,
     "claimed": 0,
     "done": 0,
     "for_review": 0,
     "in_progress": 0,
-    "in_review": 1,
+    "in_review": 0,
     "planned": 0
   },
   "work_packages": {
@@ -53,11 +53,11 @@
       "last_transition_at": "2026-05-02T13:41:39.553919+00:00"
     },
     "WP07": {
-      "actor": "claude:sonnet-4-6:reviewer:reviewer",
+      "actor": "user",
       "force_count": 1,
-      "lane": "in_review",
-      "last_event_id": "01KQMF6SZ2GDP7BYNVDR9TQ2KF",
-      "last_transition_at": "2026-05-02T13:49:19.202626+00:00"
+      "lane": "approved",
+      "last_event_id": "01KQMHFQKWR2AV6Z59R12ND7AT",
+      "last_transition_at": "2026-05-02T14:29:08.860175+00:00"
     }
   }
 }
