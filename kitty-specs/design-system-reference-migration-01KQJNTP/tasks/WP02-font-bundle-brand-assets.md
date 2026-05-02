@@ -19,7 +19,8 @@ subtasks:
 - T008
 - T009
 - T010
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "1560894"
 history:
 - date: '2026-05-01'
   event: created
@@ -185,3 +186,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Open the Storybook `getting-started.mdx` page and visually confirm that a heading using `--sk-font-display` renders in Falling Sky (not a system fallback font). Run `npm pack --dry-run` and confirm fonts appear in the file list. Check that no illustration assets (`illustration-*.webp`) ended up in `assets/`.
+
+## Activity Log
+
+- 2026-05-02T06:06:59Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1560894 – Started implementation via action command
