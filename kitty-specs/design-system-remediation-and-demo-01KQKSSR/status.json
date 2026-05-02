@@ -1,28 +1,28 @@
 {
-  "event_count": 13,
-  "last_event_id": "01KQKTR8Z1NE4MAJZJJV14S99K",
-  "materialized_at": "2026-05-02T07:51:51.521086+00:00",
+  "event_count": 14,
+  "last_event_id": "01KQKTSJ9A26E9YEE4QVX58VTK",
+  "materialized_at": "2026-05-02T07:52:33.834571+00:00",
   "mission_number": "",
   "mission_slug": "design-system-remediation-and-demo-01KQKSSR",
   "mission_type": "software-dev",
   "summary": {
-    "approved": 1,
+    "approved": 2,
     "blocked": 0,
     "canceled": 0,
     "claimed": 0,
     "done": 0,
     "for_review": 0,
     "in_progress": 0,
-    "in_review": 1,
+    "in_review": 0,
     "planned": 2
   },
   "work_packages": {
     "WP01": {
-      "actor": "claude:claude-sonnet-4-6:reviewer-renata:reviewer",
-      "force_count": 1,
-      "lane": "in_review",
-      "last_event_id": "01KQKTR8Z1NE4MAJZJJV14S99K",
-      "last_transition_at": "2026-05-02T07:51:51.521086+00:00"
+      "actor": "user",
+      "force_count": 2,
+      "lane": "approved",
+      "last_event_id": "01KQKTSJ9A26E9YEE4QVX58VTK",
+      "last_transition_at": "2026-05-02T07:52:33.834571+00:00"
     },
     "WP02": {
       "actor": "user",
