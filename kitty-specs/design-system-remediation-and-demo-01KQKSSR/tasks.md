@@ -24,12 +24,12 @@
 | T011 | Implement `packages/angular/src/lib/card/sk-card.component.*` with `variant` input | WP02 | [D] |
 | T012 | Write Storybook stories: Default, Blue, Purple, Inset, BlogCardExample (card with heading + tag + muted text) | WP02 | | [D] |
 | T013 | Export sk-card from both package entry points; verify axe passes | WP02 | | [D] |
-| T014 | Create `apps/demo/` directory; write `blog-demo.html` — self-contained static page loading `tokens.css` | WP03 | |
-| T015 | Add navigation section using `sk-nav-pill` classes | WP03 | |
-| T016 | Add hero section using `--sk-font-display` heading, muted subtext, and primary CTA button | WP03 | |
-| T017 | Add 3-up card grid using `sk-card` (at least one `sk-card--blue`, one default) with post title, date, pill tags, and muted excerpt | WP03 | |
-| T018 | Add `SectionBanner` + `FeatureCard` grid row + footer using design system classes | WP03 | |
-| T019 | Verify demo page renders correctly at 375px and 1280px via browser check | WP03 | |
+| T014 | Create `apps/demo/` directory; write `blog-demo.html` — self-contained static page loading `tokens.css` | WP03 | | [D] |
+| T015 | Add navigation section using `sk-nav-pill` classes | WP03 | | [D] |
+| T016 | Add hero section using `--sk-font-display` heading, muted subtext, and primary CTA button | WP03 | | [D] |
+| T017 | Add 3-up card grid using `sk-card` (at least one `sk-card--blue`, one default) with post title, date, pill tags, and muted excerpt | WP03 | | [D] |
+| T018 | Add `SectionBanner` + `FeatureCard` grid row + footer using design system classes | WP03 | | [D] |
+| T019 | Verify demo page renders correctly at 375px and 1280px via browser check | WP03 | | [D] |
 
 | T020 | Study existing SK dashboard template; plan layout for mockup | WP04 | |
 | T021 | Create `apps/demo/dashboard-demo.html` base structure with CSS | WP04 | |
@@ -90,12 +90,12 @@
 **Estimated prompt size**: ~420 lines
 **Prompt**: [WP03-blog-demo-page.md](tasks/WP03-blog-demo-page.md)
 
-- [ ] T014 Create `apps/demo/blog-demo.html` base structure (WP03)
-- [ ] T015 Navigation section (WP03)
-- [ ] T016 Hero section with typography + CTA (WP03)
-- [ ] T017 3-up card grid with sk-card variants + content (WP03)
-- [ ] T018 SectionBanner + FeatureCard row + footer (WP03)
-- [ ] T019 Responsive check at 375px and 1280px (WP03)
+- [x] T014 Create `apps/demo/blog-demo.html` base structure (WP03)
+- [x] T015 Navigation section (WP03)
+- [x] T016 Hero section with typography + CTA (WP03)
+- [x] T017 3-up card grid with sk-card variants + content (WP03)
+- [x] T018 SectionBanner + FeatureCard row + footer (WP03)
+- [x] T019 Responsive check at 375px and 1280px (WP03)
 
 **Dependencies**: WP02 (sk-card needed for demo)
 
