@@ -13,11 +13,25 @@ export const Default: Story = {
 };
 
 export const Blue: Story = {
-  render: () => `<article class="sk-card sk-card--blue" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Blue tint card — information context</p></article>`,
+  parameters: {
+    docs: {
+      description: {
+        story: "Hover to see the accent border activate on all 4 sides. The border is always 2px — only the colour changes, so there is no layout shift.",
+      },
+    },
+  },
+  render: () => `<article class="sk-card sk-card--blue" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Blue tint card — information context. Hover to see full accent border.</p></article>`,
 };
 
 export const Purple: Story = {
-  render: () => `<article class="sk-card sk-card--purple" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Purple tint card — feature context</p></article>`,
+  parameters: {
+    docs: {
+      description: {
+        story: "Same no-jump border technique as Blue — 2px border always present, accent colour transitions on hover.",
+      },
+    },
+  },
+  render: () => `<article class="sk-card sk-card--purple" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Purple tint card — feature context. Hover to see full accent border.</p></article>`,
 };
 
 export const Inset: Story = {

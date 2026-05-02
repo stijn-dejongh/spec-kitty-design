@@ -8,9 +8,12 @@
 
 .sk-card {
   background: var(--sk-surface-card);
-  border: 1px solid var(--sk-border-strong);
+  border: 2px solid var(--sk-border-default);
   border-radius: var(--sk-radius-lg);
   padding: var(--sk-space-7);
+  /* Border is always 2px — only colour changes on hover/accent states.
+     This prevents layout shift from border-width changes. */
+  transition: border-color var(--sk-motion-duration-fast) var(--sk-motion-ease-out);
 }
 
 .sk-card--inset {
@@ -27,6 +30,9 @@
   background: var(--sk-surface-tint-sky);
   border-color: rgba(169, 199, 232, 0.20); /* channels from --sk-color-blue: #A9C7E8 */
 }
+.sk-card--blue:hover {
+  border-color: var(--sk-color-blue); /* full accent on hover — no size jump (still 2px) */
+}
 
 /* Purple tint variant — feature/architecture cards
    Deviation: same rgba() pattern — channels from --sk-color-purple: #B8A9E0 */
@@ -34,14 +40,25 @@
   background: var(--sk-surface-tint-lilac);
   border-color: rgba(184, 169, 224, 0.25); /* channels from --sk-color-purple: #B8A9E0 */
 }
+.sk-card--purple:hover {
+  border-color: var(--sk-color-purple); /* no size jump */
+}
 
 /* Light mode overrides */
 :root[data-theme="light"] .sk-card--blue,
 .sk-light .sk-card--blue {
   border-color: rgba(46, 74, 107, 0.15); /* darker channel extraction from --sk-color-blue */
 }
+:root[data-theme="light"] .sk-card--blue:hover,
+.sk-light .sk-card--blue:hover {
+  border-color: var(--sk-color-blue);
+}
 
 :root[data-theme="light"] .sk-card--purple,
 .sk-light .sk-card--purple {
   border-color: rgba(74, 61, 120, 0.18); /* darker channel extraction from --sk-color-purple */
+}
+:root[data-theme="light"] .sk-card--purple:hover,
+.sk-light .sk-card--purple:hover {
+  border-color: var(--sk-color-purple);
 }
