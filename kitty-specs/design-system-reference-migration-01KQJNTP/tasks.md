@@ -37,11 +37,11 @@
 | T024 | Implement `PillTagComponent` and `EyebrowPillComponent` in `packages/angular/src/lib/pill-tag/` | WP05 | |
 | T025 | Export NavPill, PillTag, EyebrowPill from package entry points | WP05 | |
 | T026 | Write stories: NavPill (Default, Active, Hover variants), PillTag (Default, Green, Purple, Breaking); verify axe | WP05 | |
-| T027 | Implement `CheckBullet` HTML primitive in `packages/html-js/src/check-bullet/` | WP06 | |
-| T028 | Implement `SectionBanner` HTML primitive in `packages/html-js/src/section-banner/` | WP06 | [P] |
-| T029 | Implement `CheckBulletComponent` and `SectionBannerComponent` in `packages/angular/src/lib/` | WP06 | |
-| T030 | Export from package entry points | WP06 | |
-| T031 | Write stories: CheckBullet (Default, List), SectionBanner (Default, purple, green); verify axe | WP06 | |
+| T027 | Implement `CheckBullet` HTML primitive in `packages/html-js/src/check-bullet/` | WP06 | | [D] |
+| T028 | Implement `SectionBanner` HTML primitive in `packages/html-js/src/section-banner/` | WP06 | [D] |
+| T029 | Implement `CheckBulletComponent` and `SectionBannerComponent` in `packages/angular/src/lib/` | WP06 | | [D] |
+| T030 | Export from package entry points | WP06 | | [D] |
+| T031 | Write stories: CheckBullet (Default, List), SectionBanner (Default, purple, green); verify axe | WP06 | | [D] |
 | T032 | Implement `FeatureCard` HTML primitive in `packages/html-js/src/feature-card/` | WP07 | |
 | T033 | Implement `RibbonCard` HTML primitive in `packages/html-js/src/ribbon-card/` (card + ribbon banner) | WP07 | [P] |
 | T034 | Implement `FeatureCardComponent` and `RibbonCardComponent` in `packages/angular/src/lib/` | WP07 | |
@@ -168,11 +168,11 @@
 **Estimated prompt size**: ~290 lines
 **Prompt**: [WP06-content-marker-components.md](tasks/WP06-content-marker-components.md)
 
-- [ ] T027 Implement CheckBullet HTML primitive (WP06)
-- [ ] T028 Implement SectionBanner HTML primitive (WP06)
-- [ ] T029 Implement both Angular components (WP06)
-- [ ] T030 Export from entry points (WP06)
-- [ ] T031 Write stories with colour variant states; verify axe (WP06)
+- [x] T027 Implement CheckBullet HTML primitive (WP06)
+- [x] T028 Implement SectionBanner HTML primitive (WP06)
+- [x] T029 Implement both Angular components (WP06)
+- [x] T030 Export from entry points (WP06)
+- [x] T031 Write stories with colour variant states; verify axe (WP06)
 
 **Dependencies**: WP01, WP02
 **Parallel with**: WP04, WP05, WP07, WP08
