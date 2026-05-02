@@ -18,7 +18,8 @@ subtasks:
 - T018
 - T019
 - T020
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "1625658"
 history:
 - date: '2026-05-01'
   event: created
@@ -190,3 +191,7 @@ git add apps/storybook/src/tests/visual.spec.ts-snapshots/
 ## Reviewer Guidance
 
 Check that `sk-btn--primary:hover` shows the yellow glow (not just a colour change). Check disabled state is visually distinct. Run Stylelint against `sk-button.css` — must pass.
+
+## Activity Log
+
+- 2026-05-02T06:23:25Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
