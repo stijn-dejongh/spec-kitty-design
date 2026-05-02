@@ -1,7 +1,7 @@
 {
-  "event_count": 56,
-  "last_event_id": "01KQKPKNWC3PNCHPW2T27JYGJB",
-  "materialized_at": "2026-05-02T06:39:26.604266+00:00",
+  "event_count": 58,
+  "last_event_id": "01KQKPKQSRMRDMM299ED7P5E31",
+  "materialized_at": "2026-05-02T06:39:28.568298+00:00",
   "mission_number": "",
   "mission_slug": "design-system-reference-migration-01KQJNTP",
   "mission_type": "software-dev",
@@ -12,9 +12,9 @@
     "claimed": 0,
     "done": 0,
     "for_review": 0,
-    "in_progress": 1,
+    "in_progress": 2,
     "in_review": 1,
-    "planned": 2
+    "planned": 1
   },
   "work_packages": {
     "WP01": {
@@ -46,11 +46,11 @@
       "last_transition_at": "2026-05-02T06:39:26.604266+00:00"
     },
     "WP05": {
-      "actor": "claude:claude-sonnet-4-6:reviewer-renata:reviewer",
+      "actor": "claude:claude-sonnet-4-6:frontend-freddy:implementer",
       "force_count": 3,
-      "lane": "planned",
-      "last_event_id": "01KQKPBE469EZR1MP64Y5KNX9V",
-      "last_transition_at": "2026-05-02T06:34:56.518045+00:00"
+      "lane": "in_progress",
+      "last_event_id": "01KQKPKQSRMRDMM299ED7P5E31",
+      "last_transition_at": "2026-05-02T06:39:28.568298+00:00"
     },
     "WP06": {
       "actor": "user",
