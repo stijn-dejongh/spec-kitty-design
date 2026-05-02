@@ -30,19 +30,19 @@ test('SK-feature-card HTML default — visual baseline', async ({ page }) => {
 });
 
 test('SK-ribbon-card Angular default (no ribbon) — visual baseline', async ({ page }) => {
-  await page.goto('/iframe.html?id=components-skribbboncard-angular--default&viewMode=story');
+  await page.goto('/iframe.html?id=components-skribboncard-angular--default&viewMode=story');
   await page.waitForSelector('.sk-ribbon-card', { timeout: 20000 });
   await expect(page).toHaveScreenshot('sk-ribbon-card-angular-default.png', { threshold: 0.02 });
 });
 
 test('SK-ribbon-card Angular with ribbon — visual baseline', async ({ page }) => {
-  await page.goto('/iframe.html?id=components-skribbboncard-angular--with-ribbon&viewMode=story');
+  await page.goto('/iframe.html?id=components-skribboncard-angular--with-ribbon&viewMode=story');
   await page.waitForSelector('.sk-ribbon-card', { timeout: 20000 });
   await expect(page).toHaveScreenshot('sk-ribbon-card-angular-with-ribbon.png', { threshold: 0.02 });
 });
 
 test('SK-ribbon-card HTML with ribbon — visual baseline', async ({ page }) => {
-  await page.goto('/iframe.html?id=components-skribbboncard-html--with-ribbon&viewMode=story');
+  await page.goto('/iframe.html?id=components-skribboncard-html--with-ribbon&viewMode=story');
   await page.waitForLoadState('domcontentloaded');
   await expect(page).toHaveScreenshot('sk-ribbon-card-html-with-ribbon.png', { threshold: 0.02 });
 });
