@@ -183,3 +183,4 @@ Manually check the error state story: open the axe panel in Storybook and verify
 ## Activity Log
 
 - 2026-05-02T06:23:33Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
+- 2026-05-02T06:29:17Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – FormField + FormInput + FormTextarea with Default/Focus/Error/Disabled/Filled; aria-invalid + aria-describedby on error state
