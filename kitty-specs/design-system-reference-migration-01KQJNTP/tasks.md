@@ -55,11 +55,11 @@
 | T042 | Write stories: FormField (Default, Focus, Error, Disabled, Filled), FormTextarea (same); verify axe | WP08 | |
 | T043 | Update visual regression baselines for form stories | WP08 | |
 
-| T044 | Create `docs/design-system/README.md` overview and navigation hub | WP09 | |
-| T045 | Create `docs/design-system/using-tokens.md` — install, load, consume `--sk-*` properties | WP09 | [P] |
-| T046 | Create `docs/design-system/using-components.md` — import and render all 8 component categories | WP09 | [P] |
-| T047 | Create `docs/design-system/brand-guidelines.md` — voice, colour, typography, iconography, mascot policy | WP09 | [P] |
-| T048 | Create `docs/design-system/changelog.md` stub | WP09 | [P] |
+| T044 | Create `docs/design-system/README.md` overview and navigation hub | WP09 | | [D] |
+| T045 | Create `docs/design-system/using-tokens.md` — install, load, consume `--sk-*` properties | WP09 | [D] |
+| T046 | Create `docs/design-system/using-components.md` — import and render all 8 component categories | WP09 | [D] |
+| T047 | Create `docs/design-system/brand-guidelines.md` — voice, colour, typography, iconography, mascot policy | WP09 | [D] |
+| T048 | Create `docs/design-system/changelog.md` stub | WP09 | [D] |
 
 ---
 
@@ -228,11 +228,11 @@
 **Estimated prompt size**: ~340 lines
 **Prompt**: [WP09-user-guide-docs.md](tasks/WP09-user-guide-docs.md)
 
-- [ ] T044 Create `docs/design-system/README.md` overview (WP09)
-- [ ] T045 Create `docs/design-system/using-tokens.md` (WP09)
-- [ ] T046 Create `docs/design-system/using-components.md` (WP09)
-- [ ] T047 Create `docs/design-system/brand-guidelines.md` (WP09)
-- [ ] T048 Create `docs/design-system/changelog.md` stub (WP09)
+- [x] T044 Create `docs/design-system/README.md` overview (WP09)
+- [x] T045 Create `docs/design-system/using-tokens.md` (WP09)
+- [x] T046 Create `docs/design-system/using-components.md` (WP09)
+- [x] T047 Create `docs/design-system/brand-guidelines.md` (WP09)
+- [x] T048 Create `docs/design-system/changelog.md` stub (WP09)
 
 **Dependencies**: WP02 (font loading patterns), WP03 (Storybook URL references)
 **Parallel with**: WP04–WP08
