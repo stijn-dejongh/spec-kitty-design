@@ -20,7 +20,8 @@ subtasks:
 - T022
 - T023
 - T024
-agent: claude
+agent: "claude:sonnet-4-6:implementer-ivan:implementer"
+shell_pid: "916541"
 history:
 - date: '2026-05-02'
   event: created
@@ -202,3 +203,7 @@ Check that zero axe violations were introduced by the new stories:
 - Confirm that just changing the Storybook background WITHOUT selecting the LightMode story still shows dark-mode tokens (the two concerns are separate)
 - `grep -rn "OnLightBackground\|LightBackground" packages/html-js/src/ --include="*.stories.ts"` — should return zero after rename
 - **Charter gate**: compare LightMode renders against `tmp/` reference screenshots; flag any divergence in PR review
+
+## Activity Log
+
+- 2026-05-02T13:07:44Z – claude:sonnet-4-6:implementer-ivan:implementer – shell_pid=916541 – Started implementation via action command
