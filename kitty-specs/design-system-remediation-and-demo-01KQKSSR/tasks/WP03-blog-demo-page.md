@@ -10,7 +10,7 @@ requirement_refs:
 - FR-211
 planning_base_branch: main
 merge_target_branch: main
-branch_strategy: Work in lane worktree; merge to main on approval.
+branch_strategy: Planning artifacts for this feature were generated on main. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into main unless the human explicitly redirects the landing branch.
 subtasks:
 - T014
 - T015
@@ -26,7 +26,7 @@ agent_profile: frontend-freddy
 authoritative_surface: apps/demo/
 execution_mode: code_change
 owned_files:
-- apps/demo/**
+- apps/demo/blog-demo.html
 role: implementer
 tags: []
 ---
