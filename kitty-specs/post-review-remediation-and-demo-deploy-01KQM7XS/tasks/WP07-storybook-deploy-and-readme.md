@@ -16,7 +16,8 @@ subtasks:
 - T031
 - T032
 - T033
-agent: claude
+agent: "claude:sonnet-4-6:implementer-ivan:implementer"
+shell_pid: "928367"
 history:
 - date: '2026-05-02'
   event: created
@@ -305,3 +306,7 @@ Keep the README under ~80 lines of rendered markdown. The tone is technical and 
 - Confirm the `getting-started.mdx` links use relative paths (`./blog-demo.html`) not absolute URLs
 - Read the README cold — does a new contributor understand the project purpose and know how to get started within 60 seconds?
 - `grep "../../" storybook-static/blog-demo.html` after the CI copy step simulation — must return zero (all relative paths rewritten)
+
+## Activity Log
+
+- 2026-05-02T13:41:56Z – claude:sonnet-4-6:implementer-ivan:implementer – shell_pid=928367 – Started implementation via action command
