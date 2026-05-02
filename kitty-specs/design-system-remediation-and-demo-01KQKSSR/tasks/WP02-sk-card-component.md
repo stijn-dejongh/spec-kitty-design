@@ -18,7 +18,8 @@ subtasks:
 - T011
 - T012
 - T013
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "1979642"
 history:
 - date: '2026-05-02'
   event: created
@@ -219,3 +220,7 @@ Run `node scripts/run-axe-storybook.js` after building — zero violations expec
 ## Reviewer Guidance
 
 Check Blue and Purple card variants visually against the reference `kit.css` — background tint and border should be subtly different from the default card. Verify the BlogCardExample story uses tag + heading + muted text composition. Run axe.
+
+## Activity Log
+
+- 2026-05-02T07:45:51Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1979642 – Started implementation via action command
