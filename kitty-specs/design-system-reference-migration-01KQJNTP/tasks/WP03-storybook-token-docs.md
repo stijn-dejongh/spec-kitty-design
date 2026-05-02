@@ -18,7 +18,8 @@ subtasks:
 - T013
 - T014
 - T015
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "1625658"
 history:
 - date: '2026-05-01'
   event: created
@@ -167,3 +168,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Open each page in the running Storybook and verify: (1) all colour swatches show their `--sk-*` variable name, (2) Typography page renders text in Falling Sky (not system font), (3) Brand page shows logo but no mascot illustrations. Run the Storybook build and confirm it stays under 3 minutes.
+
+## Activity Log
+
+- 2026-05-02T06:23:24Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
