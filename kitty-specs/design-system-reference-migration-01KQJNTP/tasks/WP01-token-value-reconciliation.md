@@ -159,3 +159,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Diff `token-catalogue.json` against the completed ADR-003 addendum — every token in the catalogue should have a corresponding row in the addendum. Check that no `@font-face` rules were accidentally included (those belong in WP02). Verify Stylelint passes on the stub component CSS.
+
+## Activity Log
+
+- 2026-05-02T05:58:40Z – claude – shell_pid=1512948 – Token values reconciled with colors_and_type.css; new categories added; ADR-003 addendum completed
