@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="../../packages/html-js/src/pill-tag/sk-pill-tag.css" />
   <link rel="stylesheet" href="../../packages/html-js/src/button/sk-button.css" />
   <link rel="stylesheet" href="../../packages/html-js/src/nav-pill/sk-nav-pill.css" />
+  <link rel="stylesheet" href="../../packages/html-js/src/nav-pill/sk-nav-pill-drawer.css" />
   <link rel="stylesheet" href="../../packages/html-js/src/section-banner/sk-section-banner.css" />
 
   <style>
@@ -288,10 +289,9 @@
       color: var(--sk-color-green);
     }
 
-    /* Done: card surface at 60% opacity, muted dot */
+    /* Done: muted card surface and dot — no opacity cascade (FR-008) */
     .dash-lane__header--done {
       background: var(--sk-surface-card);
-      opacity: 0.6;
       color: var(--sk-fg-muted);
     }
 
@@ -306,7 +306,6 @@
       font-size: 10px;
       font-weight: var(--sk-weight-regular);
       color: var(--sk-fg-muted);
-      opacity: 1; /* ensure count stays visible inside faded Done header */
     }
 
     /* -----------------------------------------------------------------------
