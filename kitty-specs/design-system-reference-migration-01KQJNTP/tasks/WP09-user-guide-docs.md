@@ -19,7 +19,8 @@ subtasks:
 - T046
 - T047
 - T048
-agent: claude
+agent: "claude:claude-sonnet-4-6:curator-carla:curator"
+shell_pid: "1629773"
 history:
 - date: '2026-05-02'
   event: created
@@ -245,3 +246,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Check: no emoji, sentence case headings, concrete examples rather than vague descriptions. Verify the semantic pairing rule table is present in using-tokens.md. Check that brand-guidelines.md includes the mascot usage policy (C-101). Spot-check 2 component examples in using-components.md for correctness.
+
+## Activity Log
+
+- 2026-05-02T06:24:17Z – claude:claude-sonnet-4-6:curator-carla:curator – shell_pid=1629773 – Started implementation via action command
