@@ -20,7 +20,8 @@ subtasks:
 - T035
 - T036
 - T037
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "1625658"
 history:
 - date: '2026-05-01'
   event: created
@@ -157,3 +158,7 @@ Axe check — ensure card headings have correct hierarchy.
 ## Reviewer Guidance
 
 Check the RibbonCard ribbon is positioned at a 45° angle overlapping the top-right corner. Verify FeatureCard icon chips use the correct tint colours. Note and accept any rgba() deviation in the review.
+
+## Activity Log
+
+- 2026-05-02T06:23:31Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
