@@ -1,0 +1,89 @@
+<!doctype html>
+<html data-theme="dark"><head><meta charset="utf-8">
+<title>Brand — Logo lockups</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body {
+    margin: 0;
+    padding: 40px;
+    background: var(--sk-bg-0);
+    color: var(--sk-fg-0);
+    font-family: var(--sk-font-sans);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 36px;
+    align-items: end;
+  }
+  .cell { display: flex; flex-direction: column; gap: 14px; }
+  .stage {
+    background: var(--sk-bg-1);
+    border: 1px solid var(--sk-border);
+    border-radius: 12px;
+    padding: 28px;
+    display: flex; align-items: center; gap: 18px;
+    min-height: 96px;
+  }
+  .stage.lg { min-height: 220px; justify-content: center; padding: 36px; }
+  /* Light surface: the mascot's outlines are dark, so the cream paper from
+     the brand palette is its natural home. */
+  .stage.light { background: #FAF8F2; border-color: #E6E1D2; }
+  .stage.light .wordmark { color: #14140F; }
+  /* Inverted dark surface: the canonical mark is black-ink-on-white, so
+     filter invert flips it to white-ink-on-black — works well on the dark
+     brand background and keeps the silhouette legible at small sizes. */
+  .stage.dark .mark { filter: invert(1); }
+
+  .wordmark {
+    font-family: var(--sk-font-display);
+    font-weight: 900;
+    color: var(--sk-fg-0);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .label {
+    font-family: var(--sk-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sk-fg-3);
+  }
+  .mark { display: block; }
+</style>
+<script id="__sk-theme-param__">(function(){var p=new URLSearchParams(location.search).get('theme');if(p){document.documentElement.setAttribute('data-theme',p);}})();</script>
+</head><body>
+
+<!-- Lockups reference the canonical brand mascot at assets/logo.png (1024×1024
+     master). The cream-paper stage matches its native ink-on-cream context. -->
+
+<div class="cell">
+  <div class="stage light">
+    <img class="mark" src="../assets/logo.png" width="48" height="48" alt="Spec Kitty">
+    <span class="wordmark" style="font-size: 26px;">Spec Kitty</span>
+  </div>
+  <div class="label">Primary lockup · cream paper · 48px mark / 26px wordmark</div>
+</div>
+
+<div class="cell">
+  <div class="stage light">
+    <img class="mark" src="../assets/logo.png" width="28" height="28" alt="Spec Kitty">
+    <span class="wordmark" style="font-size: 16px;">Spec Kitty</span>
+  </div>
+  <div class="label">Compact lockup · 28px mark / 16px wordmark</div>
+</div>
+
+<div class="cell">
+  <div class="stage lg light">
+    <img class="mark" src="../assets/logo.png" width="200" height="200" alt="Spec Kitty">
+  </div>
+  <div class="label">Mark only · 200px (canonical 1024×1024 master, downsamples cleanly)</div>
+</div>
+
+<div class="cell">
+  <div class="stage lg dark">
+    <img class="mark" src="../assets/logo.png" width="48" height="48" alt="Spec Kitty">
+    <span class="wordmark" style="font-size: 26px;">Spec Kitty</span>
+  </div>
+  <div class="label">Inverted lockup · dark surface (mark inverted)</div>
+</div>
+
+</body></html>

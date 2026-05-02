@@ -1,0 +1,511 @@
+<!doctype html>
+<html data-theme="light"><head><meta charset="utf-8">
+<title>Light mode — surface system</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body {
+    margin: 0;
+    padding: 40px;
+    background: var(--sk-bg-0);
+    color: var(--sk-fg-1);
+    font-family: var(--sk-font-sans);
+    font-size: var(--sk-fs-body);
+    line-height: var(--sk-lh-base);
+  }
+  .page-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 8px;
+  }
+  .page-title h1 {
+    font-family: var(--sk-font-display);
+    font-weight: var(--sk-fw-black);
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--sk-fg-0);
+    margin: 0;
+  }
+  .page-title .meta {
+    font-family: var(--sk-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sk-fg-3);
+  }
+  .lead {
+    font-size: 16px;
+    color: var(--sk-fg-2);
+    max-width: 780px;
+    margin: 0 0 36px 0;
+    text-wrap: pretty;
+  }
+
+  .label {
+    font-family: var(--sk-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sk-fg-3);
+    margin: 0 0 12px 0;
+  }
+
+  /* Surface scale ---------------------------------------------- */
+  .scale-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .swatch {
+    border-radius: var(--sk-radius-lg);
+    border: 1px solid var(--sk-border);
+    padding: 60px 14px 14px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: var(--sk-shadow-card);
+  }
+  .swatch .name { font-weight: 600; color: var(--sk-fg-0); font-size: 14px; }
+  .swatch .hex  { font-family: var(--sk-font-mono); font-size: 11px; color: var(--sk-fg-2); margin-top: 2px; }
+  .swatch .role { font-size: 11px; color: var(--sk-fg-3); margin-top: 6px; line-height: 1.35; }
+
+  /* Section --------------------------------------------------- */
+  .section { margin-bottom: 44px; }
+  .section h2 {
+    font-family: var(--sk-font-display);
+    font-weight: var(--sk-fw-bold);
+    font-size: 22px;
+    margin: 0 0 4px 0;
+    color: var(--sk-fg-0);
+  }
+  .section .desc {
+    color: var(--sk-fg-2);
+    margin: 0 0 18px 0;
+    max-width: 720px;
+  }
+
+  /* Mock dashboard --------------------------------------------- */
+  .mock-card {
+    background: var(--sk-bg-2);
+    border: 1px solid var(--sk-border-strong);
+    border-radius: var(--sk-radius-xl);
+    box-shadow: var(--sk-shadow-card);
+    overflow: hidden;
+  }
+  .mock-header {
+    padding: 24px 28px 18px;
+    border-bottom: 1px solid var(--sk-border);
+  }
+  .mock-header .title {
+    font-family: var(--sk-font-display);
+    font-weight: var(--sk-fw-black);
+    font-size: 22px;
+    color: var(--sk-sage);
+    margin: 0 0 4px 0;
+  }
+  .mock-header .subtitle {
+    color: var(--sk-fg-2);
+    font-size: 14px;
+  }
+  .mock-body { padding: 24px 28px; }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .stat {
+    background: var(--sk-bg-2);
+    border: 1px solid var(--sk-border);
+    border-left: 3px solid var(--sk-border-strong);
+    border-radius: var(--sk-radius-md);
+    padding: 14px 16px;
+    box-shadow: var(--sk-shadow-card);
+  }
+  .stat .lbl {
+    font-family: var(--sk-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sk-fg-3);
+    margin-bottom: 8px;
+  }
+  .stat .num {
+    font-family: var(--sk-font-display);
+    font-weight: var(--sk-fw-black);
+    font-size: 32px;
+    color: var(--sk-fg-0);
+    line-height: 1;
+  }
+  .stat .sub {
+    color: var(--sk-fg-3);
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .stat--mint   { border-left-color: var(--sk-on-mint);   }
+  .stat--butter { border-left-color: var(--sk-yellow);    }
+  .stat--lilac  { border-left-color: var(--sk-on-lilac);  }
+  .stat--sage   { border-left-color: var(--sk-sage);      }
+
+  .progress {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--sk-bg-3);
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .progress > span {
+    display: block;
+    height: 100%;
+    background: var(--sk-sage);
+    border-radius: 3px;
+  }
+
+  .artifact-list { display: flex; flex-direction: column; gap: 8px; }
+  .artifact-row {
+    background: var(--sk-tint-mint);
+    border: 1px solid rgba(45, 90, 45, 0.12);
+    border-left: 3px solid var(--sk-on-mint);
+    border-radius: var(--sk-radius-md);
+    padding: 12px 16px;
+    color: var(--sk-on-mint);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .artifact-row .ico { font-size: 14px; opacity: 0.9; }
+  .artifact-row .name { font-weight: 600; color: var(--sk-fg-0); }
+  .artifact-row .ok { margin-left: auto; color: var(--sk-on-mint); font-weight: 600; }
+
+  /* Tint cards ------------------------------------------------- */
+  .tint-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .tint-card {
+    border-radius: var(--sk-radius-lg);
+    padding: 18px 20px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tint-card .eyebrow {
+    font-family: var(--sk-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .tint-card .ttl {
+    font-family: var(--sk-font-display);
+    font-weight: var(--sk-fw-bold);
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .tint-card .body { font-size: 13px; line-height: 1.45; opacity: 0.85; }
+  .tint-card .token {
+    font-family: var(--sk-font-mono);
+    font-size: 11px;
+    margin-top: auto;
+    opacity: 0.7;
+  }
+  .tint-card.mint   { background: var(--sk-tint-mint);   color: var(--sk-on-mint);   border: 1px solid rgba(45,90,45,0.12); }
+  .tint-card.butter { background: var(--sk-tint-butter); color: var(--sk-on-butter); border: 1px solid rgba(107,90,14,0.15); }
+  .tint-card.lilac  { background: var(--sk-tint-lilac);  color: var(--sk-on-lilac);  border: 1px solid rgba(74,61,120,0.12); }
+  .tint-card.sky    { background: var(--sk-tint-sky);    color: var(--sk-on-sky);    border: 1px solid rgba(46,74,107,0.12); }
+  .tint-card .ttl, .tint-card .body { color: inherit; }
+  /* Body text override: keep title + body in dark fg, only label in tint color */
+  .tint-card .body { color: var(--sk-fg-1); opacity: 0.95; }
+  .tint-card .ttl  { color: var(--sk-fg-0); }
+
+  /* Buttons row ----------------------------------------------- */
+  .btn-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .btn {
+    height: 40px;
+    padding: 0 18px;
+    border-radius: var(--sk-radius-pill);
+    font-family: var(--sk-font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn--primary {
+    background: var(--sk-yellow);
+    color: var(--sk-accent-fg);
+    box-shadow: var(--sk-shadow-glow-yellow);
+  }
+  .btn--secondary {
+    background: var(--sk-bg-2);
+    color: var(--sk-fg-0);
+    border-color: var(--sk-border-strong);
+  }
+  .btn--ghost {
+    background: transparent;
+    color: var(--sk-fg-1);
+    border-color: var(--sk-border);
+  }
+  .btn--dark {
+    background: #14140F;
+    color: #fff;
+  }
+
+  /* Token list ------------------------------------------------ */
+  .token-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--sk-bg-2);
+    border: 1px solid var(--sk-border-strong);
+    border-radius: var(--sk-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--sk-shadow-card);
+  }
+  .token-table th, .token-table td {
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--sk-border);
+  }
+  .token-table tr:last-child td { border-bottom: 0; }
+  .token-table th {
+    font-family: var(--sk-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sk-fg-3);
+    background: var(--sk-bg-3);
+    font-weight: 500;
+  }
+  .token-table .tok { font-family: var(--sk-font-mono); color: var(--sk-fg-1); white-space: nowrap; }
+  .token-table .hx  { font-family: var(--sk-font-mono); color: var(--sk-fg-2); font-size: 12px; }
+  .chip {
+    display: inline-block;
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    border: 1px solid var(--sk-border-strong);
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  /* Pills ------------------------------------------------------ */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 28px;
+    padding: 0 12px;
+    border-radius: var(--sk-radius-pill);
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid transparent;
+  }
+  .pill--lilac  { background: var(--sk-tint-lilac);  color: var(--sk-on-lilac);  border-color: rgba(74,61,120,0.15); }
+  .pill--mint   { background: var(--sk-tint-mint);   color: var(--sk-on-mint);   border-color: rgba(45,90,45,0.18); }
+  .pill--butter { background: var(--sk-tint-butter); color: var(--sk-on-butter); border-color: rgba(107,90,14,0.18); }
+  .pill--sky    { background: var(--sk-tint-sky);    color: var(--sk-on-sky);    border-color: rgba(46,74,107,0.15); }
+
+  /* Footnote --------------------------------------------------- */
+  .note {
+    background: var(--sk-tint-butter);
+    border: 1px solid rgba(107,90,14,0.18);
+    border-left: 3px solid var(--sk-yellow);
+    border-radius: var(--sk-radius-md);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--sk-fg-1);
+    margin-top: 12px;
+  }
+  .note b { color: var(--sk-on-butter); }
+</style>
+</head>
+<body>
+
+  <div class="page-title">
+    <h1>Light mode</h1>
+    <span class="meta">Cream · Sage · Pastel tints</span>
+  </div>
+  <p class="lead">
+    Light mode anchors on a warm cream page (<code style="font-family:var(--sk-font-mono); font-size:13px;">#F8F5EC</code>) with pure white cards lifted by soft shadows and hairline borders. Sage replaces yellow as the headline accent — yellow is reserved for primary buttons, the bow on the mascot, and focus borders. Status surfaces use four high-key pastel tints: mint, butter, lilac, sky.
+  </p>
+
+  <!-- ============== SURFACE SCALE ============== -->
+  <div class="section">
+    <h2>Surface scale</h2>
+    <p class="desc">Six steps from the cream page background up to the warm-gray muted panel. Cards are pure white — they LIFT off the cream page rather than recess into it.</p>
+    <div class="scale-grid">
+      <div class="swatch" style="background:var(--sk-bg-0)">
+        <div class="name">bg-0</div>
+        <div class="hex">#F8F5EC</div>
+        <div class="role">Page background</div>
+      </div>
+      <div class="swatch" style="background:var(--sk-bg-1)">
+        <div class="name">bg-1</div>
+        <div class="hex">#FCFAF4</div>
+        <div class="role">Banded section</div>
+      </div>
+      <div class="swatch" style="background:var(--sk-bg-2)">
+        <div class="name">bg-2</div>
+        <div class="hex">#FFFFFF</div>
+        <div class="role">Card surface</div>
+      </div>
+      <div class="swatch" style="background:var(--sk-bg-3)">
+        <div class="name">bg-3</div>
+        <div class="hex">#F5F1E6</div>
+        <div class="role">Input fill / inset</div>
+      </div>
+      <div class="swatch" style="background:var(--sk-bg-pill)">
+        <div class="name">bg-pill</div>
+        <div class="hex">#ECE7D8</div>
+        <div class="role">Nav rail / chips</div>
+      </div>
+      <div class="swatch" style="background:var(--sk-bg-muted)">
+        <div class="name">bg-muted</div>
+        <div class="hex">#E8E2D0</div>
+        <div class="role">Code block / muted info</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== TINT CARDS ============== -->
+  <div class="section">
+    <h2>Tinted status surfaces</h2>
+    <p class="desc">Pastel tints used on dashboard kanban columns, status chips, "Available" rows, and inline callouts. Each has a paired on-tint ink (<code style="font-family:var(--sk-font-mono); font-size:13px;">--sk-on-mint</code> etc.) for accessible labels.</p>
+    <div class="tint-grid">
+      <div class="tint-card mint">
+        <span class="eyebrow">Done · Available</span>
+        <span class="ttl">Mint</span>
+        <span class="body">Completed work, "available" artifact rows, success states.</span>
+        <span class="token">--sk-tint-mint · #E8F4E8</span>
+      </div>
+      <div class="tint-card butter">
+        <span class="eyebrow">Doing · Next up</span>
+        <span class="ttl">Butter</span>
+        <span class="body">Active "Next:" callouts, in-progress columns, attention-needed rows.</span>
+        <span class="token">--sk-tint-butter · #FFF6D9</span>
+      </div>
+      <div class="tint-card lilac">
+        <span class="eyebrow">For review · v2.x</span>
+        <span class="ttl">Lilac</span>
+        <span class="body">Review states, version 2.x evolution accents, the Constitution chip.</span>
+        <span class="token">--sk-tint-lilac · #F0EAF8</span>
+      </div>
+      <div class="tint-card sky">
+        <span class="eyebrow">Info · Doctrine</span>
+        <span class="ttl">Sky</span>
+        <span class="body">Information panels, doctrine &amp; knowledge banners, neutral info.</span>
+        <span class="token">--sk-tint-sky · #E4EDF8</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== DASHBOARD-STYLE MOCK ============== -->
+  <div class="section">
+    <h2>System in use — dashboard moment</h2>
+    <p class="desc">Sage is the headline color, butter borders the status stat with attention, mint backs the "Available" rows, lilac tags the version chip. White card on cream page.</p>
+
+    <div class="mock-card">
+      <div class="mock-header">
+        <div class="title">Feature Overview</div>
+        <div class="subtitle">View and track all artifacts for <code style="font-family:var(--sk-font-mono); font-size:13px; color:var(--sk-fg-1)">014-implement-all-privacy</code></div>
+      </div>
+      <div class="mock-body">
+        <div class="stat-row">
+          <div class="stat stat--sage">
+            <div class="lbl">Total tasks</div>
+            <div class="num">35</div>
+            <div class="sub">9 planned</div>
+          </div>
+          <div class="stat stat--butter">
+            <div class="lbl">In progress</div>
+            <div class="num">0</div>
+            <div class="sub">&nbsp;</div>
+          </div>
+          <div class="stat stat--lilac">
+            <div class="lbl">Review</div>
+            <div class="num">2</div>
+            <div class="sub">&nbsp;</div>
+          </div>
+          <div class="stat stat--mint">
+            <div class="lbl">Completed</div>
+            <div class="num">24</div>
+            <div class="sub">69% done</div>
+            <div class="progress"><span style="width:69%"></span></div>
+          </div>
+          <div class="stat">
+            <div class="lbl">Active agents</div>
+            <div class="num">3</div>
+            <div class="sub">codex, claude, human</div>
+          </div>
+        </div>
+        <div class="artifact-list">
+          <div class="artifact-row"><span class="ico">📄</span><span class="name">Specification</span><span class="ok">✓ Available</span></div>
+          <div class="artifact-row"><span class="ico">🗺️</span><span class="name">Plan</span><span class="ok">✓ Available</span></div>
+          <div class="artifact-row"><span class="ico">📋</span><span class="name">Tasks</span><span class="ok">✓ Available</span></div>
+          <div class="artifact-row"><span class="ico">🔬</span><span class="name">Research</span><span class="ok">✓ Available</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== BUTTONS / PILLS ============== -->
+  <div class="section">
+    <h2>Controls on cream</h2>
+    <p class="desc">Yellow stays the primary CTA. Black-ink pill is the secondary "Book Demo" treatment from the marketing site. Sage is text-only — never used as a button fill.</p>
+    <div class="btn-row">
+      <button class="btn btn--primary">Get started</button>
+      <button class="btn btn--dark">Book demo</button>
+      <button class="btn btn--secondary">View docs ↗</button>
+      <button class="btn btn--ghost">Cancel</button>
+      <a href="#" style="color:var(--sk-link); font-weight:600; font-size:14px; padding-left: 8px;">Open feature in Spec Kitty →</a>
+    </div>
+    <div style="margin-top: 18px; display:flex; gap:10px; flex-wrap:wrap;">
+      <span class="pill pill--lilac">📜 Constitution</span>
+      <span class="pill pill--mint">✓ Available</span>
+      <span class="pill pill--butter">⚡ In progress</span>
+      <span class="pill pill--sky">ℹ Info</span>
+    </div>
+  </div>
+
+  <!-- ============== TOKEN REFERENCE ============== -->
+  <div class="section">
+    <h2>Token reference</h2>
+    <p class="desc">All light-mode-specific tokens. Dark-mode equivalents live in the same <code style="font-family:var(--sk-font-mono); font-size:13px;">colors_and_type.css</code> root scope.</p>
+    <table class="token-table">
+      <thead>
+        <tr><th style="width:36%">Token</th><th style="width:18%">Value</th><th>Role</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="tok"><span class="chip" style="background:#F8F5EC"></span>--sk-bg-0</td><td class="hx">#F8F5EC</td><td>Page background — warm cream</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#FFFFFF"></span>--sk-bg-2</td><td class="hx">#FFFFFF</td><td>Card surface — pure white, lifted</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#ECE7D8"></span>--sk-bg-pill</td><td class="hx">#ECE7D8</td><td>Nav rail / chip background</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#E8E2D0"></span>--sk-bg-muted</td><td class="hx">#E8E2D0</td><td>Code block / muted info panel</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#1A1A14"></span>--sk-fg-0</td><td class="hx">#1A1A14</td><td>Headline ink (near-black, warm)</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#4F8F4F"></span>--sk-sage</td><td class="hx">#4F8F4F</td><td>Headline accent + active link (light-mode-only)</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#F5C518"></span>--sk-yellow</td><td class="hx">#F5C518</td><td>Primary CTA, focus border, mascot bow</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#E8F4E8"></span>--sk-tint-mint</td><td class="hx">#E8F4E8</td><td>Done / available rows</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#FFF6D9"></span>--sk-tint-butter</td><td class="hx">#FFF6D9</td><td>"Next:" callouts / in-progress</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#F0EAF8"></span>--sk-tint-lilac</td><td class="hx">#F0EAF8</td><td>For-review / v2.x / Constitution chip</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#E4EDF8"></span>--sk-tint-sky</td><td class="hx">#E4EDF8</td><td>Info panels / doctrine banners</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#EAE4D2"></span>--sk-border</td><td class="hx">#EAE4D2</td><td>Hairline default</td></tr>
+        <tr><td class="tok"><span class="chip" style="background:#D6CFB9"></span>--sk-border-strong</td><td class="hx">#D6CFB9</td><td>Card border / divider</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <b>Sage is light-mode-only.</b> Don't reach for <code style="font-family:var(--sk-font-mono); font-size:12px;">--sk-sage</code> in dark-mode designs — it muddies on a black background. The dark-mode equivalent for headline accents and active links is <code style="font-family:var(--sk-font-mono); font-size:12px;">--sk-yellow</code>.
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!doctype html>
+<html data-theme="dark"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../ui_kits/marketing-website/kit.css">
+<style>
+  body {
+    margin: 0;
+    padding: 28px;
+    background: var(--sk-bg-0);
+    font-family: var(--sk-font-sans);
+    color: var(--sk-fg-1);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .label {
+    font-family: var(--sk-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sk-fg-3);
+    margin-bottom: 12px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  /* ----------------------------------------------------------
+     Ribbon card: a sk-card with an absolutely-positioned label
+     that drops over the top edge. Accent variants paint the
+     ribbon + a hairline of color along the card's top border.
+     ---------------------------------------------------------- */
+  .ribbon-card {
+    position: relative;
+    padding: 24px;
+    overflow: visible;
+  }
+  .ribbon-card .ribbon {
+    position: absolute;
+    top: 0;
+    right: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--sk-font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 0 0 6px 6px;
+  }
+  .ribbon-card .ribbon svg {
+    width: 12px;
+    height: 12px;
+    stroke-width: 2.4;
+  }
+
+  /* Accent palette for the ribbon — fill is solid color, text
+     is the same warm/neutral ink so all variants read as "label". */
+  .ribbon--yellow { background: var(--sk-yellow);   color: #1A1408; }
+  .ribbon--haygold{ background: var(--sk-haygold);  color: #2A1F08; }
+  .ribbon--blue   { background: var(--sk-blue);     color: #0E1828; }
+  .ribbon--purple { background: var(--sk-purple);   color: #1B0F38; }
+  .ribbon--green  { background: var(--sk-green);    color: #0E2415; }
+  .ribbon--red    { background: var(--sk-red);      color: #2A0F0F; }
+
+  .ribbon-card h3 { margin: 14px 0 6px; }
+  .ribbon-card p  { margin: 0; font-size: 13px; line-height: 1.55; color: var(--sk-fg-2); }
+
+  /* ----------------------------------------------------------
+     Watercolor-banner variant: full-bleed card with a fading
+     hand-drawn illustration as the background. The illustration
+     anchors right and fades out left with a horizontal mask, so
+     copy on the left always reads cleanly.
+     ---------------------------------------------------------- */
+  .banner {
+    position: relative;
+    background: var(--sk-bg-2);
+    border: 1px solid var(--sk-border);
+    border-radius: var(--sk-radius-lg);
+    padding: 28px 32px;
+    overflow: hidden;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+  }
+  .banner .ribbon {
+    position: absolute;
+    top: 0;
+    right: 32px;
+  }
+  .banner .banner-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .banner .banner-bg img {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 220%;
+    max-height: 360px;
+    width: auto;
+    object-fit: contain;
+    /* Fade the illustration: opaque on the right, transparent on
+       the left, so headline copy sits clean. We layer two effects:
+       a horizontal mask gradient for the left fade, and a low
+       overall opacity so it stays a quiet backdrop, not a billboard. */
+    opacity: 0.42;
+    mask-image: linear-gradient(to left, black 38%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to left, black 38%, transparent 95%);
+  }
+  .banner .banner-content {
+    position: relative;
+    z-index: 1;
+    max-width: 60%;
+  }
+  .banner h3 { margin: 0 0 8px; }
+  .banner p  { margin: 0; font-size: 14px; line-height: 1.55; color: var(--sk-fg-2); }
+</style>
+<script id="__sk-theme-param__">(function(){var p=new URLSearchParams(location.search).get('theme');if(p){document.documentElement.setAttribute('data-theme',p);}})();</script>
+</head><body>
+
+<!-- =========================================================
+     1. Ribbon variants across the accent palette
+     ========================================================= -->
+<div>
+  <div class="label">Ribbon · accent variants</div>
+  <div class="grid">
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--yellow">Primary Workshop</div>
+      <h3 class="sk-h4">Full-day rollout workshop</h3>
+      <p>Get product, engineering, and reviewers aligned on Spec Kitty in your environment.</p>
+    </article>
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--haygold">Founders Program</div>
+      <h3 class="sk-h4">Spec Kitty for early teams</h3>
+      <p>Co-design specs with our team across your first three feature launches.</p>
+    </article>
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--blue">Office Hours</div>
+      <h3 class="sk-h4">Open clinic · Thursdays</h3>
+      <p>Bring a real PR. We'll walk through specifying, planning, and reviewing it on the spot.</p>
+    </article>
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--purple">v2.x Preview</div>
+      <h3 class="sk-h4">Skills Pack beta</h3>
+      <p>Try the new evolution of Spec Kitty with reusable agent skills baked in.</p>
+    </article>
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--green">Now stable</div>
+      <h3 class="sk-h4">SemVer release channel</h3>
+      <p>Production-ready releases with our standard breaking-change policy.</p>
+    </article>
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--red">Breaking</div>
+      <h3 class="sk-h4">Migration: v1 → v2 schema</h3>
+      <p>Schema Gate now rejects unspecified review steps. Run the migration before upgrading.</p>
+    </article>
+
+  </div>
+</div>
+
+<!-- =========================================================
+     2. Iconographic ribbons — icon + label pairing
+     ========================================================= -->
+<div>
+  <div class="label">Ribbon · with iconographic element</div>
+  <div class="grid">
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--yellow">
+        <!-- bolt -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/></svg>
+        Quickstart
+      </div>
+      <h3 class="sk-h4">Open-source CLI quickstart</h3>
+      <p>One command to install. First spec drafted in under five minutes.</p>
+    </article>
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--blue">
+        <!-- info -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="8" r="0.5" fill="currentColor"/></svg>
+        Heads up
+      </div>
+      <h3 class="sk-h4">Coordinator routing change</h3>
+      <p>Coordinator now picks reviewers based on the spec's <code>area</code> field. Update your <code>.spec-kitty</code> config.</p>
+    </article>
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--purple">
+        <!-- sparkles -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l1.6 4.4L18 10l-4.4 1.6L12 16l-1.6-4.4L6 10l4.4-1.6L12 4z"/><path d="M19 15l.7 1.8L21.5 17.5l-1.8.7L19 20l-.7-1.8L16.5 17.5l1.8-.7L19 15z"/></svg>
+        Skills Pack
+      </div>
+      <h3 class="sk-h4">Reusable review skills</h3>
+      <p>Package your team's review heuristics once; every reviewer agent inherits them.</p>
+    </article>
+
+    <article class="sk-card ribbon-card">
+      <div class="ribbon ribbon--green">
+        <!-- check -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg>
+        Verified
+      </div>
+      <h3 class="sk-h4">Schema Gate · all checks passing</h3>
+      <p>Every merged PR this week passed the spec-conformance gate without a manual override.</p>
+    </article>
+
+  </div>
+</div>
+
+<!-- =========================================================
+     3. Watercolor banner — fading illustration as backdrop
+     ========================================================= -->
+<div>
+  <div class="label">Watercolor banner · fading illustration backdrop</div>
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+
+    <article class="banner">
+      <div class="banner-bg">
+        <img src="../assets/illustration-team-workflow.webp" alt="">
+      </div>
+      <div class="ribbon ribbon--yellow">Workshop</div>
+      <div class="banner-content">
+        <h3 class="sk-h3" style="font-family: var(--sk-font-display); font-weight: 800; letter-spacing: -0.01em;">Bring your team into spec-driven flow</h3>
+        <p>One day with our coaches and your charter, plan, tasks, and review loop are wired up across your stack.</p>
+      </div>
+    </article>
+
+    <article class="banner">
+      <div class="banner-bg">
+        <img src="../assets/illustration-future.webp" alt="">
+      </div>
+      <div class="ribbon ribbon--haygold">Roadmap</div>
+      <div class="banner-content">
+        <h3 class="sk-h3" style="font-family: var(--sk-font-display); font-weight: 800; letter-spacing: -0.01em;">Where Spec Kitty is heading next</h3>
+        <p>Skills Pack, evolved coordinators, and a calmer review surface. The full v2.x story, in plain language.</p>
+      </div>
+    </article>
+
+    <article class="banner">
+      <div class="banner-bg">
+        <img src="../assets/illustration-legacy.webp" alt="">
+      </div>
+      <div class="ribbon ribbon--purple">Field notes</div>
+      <div class="banner-content">
+        <h3 class="sk-h3" style="font-family: var(--sk-font-display); font-weight: 800; letter-spacing: -0.01em;">Refactoring legacy code with agents</h3>
+        <p>How to apply Spec Kitty when the codebase predates the modern toolchain — and the original authors are long gone.</p>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+</body></html>

@@ -1,0 +1,2 @@
+<!-- Shared boilerplate for preview cards -->
+<!-- Each card: 700×~150-400px, on dark surface matching brand. -->

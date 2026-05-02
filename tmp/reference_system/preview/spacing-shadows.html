@@ -1,0 +1,63 @@
+<!doctype html>
+<html data-theme="dark"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body {
+    margin: 0;
+    padding: 32px;
+    background: var(--sk-bg-0);
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    font-family: var(--sk-font-sans);
+  }
+  .item { text-align: center; width: 160px; }
+  /* Demo box. The 1px border belongs to the surface, not the focus
+     state — so on the focus example we strip it and let the yellow
+     border come from the focused-input rule alone. */
+  .demo {
+    height: 90px;
+    border-radius: 14px;
+    background: var(--sk-bg-2);
+    border: 1px solid var(--sk-border-strong);
+    box-sizing: border-box;
+  }
+  .name { font-size: 12px; color: var(--sk-fg-0); font-weight: 600; margin-top: 14px; }
+  .label { font-family: var(--sk-font-mono); font-size: 11px; color: var(--sk-fg-3); margin-top: 2px; }
+
+  /* Focus example — read the value from the token so this card
+     stays in sync with the rest of the kit. The single border is
+     the brand-yellow stroke; the shadow is the muted-dark halo. */
+  .demo.focus {
+    border: 1px solid var(--sk-yellow);
+    box-shadow: var(--sk-shadow-focus);
+  }
+</style><script id="__sk-theme-param__">(function(){var p=new URLSearchParams(location.search).get('theme');if(p){document.documentElement.setAttribute('data-theme',p);}})();</script>
+</head><body>
+
+<div class="item">
+  <div class="demo"></div>
+  <div class="name">card</div>
+  <div class="label">hairline border, no shadow</div>
+</div>
+
+<div class="item">
+  <div class="demo" style="box-shadow: var(--sk-shadow-elev);"></div>
+  <div class="name">elev</div>
+  <div class="label">overlays, popovers</div>
+</div>
+
+<div class="item">
+  <div class="demo" style="background: var(--sk-yellow); border-color: var(--sk-yellow); box-shadow: var(--sk-shadow-glow-yellow);"></div>
+  <div class="name">glow yellow</div>
+  <div class="label">primary CTA hover</div>
+</div>
+
+<div class="item">
+  <div class="demo focus"></div>
+  <div class="name">focus ring</div>
+  <div class="label">single yellow border + muted dark halo</div>
+</div>
+
+</body></html>

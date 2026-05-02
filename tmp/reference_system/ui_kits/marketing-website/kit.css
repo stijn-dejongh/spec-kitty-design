@@ -1,0 +1,403 @@
+/* =============================================================
+   Spec Kitty UI Kit — shared component styles
+   Layered on top of colors_and_type.css.
+   ============================================================= */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--sk-font-sans);
+  font-size: var(--sk-fs-body);
+  color: var(--sk-fg-1);
+  background: var(--sk-bg-0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: var(--sk-lh-base);
+}
+a { color: var(--sk-link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Top-nav pill hover (non-active items) ---------- */
+.sk-nav-link {
+  transition: background var(--sk-dur-fast) var(--sk-ease-out),
+              color var(--sk-dur-fast) var(--sk-ease-out),
+              border-color var(--sk-dur-fast) var(--sk-ease-out);
+}
+.sk-nav-link:hover {
+  background: var(--sk-bg-pill);
+  color: var(--sk-fg-0);
+  text-decoration: none;
+}
+.sk-nav-link.is-active:hover {
+  /* keep the yellow active treatment intact, just bump the glow */
+  filter: brightness(1.05);
+  text-decoration: none;
+}
+.sk-icon-btn {
+  transition: background var(--sk-dur-fast) var(--sk-ease-out),
+              border-color var(--sk-dur-fast) var(--sk-ease-out),
+              color var(--sk-dur-fast) var(--sk-ease-out);
+}
+.sk-icon-btn:hover {
+  background: var(--sk-bg-3);
+  border-color: var(--sk-fg-3);
+  color: var(--sk-fg-0);
+  text-decoration: none;
+}
+
+/* ---------- Tables ---------- */
+.sk-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.sk-table tbody tr {
+  transition: background var(--sk-dur-fast) var(--sk-ease-out);
+}
+.sk-table tbody tr:hover {
+  /* Subtle hover band — slightly warmer than bg-3 so it pops above the
+     zebra alternation without overpowering the featured column accent. */
+  background: var(--sk-bg-pill) !important;
+}
+/* Featured column: tinted background + brighter text. Cells in this column
+   carry .sk-table__featured (header + body); the zebra row sets a `--row-zebra`
+   var that mixes with the featured tint via a layered background. */
+.sk-table__featured {
+  background:
+    linear-gradient(rgba(245,197,24,0.10), rgba(245,197,24,0.10)),
+    var(--row-zebra, transparent);
+  color: var(--sk-fg-0) !important;
+}
+.sk-table__featured-head {
+  background: rgba(245,197,24,0.14);
+  color: var(--sk-yellow) !important;
+}
+/* Hover sits ON TOP of the featured tint for that one cell so the row band
+   still reads through the column color. */
+.sk-table tbody tr:hover .sk-table__featured {
+  background:
+    linear-gradient(rgba(245,197,24,0.18), rgba(245,197,24,0.18)),
+    var(--sk-bg-pill) !important;
+}
+.sk-footer-link {
+  color: var(--sk-fg-1);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  /* Reserve the underline space so hover doesn't shift the layout. */
+  text-decoration-color: transparent;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: color var(--sk-dur-fast) var(--sk-ease-out),
+              text-decoration-color var(--sk-dur-fast) var(--sk-ease-out);
+}
+.sk-footer-link:hover {
+  color: var(--sk-fg-0);
+  text-decoration-color: var(--sk-yellow);
+}
+
+/* ---------- Layout ---------- */
+.sk-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.sk-section {
+  padding: var(--sk-space-9) 0;
+}
+.sk-section--tight { padding: var(--sk-space-7) 0; }
+
+/* ---------- Buttons ---------- */
+.sk-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sk-font-sans);
+  font-weight: var(--sk-fw-bold);
+  font-size: 15px;
+  line-height: 1;
+  padding: 14px 22px;
+  border-radius: var(--sk-radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--sk-dur-fast) var(--sk-ease-out),
+              border-color var(--sk-dur-fast) var(--sk-ease-out),
+              transform var(--sk-dur-fast) var(--sk-ease-out),
+              box-shadow var(--sk-dur-base) var(--sk-ease-out);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.sk-btn:active { transform: scale(0.97); }
+.sk-btn--primary {
+  background: var(--sk-yellow);
+  color: var(--sk-accent-fg);
+}
+.sk-btn--primary:hover {
+  background: var(--sk-yellow-soft);
+  box-shadow: var(--sk-shadow-glow-yellow);
+  text-decoration: none;
+}
+.sk-btn--secondary {
+  background: transparent;
+  color: var(--sk-fg-0);
+  border-color: var(--sk-border-strong);
+}
+.sk-btn--secondary:hover {
+  border-color: var(--sk-fg-3);
+  background: var(--sk-bg-2);
+  text-decoration: none;
+}
+.sk-btn--ghost {
+  background: transparent;
+  color: var(--sk-fg-0);
+  padding: 14px 8px;
+}
+.sk-btn--ghost:hover { color: var(--sk-yellow); text-decoration: none; }
+
+.sk-btn--sm { padding: 9px 16px; font-size: 14px; }
+
+/* ---------- Pills / chips ---------- */
+.sk-eyebrow-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--sk-bg-pill);
+  border: 1px solid var(--sk-border);
+  border-radius: var(--sk-radius-pill);
+  /* Match the tag treatment: JetBrains Mono, uppercase, tracked. */
+  font-family: var(--sk-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--sk-tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--sk-fg-1);
+}
+.sk-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--sk-bg-3);
+  border: 1px solid var(--sk-border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: var(--sk-font-mono);
+  color: var(--sk-fg-2);
+}
+.sk-tag--breaking {
+  background: rgba(233,115,115,0.10);
+  border-color: rgba(233,115,115,0.35);
+  color: var(--sk-red-soft);
+}
+.sk-tag--green {
+  background: rgba(143,203,143,0.10);
+  border-color: rgba(143,203,143,0.30);
+  color: var(--sk-green);
+}
+.sk-tag--purple {
+  background: rgba(184,169,224,0.10);
+  border-color: rgba(184,169,224,0.30);
+  color: var(--sk-purple);
+}
+.sk-tag--yellow {
+  background: rgba(245,197,24,0.10);
+  border-color: rgba(245,197,24,0.30);
+  color: var(--sk-yellow);
+}
+
+/* ---------- Cards ---------- */
+.sk-card {
+  background: var(--sk-bg-2);
+  border: 1px solid var(--sk-border-strong);
+  border-radius: var(--sk-radius-lg);
+  padding: 28px;
+}
+.sk-card--inset {
+  background: var(--sk-bg-1);
+  border-color: var(--sk-border);
+}
+.sk-card--blue {
+  background: var(--sk-blue-bg);
+  border-color: rgba(169,199,232,0.20);
+}
+.sk-card--purple {
+  background: var(--sk-purple-bg);
+  border-color: rgba(184,169,224,0.25);
+}
+
+/* ---------- Forms ---------- */
+.sk-field-label {
+  font-family: var(--sk-font-mono);
+  font-size: 11px;
+  letter-spacing: var(--sk-tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--sk-fg-3);
+  margin-bottom: 10px;
+  display: block;
+}
+.sk-input, .sk-select, .sk-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--sk-bg-2);
+  border: 1px solid var(--sk-border-strong);
+  /* radius-md (12px) — rounded but finite. radius-pill made the
+     rounded ends antialias to a visually thinner stroke. */
+  border-radius: var(--sk-radius-md);
+  padding: 14px 20px;
+  font-family: var(--sk-font-sans);
+  font-size: 15px;
+  color: var(--sk-fg-0);
+  transition: border-color var(--sk-dur-fast) var(--sk-ease-out),
+              box-shadow var(--sk-dur-fast) var(--sk-ease-out);
+  outline: none;
+}
+.sk-input::placeholder { color: var(--sk-fg-4); }
+.sk-input:focus, .sk-select:focus, .sk-textarea:focus {
+  border-color: var(--sk-yellow);
+  box-shadow: var(--sk-shadow-focus);
+}
+.sk-textarea {
+  border-radius: var(--sk-radius-md);
+  min-height: 100px;
+  resize: vertical;
+}
+.sk-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%236E6E78' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='1 1.5 6 6.5 11 1.5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 44px;
+}
+.sk-error {
+  color: var(--sk-red);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* ---------- Bullets ---------- */
+.sk-list { list-style: none; padding: 0; margin: 0; }
+.sk-list li {
+  position: relative;
+  padding-left: 20px;
+  margin: 12px 0;
+  color: var(--sk-fg-2);
+}
+.sk-list li::before {
+  content: "";
+  position: absolute;
+  left: 4px; top: 9px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--sk-haygold);
+}
+.sk-list--check li {
+  padding-left: 30px;
+  color: var(--sk-fg-2);
+}
+.sk-list--check li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 2px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: rgba(143,203,143,0.12);
+  border: 1px solid rgba(143,203,143,0.30);
+}
+.sk-list--check li::after {
+  content: "";
+  position: absolute;
+  left: 4px; top: 7px;
+  width: 10px; height: 6px;
+  border-left: 2px solid var(--sk-green);
+  border-bottom: 2px solid var(--sk-green);
+  transform: rotate(-45deg);
+}
+
+/* ---------- Eyebrow / divider ---------- */
+.sk-divider { height: 1px; background: var(--sk-border); border: 0; margin: var(--sk-space-7) 0; }
+
+/* ---------- Code ---------- */
+.sk-code-inline {
+  font-family: var(--sk-font-mono);
+  font-size: 13px;
+  background: var(--sk-bg-3);
+  border: 1px solid var(--sk-border);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+
+/* =============================================================
+   Light-mode component overrides
+   ----------------------------------------------------------------
+   The dark-mode defaults above use ~10% colored fills on a dark
+   surface, which read as nearly invisible on cream. Switch the
+   tagged surfaces to the matching tint tokens (mint / lilac /
+   butter / sky) and bump fg to the on-tint inks for legibility.
+   ============================================================= */
+:root[data-theme="light"] .sk-tag--breaking,
+.sk-light .sk-tag--breaking {
+  background: #FCE5E5;
+  border-color: rgba(180, 70, 70, 0.25);
+  color: #9A3838;
+}
+:root[data-theme="light"] .sk-tag--green,
+.sk-light .sk-tag--green {
+  background: var(--sk-tint-mint);
+  border-color: rgba(45, 90, 45, 0.20);
+  color: var(--sk-on-mint);
+}
+:root[data-theme="light"] .sk-tag--purple,
+.sk-light .sk-tag--purple {
+  background: var(--sk-tint-lilac);
+  border-color: rgba(74, 61, 120, 0.20);
+  color: var(--sk-on-lilac);
+}
+:root[data-theme="light"] .sk-tag--yellow,
+.sk-light .sk-tag--yellow {
+  background: var(--sk-tint-butter);
+  border-color: rgba(107, 90, 14, 0.22);
+  color: var(--sk-on-butter);
+}
+
+/* Tinted cards: in dark mode the deep tints (--sk-blue-bg etc.)
+   already do the right thing. In light mode they alias to the
+   pastel tints, so just switch the inner border to match. */
+:root[data-theme="light"] .sk-card--blue,
+.sk-light .sk-card--blue {
+  border-color: rgba(46, 74, 107, 0.15);
+}
+:root[data-theme="light"] .sk-card--purple,
+.sk-light .sk-card--purple {
+  border-color: rgba(74, 61, 120, 0.18);
+}
+
+/* Featured row in tables: the yellow gradient overlay is too
+   subtle on cream. Switch to butter tint. */
+:root[data-theme="light"] .sk-table__featured,
+.sk-light .sk-table__featured {
+  background:
+    linear-gradient(rgba(245,197,24,0.18), rgba(245,197,24,0.18)),
+    var(--row-zebra, transparent);
+}
+:root[data-theme="light"] .sk-table__featured-head,
+.sk-light .sk-table__featured-head {
+  background: rgba(245,197,24,0.28);
+  color: var(--sk-on-butter) !important;
+}
+:root[data-theme="light"] .sk-table tbody tr:hover .sk-table__featured,
+.sk-light .sk-table tbody tr:hover .sk-table__featured {
+  background:
+    linear-gradient(rgba(245,197,24,0.28), rgba(245,197,24,0.28)),
+    var(--sk-bg-pill) !important;
+}
+
+/* Check-list bullet: bump opacities so the dot reads on cream. */
+:root[data-theme="light"] .sk-list--check li::before,
+.sk-light .sk-list--check li::before {
+  background: var(--sk-tint-mint);
+  border-color: rgba(45, 90, 45, 0.30);
+}
+:root[data-theme="light"] .sk-list--check li::after,
+.sk-light .sk-list--check li::after {
+  border-left-color: var(--sk-on-mint);
+  border-bottom-color: var(--sk-on-mint);
+}

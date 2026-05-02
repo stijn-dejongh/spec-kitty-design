@@ -1,0 +1,166 @@
+<!doctype html>
+<html data-theme="dark"><head><meta charset="utf-8">
+<title>Type — Falling Sky display cuts &amp; alternatives</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Alternative display fonts: web-safe options vetted to pair with Falling Sky's
+     humanist-geometric tone. Use these when the licensed family is unavailable
+     (export to a vendor that can't host the OTFs, hand-off to an external
+     partner, web-only campaign with strict licensing, etc.). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Barlow+Condensed:wght@400;600&family=Barlow+Semi+Condensed:wght@600;800&family=Big+Shoulders+Display:wght@600;800&family=Saira+Condensed:wght@400;700&family=Inter:wght@400;700;800&display=swap">
+<style>
+  body {
+    margin: 0;
+    padding: 32px;
+    background: var(--sk-bg-0);
+    color: var(--sk-fg-0);
+    font-family: var(--sk-font-sans);
+  }
+
+  .group {
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--sk-border);
+  }
+  .group:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+
+  .group-title {
+    font-family: var(--sk-font-mono);
+    font-size: 11px;
+    color: var(--sk-fg-2);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .group-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--sk-border);
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 18px;
+  }
+  .row:last-child { margin-bottom: 0; }
+
+  .label {
+    font-family: var(--sk-font-mono);
+    font-size: 10px;
+    color: var(--sk-fg-3);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .label small {
+    display: block;
+    margin-top: 4px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: none;
+    color: var(--sk-fg-4);
+  }
+
+  .sample {
+    font-size: 34px;
+    line-height: 1.05;
+    color: var(--sk-fg-0);
+  }
+</style><script id="__sk-theme-param__">(function(){var p=new URLSearchParams(location.search).get('theme');if(p){document.documentElement.setAttribute('data-theme',p);}})();</script>
+</head><body>
+
+<!-- ============================================================
+     PRIMARY — Falling Sky display cuts
+     The licensed brand family. Outline has been retired from the
+     guide; if you need a hollow / open treatment, use a thin Light
+     weight or a CSS -webkit-text-stroke instead.
+     ============================================================ -->
+<div class="group">
+  <h3 class="group-title">Falling Sky · Display cuts</h3>
+
+  <div class="row">
+    <div class="label">Condensed
+      <small>narrow column headlines</small>
+    </div>
+    <div class="sample" style="font-family:var(--sk-font-condensed); font-weight:400">Spec-Driven AI Development</div>
+  </div>
+
+  <div class="row">
+    <div class="label">Extended
+      <small>hero numerals · splash</small>
+    </div>
+    <div class="sample" style="font-family:var(--sk-font-extended); font-weight:400">$3,450 / day</div>
+  </div>
+
+  <div class="row">
+    <div class="label">Boldplus
+      <small>heavier-than-bold display</small>
+    </div>
+    <div class="sample" style="font-family:var(--sk-font-boldplus); font-weight:800">Bring Structure</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ALTERNATIVES — when Falling Sky isn't available
+     ============================================================ -->
+<div class="group">
+  <h3 class="group-title">Alternatives · Use when Falling Sky is unavailable</h3>
+
+  <!-- Closest substitute for Falling Sky overall -->
+  <div class="row">
+    <div class="label">Archivo
+      <small>closest stand-in for Falling Sky · all UI</small>
+    </div>
+    <div class="sample" style="font-family:'Archivo', var(--sk-font-sans); font-weight:800; letter-spacing:-0.01em">Spec-Driven AI Development</div>
+  </div>
+
+  <!-- Condensed substitute -->
+  <div class="row">
+    <div class="label">Barlow Condensed
+      <small>substitute for Falling Sky Condensed</small>
+    </div>
+    <div class="sample" style="font-family:'Barlow Condensed', var(--sk-font-sans); font-weight:600">Spec-Driven AI Development</div>
+  </div>
+
+  <!-- Mid-condensed display -->
+  <div class="row">
+    <div class="label">Big Shoulders Display
+      <small>poster headlines · loud display</small>
+    </div>
+    <div class="sample" style="font-family:'Big Shoulders Display', var(--sk-font-sans); font-weight:800; letter-spacing:0.005em">BRING STRUCTURE</div>
+  </div>
+
+  <!-- Extended-leaning substitute -->
+  <div class="row">
+    <div class="label">Saira Condensed
+      <small>geometric · numerals &amp; data</small>
+    </div>
+    <div class="sample" style="font-family:'Saira Condensed', var(--sk-font-sans); font-weight:700">$3,450 / day</div>
+  </div>
+
+  <!-- Body-safe fallback -->
+  <div class="row">
+    <div class="label">Inter
+      <small>last-resort body &amp; UI fallback</small>
+    </div>
+    <div class="sample" style="font-family:'Inter', var(--sk-font-sans); font-weight:700; letter-spacing:-0.005em">Bring Structure</div>
+  </div>
+
+  <!-- System UI -->
+  <div class="row">
+    <div class="label">System UI
+      <small>final fallback · always available</small>
+    </div>
+    <div class="sample" style="font-family:ui-sans-serif, system-ui, sans-serif; font-weight:800; letter-spacing:-0.01em">Bring Structure</div>
+  </div>
+</div>
+
+</body></html>

@@ -1,0 +1,382 @@
+/* =============================================================
+   Spec Kitty — Colors & Type
+   Foundational tokens for both dark (default) and light modes.
+   ============================================================= */
+
+/* -------- Fonts --------
+   The system ships **two** brand-approved typefaces. Neither is the
+   default — `--sk-font-sans` resolves to `ui-sans-serif` so a
+   bare paragraph is rendered in the OS UI face. Reach for the brand
+   families explicitly via `--sk-font-display` (Falling Sky) or
+   `--sk-font-reference` (Swansea) when the moment calls for it.
+
+   - **Falling Sky** — primary display family. Full range from Light
+     (300) to Black (900), upright + Oblique cuts, plus Condensed,
+     Extended, Outline, and Boldplus display cuts. Use for hero
+     headlines, section H1/H2, big numerals, brand splash moments.
+   - **Swansea** — secondary reference family. A warmer, more
+     traditional grotesque with Regular, Bold, Italic, and Bold
+     Italic. Use for editorial moments inside long-form prose
+     (blog posts, About, changelog entries) where Falling Sky's
+     geometric weight feels too loud.
+   - **Default UI** — `ui-sans-serif`. The system face. Use for
+     dense interface chrome, form labels, table cells, body copy
+     where the brand voice doesn't need to lead.
+   - **Mono** — JetBrains Mono (Google) for code, version chips,
+     and ALL-CAPS eyebrow labels.
+*/
+
+/* --- Falling Sky: upright weights --- */
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyLight-K2EX.otf') format('opentype');     font-weight: 300; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSky-JKwK.otf') format('opentype');          font-weight: 400; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyMedium-ved9.otf') format('opentype');    font-weight: 500; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkySemibold-Bn7B.otf') format('opentype');  font-weight: 600; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyBold-zemL.otf') format('opentype');      font-weight: 700; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyExtrabold-redB.otf') format('opentype'); font-weight: 800; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyBlack-GYXA.otf') format('opentype');     font-weight: 900; font-style: normal;  font-display: swap; }
+
+/* --- Falling Sky: oblique weights --- */
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyLightOblique-2q3o.otf') format('opentype');    font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyOblique-n5XV.otf') format('opentype');         font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyMediumOblique-leLD.otf') format('opentype');   font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkySemiboldOblique-8q7M.otf') format('opentype'); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyBoldOblique-5zmv.otf') format('opentype');     font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyExtraboldOblique-MwdP.otf') format('opentype'); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('fonts/FallingSkyBlackOblique-j37y.otf') format('opentype');    font-weight: 900; font-style: italic; font-display: swap; }
+
+/* --- Falling Sky: Bold-plus (a heavier-than-Bold display cut) --- */
+@font-face { font-family: 'Falling Sky Boldplus'; src: url('fonts/FallingSkyBoldplus-6GZ1.otf') format('opentype');         font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Boldplus'; src: url('fonts/FallingSkyBoldplusOblique-yxmV.otf') format('opentype');  font-weight: 800; font-style: italic; font-display: swap; }
+
+/* --- Falling Sky: Condensed (use for narrow-column headlines) --- */
+@font-face { font-family: 'Falling Sky Condensed'; src: url('fonts/FallingSkyCondensed-9qm2.otf') format('opentype');                   font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Condensed'; src: url('fonts/FallingSkyCondensedOblique-leLw.otf') format('opentype');            font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky Condensed Outline'; src: url('fonts/FallingSkyCondensedOutline-n5XO.otf') format('opentype');             font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Condensed Outline'; src: url('fonts/FallingSkyCondensedOutlineOblique-1qZv.otf') format('opentype');      font-weight: 400; font-style: italic; font-display: swap; }
+
+/* --- Falling Sky: Extended (use for wide hero numerals / splash) --- */
+@font-face { font-family: 'Falling Sky Extended'; src: url('fonts/FallingSkyExtended-RLdE.otf') format('opentype');                     font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Extended'; src: url('fonts/FallingSkyExtendedOblique-BnYw.otf') format('opentype');              font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky Extended Outline'; src: url('fonts/FallingSkyExtendedOutline-8qjn.otf') format('opentype');               font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Extended Outline'; src: url('fonts/FallingSkyExtendedOutlineOblique-YBO2.otf') format('opentype');        font-weight: 400; font-style: italic; font-display: swap; }
+
+/* --- Falling Sky: Outline (display only, large sizes) --- */
+@font-face { font-family: 'Falling Sky Outline'; src: url('fonts/FallingSkyOutline-1qZ0.otf') format('opentype');                       font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Outline'; src: url('fonts/FallingSkyOutlineOblique-RLdV.otf') format('opentype');                font-weight: 400; font-style: italic; font-display: swap; }
+
+/* --- Swansea: secondary reference family --- */
+@font-face { font-family: 'Swansea'; src: url('fonts/Swansea-q3pd.ttf') format('truetype');           font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Swansea'; src: url('fonts/SwanseaItalic-AwqD.ttf') format('truetype');     font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Swansea'; src: url('fonts/SwanseaBold-D0ox.ttf') format('truetype');       font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Swansea'; src: url('fonts/SwanseaBoldItalic-p3Dv.ttf') format('truetype'); font-weight: 700; font-style: italic; font-display: swap; }
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---------- Brand palette ----------
+     Warm + quirky. Yellow is the signature; haygold gives it a
+     muted resting tone. Soft blue + soft purple are accent moods
+     for backgrounds and section starters. */
+  --sk-yellow:        #F5C518;   /* signature primary, used on CTAs, logo bow */
+  --sk-yellow-soft:   #FFD84D;   /* hover / highlight */
+  --sk-yellow-deep:   #C99A0E;   /* pressed / on-light fg */
+  --sk-haygold:       #D9B36A;   /* muted warm gold, bullet dots, dim accents */
+  --sk-haygold-soft:  #E8C988;
+
+  --sk-blue:          #A9C7E8;   /* soft icy blue (illustration sky / muted info) */
+  --sk-blue-deep:     #6B8FB8;   /* hover state for blue */
+  --sk-blue-bg:       #14202E;   /* deep blue surface for muted-info panel */
+
+  --sk-purple:        #B8A9E0;   /* soft lavender, version 2.x evolution accent */
+  --sk-purple-deep:   #8C7AC2;
+  --sk-purple-bg:     #1E1A2E;   /* deep purple surface for v2.x section banners */
+
+  --sk-green:         #8FCB8F;   /* checkmark / success / "by the numbers" */
+  --sk-green-bg:      #15241A;   /* dark green surface behind numbers banner */
+
+  /* Sage — light-mode-only accent. Reads as a confident,
+     friendly green for dashboard headings and active text
+     ("Spec Kitty", "Feature Overview", "Kanban Board").
+     Has no dark-mode equivalent — yellow holds that role. */
+  --sk-sage:          #4F8F4F;   /* heading sage on cream */
+  --sk-sage-deep:     #3D7A3D;   /* hover / pressed */
+  --sk-sage-soft:     #7CAE7C;   /* dim / 70% sage for chips */
+
+  --sk-red:           #E97373;   /* validation errors ("Please enter your name") */
+  --sk-red-soft:      #F0A0A0;
+
+  /* ---------- Tint surfaces (cards / status panels) ----------
+     Pastel-tinted card backgrounds for kanban columns, status
+     ribbons, and "available" rows. The DEFAULT values here are
+     the dark-mode versions (deep, low-saturation tints). The
+     light-mode override below replaces them with high-key
+     pastels that match the dashboard reference. */
+  --sk-tint-mint:     #15241A;   /* dark: numbers banner */
+  --sk-tint-butter:   #2A2410;   /* dark: warm-yellow card */
+  --sk-tint-lilac:    #1E1A2E;   /* dark: v2.x banner */
+  --sk-tint-sky:      #14202E;   /* dark: muted info */
+  /* Foreground/border companion tokens — used inside tinted cards
+     so labels stay legible at any tint depth. */
+  --sk-on-mint:       var(--sk-green);
+  --sk-on-butter:     var(--sk-yellow-soft);
+  --sk-on-lilac:      var(--sk-purple);
+  --sk-on-sky:        var(--sk-blue);
+
+  /* ---------- Dark mode (DEFAULT — matches uploads) ----------
+     Anchored on a slightly cool blue-gray axis, not pure neutral —
+     gives the dark UI a quiet warmth without ever feeling colored.
+     Step pattern is roughly 3–6 ΔL between adjacent surfaces. */
+  --sk-bg-0:          #0D0E11;   /* blackish — deepest page background */
+  --sk-bg-1:          #121317;   /* hero / section background */
+  --sk-bg-2:          #181A1F;   /* card surface */
+  --sk-bg-3:          #1C1F25;   /* elevated card / form input fill */
+  --sk-bg-pill:       #212830;   /* off-gray — nav pill, chips, hover row */
+  --sk-bg-muted:      #262C36;   /* dark gray — muted info panel, code block */
+
+  --sk-fg-0:          #FFFFFF;   /* headlines */
+  --sk-fg-1:          #D6D6DA;   /* body */
+  --sk-fg-2:          #A9A9B0;   /* secondary body, muted copy */
+  --sk-fg-3:          #6E6E78;   /* tertiary / labels */
+  --sk-fg-4:          #4A4A52;   /* placeholder */
+
+  --sk-border:        #2B313B;   /* hairline default — slightly cool */
+  --sk-border-strong: #353C48;   /* card border */
+  --sk-border-focus:  var(--sk-yellow);
+
+  /* ---------- Semantic tokens ---------- */
+  --sk-fg:            var(--sk-fg-1);
+  --sk-fg-muted:      var(--sk-fg-2);
+  --sk-fg-subtle:     var(--sk-fg-3);
+  --sk-bg:            var(--sk-bg-0);
+  --sk-surface:       var(--sk-bg-2);
+  --sk-surface-elev:  var(--sk-bg-3);
+  --sk-accent:        var(--sk-yellow);
+  --sk-accent-fg:     #1A1408;     /* dark ink on yellow buttons */
+  --sk-link:          var(--sk-yellow);
+
+  /* ---------- Type families ----------
+     Default `--sk-font-sans` is system UI. Reach for the brand
+     families explicitly via `--sk-font-display` or `--sk-font-reference`. */
+  --sk-font-sans:      ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --sk-font-display:   'Falling Sky', ui-sans-serif, system-ui, sans-serif;
+  --sk-font-reference: 'Swansea', ui-sans-serif, system-ui, sans-serif;
+  --sk-font-condensed: 'Falling Sky Condensed', 'Falling Sky', ui-sans-serif, sans-serif;
+  --sk-font-extended:  'Falling Sky Extended', 'Falling Sky', ui-sans-serif, sans-serif;
+  --sk-font-outline:   'Falling Sky Outline', 'Falling Sky', ui-sans-serif, sans-serif;
+  --sk-font-boldplus:  'Falling Sky Boldplus', 'Falling Sky', ui-sans-serif, sans-serif;
+  --sk-font-mono:    'JetBrains Mono', ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ---------- Type scale ---------- */
+  --sk-fs-h1:        clamp(40px, 5.2vw, 64px);   /* dark hero "Bring Structure to AI-assisted delivery" */
+  --sk-fs-h2:        clamp(32px, 3.6vw, 48px);   /* section headlines, "Frequently asked questions" */
+  --sk-fs-h3:        24px;                       /* card titles, blog post titles */
+  --sk-fs-h4:        18px;                       /* small card title, FAQ q */
+  --sk-fs-lead:      18px;                       /* hero subhead */
+  --sk-fs-body:      16px;
+  --sk-fs-small:     14px;
+  --sk-fs-eyebrow:   12px;                       /* ALL-CAPS labels, "COMPETITIVE MATRIX / 2026-04-30" */
+  --sk-fs-mono:      14px;
+
+  --sk-lh-tight:     1.1;     /* h1 */
+  --sk-lh-snug:      1.25;    /* h2/h3 */
+  --sk-lh-base:      1.55;    /* body */
+  --sk-lh-loose:     1.7;     /* long-form prose */
+
+  --sk-fw-regular:   400;
+  --sk-fw-medium:    500;
+  --sk-fw-semibold:  600;
+  --sk-fw-bold:      700;
+  --sk-fw-black:     800;
+
+  --sk-tracking-eyebrow: 0.14em;
+
+  /* ---------- Spacing ---------- */
+  --sk-space-1: 4px;
+  --sk-space-2: 8px;
+  --sk-space-3: 12px;
+  --sk-space-4: 16px;
+  --sk-space-5: 24px;
+  --sk-space-6: 32px;
+  --sk-space-7: 48px;
+  --sk-space-8: 64px;
+  --sk-space-9: 96px;
+
+  /* ---------- Radii ---------- */
+  --sk-radius-sm:    8px;        /* chips, eyebrow pills */
+  --sk-radius-md:    12px;       /* form inputs */
+  --sk-radius-lg:    16px;       /* cards */
+  --sk-radius-xl:    20px;       /* hero card */
+  --sk-radius-pill:  999px;      /* nav pills, primary buttons */
+
+  /* ---------- Borders ---------- */
+  --sk-bw-1: 1px;
+  --sk-bw-2: 2px;
+
+  /* ---------- Shadows ---------- */
+  /* Spec Kitty barely uses drop shadows on dark mode — depth comes
+     from layered surfaces and hairline borders. The yellow glow
+     under primary buttons is the one signature shadow. */
+  --sk-shadow-card:    0 1px 0 rgba(255,255,255,0.02) inset, 0 1px 2px rgba(0,0,0,0.4);
+  --sk-shadow-elev:    0 8px 24px rgba(0,0,0,0.45);
+  --sk-shadow-glow-yellow: 0 6px 20px -6px rgba(245,197,24,0.45);
+  /* Focus glow: a muted dark halo, not a brand-color tint. The
+     yellow border on the input itself carries the brand signal;
+     the glow's job is to lift the field off the surface. */
+  --sk-shadow-focus:   0 0 0 3px rgba(13, 14, 17, 0.55), 0 0 0 4px rgba(43, 49, 59, 0.6);
+
+  /* ---------- Motion ---------- */
+  --sk-ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --sk-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --sk-dur-fast:    120ms;
+  --sk-dur-base:    200ms;
+  --sk-dur-slow:    320ms;
+}
+
+/* ---------- Light mode override ----------
+   Anchored on warm cream (page) → pure white (cards). The shift
+   from dark mode is intentional: cards LIFT off the cream page
+   instead of recessing into it, mirroring the spec-kitty.ai blog
+   feel.
+
+   Color role re-assignment in light mode:
+   - Yellow stays the brand primary (CTAs, logo bow, focus border).
+   - SAGE (`--sk-sage`) becomes the headline + active-link accent —
+     this is what the dashboards use to color "Spec Kitty",
+     "Feature Overview", "Kanban Board" headings. Avoid using sage
+     in dark mode; it muddies on a black bg. Yellow is the dark-mode
+     equivalent.
+   - Tinted status cards switch from low-saturation deep tints to
+     high-key pastels (mint, butter, lilac, sky), matching the
+     kanban / artifact rows in the dashboard reference. */
+:root[data-theme="light"],
+.sk-light {
+  /* Surface scale — cream page, white cards */
+  --sk-bg-0:          #F8F5EC;     /* warm cream — page background (matches spec-kitty.ai) */
+  --sk-bg-1:          #FCFAF4;     /* hero / banded section background */
+  --sk-bg-2:          #FFFFFF;     /* card surface — pure white, lifted */
+  --sk-bg-3:          #F5F1E6;     /* elevated card / input fill / inset */
+  --sk-bg-pill:       #ECE7D8;     /* off-cream — nav pill rail, chips, hover row */
+  --sk-bg-muted:      #E8E2D0;     /* warm-gray — muted info panel, code block */
+
+  --sk-fg-0:          #1A1A14;     /* near-black ink for headlines */
+  --sk-fg-1:          #2A2A22;     /* body */
+  --sk-fg-2:          #5C5C52;     /* secondary body */
+  --sk-fg-3:          #8A8A7E;     /* tertiary / labels */
+  --sk-fg-4:          #B8B8AC;     /* placeholder */
+
+  --sk-border:        #EAE4D2;     /* hairline default */
+  --sk-border-strong: #D6CFB9;     /* card border / divider */
+
+  /* Light-mode override: link role flips from yellow to sage */
+  --sk-link:          var(--sk-sage);
+
+  /* Pastel tint surfaces — high-key, high-readability. These
+     replace the dark deep-tint variants by name so any component
+     using `var(--sk-tint-mint)` etc. flips automatically. */
+  --sk-tint-mint:     #E8F4E8;     /* completed / available rows */
+  --sk-tint-butter:   #FFF6D9;     /* warm-yellow callout ("Next:" cards) */
+  --sk-tint-lilac:    #F0EAF8;     /* lavender chip / v2.x banner */
+  --sk-tint-sky:      #E4EDF8;     /* light blue — info panel / banner */
+  /* On-tint inks: dark, accessible foregrounds for tinted cards */
+  --sk-on-mint:       #2D5A2D;
+  --sk-on-butter:     #6B5A0E;
+  --sk-on-lilac:      #4A3D78;
+  --sk-on-sky:        #2E4A6B;
+
+  /* Legacy tint aliases (kept for back-compat with existing kit) */
+  --sk-blue-bg:       var(--sk-tint-sky);
+  --sk-purple-bg:     var(--sk-tint-lilac);
+  --sk-green-bg:      var(--sk-tint-mint);
+
+  /* Shadows — visible on light. Cards rely on a soft drop shadow
+     plus a hairline border for definition. */
+  --sk-shadow-card:   0 1px 2px rgba(20,20,15,0.04), 0 1px 1px rgba(20,20,15,0.06);
+  --sk-shadow-elev:   0 12px 32px -12px rgba(20,20,15,0.18);
+  --sk-shadow-glow-yellow: 0 6px 20px -6px rgba(245,197,24,0.55);
+  /* Focus halo: tight cream + warm-gray ring */
+  --sk-shadow-focus:  0 0 0 3px rgba(255, 250, 235, 1), 0 0 0 4px rgba(217, 179, 106, 0.5);
+}
+
+/* =============================================================
+   Element-level defaults — mostly utility classes so we don't
+   hijack global tags by accident when this file is imported.
+   ============================================================= */
+
+.sk-h1 {
+  font-family: var(--sk-font-display);
+  font-size: var(--sk-fs-h1);
+  line-height: var(--sk-lh-tight);
+  font-weight: var(--sk-fw-black);
+  letter-spacing: -0.01em;
+  color: var(--sk-fg-0);
+  text-wrap: balance;
+}
+.sk-h2 {
+  font-family: var(--sk-font-display);
+  font-size: var(--sk-fs-h2);
+  line-height: var(--sk-lh-snug);
+  font-weight: var(--sk-fw-bold);
+  letter-spacing: -0.005em;
+  color: var(--sk-fg-0);
+  text-wrap: balance;
+}
+.sk-h3 {
+  font-family: var(--sk-font-display);
+  font-size: var(--sk-fs-h3);
+  line-height: var(--sk-lh-snug);
+  font-weight: var(--sk-fw-bold);
+  letter-spacing: 0;
+  color: var(--sk-fg-0);
+}
+.sk-h4 {
+  font-family: var(--sk-font-display);
+  font-size: var(--sk-fs-h4);
+  line-height: var(--sk-lh-snug);
+  font-weight: var(--sk-fw-bold);
+  letter-spacing: 0.005em;
+  color: var(--sk-fg-0);
+}
+.sk-lead {
+  font-family: var(--sk-font-sans);
+  font-size: var(--sk-fs-lead);
+  line-height: var(--sk-lh-loose);
+  /* Higher contrast than body: lead grabs the eye in a hero/intro
+     position, then body settles to a softer tone for long-form
+     reading comfort. */
+  color: var(--sk-fg-0);
+}
+.sk-body {
+  font-family: var(--sk-font-sans);
+  font-size: var(--sk-fs-body);
+  line-height: var(--sk-lh-base);
+  /* Body sits at ~96% white — between lead (#FFFFFF) and the prior fg-1
+     (#E6E6E8 ~90%). High enough for confident long-form reading while still
+     leaving lead a perceptible step above. */
+  color: #F4F4F6;
+}
+.sk-muted {
+  color: var(--sk-fg-2);
+}
+.sk-small {
+  font-size: var(--sk-fs-small);
+  color: var(--sk-fg-2);
+}
+.sk-eyebrow {
+  font-family: var(--sk-font-mono);
+  font-size: var(--sk-fs-eyebrow);
+  font-weight: var(--sk-fw-medium);
+  letter-spacing: var(--sk-tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--sk-haygold);
+}
+.sk-mono, code, kbd {
+  font-family: var(--sk-font-mono);
+  font-size: var(--sk-fs-mono);
+}
+code {
+  background: var(--sk-bg-3);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--sk-border);
+  color: var(--sk-fg-1);
+}

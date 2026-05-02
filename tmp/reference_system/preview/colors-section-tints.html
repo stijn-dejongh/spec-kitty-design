@@ -1,0 +1,31 @@
+<!doctype html>
+<html data-theme="dark"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin:0; padding:24px; background:var(--sk-bg-0); }
+  .row { display:flex; gap:14px; flex-wrap:wrap; align-items:flex-end; }
+  .stripe { width:160px; }
+  .panel { height:60px; border-radius:10px; padding:14px; display:flex; align-items:center; justify-content:center; font-family:var(--sk-font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; }
+  .name { font-size:13px; font-weight:600; color:var(--sk-fg-0); margin-top:8px; font-family:var(--sk-font-sans); }
+  .desc { font-size:11px; color:var(--sk-fg-3); font-family:var(--sk-font-mono); margin-top:2px; }
+</style><script id="__sk-theme-param__">(function(){var p=new URLSearchParams(location.search).get('theme');if(p){document.documentElement.setAttribute('data-theme',p);}})();</script>
+</head><body>
+<div class="row">
+  <div class="stripe">
+    <div class="panel" style="background:#14202E; color:#A9C7E8; border:1px solid rgba(169,199,232,0.2)">● Muted Info</div>
+    <div class="name">Blue panel</div><div class="desc">--sk-blue-bg</div>
+  </div>
+  <div class="stripe">
+    <div class="panel" style="background:#1E1A2E; color:#B8A9E0; border:1px solid rgba(184,169,224,0.25)">● Version 2.x</div>
+    <div class="name">Purple panel</div><div class="desc">--sk-purple-bg</div>
+  </div>
+  <div class="stripe">
+    <div class="panel" style="background:#15241A; color:#8FCB8F; border:1px solid rgba(143,203,143,0.25)">● By the numbers</div>
+    <div class="name">Green panel</div><div class="desc">--sk-green-bg</div>
+  </div>
+  <div class="stripe">
+    <div class="panel" style="background:rgba(245,197,24,0.08); color:#F5C518; border:1px solid rgba(245,197,24,0.25)">● Version 1.x</div>
+    <div class="name">Yellow tint</div><div class="desc">8% yellow on bg</div>
+  </div>
+</div>
+</body></html>

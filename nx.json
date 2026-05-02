@@ -26,5 +26,6 @@
       "style": "css"
     }
   },
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "analytics": false
 }

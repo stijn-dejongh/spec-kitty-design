@@ -1,0 +1,125 @@
+<!doctype html>
+<html data-theme="dark"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--sk-bg-0); font-family: var(--sk-font-sans); color: var(--sk-fg-1); }
+  .group { margin-bottom: 28px; }
+  .group:last-child { margin-bottom: 0; }
+  .group-label {
+    font-family: var(--sk-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sk-fg-3);
+    margin: 0 0 12px;
+  }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .swatch { width: 144px; }
+  .chip {
+    height: 64px;
+    border-radius: 10px;
+    border: 1px solid var(--sk-border);
+  }
+  .chip.surface { border-color: var(--sk-border-strong); }
+  .name { font-size: 13px; font-weight: 600; color: var(--sk-fg-0); margin-top: 8px; line-height: 1.2; }
+  .hex { font-family: var(--sk-font-mono); font-size: 11px; color: var(--sk-fg-3); margin-top: 2px; }
+  .role { font-size: 11px; color: var(--sk-fg-3); margin-top: 4px; line-height: 1.35; }
+
+  /* Light-mode panel: invert the local theme so light surfaces read
+     correctly without the page bg flipping. */
+  .light-panel {
+    background: #FAF8F2;
+    color: #14140F;
+    border-radius: 14px;
+    padding: 22px 24px 24px;
+    margin-top: 28px;
+  }
+  .light-panel .group-label { color: #8A8A7E; }
+  .light-panel .name { color: #14140F; }
+  .light-panel .hex { color: #8A8A7E; }
+  .light-panel .role { color: #5C5C52; }
+  .light-panel .chip { border-color: #E6E1D2; }
+  .light-panel .chip.surface { border-color: #D4CEBE; }
+</style><script id="__sk-theme-param__">(function(){var p=new URLSearchParams(location.search).get('theme');if(p){document.documentElement.setAttribute('data-theme',p);}})();</script>
+</head><body>
+
+<!-- ============ Brand accents (theme-agnostic) ============ -->
+<div class="group">
+  <p class="group-label">Brand · accent</p>
+  <div class="row">
+    <div class="swatch"><div class="chip" style="background:#F5C518"></div><div class="name">Yellow / Primary</div><div class="hex">#F5C518</div></div>
+    <div class="swatch"><div class="chip" style="background:#FFD84D"></div><div class="name">Yellow soft</div><div class="hex">#FFD84D</div></div>
+    <div class="swatch"><div class="chip" style="background:#C99A0E"></div><div class="name">Yellow deep</div><div class="hex">#C99A0E</div></div>
+    <div class="swatch"><div class="chip" style="background:#D9B36A"></div><div class="name">Haygold</div><div class="hex">#D9B36A</div></div>
+    <div class="swatch"><div class="chip" style="background:#A9C7E8"></div><div class="name">Soft blue</div><div class="hex">#A9C7E8</div></div>
+    <div class="swatch"><div class="chip" style="background:#B8A9E0"></div><div class="name">Soft purple</div><div class="hex">#B8A9E0</div></div>
+    <div class="swatch"><div class="chip" style="background:#8FCB8F"></div><div class="name">Soft green</div><div class="hex">#8FCB8F</div></div>
+    <div class="swatch"><div class="chip" style="background:#E97373"></div><div class="name">Validation red</div><div class="hex">#E97373</div></div>
+  </div>
+</div>
+
+<!-- ============ Dark surfaces ============ -->
+<div class="group">
+  <p class="group-label">Surfaces · dark mode (cool blue-gray axis)</p>
+  <div class="row">
+    <div class="swatch"><div class="chip surface" style="background:#0D0E11"></div><div class="name">bg-0 · Blackish</div><div class="hex">#0D0E11</div><div class="role">Deepest page bg</div></div>
+    <div class="swatch"><div class="chip surface" style="background:#121317"></div><div class="name">bg-1</div><div class="hex">#121317</div><div class="role">Hero / section bg</div></div>
+    <div class="swatch"><div class="chip surface" style="background:#181A1F"></div><div class="name">bg-2</div><div class="hex">#181A1F</div><div class="role">Card surface</div></div>
+    <div class="swatch"><div class="chip surface" style="background:#1C1F25"></div><div class="name">bg-3</div><div class="hex">#1C1F25</div><div class="role">Elevated card / input</div></div>
+    <div class="swatch"><div class="chip surface" style="background:#212830"></div><div class="name">bg-pill · Off-gray</div><div class="hex">#212830</div><div class="role">Nav pill, chips, hover row</div></div>
+    <div class="swatch"><div class="chip surface" style="background:#262C36"></div><div class="name">bg-muted · Dark gray</div><div class="hex">#262C36</div><div class="role">Muted info panel, code block</div></div>
+  </div>
+</div>
+
+<div class="group">
+  <p class="group-label">Borders · dark mode</p>
+  <div class="row">
+    <div class="swatch"><div class="chip" style="background:#2B313B"></div><div class="name">border</div><div class="hex">#2B313B</div><div class="role">Hairline default</div></div>
+    <div class="swatch"><div class="chip" style="background:#353C48"></div><div class="name">border-strong</div><div class="hex">#353C48</div><div class="role">Card edge, divider</div></div>
+  </div>
+</div>
+
+<div class="group">
+  <p class="group-label">Tinted surface accents · dark mode</p>
+  <div class="row">
+    <div class="swatch"><div class="chip" style="background:#14202E"></div><div class="name">blue-bg</div><div class="hex">#14202E</div><div class="role">Muted-info panel</div></div>
+    <div class="swatch"><div class="chip" style="background:#1E1A2E"></div><div class="name">purple-bg</div><div class="hex">#1E1A2E</div><div class="role">v2.x evolution banner</div></div>
+    <div class="swatch"><div class="chip" style="background:#15241A"></div><div class="name">green-bg</div><div class="hex">#15241A</div><div class="role">"By the numbers" banner</div></div>
+  </div>
+</div>
+
+<!-- ============ Light surfaces (mirrored) ============ -->
+<div class="light-panel">
+
+  <div class="group">
+    <p class="group-label">Surfaces · light mode (warm cream axis)</p>
+    <div class="row">
+      <div class="swatch"><div class="chip surface" style="background:#FAF8F2"></div><div class="name">bg-0 · Warm cream</div><div class="hex">#FAF8F2</div><div class="role">Page background</div></div>
+      <div class="swatch"><div class="chip surface" style="background:#FFFFFF"></div><div class="name">bg-1 · Pure white</div><div class="hex">#FFFFFF</div><div class="role">Hero / section bg</div></div>
+      <div class="swatch"><div class="chip surface" style="background:#FCFAF4"></div><div class="name">bg-2</div><div class="hex">#FCFAF4</div><div class="role">Card surface</div></div>
+      <div class="swatch"><div class="chip surface" style="background:#F5F1E6"></div><div class="name">bg-3</div><div class="hex">#F5F1E6</div><div class="role">Elevated card / input</div></div>
+      <div class="swatch"><div class="chip surface" style="background:#ECE7D8"></div><div class="name">bg-pill · Off-cream</div><div class="hex">#ECE7D8</div><div class="role">Nav pill, chips, hover row</div></div>
+      <div class="swatch"><div class="chip surface" style="background:#E1DCCB"></div><div class="name">bg-muted · Warm-gray</div><div class="hex">#E1DCCB</div><div class="role">Muted info panel, code block</div></div>
+    </div>
+  </div>
+
+  <div class="group">
+    <p class="group-label">Borders · light mode</p>
+    <div class="row">
+      <div class="swatch"><div class="chip surface" style="background:#E6E1D2"></div><div class="name">border</div><div class="hex">#E6E1D2</div><div class="role">Hairline default</div></div>
+      <div class="swatch"><div class="chip surface" style="background:#D4CEBE"></div><div class="name">border-strong</div><div class="hex">#D4CEBE</div><div class="role">Card edge, divider</div></div>
+    </div>
+  </div>
+
+  <div class="group">
+    <p class="group-label">Tinted surface accents · light mode</p>
+    <div class="row">
+      <div class="swatch"><div class="chip surface" style="background:#E8F0F8"></div><div class="name">blue-bg</div><div class="hex">#E8F0F8</div><div class="role">Muted-info panel</div></div>
+      <div class="swatch"><div class="chip surface" style="background:#EFEAF8"></div><div class="name">purple-bg</div><div class="hex">#EFEAF8</div><div class="role">v2.x evolution banner</div></div>
+      <div class="swatch"><div class="chip surface" style="background:#E4F0E4"></div><div class="name">green-bg</div><div class="hex">#E4F0E4</div><div class="role">"By the numbers" banner</div></div>
+    </div>
+  </div>
+
+</div>
+
+</body></html>
