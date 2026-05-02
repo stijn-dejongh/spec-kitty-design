@@ -24,16 +24,16 @@
 | T012 | Replace `opacity: 0.6` on Done-lane header with colour tokens | WP04 | No | [D] |
 | T013 | Remove `.dash-lane__count { opacity: 1 }` child override | WP04 | No | [D] |
 | T014 | Change blog-demo `[data-theme="light"] header` bg to `--sk-surface-card` | WP04 | No | [D] |
-| T015 | Add `LightMode` story to `sk-button-html.stories.ts` | WP05 | Yes |
-| T016 | Add/upgrade `LightMode` story to `sk-card-html.stories.ts` | WP05 | Yes |
-| T017 | Add `LightMode` story to `sk-check-bullet-html.stories.ts` | WP05 | Yes |
-| T018 | Upgrade `OnLightBackground` → `LightMode` in `sk-feature-card-html.stories.ts` | WP05 | Yes |
-| T019 | Add `LightMode` story to `sk-form-field-html.stories.ts` | WP05 | Yes |
+| T015 | Add `LightMode` story to `sk-button-html.stories.ts` | WP05 | Yes | [D] |
+| T016 | Add/upgrade `LightMode` story to `sk-card-html.stories.ts` | WP05 | Yes | [D] |
+| T017 | Add `LightMode` story to `sk-check-bullet-html.stories.ts` | WP05 | Yes | [D] |
+| T018 | Upgrade `OnLightBackground` → `LightMode` in `sk-feature-card-html.stories.ts` | WP05 | Yes | [D] |
+| T019 | Add `LightMode` story to `sk-form-field-html.stories.ts` | WP05 | Yes | [D] |
 | T020 | Add `LightMode` story to `sk-nav-pill.stories.ts` (html-js) | WP05 | Yes |
-| T021 | Add `LightMode` story to `sk-pill-tag.stories.ts` | WP05 | Yes |
-| T022 | Upgrade `OnLightBackground` → `LightMode` in `sk-ribbon-card-html.stories.ts` | WP05 | Yes |
-| T023 | Add `LightMode` story to `sk-section-banner-html.stories.ts` | WP05 | Yes |
-| T024 | Upgrade `LightBackground` → `LightMode` in `sk-site-footer.stories.ts` | WP05 | Yes |
+| T021 | Add `LightMode` story to `sk-pill-tag.stories.ts` | WP05 | Yes | [D] |
+| T022 | Upgrade `OnLightBackground` → `LightMode` in `sk-ribbon-card-html.stories.ts` | WP05 | Yes | [D] |
+| T023 | Add `LightMode` story to `sk-section-banner-html.stories.ts` | WP05 | Yes | [D] |
+| T024 | Upgrade `LightBackground` → `LightMode` in `sk-site-footer.stories.ts` | WP05 | Yes | [D] |
 | T025 | Add `LightMode` story to `sk-button-primary.stories.ts` (Angular) | WP06 | Yes |
 | T026 | Add `LightMode` story to `sk-button-secondary.stories.ts` (Angular) | WP06 | Yes |
 | T027 | Add `LightMode` story to `sk-feature-card.stories.ts` (Angular) | WP06 | Yes |
@@ -126,15 +126,15 @@
 
 **Goal:** Add a `LightMode` story export to all 10 non-stub html-js component stories. The story must wrap its render output in `<div data-theme="light">` so components receive correct light-mode token values. Upgrade existing background-only light variants.
 
-- [ ] T015 Add `LightMode` to `sk-button-html.stories.ts` (WP05)
-- [ ] T016 Add/upgrade `LightMode` to `sk-card-html.stories.ts` (WP05)
-- [ ] T017 Add `LightMode` to `sk-check-bullet-html.stories.ts` (WP05)
-- [ ] T018 Upgrade `OnLightBackground` → `LightMode` in `sk-feature-card-html.stories.ts` (WP05)
-- [ ] T019 Add `LightMode` to `sk-form-field-html.stories.ts` (WP05)
-- [ ] T021 Add `LightMode` to `sk-pill-tag.stories.ts` (WP05)
-- [ ] T022 Upgrade `OnLightBackground` → `LightMode` in `sk-ribbon-card-html.stories.ts` (WP05)
-- [ ] T023 Add `LightMode` to `sk-section-banner-html.stories.ts` (WP05)
-- [ ] T024 Upgrade `LightBackground` → `LightMode` in `sk-site-footer.stories.ts` (WP05)
+- [x] T015 Add `LightMode` to `sk-button-html.stories.ts` (WP05)
+- [x] T016 Add/upgrade `LightMode` to `sk-card-html.stories.ts` (WP05)
+- [x] T017 Add `LightMode` to `sk-check-bullet-html.stories.ts` (WP05)
+- [x] T018 Upgrade `OnLightBackground` → `LightMode` in `sk-feature-card-html.stories.ts` (WP05)
+- [x] T019 Add `LightMode` to `sk-form-field-html.stories.ts` (WP05)
+- [x] T021 Add `LightMode` to `sk-pill-tag.stories.ts` (WP05)
+- [x] T022 Upgrade `OnLightBackground` → `LightMode` in `sk-ribbon-card-html.stories.ts` (WP05)
+- [x] T023 Add `LightMode` to `sk-section-banner-html.stories.ts` (WP05)
+- [x] T024 Upgrade `LightBackground` → `LightMode` in `sk-site-footer.stories.ts` (WP05)
 
 ### WP06 — Angular LightMode Stories
 **Priority:** High
