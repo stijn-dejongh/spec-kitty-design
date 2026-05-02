@@ -1,32 +1,42 @@
 ---
 work_package_id: WP03
-title: JS Module Extraction — skToggleDrawer as Distributable Export
+title: JS Module + Story Update + Demo Page Fixes
 dependencies:
 - WP01
+- WP02
 requirement_refs:
 - FR-005
 - FR-006
 - FR-007
+- FR-008
+- FR-013
 planning_base_branch: feature/post-review-remediation-and-demo-deploy
 merge_target_branch: feature/post-review-remediation-and-demo-deploy
-branch_strategy: WP03 executes in its own lane worktree branched from the approved WP01 lane. Merge back into feature/post-review-remediation-and-demo-deploy on approval.
+branch_strategy: Planning artifacts for this feature were generated on feature/post-review-remediation-and-demo-deploy. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feature/post-review-remediation-and-demo-deploy unless the human explicitly redirects the landing branch.
 subtasks:
 - T007
 - T008
 - T009
 - T010
 - T011
+- T012
+- T013
+- T014
 agent: claude
 history:
 - date: '2026-05-02'
   event: created
   note: Initial WP generation
+- date: '2026-05-02'
+  event: expanded
+  note: Merged WP04 (demo CSS fixes) and absorbed T006 story update from WP02 into this WP to resolve file ownership conflicts
 agent_profile: implementer-ivan
 authoritative_surface: packages/html-js/src/nav-pill/
 execution_mode: code_change
 owned_files:
 - packages/html-js/src/nav-pill/sk-nav-pill.js
 - packages/html-js/src/nav-pill/index.ts
+- packages/html-js/src/nav-pill/sk-nav-pill.stories.ts
 - apps/demo/dashboard-demo.html
 - apps/demo/blog-demo.html
 role: implementer
