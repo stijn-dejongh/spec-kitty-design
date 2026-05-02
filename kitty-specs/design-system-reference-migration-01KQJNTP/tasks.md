@@ -21,11 +21,11 @@
 | T008 | Update `packages/tokens/package.json` `files` array + `.npmignore` to include `fonts/` and `assets/` | WP02 | | [D] |
 | T009 | Update Storybook `preview.ts` to ensure brand fonts render in all stories | WP02 | | [D] |
 | T010 | Validate `npm pack --dry-run` shows fonts and assets; check compressed package size (NFR-101 < 5 MB) | WP02 | | [D] |
-| T011 | Create `apps/storybook/src/stories/tokens/colours.mdx` — all colour tokens as labelled swatches | WP03 | |
-| T012 | Create `typography.mdx` — font family specimens, scale steps, weight variants | WP03 | [P] |
-| T013 | Create `spacing.mdx` — space scale rulers, radius shapes, shadow + motion tokens | WP03 | [P] |
-| T014 | Create `brand.mdx` — logo usage, favicon, icon style guidance, brand voice summary (no illustrations) | WP03 | [P] |
-| T015 | Update `getting-started.mdx` with font loading pattern (CDN link vs npm install) | WP03 | |
+| T011 | Create `apps/storybook/src/stories/tokens/colours.mdx` — all colour tokens as labelled swatches | WP03 | | [D] |
+| T012 | Create `typography.mdx` — font family specimens, scale steps, weight variants | WP03 | [D] |
+| T013 | Create `spacing.mdx` — space scale rulers, radius shapes, shadow + motion tokens | WP03 | [D] |
+| T014 | Create `brand.mdx` — logo usage, favicon, icon style guidance, brand voice summary (no illustrations) | WP03 | [D] |
+| T015 | Update `getting-started.mdx` with font loading pattern (CDN link vs npm install) | WP03 | | [D] |
 | T016 | Implement `ButtonPrimary` and `ButtonSecondary` HTML primitives in `packages/html-js/src/button/` | WP04 | | [D] |
 | T017 | Implement `ButtonPrimaryComponent` and `ButtonSecondaryComponent` in `packages/angular/src/lib/button/` | WP04 | [D] |
 | T018 | Export both button components from each package's `src/index.ts` | WP04 | | [D] |
@@ -111,11 +111,11 @@
 **Estimated prompt size**: ~380 lines
 **Prompt**: [WP03-storybook-token-docs.md](tasks/WP03-storybook-token-docs.md)
 
-- [ ] T011 Create `colours.mdx` — colour token swatches (WP03)
-- [ ] T012 Create `typography.mdx` — font family specimens, scale, weights (WP03)
-- [ ] T013 Create `spacing.mdx` — space scale, radius, shadow, motion (WP03)
-- [ ] T014 Create `brand.mdx` — logo, favicon, icon style, brand voice (WP03)
-- [ ] T015 Update `getting-started.mdx` with font loading pattern (WP03)
+- [x] T011 Create `colours.mdx` — colour token swatches (WP03)
+- [x] T012 Create `typography.mdx` — font family specimens, scale, weights (WP03)
+- [x] T013 Create `spacing.mdx` — space scale, radius, shadow, motion (WP03)
+- [x] T014 Create `brand.mdx` — logo, favicon, icon style, brand voice (WP03)
+- [x] T015 Update `getting-started.mdx` with font loading pattern (WP03)
 
 **Dependencies**: WP02 (brand fonts must be loaded for typography page to render correctly)
 **Parallel with**: WP04–WP08 (different file ownership)
