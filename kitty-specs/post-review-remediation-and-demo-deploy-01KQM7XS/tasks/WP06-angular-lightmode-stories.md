@@ -7,7 +7,7 @@ requirement_refs:
 - FR-012
 planning_base_branch: feature/post-review-remediation-and-demo-deploy
 merge_target_branch: feature/post-review-remediation-and-demo-deploy
-branch_strategy: WP06 executes after WP01 is approved. Can run in parallel with WP02, WP03, WP04. Work in the lane worktree allocated by spec-kitty.
+branch_strategy: Planning artifacts for this feature were generated on feature/post-review-remediation-and-demo-deploy. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feature/post-review-remediation-and-demo-deploy unless the human explicitly redirects the landing branch.
 subtasks:
 - T025
 - T026

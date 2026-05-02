@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "mission_slug": "post-review-remediation-and-demo-deploy-01KQM7XS",
+  "mission_id": "01KQM7XS3D7GBRS9K36B9Y4NZY",
+  "mission_branch": "kitty/mission-post-review-remediation-and-demo-deploy-01KQM7XS",
+  "target_branch": "feature/post-review-remediation-and-demo-deploy",
+  "lanes": [
+    {
+      "lane_id": "lane-a",
+      "wp_ids": [
+        "WP01",
+        "WP02",
+        "WP03",
+        "WP05",
+        "WP06",
+        "WP07"
+      ],
+      "write_scope": [
+        ".github/workflows/storybook-deploy.yml",
+        "README.md",
+        "apps/demo/blog-demo.html",
+        "apps/demo/dashboard-demo.html",
+        "apps/storybook/src/stories/getting-started.mdx",
+        "packages/angular/src/lib/button/sk-button-primary.stories.ts",
+        "packages/angular/src/lib/button/sk-button-secondary.stories.ts",
+        "packages/angular/src/lib/feature-card/sk-feature-card.stories.ts",
+        "packages/angular/src/lib/nav-pill/sk-nav-pill.stories.ts",
+        "packages/angular/src/lib/pill-tag/sk-pill-tag.stories.ts",
+        "packages/angular/src/lib/ribbon-card/sk-ribbon-card.stories.ts",
+        "packages/html-js/src/button/sk-button-html.stories.ts",
+        "packages/html-js/src/card/sk-card-html.stories.ts",
+        "packages/html-js/src/check-bullet/sk-check-bullet-html.stories.ts",
+        "packages/html-js/src/feature-card/sk-feature-card-html.stories.ts",
+        "packages/html-js/src/form-field/sk-form-field-html.stories.ts",
+        "packages/html-js/src/nav-pill/index.ts",
+        "packages/html-js/src/nav-pill/sk-nav-pill-drawer.css",
+        "packages/html-js/src/nav-pill/sk-nav-pill.css",
+        "packages/html-js/src/nav-pill/sk-nav-pill.js",
+        "packages/html-js/src/nav-pill/sk-nav-pill.stories.ts",
+        "packages/html-js/src/pill-tag/sk-pill-tag.stories.ts",
+        "packages/html-js/src/ribbon-card/sk-ribbon-card-html.stories.ts",
+        "packages/html-js/src/section-banner/sk-section-banner-html.stories.ts",
+        "packages/html-js/src/site-footer/sk-site-footer.stories.ts",
+        "packages/tokens/src/tokens.css"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering",
+        "dashboard",
+        "legacy-cleanup"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    }
+  ],
+  "computed_at": "2026-05-02T12:05:11.915713+00:00",
+  "computed_from": "dependency_graph+ownership",
+  "planning_artifact_wps": [],
+  "collapse_report": {
+    "events": [
+      {
+        "wp_a": "WP02",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP02 depends on WP01"
+      },
+      {
+        "wp_a": "WP03",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP03 depends on WP01"
+      },
+      {
+        "wp_a": "WP05",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP05 depends on WP01"
+      },
+      {
+        "wp_a": "WP06",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP06 depends on WP01"
+      },
+      {
+        "wp_a": "WP07",
+        "wp_b": "WP03",
+        "rule": "dependency",
+        "evidence": "WP07 depends on WP03"
+      }
+    ],
+    "total_merges": 5,
+    "independent_wps_collapsed": 0,
+    "by_rule": {
+      "dependency": 5
+    }
+  }
+}
