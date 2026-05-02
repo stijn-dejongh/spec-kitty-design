@@ -31,11 +31,11 @@
 | T018 | Add `SectionBanner` + `FeatureCard` grid row + footer using design system classes | WP03 | | [D] |
 | T019 | Verify demo page renders correctly at 375px and 1280px via browser check | WP03 | | [D] |
 
-| T020 | Study existing SK dashboard template; plan layout for mockup | WP04 | |
-| T021 | Create `apps/demo/dashboard-demo.html` base structure with CSS | WP04 | |
-| T022 | Add header bar with logo, mission name, progress bar | WP04 | |
-| T023 | Add 5-column Kanban board with realistic WP card data | WP04 | |
-| T024 | Verify rendering; create `apps/demo/index.html` index page | WP04 | |
+| T020 | Study existing SK dashboard template; plan layout for mockup | WP04 | | [D] |
+| T021 | Create `apps/demo/dashboard-demo.html` base structure with CSS | WP04 | | [D] |
+| T022 | Add header bar with logo, mission name, progress bar | WP04 | | [D] |
+| T023 | Add 5-column Kanban board with realistic WP card data | WP04 | | [D] |
+| T024 | Verify rendering; create `apps/demo/index.html` index page | WP04 | | [D] |
 
 ---
 
@@ -110,11 +110,11 @@
 **Estimated prompt size**: ~380 lines
 **Prompt**: [WP04-dashboard-demo-page.md](tasks/WP04-dashboard-demo-page.md)
 
-- [ ] T020 Study existing SK dashboard; plan layout (WP04)
-- [ ] T021 Create dashboard-demo.html base structure (WP04)
-- [ ] T022 Header bar with logo and progress (WP04)
-- [ ] T023 Kanban board with 5 lanes and WP cards (WP04)
-- [ ] T024 Verify + index.html (WP04)
+- [x] T020 Study existing SK dashboard; plan layout (WP04)
+- [x] T021 Create dashboard-demo.html base structure (WP04)
+- [x] T022 Header bar with logo and progress (WP04)
+- [x] T023 Kanban board with 5 lanes and WP cards (WP04)
+- [x] T024 Verify + index.html (WP04)
 
 **Dependencies**: WP01 (button CSS fix), WP02 (sk-card + pill-tag for cards)
 
