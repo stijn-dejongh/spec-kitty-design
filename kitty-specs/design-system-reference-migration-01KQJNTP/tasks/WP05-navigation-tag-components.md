@@ -155,3 +155,4 @@ Verify the active NavPill item has a visually distinct filled background. Check 
 ## Activity Log
 
 - 2026-05-02T06:23:27Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
+- 2026-05-02T06:29:29Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – NavPill, PillTag, EyebrowPill in both packages with stories
