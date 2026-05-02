@@ -301,3 +301,4 @@ If it does contain an inline `skToggleDrawer`, apply the same pattern as T010:
 ## Activity Log
 
 - 2026-05-02T13:01:47Z – claude:sonnet-4-6:implementer-ivan:implementer – shell_pid=914367 – Started implementation via action command
+- 2026-05-02T13:04:44Z – claude:sonnet-4-6:implementer-ivan:implementer – shell_pid=914367 – Ready for review: extracted skToggleDrawer to ES module, updated stories with decorator and LightMode variant, removed inline definition from dashboard-demo.html
