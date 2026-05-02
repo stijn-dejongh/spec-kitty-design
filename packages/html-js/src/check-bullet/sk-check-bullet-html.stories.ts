@@ -22,3 +22,12 @@ export const ListOfThree: Story = {
     <li class="sk-check-bullet"><span class="sk-check-bullet__icon" aria-hidden="true">✓</span><span class="sk-check-bullet__text">Zero-config setup — connect your repo and you're ready to go.</span></li>
   </ul>`,
 };
+
+export const LightMode: Story = {
+  parameters: { backgrounds: { default: 'sk-light' } },
+  render: () => `
+    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+      <ul style="list-style:none;padding:0;margin:0">${SkCheckBulletHTML}</ul>
+    </div>
+  `,
+};

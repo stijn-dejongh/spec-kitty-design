@@ -59,3 +59,18 @@ export const EyebrowPill: Story = {
     </div>
   `,
 };
+
+export const LightMode: Story = {
+  parameters: { backgrounds: { default: 'sk-light' } },
+  render: () => `
+    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        ${SkTagHTML('v1.0.0')}
+        ${SkTagHTML('Breaking', 'breaking')}
+        ${SkTagHTML('SemVer', 'green')}
+        ${SkTagHTML('Skills Pack', 'purple')}
+        ${SkTagHTML('Schema Gate', 'yellow')}
+      </div>
+    </div>
+  `,
+};

@@ -31,3 +31,12 @@ export const AllVariants: Story = {
     </div>
   `,
 };
+
+export const LightMode: Story = {
+  parameters: { backgrounds: { default: 'sk-light' } },
+  render: () => `
+    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+      <button class="sk-btn sk-btn--primary" type="button">Get started</button>
+    </div>
+  `,
+};

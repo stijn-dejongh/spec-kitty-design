@@ -6,6 +6,10 @@
   --sk-color-yellow:        #F5C518;   /* signature primary, CTAs, logo bow */
   --sk-color-yellow-soft:   #FFD84D;   /* hover / highlight */
   --sk-color-yellow-deep:   #C99A0E;   /* pressed / on-light fg */
+  /* Yellow alpha variants — used for hover accents and glow effects */
+  --sk-color-yellow-alpha-15: rgba(245, 197, 24, 0.14);
+  --sk-color-yellow-alpha-35: rgba(245, 197, 24, 0.35);
+  --sk-color-yellow-alpha-60: rgba(245, 197, 24, 0.60);
   --sk-color-haygold:       #D9B36A;   /* muted warm gold, bullet dots, dim accents */
   --sk-color-haygold-soft:  #E8C988;
   --sk-color-blue:          #A9C7E8;   /* soft icy blue (illustration sky / muted info) */

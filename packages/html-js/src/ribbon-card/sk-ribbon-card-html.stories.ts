@@ -46,7 +46,11 @@ export const RibbonPurple: Story = {
   }),
 };
 
-export const OnLightBackground: Story = {
-  render: () => SkRibbonCardWithRibbonHTML,
+export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' } },
+  render: () => `
+    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+      ${SkRibbonCardWithRibbonHTML}
+    </div>
+  `,
 };

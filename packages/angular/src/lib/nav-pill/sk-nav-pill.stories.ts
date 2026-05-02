@@ -49,16 +49,14 @@ export const FirstItemActive: Story = {
   },
 };
 
-export const OnLightBackground: Story = {
-  args: {
-    items: [
-      { label: 'Platform', href: '#' },
-      { label: 'Getting Started', href: '#', active: true },
-      { label: 'About', href: '#' },
-      { label: 'Blog', href: '#' },
-    ],
-    ctaLabel: 'Book Demo',
-  },
+export const LightMode: Story = {
+  render: () => ({
+    template: `
+      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+        <sk-nav-pill></sk-nav-pill>
+      </div>
+    `,
+  }),
   parameters: { backgrounds: { default: 'sk-light' } },
 };
 

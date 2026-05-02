@@ -14,7 +14,11 @@ export const Default: Story = {
   render: () => SkSiteFooterHTML,
 };
 
-export const LightBackground: Story = {
-  parameters: { backgrounds: { default: 'sk-light' } },
-  render: () => SkSiteFooterHTML,
+export const LightMode: Story = {
+  parameters: { backgrounds: { default: 'sk-light' }, layout: 'fullscreen' },
+  render: () => `
+    <div data-theme="light" style="background: var(--sk-surface-page); display: block; width: 100%;">
+      ${SkSiteFooterHTML}
+    </div>
+  `,
 };

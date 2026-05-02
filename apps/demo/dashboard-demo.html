@@ -478,15 +478,11 @@
       if (btn) btn.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     };
 
-    /* Hamburger / drawer toggle */
-    window.skToggleDrawer = function(btn) {
-      var drawer = document.getElementById('sk-nav-drawer');
-      if (!drawer) return;
-      var isOpen = drawer.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      btn.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
-    };
   })();</script>
+  <script type="module">
+    import { skToggleDrawer } from '../../packages/html-js/src/nav-pill/sk-nav-pill.js';
+    window.skToggleDrawer = skToggleDrawer;
+  </script>
   <style>
     [data-theme="light"] .sk-icon-sun  { display: none !important; }
     [data-theme="light"] .sk-icon-moon { display: block !important; }

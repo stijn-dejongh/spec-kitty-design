@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/html';
 import './sk-nav-pill.css';
+import './sk-nav-pill-drawer.css';
+import { skToggleDrawer } from './index';
 
 const meta: Meta = {
   title: 'Navigation/SkNavPill (HTML)',
@@ -75,14 +77,24 @@ export const Mobile: Story = {
 // Add sk-nav-pill--responsive to enable the CSS breakpoint behaviour.
 // Add sk-nav-pill--has-drawer for the toggle button active-state styling.
 export const CollapsedHamburger: Story = {
+  name: 'Collapsed / Hamburger (responsive)',
   parameters: {
+    viewport: { defaultViewport: 'mobile1' },
     docs: {
       description: {
-        story: "Add `sk-nav-pill--responsive` to the nav and include a `.sk-nav-pill__hamburger` button + `.sk-nav-pill__drawer` element. The CSS breakpoint at 720 px hides the desktop items and reveals the button. The drawer animates open via `max-height` + `opacity` transition when `.is-open` is toggled on the drawer element. The inline onclick handler is a self-contained demo — in production, wire to your framework's event system.",
+        story: 'Responsive nav pill that collapses to a hamburger at ≤ 720 px. ' +
+          'Requires both `sk-nav-pill.css` (base) and `sk-nav-pill-drawer.css` (drawer extension). ' +
+          'The drawer toggle also requires `skToggleDrawer` from `sk-nav-pill.js`. ' +
+          'Drag the right edge of the sandbox to cross the breakpoint.',
       },
     },
-    viewport: { defaultViewport: 'mobile1' },
   },
+  decorators: [
+    (story) => {
+      (window as any).__skToggleDrawer = skToggleDrawer;
+      return story();
+    },
+  ],
   render: () => `
 <div style="resize:horizontal;overflow:hidden;min-width:220px;max-width:800px;border:1px dashed var(--sk-border-default);padding:var(--sk-space-4);">
   <p style="font-size:var(--sk-text-xs);color:var(--sk-fg-muted);margin-bottom:var(--sk-space-3);font-family:var(--sk-font-mono);">
@@ -104,12 +116,7 @@ export const CollapsedHamburger: Story = {
         aria-expanded="false"
         aria-controls="sk-nav-drawer"
         type="button"
-        onclick="(function(btn){
-          var expanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!expanded));
-          var drawer = document.getElementById('sk-nav-drawer');
-          if(drawer) drawer.classList.toggle('is-open', !expanded);
-        })(this)"
+        onclick="window.__skToggleDrawer && window.__skToggleDrawer(this)"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <line x1="4" y1="7" x2="20" y2="7"/>
@@ -129,4 +136,28 @@ export const CollapsedHamburger: Story = {
     <a href="#" class="sk-nav-pill__item">Training</a>
   </div>
 </div>`,
+};
+
+export const LightMode: Story = {
+  parameters: { backgrounds: { default: 'sk-light' } },
+  render: (args) => {
+    const items = args['items'] ?? [
+      { label: 'Platform', href: '#' },
+      { label: 'Getting Started', href: '#', active: true },
+      { label: 'About', href: '#' },
+    ];
+    const itemsHtml = items.map((item: any) =>
+      `<a href="${item.href}" class="sk-nav-pill__item${item.active ? ' sk-nav-pill__item--active' : ''}">${item.label}</a>`
+    ).join('\n    ');
+    return `
+      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6);">
+        <nav class="sk-nav-pill" aria-label="Primary navigation">
+          <div class="sk-nav-pill__items">${itemsHtml}</div>
+          <div class="sk-nav-pill__cta">
+            <button class="sk-nav-pill__cta-btn" type="button">Book Demo</button>
+          </div>
+        </nav>
+      </div>
+    `;
+  },
 };
