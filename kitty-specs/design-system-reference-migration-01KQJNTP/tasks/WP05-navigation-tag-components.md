@@ -158,3 +158,4 @@ Verify the active NavPill item has a visually distinct filled background. Check 
 - 2026-05-02T06:29:29Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – NavPill, PillTag, EyebrowPill in both packages with stories
 - 2026-05-02T06:29:30Z – claude:claude-sonnet-4-6:reviewer-renata:reviewer – shell_pid=1660728 – Started review via action command
 - 2026-05-02T06:39:28Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1713625 – Started implementation via action command
+- 2026-05-02T06:40:12Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1713625 – Cycle 2: stylelint BEM regex fixed in systemic commit; nav-pill multi-word classes now pass
