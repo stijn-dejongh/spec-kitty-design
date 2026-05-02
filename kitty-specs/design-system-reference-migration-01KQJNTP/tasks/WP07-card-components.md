@@ -162,3 +162,4 @@ Check the RibbonCard ribbon is positioned at a 45° angle overlapping the top-ri
 ## Activity Log
 
 - 2026-05-02T06:23:31Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
+- 2026-05-02T06:32:15Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – FeatureCard (icon chip variants) + RibbonCard (optional diagonal ribbon) in both packages
