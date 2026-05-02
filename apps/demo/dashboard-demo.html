@@ -29,6 +29,8 @@
   <!-- Component CSS -->
   <link rel="stylesheet" href="../../packages/html-js/src/pill-tag/sk-pill-tag.css" />
   <link rel="stylesheet" href="../../packages/html-js/src/button/sk-button.css" />
+  <link rel="stylesheet" href="../../packages/html-js/src/nav-pill/sk-nav-pill.css" />
+  <link rel="stylesheet" href="../../packages/html-js/src/section-banner/sk-section-banner.css" />
 
   <style>
     /* -----------------------------------------------------------------------
@@ -59,6 +61,7 @@
       gap: var(--sk-space-4);
       flex-shrink: 0;
       min-height: 52px;
+      position: relative;
     }
 
     .dash-logo {
@@ -127,6 +130,34 @@
     }
 
     /* -----------------------------------------------------------------------
+       Nav pill in header — responsive override
+       The nav-pill sits in the header; the drawer drops below the header
+    ----------------------------------------------------------------------- */
+    .dash-header .sk-nav-pill {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      gap: var(--sk-space-2);
+    }
+
+    /* Drawer is positioned below the header, full-width */
+    .dash-nav-drawer-wrap {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 0 var(--sk-space-6);
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .dash-nav-drawer-wrap .sk-nav-pill__drawer {
+      pointer-events: auto;
+      width: 100%;
+    }
+
+    /* -----------------------------------------------------------------------
        Mission summary bar (below header)
     ----------------------------------------------------------------------- */
     .dash-summary-bar {
@@ -186,19 +217,86 @@
       min-width: 0;
     }
 
+    /* -----------------------------------------------------------------------
+       Lane headers — styled as sk-section-banner pills
+       Each header is a coloured pill: ● dot, ALL-CAPS mono text, count badge
+    ----------------------------------------------------------------------- */
     .dash-lane__header {
-      font-size: var(--sk-text-xs);
-      font-family: var(--sk-font-mono);
-      font-weight: var(--sk-weight-bold);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--sk-fg-muted);
-      padding-bottom: var(--sk-space-2);
-      border-bottom: 1px solid var(--sk-border-default);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: var(--sk-space-2);
+      padding: var(--sk-space-2) var(--sk-space-4);
+      border-radius: var(--sk-radius-sm);
+      font-family: var(--sk-font-mono);
+      font-size: var(--sk-text-xs);
+      font-weight: var(--sk-weight-bold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       flex-shrink: 0;
+    }
+
+    .dash-lane__header-left {
+      display: flex;
+      align-items: center;
+      gap: var(--sk-space-2);
+    }
+
+    .dash-lane__dot {
+      font-size: var(--sk-text-base);
+      line-height: 1;
+    }
+
+    /* Planned: neutral — surface-input background, muted dot */
+    .dash-lane__header--planned {
+      background: var(--sk-surface-input);
+      color: var(--sk-fg-muted);
+      border: 1px solid var(--sk-border-default);
+    }
+
+    .dash-lane__header--planned .dash-lane__dot {
+      color: var(--sk-fg-subtle);
+    }
+
+    /* Doing: sky tint background, blue dot */
+    .dash-lane__header--doing {
+      background: var(--sk-surface-tint-sky);
+      color: var(--sk-color-blue);
+    }
+
+    .dash-lane__header--doing .dash-lane__dot {
+      color: var(--sk-color-blue);
+    }
+
+    /* For Review: butter tint background, yellow dot */
+    .dash-lane__header--review {
+      background: var(--sk-surface-tint-butter);
+      color: var(--sk-color-yellow);
+    }
+
+    .dash-lane__header--review .dash-lane__dot {
+      color: var(--sk-color-yellow);
+    }
+
+    /* Approved: mint tint background, green dot */
+    .dash-lane__header--approved {
+      background: var(--sk-surface-tint-mint);
+      color: var(--sk-color-green);
+    }
+
+    .dash-lane__header--approved .dash-lane__dot {
+      color: var(--sk-color-green);
+    }
+
+    /* Done: card surface at 60% opacity, muted dot */
+    .dash-lane__header--done {
+      background: var(--sk-surface-card);
+      opacity: 0.6;
+      color: var(--sk-fg-muted);
+    }
+
+    .dash-lane__header--done .dash-lane__dot {
+      color: var(--sk-fg-subtle);
     }
 
     .dash-lane__count {
@@ -208,51 +306,64 @@
       font-size: 10px;
       font-weight: var(--sk-weight-regular);
       color: var(--sk-fg-muted);
+      opacity: 1; /* ensure count stays visible inside faded Done header */
     }
 
     /* -----------------------------------------------------------------------
-       WP card
+       WP card — base
     ----------------------------------------------------------------------- */
     .dash-card {
       background: var(--sk-surface-card);
-      border: 1px solid var(--sk-border-default);
-      border-left-width: 3px;
-      border-left-color: var(--sk-border-default);
       border-radius: var(--sk-radius-sm);
       padding: var(--sk-space-3);
       display: flex;
       flex-direction: column;
       gap: var(--sk-space-2);
       cursor: default;
-      transition: border-color 0.15s ease;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
       flex-shrink: 0;
     }
 
-    .dash-card:hover {
-      border-color: var(--sk-border-strong);
-      border-left-color: inherit;
-    }
-
-    /* Status accent colours via left border */
-    .dash-card--doing {
-      border-left-color: var(--sk-color-blue);
-    }
-
-    .dash-card--review {
-      border-left-color: var(--sk-color-yellow);
-    }
-
-    .dash-card--approved {
-      border-left-color: var(--sk-color-green);
+    /* Planned / Done: default subtle border, no accent trim */
+    .dash-card--planned,
+    .dash-card--done {
+      border: 1px solid var(--sk-border-default);
     }
 
     .dash-card--done {
-      border-left-color: var(--sk-border-default);
       opacity: 0.6;
     }
 
-    .dash-card--planned {
-      border-left-color: var(--sk-border-default);
+    .dash-card--planned:hover,
+    .dash-card--done:hover {
+      border-color: var(--sk-border-strong);
+    }
+
+    /* Doing: full 4-side blue border */
+    .dash-card--doing {
+      border: 2px solid var(--sk-color-blue);
+    }
+
+    .dash-card--doing:hover {
+      box-shadow: 0 0 0 1px var(--sk-color-blue);
+    }
+
+    /* For Review: full 4-side yellow border */
+    .dash-card--review {
+      border: 2px solid var(--sk-color-yellow);
+    }
+
+    .dash-card--review:hover {
+      box-shadow: 0 0 0 1px var(--sk-color-yellow);
+    }
+
+    /* Approved: full 4-side green border */
+    .dash-card--approved {
+      border: 2px solid var(--sk-color-green);
+    }
+
+    .dash-card--approved:hover {
+      box-shadow: 0 0 0 1px var(--sk-color-green);
     }
 
     .dash-card__id {
@@ -340,18 +451,17 @@
       border-radius: 2px;
     }
 
-    .dash-footer__swatch--doing   { background: var(--sk-color-blue); }
-    .dash-footer__swatch--review  { background: var(--sk-color-yellow); }
+    .dash-footer__swatch--doing    { background: var(--sk-color-blue); }
+    .dash-footer__swatch--review   { background: var(--sk-color-yellow); }
     .dash-footer__swatch--approved { background: var(--sk-color-green); }
-    .dash-footer__swatch--planned { background: var(--sk-border-default); }
+    .dash-footer__swatch--planned  { background: var(--sk-border-default); }
   </style>
 </head>
 <body>
 
   <!-- =====================================================================
-       Header bar
+       Theme script
   ====================================================================== -->
-  <!-- Theme script -->
   <script>(function(){
     var p = new URLSearchParams(location.search).get('theme');
     if (p) document.documentElement.setAttribute('data-theme', p);
@@ -362,6 +472,14 @@
       var btn = document.getElementById('sk-theme-toggle');
       if (btn) btn.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     };
+
+    /* Hamburger / drawer toggle */
+    window.skToggleDrawer = function(btn) {
+      var drawer = document.getElementById('sk-nav-drawer');
+      if (!drawer) return;
+      var isOpen = drawer.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
   })();</script>
   <style>
     [data-theme="light"] .sk-icon-sun  { display: none !important; }
@@ -370,6 +488,9 @@
     [data-theme="dark"]  .sk-icon-moon { display: none !important; }
   </style>
 
+  <!-- =====================================================================
+       Header bar
+  ====================================================================== -->
   <header class="dash-header">
     <!-- Logo: image + wordmark (required in all nav bars per brand guidelines) -->
     <a href="#" style="display:flex;align-items:center;gap:var(--sk-space-2);text-decoration:none;flex-shrink:0;">
@@ -384,6 +505,32 @@
       </div>
       <span class="dash-progress-label">6 / 9 · 67%</span>
     </div>
+
+    <!-- Responsive nav pill with hamburger -->
+    <nav class="sk-nav-pill sk-nav-pill--responsive sk-nav-pill--has-drawer"
+         aria-label="Dashboard navigation"
+         style="flex:1;">
+      <div class="sk-nav-pill__items">
+        <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" aria-current="page">Board</a>
+        <a href="#" class="sk-nav-pill__item">Timeline</a>
+        <a href="#" class="sk-nav-pill__item">Agents</a>
+        <a href="#" class="sk-nav-pill__item">Logs</a>
+      </div>
+      <button class="sk-nav-pill__hamburger"
+              id="sk-nav-hamburger"
+              aria-label="Open navigation"
+              aria-expanded="false"
+              aria-controls="sk-nav-drawer"
+              onclick="skToggleDrawer(this)">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.75"
+             stroke-linecap="round" aria-hidden="true">
+          <line x1="2" y1="4.5"  x2="16" y2="4.5"/>
+          <line x1="2" y1="9"    x2="16" y2="9"/>
+          <line x1="2" y1="13.5" x2="16" y2="13.5"/>
+        </svg>
+      </button>
+    </nav>
+
     <div class="dash-header-actions">
       <span class="sk-tag">lane-a</span>
       <span class="sk-tag sk-tag--green">mission #3</span>
@@ -399,6 +546,16 @@
         </svg>
       </button>
       <a href="blog-demo.html" class="sk-btn sk-btn--ghost sk-btn--sm">← Blog demo</a>
+    </div>
+
+    <!-- Drawer: positioned below header, full-width, shown when hamburger is active -->
+    <div class="dash-nav-drawer-wrap">
+      <div class="sk-nav-pill__drawer" id="sk-nav-drawer" role="menu">
+        <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" role="menuitem" aria-current="page">Board</a>
+        <a href="#" class="sk-nav-pill__item" role="menuitem">Timeline</a>
+        <a href="#" class="sk-nav-pill__item" role="menuitem">Agents</a>
+        <a href="#" class="sk-nav-pill__item" role="menuitem">Logs</a>
+      </div>
     </div>
   </header>
 
@@ -441,8 +598,12 @@
          Column 1: Planned
     ----------------------------------------------------------------- -->
     <div class="dash-lane">
-      <div class="dash-lane__header">
-        Planned <span class="dash-lane__count">2</span>
+      <div class="dash-lane__header dash-lane__header--planned">
+        <div class="dash-lane__header-left">
+          <span class="dash-lane__dot" aria-hidden="true">●</span>
+          Planned
+        </div>
+        <span class="dash-lane__count">2</span>
       </div>
 
       <div class="dash-card dash-card--planned">
@@ -475,8 +636,12 @@
          Column 2: Doing
     ----------------------------------------------------------------- -->
     <div class="dash-lane">
-      <div class="dash-lane__header">
-        Doing <span class="dash-lane__count">2</span>
+      <div class="dash-lane__header dash-lane__header--doing">
+        <div class="dash-lane__header-left">
+          <span class="dash-lane__dot" aria-hidden="true">●</span>
+          Doing
+        </div>
+        <span class="dash-lane__count">2</span>
       </div>
 
       <div class="dash-card dash-card--doing">
@@ -509,8 +674,12 @@
          Column 3: For Review
     ----------------------------------------------------------------- -->
     <div class="dash-lane">
-      <div class="dash-lane__header">
-        For Review <span class="dash-lane__count">2</span>
+      <div class="dash-lane__header dash-lane__header--review">
+        <div class="dash-lane__header-left">
+          <span class="dash-lane__dot" aria-hidden="true">●</span>
+          For Review
+        </div>
+        <span class="dash-lane__count">2</span>
       </div>
 
       <div class="dash-card dash-card--review">
@@ -543,8 +712,12 @@
          Column 4: Approved
     ----------------------------------------------------------------- -->
     <div class="dash-lane">
-      <div class="dash-lane__header">
-        Approved <span class="dash-lane__count">3</span>
+      <div class="dash-lane__header dash-lane__header--approved">
+        <div class="dash-lane__header-left">
+          <span class="dash-lane__dot" aria-hidden="true">●</span>
+          Approved
+        </div>
+        <span class="dash-lane__count">3</span>
       </div>
 
       <div class="dash-card dash-card--approved">
@@ -589,8 +762,12 @@
          Column 5: Done
     ----------------------------------------------------------------- -->
     <div class="dash-lane">
-      <div class="dash-lane__header">
-        Done <span class="dash-lane__count">0</span>
+      <div class="dash-lane__header dash-lane__header--done">
+        <div class="dash-lane__header-left">
+          <span class="dash-lane__dot" aria-hidden="true">●</span>
+          Done
+        </div>
+        <span class="dash-lane__count">0</span>
       </div>
 
       <!-- Placeholder — no fully merged WPs yet in this sprint state -->

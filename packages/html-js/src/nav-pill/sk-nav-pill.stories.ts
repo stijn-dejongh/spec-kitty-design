@@ -69,3 +69,57 @@ export const Mobile: Story = {
   },
   parameters: { viewport: { defaultViewport: 'mobile1' } },
 };
+
+// ── Collapsed / responsive nav pill ──────────────────────────────────────
+// Shows hamburger button on narrow viewports; drawer slides open on click.
+// Add sk-nav-pill--responsive to enable the CSS breakpoint behaviour.
+// Add sk-nav-pill--has-drawer for the toggle button active-state styling.
+export const CollapsedHamburger: Story = {
+  render: () => `
+<div style="resize:horizontal;overflow:hidden;min-width:220px;max-width:800px;border:1px dashed var(--sk-border-default);padding:var(--sk-space-4);">
+  <p style="font-size:var(--sk-text-xs);color:var(--sk-fg-muted);margin-bottom:var(--sk-space-3);font-family:var(--sk-font-mono);">
+    Drag the right edge to resize and watch the nav collapse below 720 px.
+  </p>
+  <nav class="sk-nav-pill sk-nav-pill--responsive sk-nav-pill--has-drawer" aria-label="Primary navigation">
+    <div class="sk-nav-pill__items">
+      <a href="#" class="sk-nav-pill__item">Platform</a>
+      <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" aria-current="page">Getting Started</a>
+      <a href="#" class="sk-nav-pill__item">About</a>
+      <a href="#" class="sk-nav-pill__item">Blog</a>
+      <a href="#" class="sk-nav-pill__item">Training</a>
+    </div>
+    <div class="sk-nav-pill__cta" style="display:flex;align-items:center;gap:var(--sk-space-2);">
+      <!-- Hamburger — hidden on desktop, shown on mobile -->
+      <button
+        class="sk-nav-pill__hamburger"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="sk-nav-drawer"
+        type="button"
+        onclick="(function(btn){
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          var drawer = document.getElementById('sk-nav-drawer');
+          if(drawer) drawer.classList.toggle('is-open', !expanded);
+        })(this)"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="17" x2="20" y2="17"/>
+        </svg>
+      </button>
+      <button class="sk-nav-pill__cta-btn" type="button">Book Demo</button>
+    </div>
+  </nav>
+  <!-- Drawer: slides open on mobile when hamburger is toggled -->
+  <div id="sk-nav-drawer" class="sk-nav-pill__drawer" role="menu">
+    <a href="#" class="sk-nav-pill__item" role="menuitem">Platform</a>
+    <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" role="menuitem" aria-current="page">Getting Started</a>
+    <a href="#" class="sk-nav-pill__item" role="menuitem">About</a>
+    <a href="#" class="sk-nav-pill__item" role="menuitem">Blog</a>
+    <a href="#" class="sk-nav-pill__item" role="menuitem">Training</a>
+  </div>
+</div>`,
+  parameters: { viewport: { defaultViewport: 'mobile1' } },
+};
