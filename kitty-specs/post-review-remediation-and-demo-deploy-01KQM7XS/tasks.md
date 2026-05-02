@@ -21,9 +21,9 @@
 | T009 | Update `CollapsedHamburger` story to import and invoke `skToggleDrawer` | WP03 | No | [D] |
 | T010 | Replace inline `skToggleDrawer` in `dashboard-demo.html` with module import | WP03 | No | [D] |
 | T011 | Replace inline `skToggleDrawer` in `blog-demo.html` with module import | WP03 | No | [D] |
-| T012 | Replace `opacity: 0.6` on Done-lane header with colour tokens | WP04 | No | [D] |
-| T013 | Remove `.dash-lane__count { opacity: 1 }` child override | WP04 | No | [D] |
-| T014 | Change blog-demo `[data-theme="light"] header` bg to `--sk-surface-card` | WP04 | No | [D] |
+| T012 | Replace `opacity: 0.6` on Done-lane header with colour tokens | WP03 | No | [D] |
+| T013 | Remove `.dash-lane__count { opacity: 1 }` child override | WP03 | No | [D] |
+| T014 | Change blog-demo `[data-theme="light"] header` bg to `--sk-surface-card` | WP03 | No | [D] |
 | T015 | Add `LightMode` story to `sk-button-html.stories.ts` | WP05 | Yes | [D] |
 | T016 | Add/upgrade `LightMode` story to `sk-card-html.stories.ts` | WP05 | Yes | [D] |
 | T017 | Add `LightMode` story to `sk-check-bullet-html.stories.ts` | WP05 | Yes | [D] |

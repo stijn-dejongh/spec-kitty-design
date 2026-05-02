@@ -159,10 +159,13 @@
     [data-theme="dark"]  .sk-icon-moon { display: none !important; }
 
     /* Light-mode surface hierarchy corrections:
-       - header/hero/main content: off-white (--sk-surface-hero, brightest)
+       - header: card surface (FR-013, aligns with dashboard demo)
+       - hero/main content: off-white (--sk-surface-hero, brightest)
        - alt/accent sections: warm cream (--sk-surface-page)
        In dark mode the single page background is used throughout. */
-    [data-theme="light"] header,
+    [data-theme="light"] header {
+      background: var(--sk-surface-card);
+    }
     [data-theme="light"] .demo-hero-section,
     [data-theme="light"] .demo-posts-section {
       background: var(--sk-surface-hero);
