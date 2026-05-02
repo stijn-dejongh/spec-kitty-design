@@ -8,11 +8,15 @@ requirement_refs:
 planning_base_branch: feature/post-review-remediation-and-demo-deploy
 merge_target_branch: feature/post-review-remediation-and-demo-deploy
 branch_strategy: Planning artifacts for this feature were generated on feature/post-review-remediation-and-demo-deploy. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feature/post-review-remediation-and-demo-deploy unless the human explicitly redirects the landing branch.
+base_branch: kitty/mission-post-review-remediation-and-demo-deploy-01KQM7XS
+base_commit: f2d2799f2807c533ff4fd098da567074b351165b
+created_at: '2026-05-02T12:38:34.032846+00:00'
 subtasks:
 - T001
 - T002
 - T003
 agent: claude
+shell_pid: '894550'
 history:
 - date: '2026-05-02'
   event: created
