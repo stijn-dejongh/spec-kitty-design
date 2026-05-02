@@ -16,14 +16,14 @@
 | T004 | Create `sk-nav-pill-drawer.css` with extracted hamburger/drawer CSS | WP02 | No | [D] |
 | T005 | Remove extracted block from `sk-nav-pill.css` | WP02 | No | [D] |
 | T006 | Update `CollapsedHamburger` story: import drawer CSS + update docs | WP02 | No | [D] |
-| T007 | Create `sk-nav-pill.js` with exported `skToggleDrawer` function | WP03 | No |
-| T008 | Re-export `skToggleDrawer` from `packages/html-js/src/nav-pill/index.ts` | WP03 | No |
-| T009 | Update `CollapsedHamburger` story to import and invoke `skToggleDrawer` | WP03 | No |
-| T010 | Replace inline `skToggleDrawer` in `dashboard-demo.html` with module import | WP03 | No |
-| T011 | Replace inline `skToggleDrawer` in `blog-demo.html` with module import | WP03 | No |
-| T012 | Replace `opacity: 0.6` on Done-lane header with colour tokens | WP04 | No |
-| T013 | Remove `.dash-lane__count { opacity: 1 }` child override | WP04 | No |
-| T014 | Change blog-demo `[data-theme="light"] header` bg to `--sk-surface-card` | WP04 | No |
+| T007 | Create `sk-nav-pill.js` with exported `skToggleDrawer` function | WP03 | No | [D] |
+| T008 | Re-export `skToggleDrawer` from `packages/html-js/src/nav-pill/index.ts` | WP03 | No | [D] |
+| T009 | Update `CollapsedHamburger` story to import and invoke `skToggleDrawer` | WP03 | No | [D] |
+| T010 | Replace inline `skToggleDrawer` in `dashboard-demo.html` with module import | WP03 | No | [D] |
+| T011 | Replace inline `skToggleDrawer` in `blog-demo.html` with module import | WP03 | No | [D] |
+| T012 | Replace `opacity: 0.6` on Done-lane header with colour tokens | WP04 | No | [D] |
+| T013 | Remove `.dash-lane__count { opacity: 1 }` child override | WP04 | No | [D] |
+| T014 | Change blog-demo `[data-theme="light"] header` bg to `--sk-surface-card` | WP04 | No | [D] |
 | T015 | Add `LightMode` story to `sk-button-html.stories.ts` | WP05 | Yes |
 | T016 | Add/upgrade `LightMode` story to `sk-card-html.stories.ts` | WP05 | Yes |
 | T017 | Add `LightMode` story to `sk-check-bullet-html.stories.ts` | WP05 | Yes |
@@ -105,14 +105,14 @@
 
 **Goal:** Create the `skToggleDrawer` JS module, update the `CollapsedHamburger` story (CSS imports + JS import + docs), wire both demo pages to use the module, and apply two demo CSS fixes.
 
-- [ ] T007 Create `sk-nav-pill.js` with exported `skToggleDrawer` (WP03)
-- [ ] T008 Re-export `skToggleDrawer` from `index.ts` (WP03)
-- [ ] T009 Update `CollapsedHamburger` story: CSS imports, JS import, docs, LightMode (WP03)
-- [ ] T010 Replace inline `skToggleDrawer` in `dashboard-demo.html` with module import (WP03)
-- [ ] T011 Replace inline `skToggleDrawer` in `blog-demo.html` with module import (WP03)
-- [ ] T012 Replace `opacity: 0.6` on Done-lane header with colour tokens in `dashboard-demo.html` (WP03)
-- [ ] T013 Remove `.dash-lane__count { opacity: 1 }` child override (WP03)
-- [ ] T014 Change `[data-theme="light"] header` bg to `--sk-surface-card` in `blog-demo.html` (WP03)
+- [x] T007 Create `sk-nav-pill.js` with exported `skToggleDrawer` (WP03)
+- [x] T008 Re-export `skToggleDrawer` from `index.ts` (WP03)
+- [x] T009 Update `CollapsedHamburger` story: CSS imports, JS import, docs, LightMode (WP03)
+- [x] T010 Replace inline `skToggleDrawer` in `dashboard-demo.html` with module import (WP03)
+- [x] T011 Replace inline `skToggleDrawer` in `blog-demo.html` with module import (WP03)
+- [x] T012 Replace `opacity: 0.6` on Done-lane header with colour tokens in `dashboard-demo.html` (WP03)
+- [x] T013 Remove `.dash-lane__count { opacity: 1 }` child override (WP03)
+- [x] T014 Change `[data-theme="light"] header` bg to `--sk-surface-card` in `blog-demo.html` (WP03)
 
 ---
 
