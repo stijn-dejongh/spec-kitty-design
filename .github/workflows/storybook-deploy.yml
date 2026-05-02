@@ -3,6 +3,17 @@ name: Deploy Storybook to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      # Storybook source and configuration
+      - "apps/storybook/**"
+      # Publishable packages that feed the Storybook catalog
+      - "packages/tokens/**"
+      - "packages/angular/**"
+      - "packages/html-js/**"
+      # Static demo pages
+      - "apps/demo/**"
+      # Workflow file itself
+      - ".github/workflows/storybook-deploy.yml"
 
 permissions:
   contents: read
