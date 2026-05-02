@@ -13,8 +13,8 @@
 | T001 | Add `--sk-color-yellow-alpha-15/35/60` tokens to `tokens.css` | WP01 | No | [D] |
 | T002 | Update `sk-nav-pill.css` hover rule to use new alpha tokens | WP01 | No | [D] |
 | T003 | Verify tokens + html-js builds pass after changes | WP01 | No | [D] |
-| T004 | Create `sk-nav-pill-drawer.css` with extracted hamburger/drawer CSS | WP02 | No |
-| T005 | Remove extracted block from `sk-nav-pill.css` | WP02 | No |
+| T004 | Create `sk-nav-pill-drawer.css` with extracted hamburger/drawer CSS | WP02 | No | [D] |
+| T005 | Remove extracted block from `sk-nav-pill.css` | WP02 | No | [D] |
 | T006 | Update `CollapsedHamburger` story: import drawer CSS + update docs | WP02 | No |
 | T007 | Create `sk-nav-pill.js` with exported `skToggleDrawer` function | WP03 | No |
 | T008 | Re-export `skToggleDrawer` from `packages/html-js/src/nav-pill/index.ts` | WP03 | No |
@@ -93,8 +93,8 @@
 
 **Goal:** Extract the hamburger button and drawer CSS block (lines 89–175 of `sk-nav-pill.css`) into a new `sk-nav-pill-drawer.css` file. Update the `CollapsedHamburger` story to import both files and document the split.
 
-- [ ] T004 Create `sk-nav-pill-drawer.css` with extracted hamburger/drawer CSS (WP02)
-- [ ] T005 Remove extracted block from `sk-nav-pill.css` (WP02)
+- [x] T004 Create `sk-nav-pill-drawer.css` with extracted hamburger/drawer CSS (WP02)
+- [x] T005 Remove extracted block from `sk-nav-pill.css` (WP02)
 - [ ] T006 Update `CollapsedHamburger` story: import drawer CSS + update docs description (WP02)
 
 ### WP03 — JS Module + Story Update + Demo Page Fixes
