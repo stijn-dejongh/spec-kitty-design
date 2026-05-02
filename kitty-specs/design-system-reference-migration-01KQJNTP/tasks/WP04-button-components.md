@@ -18,8 +18,8 @@ subtasks:
 - T018
 - T019
 - T020
-agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
-shell_pid: "1625658"
+agent: "claude:claude-sonnet-4-6:reviewer-renata:reviewer"
+shell_pid: "1654523"
 history:
 - date: '2026-05-01'
   event: created
@@ -196,3 +196,4 @@ Check that `sk-btn--primary:hover` shows the yellow glow (not just a colour chan
 
 - 2026-05-02T06:23:25Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
 - 2026-05-02T06:27:52Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – ButtonPrimary + ButtonSecondary in both packages, stories written
+- 2026-05-02T06:28:28Z – claude:claude-sonnet-4-6:reviewer-renata:reviewer – shell_pid=1654523 – Started review via action command
