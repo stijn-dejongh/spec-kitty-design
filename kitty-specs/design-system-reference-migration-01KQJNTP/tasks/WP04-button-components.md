@@ -195,3 +195,4 @@ Check that `sk-btn--primary:hover` shows the yellow glow (not just a colour chan
 ## Activity Log
 
 - 2026-05-02T06:23:25Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
+- 2026-05-02T06:27:52Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – ButtonPrimary + ButtonSecondary in both packages, stories written
