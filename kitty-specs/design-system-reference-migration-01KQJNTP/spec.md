@@ -132,3 +132,15 @@ As an Angular developer, I want to import `ButtonPrimary` from `@spec-kitty/angu
 - Canonical token values are those in `tmp/colors_and_type.css`; discrepancies with the live site resolve in favour of the reference unless the maintainer specifies otherwise in the ADR-003 addendum.
 - `tmp/` remains gitignored; no files are committed from it directly.
 - All 8 `component-*.html` preview files are in scope with no additional scoping.
+
+## Amendment: User Guide Documentation (2026-05-02)
+
+The following requirements are added to cover a consumer-facing user guide in `docs/design-system/`.
+
+| ID | Description | Status |
+|---|---|---|
+| FR-124 | A `docs/design-system/README.md` overview page exists linking to all user guide sections | Proposed |
+| FR-125 | A `docs/design-system/using-tokens.md` guide covers: installing `@spec-kitty/tokens`, loading the CSS, using `--sk-*` custom properties in plain HTML, Angular, and SCSS | Proposed |
+| FR-126 | A `docs/design-system/using-components.md` guide covers: installing `@spec-kitty/angular` and `@spec-kitty/html-js`, importing and rendering each component category, with code examples | Proposed |
+| FR-127 | A `docs/design-system/brand-guidelines.md` document covers: brand voice rules, colour palette with use cases, typography guidance, iconography rules, and mascot usage policy | Proposed |
+| FR-128 | A `docs/design-system/changelog.md` stub exists for tracking design system releases | Proposed |
