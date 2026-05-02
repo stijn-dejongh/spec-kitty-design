@@ -1,3 +1,4 @@
+<!-- Generated via spec-kitty -->
 # Implementation Plan: Design System Remediation + Blog Demo Page
 
 *Path: [kitty-specs/design-system-remediation-and-demo-01KQKSSR/plan.md](plan.md)*
