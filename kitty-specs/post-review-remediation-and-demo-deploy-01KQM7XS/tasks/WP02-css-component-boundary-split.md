@@ -13,7 +13,8 @@ subtasks:
 - T004
 - T005
 - T006-build
-agent: claude
+agent: "claude:sonnet-4-6:implementer-ivan:implementer"
+shell_pid: "912186"
 history:
 - date: '2026-05-02'
   event: created
@@ -161,3 +162,7 @@ Keep all other stories and the existing `render` function of `CollapsedHamburger
 - Confirm `sk-nav-pill.css` has no `@import` pointing to `sk-nav-pill-drawer.css`
 - Open Storybook `CollapsedHamburger` story and verify the drawer still animates correctly
 - Read the docs description in Storybook autodocs and confirm it mentions both CSS files and the JS dependency
+
+## Activity Log
+
+- 2026-05-02T12:57:17Z – claude:sonnet-4-6:implementer-ivan:implementer – shell_pid=912186 – Started implementation via action command
