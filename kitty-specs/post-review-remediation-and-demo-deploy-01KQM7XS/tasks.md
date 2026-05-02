@@ -10,9 +10,9 @@
 
 | ID | Description | WP | Parallel |
 |----|-----------|----|---------|
-| T001 | Add `--sk-color-yellow-alpha-15/35/60` tokens to `tokens.css` | WP01 | No |
-| T002 | Update `sk-nav-pill.css` hover rule to use new alpha tokens | WP01 | No |
-| T003 | Verify tokens + html-js builds pass after changes | WP01 | No |
+| T001 | Add `--sk-color-yellow-alpha-15/35/60` tokens to `tokens.css` | WP01 | No | [D] |
+| T002 | Update `sk-nav-pill.css` hover rule to use new alpha tokens | WP01 | No | [D] |
+| T003 | Verify tokens + html-js builds pass after changes | WP01 | No | [D] |
 | T004 | Create `sk-nav-pill-drawer.css` with extracted hamburger/drawer CSS | WP02 | No |
 | T005 | Remove extracted block from `sk-nav-pill.css` | WP02 | No |
 | T006 | Update `CollapsedHamburger` story: import drawer CSS + update docs | WP02 | No |
@@ -77,9 +77,9 @@
 
 **Goal:** Add three yellow alpha-channel tokens to `packages/tokens/src/tokens.css` and update the `sk-nav-pill.css` hover rule to reference them instead of hardcoded `rgba()` channel literals. Resolves the C-202 violation (DEF-01 from Renata review).
 
-- [ ] T001 Add `--sk-color-yellow-alpha-15/35/60` tokens to `tokens.css` (WP01)
-- [ ] T002 Update `sk-nav-pill.css` hover rule to use new alpha tokens (WP01)
-- [ ] T003 Verify tokens + html-js builds pass (WP01)
+- [x] T001 Add `--sk-color-yellow-alpha-15/35/60` tokens to `tokens.css` (WP01)
+- [x] T002 Update `sk-nav-pill.css` hover rule to use new alpha tokens (WP01)
+- [x] T003 Verify tokens + html-js builds pass (WP01)
 
 ---
 
