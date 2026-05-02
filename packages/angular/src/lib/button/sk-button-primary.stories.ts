@@ -35,11 +35,15 @@ export const Small: Story = {
   }),
 };
 
-export const LightBackground: Story = {
+export const LightMode: Story = {
   parameters: {
     backgrounds: { default: 'sk-light' },
   },
   render: () => ({
-    template: '<sk-button-primary>On light</sk-button-primary>',
+    template: `
+      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+        <sk-button-primary>Get started</sk-button-primary>
+      </div>
+    `,
   }),
 };

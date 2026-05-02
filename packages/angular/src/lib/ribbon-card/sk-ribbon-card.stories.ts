@@ -76,17 +76,16 @@ export const RibbonPurple: Story = {
   }),
 };
 
-export const OnLightBackground: Story = {
-  args: {
-    ribbonLabel: 'Primary Workshop',
-    ribbonVariant: 'yellow',
-  },
-  render: (args) => ({
-    props: args,
-    template: `<sk-ribbon-card [ribbonLabel]="ribbonLabel" [ribbonVariant]="ribbonVariant">
-      <h4>Full-day rollout workshop</h4>
-      <p>Get product, engineering, and reviewers aligned on Spec Kitty in your environment.</p>
-    </sk-ribbon-card>`,
+export const LightMode: Story = {
+  render: () => ({
+    template: `
+      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+        <sk-ribbon-card ribbonLabel="Primary Workshop" ribbonVariant="yellow">
+          <h4>Full-day rollout workshop</h4>
+          <p>Get product, engineering, and reviewers aligned on Spec Kitty in your environment.</p>
+        </sk-ribbon-card>
+      </div>
+    `,
   }),
   parameters: { backgrounds: { default: 'sk-light' } },
 };

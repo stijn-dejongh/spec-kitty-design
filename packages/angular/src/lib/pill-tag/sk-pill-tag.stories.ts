@@ -56,8 +56,21 @@ export const AllVariants: Story = {
   }),
 };
 
-export const OnLightBackground: Story = {
-  args: { label: 'SemVer', variant: 'green' },
+export const LightMode: Story = {
+  render: () => ({
+    moduleMetadata: { imports: [SkPillTagComponent] },
+    template: `
+      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <sk-pill-tag label="v1.0.0"></sk-pill-tag>
+          <sk-pill-tag label="Breaking" variant="breaking"></sk-pill-tag>
+          <sk-pill-tag label="SemVer" variant="green"></sk-pill-tag>
+          <sk-pill-tag label="Skills Pack" variant="purple"></sk-pill-tag>
+          <sk-pill-tag label="Schema Gate" variant="yellow"></sk-pill-tag>
+        </div>
+      </div>
+    `,
+  }),
   parameters: { backgrounds: { default: 'sk-light' } },
 };
 

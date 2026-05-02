@@ -37,17 +37,69 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npx nx run-many --target=build --projects=tokens,angular,html-js
       - run: npx nx run storybook:storybook:build
-      - name: Copy demo pages into Storybook deploy artifact
+
+      - name: Copy demo pages into Storybook dist
         run: |
-          # Demo pages reference component CSS and tokens via relative paths from apps/demo/.
-          # When deployed under /demo/ on Pages, those relative paths must still resolve.
-          # We copy the packages/ source alongside the demo pages so ../.. still works.
-          mkdir -p apps/storybook/storybook-static/demo
-          cp apps/demo/*.html apps/storybook/storybook-static/demo/
-          # Expose the packages directory tree (tokens dist, html-js src CSS) under the artifact
-          mkdir -p apps/storybook/storybook-static/packages
-          cp -r packages/tokens/dist  apps/storybook/storybook-static/packages/tokens/
-          cp -r packages/html-js/src  apps/storybook/storybook-static/packages/html-js/
+          set -euo pipefail
+          DIST=apps/storybook/storybook-static
+
+          # Copy demo HTML files to the Storybook root so they are served at
+          # /blog-demo.html and /dashboard-demo.html alongside the Storybook UI.
+          cp apps/demo/blog-demo.html "$DIST/blog-demo.html"
+          cp apps/demo/dashboard-demo.html "$DIST/dashboard-demo.html"
+
+          # Rewrite monorepo-relative asset paths to Storybook-root-relative paths.
+          # The originals in apps/demo/ are intentionally left untouched so that
+          # local file:// development continues to work (paths remain relative
+          # to apps/demo/). Path mappings:
+          #   ../../packages/tokens/dist/tokens.css      -> ./tokens.css
+          #   ../../packages/tokens/assets/<file>        -> ./assets/<file>
+          #   ../../packages/html-js/src/<comp>/<file>   -> ./<comp>/<file>
+          sed -i \
+            -e 's|\.\./\.\./packages/tokens/dist/tokens\.css|./tokens.css|g' \
+            -e 's|\.\./\.\./packages/tokens/assets/|./assets/|g' \
+            -e 's|\.\./\.\./packages/html-js/src/|./|g' \
+            "$DIST/blog-demo.html" \
+            "$DIST/dashboard-demo.html"
+
+          # Sanity check: all monorepo-relative paths must have been rewritten.
+          if grep -n '\.\./\.\./packages' "$DIST/blog-demo.html" "$DIST/dashboard-demo.html"; then
+            echo "ERROR: residual ../../packages/ references found after rewrite" >&2
+            exit 1
+          fi
+
+      - name: Copy token and component assets into Storybook dist
+        run: |
+          set -euo pipefail
+          DIST=apps/storybook/storybook-static
+
+          # Tokens CSS at the Storybook root, plus the bundled fonts/ directory
+          # so @font-face url('./fonts/...') declarations resolve correctly.
+          cp packages/tokens/dist/tokens.css "$DIST/tokens.css"
+          if [ -d packages/tokens/dist/fonts ]; then
+            cp -r packages/tokens/dist/fonts "$DIST/fonts"
+          elif [ -d packages/tokens/src/fonts ]; then
+            cp -r packages/tokens/src/fonts "$DIST/fonts"
+          fi
+
+          # Brand assets (logo, favicon) referenced via ./assets/<file>.
+          if [ -d packages/tokens/assets ]; then
+            mkdir -p "$DIST/assets"
+            cp -r packages/tokens/assets/. "$DIST/assets/"
+          fi
+
+          # Component CSS and the nav-pill JS module, mirrored under the
+          # Storybook root using the same per-component subdirectory layout
+          # the demo pages reference after the sed rewrite.
+          for comp in button nav-pill pill-tag section-banner site-footer card feature-card; do
+            if [ -d "packages/html-js/src/$comp" ]; then
+              mkdir -p "$DIST/$comp"
+              find "packages/html-js/src/$comp" -maxdepth 1 -type f \
+                \( -name '*.css' -o -name '*.js' \) \
+                -exec cp {} "$DIST/$comp/" \;
+            fi
+          done
+
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # actions/configure-pages v6.0.0
         with:
           enablement: true  # auto-enable Pages if not already configured via Settings → Pages → GitHub Actions

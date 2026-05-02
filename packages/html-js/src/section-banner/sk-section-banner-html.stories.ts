@@ -22,3 +22,12 @@ export const Purple: Story = {
 export const Green: Story = {
   render: () => SkSectionBannerGreenHTML,
 };
+
+export const LightMode: Story = {
+  parameters: { backgrounds: { default: 'sk-light' } },
+  render: () => `
+    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: block; width: 100%;">
+      ${SkSectionBannerNeutralHTML}
+    </div>
+  `,
+};

@@ -9,3 +9,5 @@ export const SkNavPillHTML = `<nav class="sk-nav-pill" aria-label="Primary navig
     <button class="sk-nav-pill__cta-btn" type="button">Book Demo</button>
   </div>
 </nav>`;
+
+export { skToggleDrawer } from './sk-nav-pill.js';

@@ -56,3 +56,15 @@ export const BlogCardExample: Story = {
     </article>
   `,
 };
+
+export const LightMode: Story = {
+  parameters: { backgrounds: { default: 'sk-light' } },
+  render: () => `
+    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: flex; gap: var(--sk-space-4); flex-wrap: wrap;">
+      <article class="sk-card" style="max-width:200px">Default</article>
+      <article class="sk-card sk-card--blue" style="max-width:200px">Blue</article>
+      <article class="sk-card sk-card--purple" style="max-width:200px">Purple</article>
+      <article class="sk-card sk-card--inset" style="max-width:200px">Inset</article>
+    </div>
+  `,
+};
