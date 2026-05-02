@@ -147,3 +147,4 @@ Verify SectionBanner purple variant uses `--sk-surface-purple-tint` (not hardcod
 ## Activity Log
 
 - 2026-05-02T06:23:29Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
+- 2026-05-02T06:28:36Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – CheckBullet + SectionBanner in both packages
