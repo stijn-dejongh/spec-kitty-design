@@ -15,7 +15,8 @@
         "WP05",
         "WP06",
         "WP07",
-        "WP08"
+        "WP08",
+        "WP09"
       ],
       "write_scope": [
         "apps/storybook/.storybook/preview.ts",
@@ -26,6 +27,7 @@
         "apps/storybook/src/tests/visual.spec.ts-snapshots/sk-form*",
         "apps/storybook/src/tests/visual.spec.ts-snapshots/sk-ribbon*",
         "docs/architecture/decisions/ADR-003-addendum-token-values.md",
+        "docs/design-system/**",
         "packages/angular/src/lib/button/**",
         "packages/angular/src/lib/button/sk-button-primary.stories.ts",
         "packages/angular/src/lib/check-bullet/**",
@@ -61,7 +63,7 @@
       "parallel_group": 0
     }
   ],
-  "computed_at": "2026-05-01T21:52:58.611835+00:00",
+  "computed_at": "2026-05-02T06:24:00.712881+00:00",
   "computed_from": "dependency_graph+ownership",
   "planning_artifact_wps": [],
   "collapse_report": {
@@ -107,12 +109,18 @@
         "wp_b": "WP01",
         "rule": "dependency",
         "evidence": "WP08 depends on WP01"
+      },
+      {
+        "wp_a": "WP09",
+        "wp_b": "WP02",
+        "rule": "dependency",
+        "evidence": "WP09 depends on WP02"
       }
     ],
-    "total_merges": 7,
+    "total_merges": 8,
     "independent_wps_collapsed": 0,
     "by_rule": {
-      "dependency": 7
+      "dependency": 8
     }
   }
 }
