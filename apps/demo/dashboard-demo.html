@@ -339,31 +339,37 @@
       border-color: var(--sk-border-strong);
     }
 
-    /* Doing: full 4-side blue border */
+    /* Doing: left accent trim at rest; full accent border on hover */
     .dash-card--doing {
+      border-top: 1px solid var(--sk-border-default);
+      border-right: 1px solid var(--sk-border-default);
+      border-bottom: 1px solid var(--sk-border-default);
+      border-left: 3px solid var(--sk-color-blue);
+    }
+    .dash-card--doing:hover {
       border: 2px solid var(--sk-color-blue);
     }
 
-    .dash-card--doing:hover {
-      box-shadow: 0 0 0 1px var(--sk-color-blue);
-    }
-
-    /* For Review: full 4-side yellow border */
+    /* For Review: left accent trim at rest; full accent border on hover */
     .dash-card--review {
+      border-top: 1px solid var(--sk-border-default);
+      border-right: 1px solid var(--sk-border-default);
+      border-bottom: 1px solid var(--sk-border-default);
+      border-left: 3px solid var(--sk-color-yellow);
+    }
+    .dash-card--review:hover {
       border: 2px solid var(--sk-color-yellow);
     }
 
-    .dash-card--review:hover {
-      box-shadow: 0 0 0 1px var(--sk-color-yellow);
-    }
-
-    /* Approved: full 4-side green border */
+    /* Approved: left accent trim at rest; full accent border on hover */
     .dash-card--approved {
-      border: 2px solid var(--sk-color-green);
+      border-top: 1px solid var(--sk-border-default);
+      border-right: 1px solid var(--sk-border-default);
+      border-bottom: 1px solid var(--sk-border-default);
+      border-left: 3px solid var(--sk-color-green);
     }
-
     .dash-card--approved:hover {
-      box-shadow: 0 0 0 1px var(--sk-color-green);
+      border: 2px solid var(--sk-color-green);
     }
 
     .dash-card__id {
@@ -479,6 +485,7 @@
       if (!drawer) return;
       var isOpen = drawer.classList.toggle('is-open');
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
     };
   })();</script>
   <style>
@@ -498,7 +505,7 @@
       <span class="dash-logo">Spec <span>Kitty</span></span>
     </a>
     <span class="dash-divider">|</span>
-    <span class="dash-mission">design-system-remediation-and-demo-01KQKSSR</span>
+    <span class="dash-mission">design-system-remediation-and-demo-01KQKSSR<!-- FIXTURE: illustrative slug --></span>
     <div class="dash-progress-group">
       <div class="dash-progress-bar" title="6 of 9 WPs done">
         <div class="dash-progress-fill" style="width: 67%"></div>
@@ -550,11 +557,11 @@
 
     <!-- Drawer: positioned below header, full-width, shown when hamburger is active -->
     <div class="dash-nav-drawer-wrap">
-      <div class="sk-nav-pill__drawer" id="sk-nav-drawer" role="menu">
-        <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" role="menuitem" aria-current="page">Board</a>
-        <a href="#" class="sk-nav-pill__item" role="menuitem">Timeline</a>
-        <a href="#" class="sk-nav-pill__item" role="menuitem">Agents</a>
-        <a href="#" class="sk-nav-pill__item" role="menuitem">Logs</a>
+      <div class="sk-nav-pill__drawer" id="sk-nav-drawer">
+        <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" aria-current="page">Board</a>
+        <a href="#" class="sk-nav-pill__item">Timeline</a>
+        <a href="#" class="sk-nav-pill__item">Agents</a>
+        <a href="#" class="sk-nav-pill__item">Logs</a>
       </div>
     </div>
   </header>

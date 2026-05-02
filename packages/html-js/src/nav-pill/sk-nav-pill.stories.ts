@@ -75,6 +75,14 @@ export const Mobile: Story = {
 // Add sk-nav-pill--responsive to enable the CSS breakpoint behaviour.
 // Add sk-nav-pill--has-drawer for the toggle button active-state styling.
 export const CollapsedHamburger: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Add `sk-nav-pill--responsive` to the nav and include a `.sk-nav-pill__hamburger` button + `.sk-nav-pill__drawer` element. The CSS breakpoint at 720 px hides the desktop items and reveals the button. The drawer animates open via `max-height` + `opacity` transition when `.is-open` is toggled on the drawer element. The inline onclick handler is a self-contained demo — in production, wire to your framework's event system.',
+      },
+    },
+    viewport: { defaultViewport: 'mobile1' },
+  },
   render: () => `
 <div style="resize:horizontal;overflow:hidden;min-width:220px;max-width:800px;border:1px dashed var(--sk-border-default);padding:var(--sk-space-4);">
   <p style="font-size:var(--sk-text-xs);color:var(--sk-fg-muted);margin-bottom:var(--sk-space-3);font-family:var(--sk-font-mono);">
@@ -113,12 +121,12 @@ export const CollapsedHamburger: Story = {
     </div>
   </nav>
   <!-- Drawer: slides open on mobile when hamburger is toggled -->
-  <div id="sk-nav-drawer" class="sk-nav-pill__drawer" role="menu">
-    <a href="#" class="sk-nav-pill__item" role="menuitem">Platform</a>
-    <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" role="menuitem" aria-current="page">Getting Started</a>
-    <a href="#" class="sk-nav-pill__item" role="menuitem">About</a>
-    <a href="#" class="sk-nav-pill__item" role="menuitem">Blog</a>
-    <a href="#" class="sk-nav-pill__item" role="menuitem">Training</a>
+  <div id="sk-nav-drawer" class="sk-nav-pill__drawer">
+    <a href="#" class="sk-nav-pill__item">Platform</a>
+    <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" aria-current="page">Getting Started</a>
+    <a href="#" class="sk-nav-pill__item">About</a>
+    <a href="#" class="sk-nav-pill__item">Blog</a>
+    <a href="#" class="sk-nav-pill__item">Training</a>
   </div>
 </div>`,
   parameters: { viewport: { defaultViewport: 'mobile1' } },

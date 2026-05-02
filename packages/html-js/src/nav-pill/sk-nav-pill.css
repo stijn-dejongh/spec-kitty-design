@@ -103,8 +103,8 @@
   transition:
     color var(--sk-motion-duration-fast) var(--sk-motion-ease-out),
     background-color var(--sk-motion-duration-fast) var(--sk-motion-ease-out),
-    box-shadow 240ms var(--sk-motion-ease-out),
-    transform 240ms var(--sk-motion-ease-out);
+    box-shadow var(--sk-motion-duration-base) var(--sk-motion-ease-out),
+    transform var(--sk-motion-duration-base) var(--sk-motion-ease-out);
 }
 
 .sk-nav-pill__hamburger svg {
@@ -113,12 +113,14 @@
 }
 
 /* Hover accent variants — matching reference is-hover-* classes */
+/* Deviation: rgba() channels derived from --sk-color-yellow (#F5C518).
+   CSS relative colour syntax pending broad support. (See sk-card.css DRIFT-2 note.) */
 .sk-nav-pill__hamburger:hover {
   color: var(--sk-color-yellow);
-  background: rgba(245, 197, 24, 0.14);
+  background: rgba(245, 197, 24, 0.14);   /* from --sk-color-yellow at 14% */
   box-shadow:
-    0 0 0 1px rgba(245, 197, 24, 0.35),
-    0 6px 22px -4px rgba(245, 197, 24, 0.60);
+    0 0 0 1px rgba(245, 197, 24, 0.35),   /* from --sk-color-yellow at 35% */
+    0 6px 22px -4px rgba(245, 197, 24, 0.60);  /* from --sk-color-yellow at 60% */
   transform: translateY(-1px);
 }
 
@@ -137,9 +139,9 @@
   max-height: 0;
   opacity: 0;
   transition:
-    max-height 240ms var(--sk-motion-ease-out),
-    opacity 180ms var(--sk-motion-ease-out),
-    padding 180ms var(--sk-motion-ease-out);
+    max-height var(--sk-motion-duration-base) var(--sk-motion-ease-out),
+    opacity var(--sk-motion-duration-fast) var(--sk-motion-ease-out),
+    padding var(--sk-motion-duration-fast) var(--sk-motion-ease-out);
 }
 
 .sk-nav-pill__drawer.is-open {
