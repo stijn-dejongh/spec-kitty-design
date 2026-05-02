@@ -351,8 +351,31 @@
   <!-- =====================================================================
        Header bar
   ====================================================================== -->
+  <!-- Theme script -->
+  <script>(function(){
+    var p = new URLSearchParams(location.search).get('theme');
+    if (p) document.documentElement.setAttribute('data-theme', p);
+    window.skToggleTheme = function() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      var btn = document.getElementById('sk-theme-toggle');
+      if (btn) btn.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    };
+  })();</script>
+  <style>
+    [data-theme="light"] .sk-icon-sun  { display: none !important; }
+    [data-theme="light"] .sk-icon-moon { display: block !important; }
+    [data-theme="dark"]  .sk-icon-sun  { display: block !important; }
+    [data-theme="dark"]  .sk-icon-moon { display: none !important; }
+  </style>
+
   <header class="dash-header">
-    <span class="dash-logo">Spec <span>Kitty</span></span>
+    <!-- Logo: image + wordmark (required in all nav bars per brand guidelines) -->
+    <a href="#" style="display:flex;align-items:center;gap:var(--sk-space-2);text-decoration:none;flex-shrink:0;">
+      <img src="../../packages/tokens/assets/logo.webp" alt="Spec Kitty logo" width="28" height="28" />
+      <span class="dash-logo">Spec <span>Kitty</span></span>
+    </a>
     <span class="dash-divider">|</span>
     <span class="dash-mission">design-system-remediation-and-demo-01KQKSSR</span>
     <div class="dash-progress-group">
@@ -364,6 +387,17 @@
     <div class="dash-header-actions">
       <span class="sk-tag">lane-a</span>
       <span class="sk-tag sk-tag--green">mission #3</span>
+      <!-- Theme toggle -->
+      <button id="sk-theme-toggle" onclick="skToggleTheme()"
+        aria-label="Switch to light mode"
+        style="width:32px;height:32px;border-radius:999px;background:var(--sk-bg-pill);border:1px solid var(--sk-border-strong);color:var(--sk-fg-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="sk-icon-sun">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="sk-icon-moon" style="display:none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
       <a href="blog-demo.html" class="sk-btn sk-btn--ghost sk-btn--sm">← Blog demo</a>
     </div>
   </header>

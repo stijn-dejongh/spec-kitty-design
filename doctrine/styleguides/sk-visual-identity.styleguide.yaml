@@ -20,6 +20,11 @@ principles:
   - "Card radius is --sk-radius-md (16px). Button radius is --sk-radius-pill (999px).
      Eyebrow chips are --sk-radius-sm (8px)."
   - "Iconography: Lucide-style stroke icons (2px, rounded caps). No emoji."
+  - "The Spec Kitty logo (logo.webp / logo.png from @spec-kitty/tokens/assets/) MUST appear
+     in the top navigation bar of every Spec Kitty-branded surface — dashboard, marketing site,
+     docs site, and static demo pages. It is always rendered as an <img> element alongside the
+     wordmark 'Spec Kitty' in --sk-font-display weight 800. Never replace the logo image with
+     text alone."
   - "Mascot illustrations are for supporting materials only (see SK-D02)."
   - "Borders use --sk-border-default (1px hairline) for depth, not drop shadows."
 
