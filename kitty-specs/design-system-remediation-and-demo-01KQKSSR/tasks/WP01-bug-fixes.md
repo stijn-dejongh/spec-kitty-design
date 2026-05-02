@@ -23,8 +23,8 @@ subtasks:
 - T006
 - T007
 - T008
-agent: claude
-shell_pid: '1979642'
+agent: "claude:claude-sonnet-4-6:reviewer-renata:reviewer"
+shell_pid: "2008240"
 history:
 - date: '2026-05-02'
   event: created
@@ -194,3 +194,4 @@ Open Storybook in a browser. Verify: (1) Angular ButtonPrimary shows yellow fill
 ## Activity Log
 
 - 2026-05-02T07:50:52Z – claude – shell_pid=1979642 – Angular buttons styled via styleUrls; sk-button.css rules inlined into component CSS files (cross-package styleUrls path rejected by ng-packagr/webpack); 5 html-js stories now import CSS; html-js button story created with 6 exports
+- 2026-05-02T07:51:51Z – claude:claude-sonnet-4-6:reviewer-renata:reviewer – shell_pid=2008240 – Started review via action command
