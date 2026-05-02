@@ -176,3 +176,7 @@ If the build scripts are not available, verify that `packages/tokens/src/tokens.
 ## Ownership Note (F3 — analysis finding)
 
 `sk-nav-pill.css` is listed in WP02's `owned_files`, not WP01's. WP01 is permitted to make the T002 hover-rule change because WP02 depends on WP01 — WP01 commits first, then WP02 takes over the file for the CSS split. Scope of T002 is strictly limited to the `.sk-nav-pill__hamburger:hover` rule. Do not make any other edits to `sk-nav-pill.css` beyond replacing the three `rgba()` literals.
+
+## Activity Log
+
+- 2026-05-02T12:50:53Z – claude – shell_pid=894550 – Ready for review: alpha tokens added, nav-pill hover rule updated, deviation comment removed, builds verified clean (CSS syntax check passed; nx unavailable — no node_modules installed)
