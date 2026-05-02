@@ -11,14 +11,14 @@
 
 | ID | Description | WP | Parallel |
 |---|---|---|---|
-| T001 | Add `sk-button.css` to `styleUrls` of all three Angular button components | WP01 | |
-| T002 | Add `import './sk-check-bullet.css'` to `sk-check-bullet-html.stories.ts` | WP01 | [P] |
-| T003 | Add `import './sk-feature-card.css'` to `sk-feature-card-html.stories.ts` | WP01 | [P] |
-| T004 | Add `import './sk-form-field.css'` (or `sk-form-field-html.stories.ts` CSS import) | WP01 | [P] |
-| T005 | Add `import './sk-ribbon-card.css'` to `sk-ribbon-card-html.stories.ts` | WP01 | [P] |
-| T006 | Add `import './sk-section-banner.css'` to `sk-section-banner-html.stories.ts` | WP01 | [P] |
-| T007 | Create `packages/html-js/src/button/sk-button-html.stories.ts` with Default, Secondary, Ghost, Small, Disabled exports | WP01 | |
-| T008 | Verify `npx nx run storybook:storybook:build` still exits 0 after all CSS changes | WP01 | |
+| T001 | Add `sk-button.css` to `styleUrls` of all three Angular button components | WP01 | | [D] |
+| T002 | Add `import './sk-check-bullet.css'` to `sk-check-bullet-html.stories.ts` | WP01 | [D] |
+| T003 | Add `import './sk-feature-card.css'` to `sk-feature-card-html.stories.ts` | WP01 | [D] |
+| T004 | Add `import './sk-form-field.css'` (or `sk-form-field-html.stories.ts` CSS import) | WP01 | [D] |
+| T005 | Add `import './sk-ribbon-card.css'` to `sk-ribbon-card-html.stories.ts` | WP01 | [D] |
+| T006 | Add `import './sk-section-banner.css'` to `sk-section-banner-html.stories.ts` | WP01 | [D] |
+| T007 | Create `packages/html-js/src/button/sk-button-html.stories.ts` with Default, Secondary, Ghost, Small, Disabled exports | WP01 | | [D] |
+| T008 | Verify `npx nx run storybook:storybook:build` still exits 0 after all CSS changes | WP01 | | [D] |
 | T009 | Implement `packages/html-js/src/card/sk-card.css` — Default, Blue, Purple, Inset variants using `--sk-*` tokens | WP02 | | [D] |
 | T010 | Implement `packages/html-js/src/card/sk-card.html` template and `index.ts` exports | WP02 | | [D] |
 | T011 | Implement `packages/angular/src/lib/card/sk-card.component.*` with `variant` input | WP02 | [D] |
@@ -49,14 +49,14 @@
 **Estimated prompt size**: ~340 lines
 **Prompt**: [WP01-bug-fixes.md](tasks/WP01-bug-fixes.md)
 
-- [ ] T001 Add `sk-button.css` to Angular button `styleUrls` (WP01)
-- [ ] T002 CSS import to check-bullet story (WP01)
-- [ ] T003 CSS import to feature-card story (WP01)
-- [ ] T004 CSS import to form-field story (WP01)
-- [ ] T005 CSS import to ribbon-card story (WP01)
-- [ ] T006 CSS import to section-banner story (WP01)
-- [ ] T007 Create html-js button story file (WP01)
-- [ ] T008 Verify Storybook build still passes (WP01)
+- [x] T001 Add `sk-button.css` to Angular button `styleUrls` (WP01)
+- [x] T002 CSS import to check-bullet story (WP01)
+- [x] T003 CSS import to feature-card story (WP01)
+- [x] T004 CSS import to form-field story (WP01)
+- [x] T005 CSS import to ribbon-card story (WP01)
+- [x] T006 CSS import to section-banner story (WP01)
+- [x] T007 Create html-js button story file (WP01)
+- [x] T008 Verify Storybook build still passes (WP01)
 
 **Dependencies**: none
 **Parallel with**: WP02
