@@ -20,8 +20,8 @@ subtasks:
 - T022
 - T023
 - T024
-agent: "claude:sonnet-4-6:implementer-ivan:implementer"
-shell_pid: "916541"
+agent: "claude:sonnet-4-6:reviewer:reviewer"
+shell_pid: "918589"
 history:
 - date: '2026-05-02'
   event: created
@@ -208,3 +208,4 @@ Check that zero axe violations were introduced by the new stories:
 
 - 2026-05-02T13:07:44Z – claude:sonnet-4-6:implementer-ivan:implementer – shell_pid=916541 – Started implementation via action command
 - 2026-05-02T13:13:17Z – claude:sonnet-4-6:implementer-ivan:implementer – shell_pid=916541 – Ready for review: Added LightMode stories to 9 html-js components with data-theme=light wrapper and sk-light background parameter. Renamed OnLightBackground/LightBackground exports to LightMode.
+- 2026-05-02T13:13:31Z – claude:sonnet-4-6:reviewer:reviewer – shell_pid=918589 – Started review via action command
