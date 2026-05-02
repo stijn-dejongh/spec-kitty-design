@@ -8,5 +8,7 @@
   "purpose_context": "The Spec Kitty design system monorepo has the infrastructure in place (packages, Storybook, CI) but only a single stub component. The Claude Design reference in tmp/ contains the actual token values, 30 brand font files, brand assets, and 8 component categories with full visual previews. This mission brings the reference into the live system: correct token values replace the bootstrap approximations, fonts are bundled in @spec-kitty/tokens for self-contained consumption, and each component category becomes a distributable HTML/JS primitive and Angular component with Storybook stories. The marketing-site JSX components are explicitly out of scope — this mission delivers atomic and molecular primitives only.",
   "purpose_tldr": "Migrate the Claude Design reference set into the monorepo: reconcile token values, bundle brand fonts, add brand assets, convert preview pages to Storybook docs, and implement the 8 component categories as distributable primitives.",
   "slug": "design-system-reference-migration-01KQJNTP",
-  "target_branch": "main"
+  "target_branch": "main",
+  "vcs": "git",
+  "vcs_locked_at": "2026-05-02T05:55:00.842648+00:00"
 }
