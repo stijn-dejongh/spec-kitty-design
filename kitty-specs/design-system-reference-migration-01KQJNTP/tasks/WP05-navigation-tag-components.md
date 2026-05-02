@@ -20,7 +20,8 @@ subtasks:
 - T024
 - T025
 - T026
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "1625658"
 history:
 - date: '2026-05-01'
   event: created
@@ -150,3 +151,7 @@ Write stories for NavPill (Default, ActiveItem) and PillTag (Default, Green, Pur
 ## Reviewer Guidance
 
 Verify the active NavPill item has a visually distinct filled background. Check PillTag colour variants render correctly. Run axe — ensure `<a>` items have discernible text.
+
+## Activity Log
+
+- 2026-05-02T06:23:27Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
