@@ -78,7 +78,7 @@ export const CollapsedHamburger: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Add `sk-nav-pill--responsive` to the nav and include a `.sk-nav-pill__hamburger` button + `.sk-nav-pill__drawer` element. The CSS breakpoint at 720 px hides the desktop items and reveals the button. The drawer animates open via `max-height` + `opacity` transition when `.is-open` is toggled on the drawer element. The inline onclick handler is a self-contained demo — in production, wire to your framework's event system.',
+        story: "Add `sk-nav-pill--responsive` to the nav and include a `.sk-nav-pill__hamburger` button + `.sk-nav-pill__drawer` element. The CSS breakpoint at 720 px hides the desktop items and reveals the button. The drawer animates open via `max-height` + `opacity` transition when `.is-open` is toggled on the drawer element. The inline onclick handler is a self-contained demo — in production, wire to your framework's event system.",
       },
     },
     viewport: { defaultViewport: 'mobile1' },
@@ -129,5 +129,4 @@ export const CollapsedHamburger: Story = {
     <a href="#" class="sk-nav-pill__item">Training</a>
   </div>
 </div>`,
-  parameters: { viewport: { defaultViewport: 'mobile1' } },
 };
