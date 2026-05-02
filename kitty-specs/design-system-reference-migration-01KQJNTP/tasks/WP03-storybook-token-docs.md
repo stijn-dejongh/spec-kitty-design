@@ -174,3 +174,4 @@ Open each page in the running Storybook and verify: (1) all colour swatches show
 - 2026-05-02T06:23:24Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
 - 2026-05-02T06:39:08Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – 4 token doc pages committed (colours, typography, spacing, brand) + getting-started font section
 - 2026-05-02T06:39:24Z – claude:claude-sonnet-4-6:reviewer-renata:reviewer – shell_pid=1713625 – Started review via action command
+- 2026-05-02T06:40:11Z – claude:claude-sonnet-4-6:reviewer-renata:reviewer – shell_pid=1713625 – Review passed: 4 token doc pages present with live token references, font loading section added, no illustration assets

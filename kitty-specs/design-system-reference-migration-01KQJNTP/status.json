@@ -1,19 +1,19 @@
 {
-  "event_count": 60,
-  "last_event_id": "01KQKPKT75B7KERVN9MTMEVRRB",
-  "materialized_at": "2026-05-02T06:39:31.045879+00:00",
+  "event_count": 61,
+  "last_event_id": "01KQKPN1J4YXSCAX3TE9W6V6CX",
+  "materialized_at": "2026-05-02T06:40:11.332408+00:00",
   "mission_number": "",
   "mission_slug": "design-system-reference-migration-01KQJNTP",
   "mission_type": "software-dev",
   "summary": {
-    "approved": 5,
+    "approved": 6,
     "blocked": 0,
     "canceled": 0,
     "claimed": 0,
     "done": 0,
     "for_review": 0,
     "in_progress": 3,
-    "in_review": 1,
+    "in_review": 0,
     "planned": 0
   },
   "work_packages": {
@@ -32,11 +32,11 @@
       "last_transition_at": "2026-05-02T06:21:26.743318+00:00"
     },
     "WP03": {
-      "actor": "claude:claude-sonnet-4-6:reviewer-renata:reviewer",
+      "actor": "user",
       "force_count": 2,
-      "lane": "in_review",
-      "last_event_id": "01KQKPKKA0YHN6B78VTZMYD85P",
-      "last_transition_at": "2026-05-02T06:39:23.968919+00:00"
+      "lane": "approved",
+      "last_event_id": "01KQKPN1J4YXSCAX3TE9W6V6CX",
+      "last_transition_at": "2026-05-02T06:40:11.332408+00:00"
     },
     "WP04": {
       "actor": "claude:claude-sonnet-4-6:frontend-freddy:implementer",
