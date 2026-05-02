@@ -18,7 +18,8 @@ subtasks:
 - T017
 - T018
 - T019
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "2014096"
 history:
 - date: '2026-05-02'
   event: created
@@ -331,3 +332,7 @@ Planning base: `main`. Merge target: `main`.
 ## Reviewer Guidance
 
 Open the file in Chrome at default zoom. Verify: (1) Falling Sky renders in the hero heading — not a system sans-serif; (2) the blue and purple card variants have visually distinct tinted backgrounds; (3) the feature cards show icon chips in correct accent colours. Check mobile at 375px using DevTools.
+
+## Activity Log
+
+- 2026-05-02T07:53:13Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=2014096 – Started implementation via action command
