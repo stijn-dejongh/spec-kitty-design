@@ -26,11 +26,11 @@
 | T013 | Create `spacing.mdx` — space scale rulers, radius shapes, shadow + motion tokens | WP03 | [P] |
 | T014 | Create `brand.mdx` — logo usage, favicon, icon style guidance, brand voice summary (no illustrations) | WP03 | [P] |
 | T015 | Update `getting-started.mdx` with font loading pattern (CDN link vs npm install) | WP03 | |
-| T016 | Implement `ButtonPrimary` and `ButtonSecondary` HTML primitives in `packages/html-js/src/button/` | WP04 | |
-| T017 | Implement `ButtonPrimaryComponent` and `ButtonSecondaryComponent` in `packages/angular/src/lib/button/` | WP04 | [P] |
-| T018 | Export both button components from each package's `src/index.ts` | WP04 | |
-| T019 | Write button Storybook stories: Default, Hover, Focus, Disabled, Light-bg states; verify axe passes | WP04 | |
-| T020 | Update visual regression baseline for button stories | WP04 | |
+| T016 | Implement `ButtonPrimary` and `ButtonSecondary` HTML primitives in `packages/html-js/src/button/` | WP04 | | [D] |
+| T017 | Implement `ButtonPrimaryComponent` and `ButtonSecondaryComponent` in `packages/angular/src/lib/button/` | WP04 | [D] |
+| T018 | Export both button components from each package's `src/index.ts` | WP04 | | [D] |
+| T019 | Write button Storybook stories: Default, Hover, Focus, Disabled, Light-bg states; verify axe passes | WP04 | | [D] |
+| T020 | Update visual regression baseline for button stories | WP04 | | [D] |
 | T021 | Implement `NavPill` HTML primitive in `packages/html-js/src/nav-pill/` (nav bar with active/hover states) | WP05 | |
 | T022 | Implement `NavPillComponent` in `packages/angular/src/lib/nav-pill/` | WP05 | [P] |
 | T023 | Implement `PillTag` and `EyebrowPill` HTML primitives in `packages/html-js/src/pill-tag/` | WP05 | [P] |
@@ -130,11 +130,11 @@
 **Estimated prompt size**: ~320 lines
 **Prompt**: [WP04-button-components.md](tasks/WP04-button-components.md)
 
-- [ ] T016 Implement ButtonPrimary + ButtonSecondary HTML primitives (WP04)
-- [ ] T017 Implement ButtonPrimaryComponent + ButtonSecondaryComponent Angular (WP04)
-- [ ] T018 Export from package entry points (WP04)
-- [ ] T019 Write button stories with all states; verify axe (WP04)
-- [ ] T020 Update visual regression baselines (WP04)
+- [x] T016 Implement ButtonPrimary + ButtonSecondary HTML primitives (WP04)
+- [x] T017 Implement ButtonPrimaryComponent + ButtonSecondaryComponent Angular (WP04)
+- [x] T018 Export from package entry points (WP04)
+- [x] T019 Write button stories with all states; verify axe (WP04)
+- [x] T020 Update visual regression baselines (WP04)
 
 **Dependencies**: WP01 (final token values), WP02 (fonts for story rendering)
 
