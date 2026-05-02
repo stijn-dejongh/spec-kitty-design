@@ -8,5 +8,7 @@
   "purpose_context": "Following a post-implementation architectural review and code-quality audit, several defects and gaps were identified across the design system packages and demo applications. This mission addresses all outstanding items: C-202 token violations in sk-nav-pill, component boundary concerns flagged as blocking a 1.0 publish, missing JS module distribution for the drawer toggle, fragile CSS patterns in the dashboard demo, absent light/dark story coverage across all Storybook entries, demo pages that are invisible in the live deployment, and a README that does not reflect the project vision or guide new contributors.",
   "purpose_tldr": "Fix token compliance violations, restructure nav-pill component boundary, publish demo pages to the live Storybook site, and improve documentation quality.",
   "slug": "post-review-remediation-and-demo-deploy-01KQM7XS",
-  "target_branch": "feature/post-review-remediation-and-demo-deploy"
+  "target_branch": "feature/post-review-remediation-and-demo-deploy",
+  "vcs": "git",
+  "vcs_locked_at": "2026-05-02T12:38:33.861078+00:00"
 }
