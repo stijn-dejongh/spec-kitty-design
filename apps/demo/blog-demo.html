@@ -64,11 +64,16 @@
       gap: var(--sk-space-6);
     }
 
-    /* Responsive feature grid */
+    /* Responsive feature grid — centred, no orphaned left-aligned items */
     .demo-feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: var(--sk-space-5);
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      .demo-feature-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
@@ -152,10 +157,24 @@
     [data-theme="light"] .sk-icon-moon { display: block !important; }
     [data-theme="dark"]  .sk-icon-sun  { display: block !important; }
     [data-theme="dark"]  .sk-icon-moon { display: none !important; }
+
+    /* Light-mode surface hierarchy corrections:
+       - header/hero/main content: off-white (--sk-surface-hero, brightest)
+       - alt/accent sections: warm cream (--sk-surface-page)
+       In dark mode the single page background is used throughout. */
+    [data-theme="light"] header,
+    [data-theme="light"] .demo-hero-section,
+    [data-theme="light"] .demo-posts-section {
+      background: var(--sk-surface-hero);
+    }
+    [data-theme="light"] .demo-feature-section {
+      background: var(--sk-surface-page);
+      border-color: var(--sk-border-default);
+    }
   </style>
 
   <!-- ── Hero ────────────────────────────────────────────────────────────── -->
-  <section class="demo-section">
+  <section class="demo-section demo-hero-section">
     <div class="demo-container">
       <span class="sk-eyebrow-pill" style="margin-bottom: var(--sk-space-5); display: inline-block;">
         Spec Kitty blog
@@ -188,7 +207,7 @@
   </section>
 
   <!-- ── Post card grid ──────────────────────────────────────────────────── -->
-  <section class="demo-section" id="posts">
+  <section class="demo-section demo-posts-section" id="posts">
     <div class="demo-container">
       <div class="sk-section-banner sk-section-banner--neutral" style="margin-bottom: var(--sk-space-7); display: inline-flex;">
         <span class="sk-section-banner__dot" aria-hidden="true">●</span>
@@ -306,7 +325,7 @@
   </section>
 
   <!-- ── Feature card section ────────────────────────────────────────────── -->
-  <section class="demo-section" style="
+  <section class="demo-section demo-feature-section" style="
     background: var(--sk-surface-card);
     border-top: 1px solid var(--sk-border-default);
     border-bottom: 1px solid var(--sk-border-default);
