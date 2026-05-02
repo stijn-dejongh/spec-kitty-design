@@ -34,12 +34,12 @@
 | T022 | Upgrade `OnLightBackground` → `LightMode` in `sk-ribbon-card-html.stories.ts` | WP05 | Yes | [D] |
 | T023 | Add `LightMode` story to `sk-section-banner-html.stories.ts` | WP05 | Yes | [D] |
 | T024 | Upgrade `LightBackground` → `LightMode` in `sk-site-footer.stories.ts` | WP05 | Yes | [D] |
-| T025 | Add `LightMode` story to `sk-button-primary.stories.ts` (Angular) | WP06 | Yes |
-| T026 | Add `LightMode` story to `sk-button-secondary.stories.ts` (Angular) | WP06 | Yes |
-| T027 | Add `LightMode` story to `sk-feature-card.stories.ts` (Angular) | WP06 | Yes |
-| T028 | Add `LightMode` story to `sk-nav-pill.stories.ts` (Angular) | WP06 | Yes |
-| T029 | Add `LightMode` story to `sk-pill-tag.stories.ts` (Angular) | WP06 | Yes |
-| T030 | Add `LightMode` story to `sk-ribbon-card.stories.ts` (Angular) | WP06 | Yes |
+| T025 | Add `LightMode` story to `sk-button-primary.stories.ts` (Angular) | WP06 | Yes | [D] |
+| T026 | Add `LightMode` story to `sk-button-secondary.stories.ts` (Angular) | WP06 | Yes | [D] |
+| T027 | Add `LightMode` story to `sk-feature-card.stories.ts` (Angular) | WP06 | Yes | [D] |
+| T028 | Add `LightMode` story to `sk-nav-pill.stories.ts` (Angular) | WP06 | Yes | [D] |
+| T029 | Add `LightMode` story to `sk-pill-tag.stories.ts` (Angular) | WP06 | Yes | [D] |
+| T030 | Add `LightMode` story to `sk-ribbon-card.stories.ts` (Angular) | WP06 | Yes | [D] |
 | T031 | Update `storybook-deploy.yml` to copy demo pages + fix asset paths | WP07 | No |
 | T032 | Update `getting-started.mdx` with links to deployed demo pages | WP07 | No |
 | T033 | Rewrite `README.md` with vision, usage guide, and live site links | WP07 | No |
@@ -144,12 +144,12 @@
 
 **Goal:** Add a `LightMode` story export to all 6 non-stub Angular component stories. Use a story-level decorator that wraps the component template in `<div data-theme="light">`.
 
-- [ ] T025 Add `LightMode` to `sk-button-primary.stories.ts` (WP06)
-- [ ] T026 Add `LightMode` to `sk-button-secondary.stories.ts` (WP06)
-- [ ] T027 Add `LightMode` to `sk-feature-card.stories.ts` (WP06)
-- [ ] T028 Add `LightMode` to `sk-nav-pill.stories.ts` Angular (WP06)
-- [ ] T029 Add `LightMode` to `sk-pill-tag.stories.ts` Angular (WP06)
-- [ ] T030 Add `LightMode` to `sk-ribbon-card.stories.ts` Angular (WP06)
+- [x] T025 Add `LightMode` to `sk-button-primary.stories.ts` (WP06)
+- [x] T026 Add `LightMode` to `sk-button-secondary.stories.ts` (WP06)
+- [x] T027 Add `LightMode` to `sk-feature-card.stories.ts` (WP06)
+- [x] T028 Add `LightMode` to `sk-nav-pill.stories.ts` Angular (WP06)
+- [x] T029 Add `LightMode` to `sk-pill-tag.stories.ts` Angular (WP06)
+- [x] T030 Add `LightMode` to `sk-ribbon-card.stories.ts` Angular (WP06)
 
 ### WP07 — Storybook Deploy, Intro Links, and README
 **Priority:** Medium
