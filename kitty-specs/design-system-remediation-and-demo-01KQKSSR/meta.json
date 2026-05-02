@@ -8,5 +8,7 @@
   "purpose_context": "The design-system-reference-migration mission (mission #2) delivered 8 component categories and a token layer, but post-merge review (issue #10 + mission review doc) identified three shipping bugs: Angular button components have empty CSS files (sk-button.css never wired into styleUrls), five html-js component stories are missing CSS imports and render unstyled, and there is no html-js button story at all. Additionally, the reference system defines a generic sk-card component with blue/purple colour variants that was never implemented — this is needed for blog and content layouts. Finally, a static demo page should demonstrate the full design system in a real-world blog-like context matching the spec-kitty.ai blog aesthetic.",
   "purpose_tldr": "Fix styling bugs found in post-merge review (unstyled Angular buttons, missing CSS imports in 5 html-js stories), add the missing generic sk-card component with colour variants, and build a static demo page resembling the spec-kitty.ai blog layout using the design system.",
   "slug": "design-system-remediation-and-demo-01KQKSSR",
-  "target_branch": "main"
+  "target_branch": "main",
+  "vcs": "git",
+  "vcs_locked_at": "2026-05-02T07:45:48.972882+00:00"
 }
