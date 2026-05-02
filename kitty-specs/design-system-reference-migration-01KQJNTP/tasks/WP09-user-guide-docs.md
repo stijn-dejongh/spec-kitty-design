@@ -250,3 +250,4 @@ Check: no emoji, sentence case headings, concrete examples rather than vague des
 ## Activity Log
 
 - 2026-05-02T06:24:17Z – claude:claude-sonnet-4-6:curator-carla:curator – shell_pid=1629773 – Started implementation via action command
+- 2026-05-02T06:27:36Z – claude:claude-sonnet-4-6:curator-carla:curator – shell_pid=1629773 – 5 user guide docs created: README, using-tokens, using-components, brand-guidelines, changelog
