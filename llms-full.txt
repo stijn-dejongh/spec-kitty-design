@@ -1,0 +1,823 @@
+# spec-kitty-design — LLM Deep Context Bundle
+
+This is the deep-context companion to `llms.txt`. It packs everything an LLM
+needs to reason about the Spec Kitty design system in a single read: the
+mission, the architecture decisions, the full token catalogue, the component
+manifest, the quality gates, and the recipe for adding new pieces. Code is the
+source of truth; this file mirrors what is in the repo at the time of writing.
+
+---
+
+## 1. Project overview
+
+`spec-kitty-design` is a token-driven, framework-progressive web design system
+for the Spec Kitty / Priivacy-ai ecosystem. A single CSS-custom-property token
+file (`@spec-kitty/tokens`) is the authoritative source for every visual value;
+two component packages (`@spec-kitty/html-js` for framework-free CSS+HTML and
+`@spec-kitty/angular` for Angular wrappers) consume those tokens by reference,
+never by duplication. The system is published interactively as a Storybook
+catalogue and as two static demo pages (`blog-demo.html`, `dashboard-demo.html`),
+all deployed together to GitHub Pages.
+
+### Repository layout
+
+```
+spec-kitty-design/
+  packages/
+    tokens/         # @spec-kitty/tokens — CSS custom properties + Falling Sky / Swansea / JetBrains Mono
+    html-js/        # @spec-kitty/html-js — framework-free CSS + lightweight JS components
+    angular/        # @spec-kitty/angular — Angular standalone component wrappers
+  apps/
+    storybook/      # Storybook 10.x catalogue (Angular + HTML renderers)
+    demo/           # Static blog-demo.html, dashboard-demo.html, index.html
+  docs/
+    architecture/
+      decisions/    # ADRs (ADR-1 through ADR-7 + ADR-3 addendum)
+      research/
+      validation/
+      assets/
+  doctrine/         # Org-layer doctrine bundle (brand voice, visual identity, directives)
+  kitty-specs/      # Mission specifications under spec-kitty governance
+  .kittify/         # Spec Kitty runtime config and skills
+  .github/workflows # CI: ci-quality.yml, pr-preview.yml, release.yml, storybook-deploy.yml
+  scripts/          # generate-token-catalogue.js, npm-audit-gate.sh, check-action-pins.sh, run-axe-storybook.js
+```
+
+### Deployed surfaces
+
+- Storybook: <https://stijn-dejongh.github.io/spec-kitty-design/>
+- Blog demo: <https://stijn-dejongh.github.io/spec-kitty-design/blog-demo.html>
+- Dashboard demo: <https://stijn-dejongh.github.io/spec-kitty-design/dashboard-demo.html>
+
+### Authoritative agent guide
+
+`CLAUDE.md` at the repo root is the canonical entry point for AI agents. It
+points at the ADRs (ADR-001 token-only CSS, ADR-002 dependency direction,
+ADR-003 token schema), the doctrine bundle, and the linting / commit rules. If
+this file and `CLAUDE.md` disagree, `CLAUDE.md` wins.
+
+---
+
+## 2. Architecture (ADR summary)
+
+ADRs live under `docs/architecture/decisions/`. Status of every ADR below is
+**Accepted**. Each summary captures the canonical decision and its rationale.
+
+### ADR-1 — Token Distribution Format: CSS Custom Properties
+
+`docs/architecture/decisions/2026-05-01-1-token-distribution-format.md`.
+**Decision:** all design tokens are distributed as `--sk-*` CSS custom
+properties on `:root` in a single CSS file; not Tailwind utilities, not a
+shadcn-style copy-paste model. **Why:** the static-HTML / Jekyll / Hugo
+consumer path requires zero build step, and CSS custom properties are the only
+mechanism that lets a single source of truth reach Angular, plain HTML, and
+future framework targets identically without per-framework value translation.
+Tailwind was rejected because it forces a build step on consumers; shadcn was
+rejected because copy-paste structurally guarantees brand drift across consumer
+repos.
+
+### ADR-2 — Monorepo Package Topology
+
+`docs/architecture/decisions/2026-05-01-2-monorepo-package-topology.md`.
+**Decision:** independently publishable packages in a single Nx monorepo, with
+a strictly one-directional dependency graph: `@spec-kitty/tokens ←
+@spec-kitty/angular`, `@spec-kitty/tokens ← @spec-kitty/html-js`. No
+framework package may depend on another framework package. **Why:** an
+Angular consumer should not pay for HTML/JS bytes and vice-versa; an Angular
+LTS major bump should not force a version bump on `@spec-kitty/tokens`; new
+framework targets (Vue, Svelte, React) must be additive without restructuring
+existing packages. The boundary is enforced by `eslint.config.mjs`'s
+`@nx/enforce-module-boundaries` rule.
+
+### ADR-3 — Token Schema and Naming Convention
+
+`docs/architecture/decisions/2026-05-01-3-token-schema-naming-convention.md`.
+**Decision:** category-prefixed semantic namespace under the `--sk-` product
+prefix (pattern `--sk-<category>[-<modifier>[-<variant>]]`), with thirteen
+defined categories: `color`, `surface`, `on`, `bg`, `fg`, `border`, `font`,
+`text`, `weight`, `space`, `radius`, `shadow`, `motion`. **Why:** flat names
+become unmaintainable past ~30 tokens and cannot be linted categorically;
+shadcn-style unprefixed names collide with consumer projects. **Critical
+rule — semantic pairing:** every surface token has a paired foreground token
+(`--sk-surface-<name>` ↔ `--sk-fg-on-<name>` or `--sk-on-tint-<name>`). Mixing
+across pairs breaks WCAG contrast guarantees; agents must use paired tokens
+together.
+
+### ADR-3 addendum — Token Value Reconciliation (FR-034 satisfied)
+
+`docs/architecture/decisions/ADR-003-addendum-token-values.md`. Records that
+the implemented `tokens.css` was reconciled against the Claude Design reference
+file (`tmp/Spec Kitty Design System(1)/colors_and_type.css`). Hex was selected
+as the canonical color format (not OKLCH) for portability and contributor
+familiarity. The generated catalogue `packages/tokens/dist/token-catalogue.json`
+contains 93 tokens across 13 categories and is the source for the Stylelint
+allowlist. Intentional exclusions: `@font-face` declarations belong in WP02,
+not the token layer; `--sk-link` and similar component-scoped aliases stay out.
+
+### ADR-4 — Org-Layer Doctrine Distribution
+
+`docs/architecture/decisions/2026-05-01-4-org-layer-doctrine-distribution.md`.
+**Decision:** `spec-kitty-design` ships a `doctrine/` directory at repo root,
+structured to mirror spec-kitty's `src/doctrine/*/shipped/` layout, ready to be
+fetched by `spec-kitty doctrine fetch` once spec-kitty issue #832 lands. It
+includes directives `SK-D01` (token authority — all CSS uses `--sk-*` only) and
+`SK-D02` (illustration content boundary — mascot/cartoon assets stay out of
+software packages), plus `sk-brand-voice` and `sk-visual-identity` styleguides.
+**Why:** brand governance must reach every Priivacy-ai project without
+per-project copy-paste; an org layer is the single source of truth.
+
+### ADR-5 — npm Supply Chain Security Posture
+
+`docs/architecture/decisions/2026-05-01-5-npm-supply-chain-security-posture.md`.
+**Decision:** explicit accepted-risk register plus hard CI gates that match or
+exceed the spec-kitty Python baseline. Hard gates: `npm audit --audit-level=high`
+(FR-041), `npm ci` only (no `npm install`) and lockfile drift check (FR-042),
+ESLint security plugin + Semgrep JS (extended FR-018), `npm ci --ignore-scripts`
+with documented allowlist (FR-046), all GitHub Actions pinned to immutable SHAs
+(FR-043), no `*` or `latest` versions in any `package.json` (C-009). Release-time:
+`npm publish --provenance` (FR-044), CycloneDX SBOM (FR-045), 2FA on the
+`@spec-kitty` npm scope. **Why:** npm has ~2.4 M packages, no publication
+review, and lifecycle hooks that execute at install time — a materially higher
+risk surface than PyPI.
+
+### ADR-6 — Storybook Multi-Framework Rendering Strategy
+
+`docs/architecture/decisions/2026-05-01-6-storybook-multi-framework-rendering.md`.
+**Decision:** WP04 implementer attempts same-story multi-framework rendering
+(Option A — Angular and HTML in one story) first; if Storybook's framework
+model does not support it without custom plugins, the fallback (Option B —
+separate story files per framework with naming convention
+`<Category>/<ComponentName> (Angular)` and `<Category>/<ComponentName> (HTML)`)
+is pre-authorised, no further approval needed. The shipped catalogue uses
+Option B. **Why:** FR-007 single-story-entry requirement must not block the
+WP04 timeline if the underlying Storybook API does not cooperate.
+
+### ADR-7 — Storybook 10.x Adoption (Angular 21 Compatibility)
+
+`docs/architecture/decisions/2026-05-01-7-storybook-version-10x-adoption.md`.
+**Decision:** Storybook 10.x replaces the plan-specified 8.x because
+`@storybook/angular@8.x` peer-requires `@angular/core ^19.0.0` and the workspace
+is Angular 21.2.11. Storybook 10.x builds in ~10 s, well under the NFR-003
+3-minute budget. **Why:** Angular 21 compatibility was the binding constraint;
+ADR-006 already pre-authorised version adaptation. Notable 10.x differences
+versus 8.x: `addon-essentials` is merged into core, `docs.autodocs` was removed,
+`@storybook/blocks` moved to `@storybook/addon-docs/blocks`.
+
+---
+
+## 3. Token system
+
+All tokens are defined in `packages/tokens/src/tokens.css`. The generated
+machine-readable catalogue is `packages/tokens/dist/token-catalogue.json`
+(93 tokens, 13 categories, regenerated by `npx nx run tokens:catalogue` which
+runs `scripts/generate-token-catalogue.js`). The Stylelint allowlist reads the
+catalogue at lint time so the no-hardcoded-values rule is data-driven.
+
+### Naming pattern
+
+`--sk-<category>[-<modifier>[-<variant>]]`. Categories are enumerable; new
+tokens must fit an existing category prefix or motivate a schema-level ADR
+amendment.
+
+### Colour (brand palette)
+
+| Token | Value | Notes |
+|---|---|---|
+| `--sk-color-yellow` | `#F5C518` | signature primary, CTAs, logo bow |
+| `--sk-color-yellow-soft` | `#FFD84D` | hover / highlight |
+| `--sk-color-yellow-deep` | `#C99A0E` | pressed / on-light foreground |
+| `--sk-color-yellow-alpha-15` | `rgba(245, 197, 24, 0.14)` | hover accent |
+| `--sk-color-yellow-alpha-35` | `rgba(245, 197, 24, 0.35)` | hover accent / glow |
+| `--sk-color-yellow-alpha-60` | `rgba(245, 197, 24, 0.60)` | glow effects |
+| `--sk-color-haygold` | `#D9B36A` | muted warm gold, bullet dots, dim accents |
+| `--sk-color-haygold-soft` | `#E8C988` | softer gold |
+| `--sk-color-blue` | `#A9C7E8` | soft icy blue (illustration sky / muted info) |
+| `--sk-color-blue-deep` | `#6B8FB8` | hover state for blue |
+| `--sk-color-blue-bg` | `#14202E` | deep blue surface for muted-info panel |
+| `--sk-color-purple` | `#B8A9E0` | soft lavender, v2.x evolution accent |
+| `--sk-color-purple-deep` | `#8C7AC2` | hover state for purple |
+| `--sk-color-purple-bg` | `#1E1A2E` | deep purple surface for v2.x banners |
+| `--sk-color-green` | `#8FCB8F` | checkmark / success / "by the numbers" |
+| `--sk-color-green-bg` | `#15241A` | dark green surface behind numbers banner |
+| `--sk-color-red` | `#E97373` | validation errors |
+| `--sk-color-red-soft` | `#F0A0A0` | softer red |
+| `--sk-color-sage` | `#4F8F4F` | heading sage on cream (light-mode link accent) |
+| `--sk-color-sage-deep` | `#3D7A3D` | hover / pressed sage |
+| `--sk-color-sage-soft` | `#7CAE7C` | dim / 70 % sage for chips |
+
+### Accent
+
+| Token | Value |
+|---|---|
+| `--sk-color-accent` | `#F5C518` (= yellow; flips to `--sk-color-sage` in light mode) |
+| `--sk-color-accent-fg` | `#1A1408` (dark ink on yellow buttons; flips to `#FFFFFF` in light mode) |
+
+### Surface (dark mode default)
+
+| Token | Value | Notes |
+|---|---|---|
+| `--sk-surface-page` | `#0D0E11` | deepest page background (blackish) |
+| `--sk-surface-hero` | `#121317` | hero / section background |
+| `--sk-surface-card` | `#181A1F` | card surface |
+| `--sk-surface-input` | `#1C1F25` | elevated card / form input fill |
+| `--sk-surface-pill` | `#212830` | nav pill, chips, hover row |
+| `--sk-surface-muted` | `#262C36` | muted info panel, code block |
+
+### Tint surfaces (section colour tints, dark mode)
+
+| Token | Value | Notes |
+|---|---|---|
+| `--sk-surface-tint-mint` | `#15241A` | numbers banner / green section |
+| `--sk-surface-tint-butter` | `#2A2410` | warm-yellow card |
+| `--sk-surface-tint-lilac` | `#1E1A2E` | v2.x banner / purple section |
+| `--sk-surface-tint-sky` | `#14202E` | muted info / blue section |
+
+### On-tint foregrounds (paired with tint surfaces)
+
+| Token | Value |
+|---|---|
+| `--sk-on-tint-mint` | `var(--sk-color-green)` |
+| `--sk-on-tint-butter` | `var(--sk-color-yellow-soft)` |
+| `--sk-on-tint-lilac` | `var(--sk-color-purple)` |
+| `--sk-on-tint-sky` | `var(--sk-color-blue)` |
+
+### Pill / chip background
+
+| Token | Value |
+|---|---|
+| `--sk-bg-pill` | `#212830` (nav pill rail, chips, hover row) |
+
+### Foreground / text
+
+| Token | Value | Notes |
+|---|---|---|
+| `--sk-fg-default` | `#FFFFFF` | headlines (= `--sk-fg-0`) |
+| `--sk-fg-body` | `#D6D6DA` | body text (= `--sk-fg-1`) |
+| `--sk-fg-muted` | `#A9A9B0` | secondary body (= `--sk-fg-2`) |
+| `--sk-fg-subtle` | `#6E6E78` | tertiary / labels (= `--sk-fg-3`) |
+| `--sk-fg-placeholder` | `#4A4A52` | placeholder text (= `--sk-fg-4`) |
+| `--sk-fg-on-primary` | `#1A1408` | dark ink on yellow buttons |
+| `--sk-fg-on-card` | `#D6D6DA` | text on card surface |
+
+### Border
+
+| Token | Value |
+|---|---|
+| `--sk-border-default` | `#2B313B` (cool hairline) |
+| `--sk-border-strong` | `#353C48` (card border) |
+| `--sk-border-focus` | `#F5C518` (focus ring = yellow) |
+| `--sk-border-width-1` | `1px` |
+| `--sk-border-width-2` | `2px` |
+
+### Typography — font families
+
+| Token | Value |
+|---|---|
+| `--sk-font-sans` | `ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif` |
+| `--sk-font-display` | `'Falling Sky', ui-sans-serif, system-ui, sans-serif` |
+| `--sk-font-reference` | `'Swansea', ui-sans-serif, system-ui, sans-serif` |
+| `--sk-font-condensed` | `'Falling Sky Condensed', 'Falling Sky', ui-sans-serif, sans-serif` |
+| `--sk-font-extended` | `'Falling Sky Extended', 'Falling Sky', ui-sans-serif, sans-serif` |
+| `--sk-font-outline` | `'Falling Sky Outline', 'Falling Sky', ui-sans-serif, sans-serif` |
+| `--sk-font-boldplus` | `'Falling Sky Boldplus', 'Falling Sky', ui-sans-serif, sans-serif` |
+| `--sk-font-mono` | `'JetBrains Mono', ui-monospace, "SF Mono", Menlo, Consolas, monospace` |
+
+JetBrains Mono is loaded via Google Fonts CDN. Falling Sky / Swansea ship in
+`packages/tokens/fonts/` and are registered with `@font-face` rules at the
+bottom of `tokens.css` (light + oblique cuts at weights 300–900 plus Boldplus,
+Condensed, Extended, Outline cuts).
+
+### Typography — size scale
+
+| Token | Value | Notes |
+|---|---|---|
+| `--sk-text-xs` | `0.75rem` | 12 px — eyebrow labels |
+| `--sk-text-sm` | `0.875rem` | 14 px |
+| `--sk-text-base` | `1rem` | 16 px |
+| `--sk-text-lg` | `1.125rem` | 18 px — lead / h4 |
+| `--sk-text-xl` | `1.25rem` | |
+| `--sk-text-2xl` | `1.5rem` | |
+| `--sk-text-3xl` | `1.875rem` | |
+
+### Typography — weights
+
+| Token | Value |
+|---|---|
+| `--sk-weight-normal` | `400` |
+| `--sk-weight-medium` | `500` |
+| `--sk-weight-semibold` | `600` |
+| `--sk-weight-bold` | `700` |
+| `--sk-weight-extrabold` | `800` |
+
+### Spacing
+
+12-step rem-based scale (rem chosen for user-scaling accessibility).
+
+| Token | Value | Pixels |
+|---|---|---|
+| `--sk-space-1` | `0.25rem` | 4 |
+| `--sk-space-2` | `0.5rem` | 8 |
+| `--sk-space-3` | `0.75rem` | 12 |
+| `--sk-space-4` | `1rem` | 16 |
+| `--sk-space-5` | `1.25rem` | 20 |
+| `--sk-space-6` | `1.5rem` | 24 |
+| `--sk-space-7` | `2rem` | 32 |
+| `--sk-space-8` | `2.5rem` | 40 |
+| `--sk-space-9` | `3rem` | 48 |
+| `--sk-space-10` | `4rem` | 64 |
+| `--sk-space-11` | `6rem` | 96 |
+| `--sk-space-12` | `8rem` | 128 |
+
+### Radius
+
+| Token | Value | Notes |
+|---|---|---|
+| `--sk-radius-sm` | `0.5rem` | 8 px — chips, eyebrow pills |
+| `--sk-radius-md` | `0.75rem` | 12 px — form inputs |
+| `--sk-radius-lg` | `1rem` | 16 px — cards |
+| `--sk-radius-xl` | `1.25rem` | 20 px — hero card |
+| `--sk-radius-pill` | `999px` | nav pills, primary buttons |
+
+### Shadow
+
+| Token | Value |
+|---|---|
+| `--sk-shadow-card` | `0 1px 0 rgba(255,255,255,0.02) inset, 0 1px 2px rgba(0,0,0,0.4)` |
+| `--sk-shadow-elev` | `0 8px 24px rgba(0,0,0,0.45)` |
+| `--sk-shadow-glow-primary` | `0 6px 20px -6px rgba(245,197,24,0.45)` |
+| `--sk-shadow-focus` | `0 0 0 3px rgba(13,14,17,0.55), 0 0 0 4px rgba(43,49,59,0.6)` |
+
+### Motion
+
+| Token | Value |
+|---|---|
+| `--sk-motion-duration-fast` | `120ms` |
+| `--sk-motion-duration-base` | `200ms` |
+| `--sk-motion-duration-slow` | `320ms` |
+| `--sk-motion-ease-out` | `cubic-bezier(0.22, 1, 0.36, 1)` |
+| `--sk-motion-ease-in-out` | `cubic-bezier(0.65, 0, 0.35, 1)` |
+
+### Light-mode override pattern
+
+Light mode is opt-in via the `data-theme="light"` attribute or the `.sk-light`
+class on a wrapper element. The override block lives in `tokens.css` and
+re-binds the surface, foreground, border, accent, tint, pill, and shadow
+families. Brand palette values, the type scale, weights, spacing, radius, and
+motion are *not* overridden — they are theme-agnostic.
+
+```css
+:root[data-theme="light"],
+.sk-light {
+  --sk-surface-page:        #F8F5EC;   /* warm cream */
+  --sk-surface-card:        #FFFFFF;   /* lifted white */
+  --sk-fg-default:          #1A1A14;   /* near-black ink */
+  --sk-color-accent:        var(--sk-color-sage);
+  --sk-color-accent-fg:     #FFFFFF;
+  /* ...full list re-binds: surface-{page|hero|card|input|pill|muted},
+     fg-{default|body|muted|subtle|placeholder}, border-{default|strong},
+     surface-tint-{mint|butter|lilac|sky}, on-tint-{mint|butter|lilac|sky},
+     bg-pill, shadow-{card|elev|glow-primary|focus} */
+}
+```
+
+The full block is at lines 183–228 of `packages/tokens/src/tokens.css`. The
+sage-instead-of-yellow accent flip in light mode is intentional: yellow on cream
+fails contrast.
+
+---
+
+## 4. Component manifest
+
+Every component below has a Storybook entry. The catalogue's top-level
+taxonomy is fixed: `Components/`, `Form/`, `Navigation/`, `Primitives/`,
+`Tags/`, `Tokens/`. Per ADR-006 fallback, Angular and HTML stories appear as
+sibling entries with `(Angular)` / `(HTML)` suffixes. All Angular components
+are standalone (no NgModule).
+
+### Angular package — `packages/angular/src/lib/`
+
+#### sk-button-primary (Angular)
+- Path: `packages/angular/src/lib/button/sk-button-primary.component.ts` + `sk-button-primary.stories.ts`
+- Selector: `sk-button-primary`
+- Story title: `Components/ButtonPrimary`
+- Variants: `Default`, `Disabled`, `Small`, `LightMode`
+- Notes: yellow CTA button with dark ink (`--sk-fg-on-primary`); pill radius.
+
+#### sk-button-secondary (Angular)
+- Path: `packages/angular/src/lib/button/sk-button-secondary.component.ts` + `sk-button-secondary.stories.ts`
+- Selector: `sk-button-secondary`
+- Story title: `Components/ButtonSecondary`
+- Variants: `Default`, `Disabled`, `Small`, `LightMode`
+- Notes: outlined / muted variant for non-primary actions.
+
+#### sk-button-ghost (Angular)
+- Path: `packages/angular/src/lib/button/sk-button-ghost.component.ts`
+- Selector: `sk-button-ghost`
+- Notes: low-emphasis text-only button; no dedicated `.stories.ts` file (covered via `Components/Button (HTML)` showcase). Exported from `@spec-kitty/angular` index.
+
+#### sk-card (Angular)
+- Path: `packages/angular/src/lib/card/sk-card.component.ts`
+- Selector: `sk-card`
+- Notes: container card surface; no dedicated Angular story file (variants demonstrated in `Components/Card` HTML story). Exported as `SkCardComponent`.
+
+#### sk-check-bullet (Angular)
+- Path: `packages/angular/src/lib/check-bullet/sk-check-bullet.ts` + `sk-check-bullet.stories.ts`
+- Selector: `sk-check-bullet`
+- Story title: `Primitives/SkCheckBullet (Angular)`
+- Variants: `Default`, `ListOfThree`
+- Notes: green-check bullet item used in marketing feature lists.
+
+#### sk-feature-card (Angular)
+- Path: `packages/angular/src/lib/feature-card/sk-feature-card.ts` + `sk-feature-card.stories.ts`
+- Selector: `sk-feature-card`
+- Story title: `Components/SkFeatureCard (Angular)`
+- Variants: `Default`, `GreenIcon`, `PurpleIcon`, `LightMode`
+- Notes: tinted feature card with icon, title, body; icon colour drives surface tint pairing.
+
+#### sk-form-field (Angular) — wraps `sk-form-input` and `sk-form-textarea`
+- Path: `packages/angular/src/lib/form-field/sk-form-field.ts` (+ `sk-form-input.ts`, `sk-form-textarea.ts`) + `sk-form-field.stories.ts`
+- Selectors: `sk-form-field`, `sk-form-input`, `sk-form-textarea`
+- Story title: `Form/FormInput (Angular)`
+- Variants: `FormInputDefault`, `FormInputFocus`, `FormInputError`, `FormInputDisabled`, `FormInputFilled`, `FormTextareaDefault`, `FormTextareaError`
+- Notes: label-wrapper container plus input/textarea atoms; supports error and disabled states via attribute bindings.
+
+#### sk-nav-pill (Angular)
+- Path: `packages/angular/src/lib/nav-pill/sk-nav-pill.ts` + `sk-nav-pill.stories.ts`
+- Selector: `sk-nav-pill`
+- Story title: `Navigation/SkNavPill (Angular)`
+- Variants: `Default`, `ActiveItem`, `FirstItemActive`, `LightMode`, `Mobile`
+- Notes: pill-shaped horizontal nav rail; exposes `NavPillItem` type for items array.
+
+#### sk-pill-tag (Angular) and sk-eyebrow-pill (Angular)
+- Paths: `packages/angular/src/lib/pill-tag/sk-pill-tag.ts` (+ `sk-eyebrow-pill.ts`) + `sk-pill-tag.stories.ts`
+- Selectors: `sk-pill-tag`, `sk-eyebrow-pill`
+- Story title: `Tags/SkPillTag (Angular)`
+- Variants: `Default`, `Green`, `Purple`, `Breaking`, `Yellow`, `AllVariants`, `LightMode`, `EyebrowPill`
+- Notes: small status / category chip; `PillTagVariant` type enumerates colourways. Eyebrow pill is the smaller rounded label variant rendered above headings.
+
+#### sk-ribbon-card (Angular)
+- Path: `packages/angular/src/lib/ribbon-card/sk-ribbon-card.ts` + `sk-ribbon-card.stories.ts`
+- Selector: `sk-ribbon-card`
+- Story title: `Components/SkRibbonCard (Angular)`
+- Variants: `Default`, `WithRibbon`, `RibbonGreen`, `RibbonPurple`, `LightMode`
+- Notes: card with optional corner ribbon; ribbon colour aligns with section tint family.
+
+#### sk-section-banner (Angular)
+- Path: `packages/angular/src/lib/section-banner/sk-section-banner.ts` + `sk-section-banner.stories.ts`
+- Selector: `sk-section-banner`
+- Story title: `Primitives/SkSectionBanner (Angular)`
+- Variants: `Neutral`, `Purple`, `Green`
+- Notes: section divider banner used between marketing rows.
+
+#### sk-stub (Angular)
+- Path: `packages/angular/src/lib/stub/sk-stub.ts` + `sk-stub.stories.ts`
+- Selector: `sk-stub`
+- Story title: `Primitives/SkStub (Angular)`
+- Variants: `Default`, `OnLightBackground`, `Mobile`, `Desktop`, `Hover`
+- Notes: WP04 proof-of-concept primitive that confirmed Storybook 10.x multi-framework rendering and viewport addons.
+
+### html-js package — `packages/html-js/src/`
+
+#### sk-button (html-js)
+- Path: `packages/html-js/src/button/sk-button.css` + `sk-button-primary.html` + `sk-button-secondary.html` + `sk-button-html.stories.ts`
+- Story title: `Components/Button (HTML)`
+- Variants: `Default` (Primary), `Secondary`, `Ghost`, `Small`, `Disabled`, `AllVariants`, `LightMode`
+- Notes: BEM classes `sk-button`, `sk-button--primary`, `sk-button--secondary`, `sk-button--ghost`, `sk-button--small`. Single CSS file covers all variants.
+
+#### sk-card (html-js)
+- Path: `packages/html-js/src/card/sk-card.css` + `sk-card.html` + `sk-card-html.stories.ts`
+- Story title: `Components/Card`
+- Variants: `Default`, `Blue`, `Purple`, `Inset`, `BlogCardExample`, `LightMode`
+- Notes: surface-tinted card; `BlogCardExample` is the composition used on `blog-demo.html`.
+
+#### sk-check-bullet (html-js)
+- Path: `packages/html-js/src/check-bullet/sk-check-bullet.css` + `sk-check-bullet.html` + `sk-check-bullet-html.stories.ts`
+- Story title: `Primitives/SkCheckBullet (HTML)`
+- Variants: `Default`, `ListOfThree`, `LightMode`
+- Notes: identical visual to Angular variant; pure CSS (no JS).
+
+#### sk-feature-card (html-js)
+- Path: `packages/html-js/src/feature-card/sk-feature-card.css` + `sk-feature-card.html` + `sk-feature-card-html.stories.ts`
+- Story title: `Components/SkFeatureCard (HTML)`
+- Variants: `Default`, `GreenIcon`, `PurpleIcon`, `LightMode`, `Grid`
+- Notes: `Grid` shows three feature cards in a responsive 3-up grid; exports `SkFeatureCardYellowHTML`, `SkFeatureCardGreenHTML`, `SkFeatureCardPurpleHTML`.
+
+#### sk-form-field (html-js)
+- Path: `packages/html-js/src/form-field/sk-form-field.css` + `sk-form-field.html` + per-state HTML files + `sk-form-field-html.stories.ts`
+- Story title: `Form/FormField (HTML)`
+- Variants: `FormInputDefault`, `FormInputFocus`, `FormInputError`, `FormInputDisabled`, `FormInputFilled`, `FormTextareaDefault`, `FormTextareaError`, `LightMode`
+- Notes: state markup is split into separate `.html` snippets (e.g. `sk-form-input-error.html`) consumed by stories.
+
+#### sk-nav-pill (html-js)
+- Path: `packages/html-js/src/nav-pill/sk-nav-pill.css` + `sk-nav-pill-drawer.css` + `sk-nav-pill.html` + `sk-nav-pill.js` + `sk-nav-pill.d.ts` + `sk-nav-pill.stories.ts`
+- Story title: `Navigation/SkNavPill (HTML)`
+- Variants: `Default`, `ActiveItem`, `Mobile`, `CollapsedHamburger`, `LightMode`
+- Notes: only html-js component with companion JS. The JS handles the
+  collapsed-hamburger drawer toggle on narrow viewports; ARIA roles applied via
+  template. Two CSS files: rail layout and the mobile drawer.
+
+#### sk-pill-tag (html-js)
+- Path: `packages/html-js/src/pill-tag/sk-pill-tag.css` + `sk-pill-tag.html` + `sk-pill-tag.stories.ts`
+- Story title: `Tags/SkPillTag (HTML)`
+- Variants: `Default`, `Green`, `Purple`, `Breaking`, `Yellow`, `AllVariants`, `EyebrowPill`, `LightMode`
+- Notes: exports both `SkPillTagHTML` and `SkEyebrowPillHTML`; same `PillTagVariant` type as Angular.
+
+#### sk-ribbon-card (html-js)
+- Path: `packages/html-js/src/ribbon-card/sk-ribbon-card.css` + `sk-ribbon-card.html` + `sk-ribbon-card-plain.html` + `sk-ribbon-card-html.stories.ts`
+- Story title: `Components/SkRibbonCard (HTML)`
+- Variants: `Default`, `WithRibbon`, `RibbonYellow`, `RibbonGreen`, `RibbonPurple`, `LightMode`
+- Notes: html-js variant adds `RibbonYellow` (Angular omits this colourway).
+
+#### sk-section-banner (html-js)
+- Path: `packages/html-js/src/section-banner/sk-section-banner.css` + `sk-section-banner.html` + `sk-section-banner-html.stories.ts`
+- Story title: `Primitives/SkSectionBanner (HTML)`
+- Variants: `Neutral`, `Purple`, `Green`, `LightMode`
+- Notes: exports `SkSectionBannerNeutralHTML`, `SkSectionBannerPurpleHTML`, `SkSectionBannerGreenHTML`.
+
+#### sk-site-footer (html-js, no Angular twin)
+- Path: `packages/html-js/src/site-footer/sk-site-footer.css` + `sk-site-footer.stories.ts`
+- Story title: `Components/SiteFooter`
+- Variants: `Default`, `LightMode`
+- Notes: marketing footer with brand mark, link columns, legal line. html-js only — no Angular wrapper exists.
+
+#### sk-stub (html-js)
+- Path: `packages/html-js/src/stub/sk-stub.css` + `sk-stub.html` + `sk-stub-html.stories.ts`
+- Story title: `Primitives/SkStub (HTML)`
+- Variants: `Default`, `Mobile`, `Desktop`
+- Notes: html-js side of the WP04 proof-of-concept primitive.
+
+### Tokens stories
+
+`apps/storybook/src/stories/tokens/` contains MDX/Stories rendering the token
+catalogue (colour swatches, type ramp, spacing scale). They appear under the
+`Tokens/` taxonomy. `apps/storybook/src/stories/getting-started.mdx` is the
+catalogue's landing page.
+
+---
+
+## 5. Quality and tooling
+
+### npm scripts (`package.json`)
+
+| Script | Command |
+|---|---|
+| `quality:lint` | `nx run-many --target=lint --all` |
+| `quality:stylelint` | `stylelint --allow-empty-input 'packages/**/*.css' 'packages/**/*.scss'` |
+| `quality:htmlhint` | `htmlhint 'packages/**/*.html' 'apps/storybook/src/**/*.html' \|\| true` |
+| `quality:commitlint` | `commitlint --from=HEAD~1` |
+| `quality:all` | runs lint + stylelint + htmlhint sequentially |
+| `tokens:catalogue` | `node scripts/generate-token-catalogue.js` |
+| `security:lockfile-check` | `npm ci --dry-run --ignore-scripts` |
+
+`bash scripts/npm-audit-gate.sh` is the FR-041 hard gate (high/critical CVE
+fail). `bash scripts/check-action-pins.sh` enforces FR-043 (all GitHub
+Actions `uses:` directives pinned to immutable commit SHAs).
+
+### Nx targets
+
+- `nx run-many -t lint` — ESLint across all projects.
+- `nx run tokens:build` — builds the `@spec-kitty/tokens` package.
+- `nx run tokens:catalogue` — regenerates `packages/tokens/dist/token-catalogue.json` from `tokens.css`. Run after adding or removing tokens; the Stylelint allowlist consumes this file.
+- `nx run storybook:storybook:build` — produces `apps/storybook/storybook-static/` (NFR-003 budget: < 3 minutes; observed ~10 s on 10.x).
+- `nx run storybook:storybook` — local dev server.
+
+### Linting rules
+
+- **Stylelint** (`stylelint.config.mjs`) — enforces token-only values via
+  `stylelint-declaration-strict-value` for the `color`, `background`,
+  `background-color`, `font-family`, `padding`, `margin`, `border-radius`
+  property families. The allowlist is the token catalogue plus literals
+  `transparent`, `inherit`, `initial`, `unset`, `none`, `currentColor`, `0`,
+  and any `var(--sk-*)` reference. Class names must match
+  `^sk-block(__element)?(--modifier)*` BEM, or `is-state` for JS state hooks.
+  `packages/tokens/src/tokens.css` is the only file exempt from the
+  no-hardcoded-values rule (it defines them).
+- **ESLint** (`eslint.config.mjs`) — Nx flat-base plus
+  `@nx/enforce-module-boundaries` with the ADR-002 dependency direction baked
+  in: `scope:angular` and `scope:html-js` may only depend on `scope:tokens`;
+  `scope:docs` may depend on tokens / angular / html-js; publishable packages
+  cannot depend on internal-tagged libs. `eslint-plugin-security` warns on
+  object-injection / non-literal-fs and errors on unsafe-regex.
+- **HTMLHint** (`.htmlhintrc`) — covers structural HTML quality on
+  `packages/**/*.html` and `apps/storybook/src/**/*.html`.
+- **commitlint** — extends `@commitlint/config-conventional`; the `scope-enum`
+  rule restricts scopes to: `tokens`, `angular`, `html-js`, `storybook`,
+  `doctrine`, `ci`, `docs`, `release`, `deps`, `security`. Subject case must
+  not be upper / pascal / start case.
+
+### CI workflow — `.github/workflows/ci-quality.yml`
+
+Triggered on PRs to `main`, pushes to `main`, and a nightly cron at `17 2 * * *`
+for the security audit. Concurrency cancels in-progress runs per ref.
+
+Job DAG:
+
+```
+changes  ──┬──> security ──┐
+           ├──> workflow-pin-check ─┤
+           ├──> lint-code ──────────┤
+           └──> storybook-build ──> a11y ───────────┐
+                                ├─> visual-regression ─┤
+                                ├─> playwright ────────┤
+                                └─> lighthouse (advisory; always passes)
+                                                      │
+              all hard gates feed into ──>            v
+                                                    gate (FR-026 — blocks merge)
+```
+
+- `security` — `npm ci --ignore-scripts`, then `bash scripts/npm-audit-gate.sh` and lockfile drift check (FR-041, FR-042).
+- `workflow-pin-check` — verifies every `uses:` is pinned to a SHA (FR-043).
+- `lint-code` — Nx-affected ESLint, Stylelint, HTMLHint; commitlint on PRs (FR-017 / FR-018 / FR-019 / FR-020). Failures captured to `lint-reports` artifact and surfaced as a PR comment by the `lint-feedback` job for same-repo PRs.
+- `storybook-build` — gated on `tokens` or `components` path changes; uploads `storybook-static` artifact for downstream jobs.
+- `a11y` — runs `@axe-core` against the built Storybook for WCAG 2.1 AA (FR-021) using `scripts/run-axe-storybook.js`.
+- `visual-regression` — Playwright runs `apps/storybook/src/tests/visual.spec.ts` (FR-024); diff artifacts uploaded on failure.
+- `playwright` — cross-browser smoke `apps/storybook/src/tests/smoke.spec.ts` (FR-023).
+- `lighthouse` — advisory only (`continue-on-error: true`), runs `lhci autorun` per `lighthouserc.cjs` (FR-022).
+- `gate` — final job that aggregates required results; treats `skipped` (no component changes) as acceptable for a11y / visual / smoke but fails if any of security / workflow-pin / lint / a11y / visual / smoke explicitly failed.
+
+Other workflows:
+
+- `pr-preview.yml` — builds and links a Storybook preview per PR.
+- `release.yml` — provenance-attested `npm publish` with SBOM artifact (FR-044, FR-045).
+- `storybook-deploy.yml` — pushes the built catalogue + demo HTML to GitHub Pages.
+
+---
+
+## 6. Light/dark theming
+
+- **Default** is dark mode. All token values applied at `:root` are the dark-
+  mode set; no extra attribute is needed for the default look.
+- **Light mode** is opt-in: add `data-theme="light"` to a wrapper element (the
+  `<html>` element for full-page light mode, or any container for scoped light
+  mode). The `.sk-light` class is an equivalent escape hatch.
+- The override block in `packages/tokens/src/tokens.css` re-binds surface,
+  foreground, border, accent, tint, pill, and shadow tokens. Brand palette
+  values, type scale, weights, spacing, radius, and motion are theme-agnostic
+  and stay constant.
+- The light-mode accent intentionally flips from yellow to sage
+  (`--sk-color-accent: var(--sk-color-sage)`, `--sk-color-accent-fg: #FFFFFF`)
+  because yellow on cream fails contrast.
+- **Storybook convention** — every component story exposes a `LightMode`
+  named export. The convention is:
+
+  ```ts
+  export const LightMode: Story = {
+    parameters: { backgrounds: { default: 'sk-light' } },
+    render: () => `<div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-7);">${SkComponentHTML}</div>`,
+  };
+  ```
+
+  The `parameters.backgrounds.default: 'sk-light'` aligns the Storybook canvas
+  background with the page surface so the component lands on cream rather than
+  black.
+
+- **ADR-3 semantic pairing rule** is theme-aware: each surface token has a
+  matching foreground token (`--sk-surface-page` ↔ `--sk-on-page`,
+  `--sk-surface-card` ↔ `--sk-fg-on-card`, `--sk-surface-tint-mint` ↔
+  `--sk-on-tint-mint`, etc.). Mixing across pairs breaks WCAG 2.1 AA contrast
+  guarantees in either theme. Agents generating UI must use paired tokens
+  together; never substitute an arbitrary foreground colour onto a tinted
+  surface.
+
+---
+
+## 7. Quick install snippets
+
+### Tokens (CDN, zero build step)
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@spec-kitty/tokens/dist/tokens.css">
+```
+
+After the `<link>` is in place, every `--sk-*` custom property is available to
+your CSS.
+
+### Tokens (npm)
+
+```bash
+npm install @spec-kitty/tokens
+```
+
+```css
+@import '@spec-kitty/tokens/dist/tokens.css';
+```
+
+### html-js component (CDN-friendly)
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@spec-kitty/tokens/dist/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@spec-kitty/html-js/src/button/sk-button-primary.css">
+<button class="sk-button sk-button--primary">Click me</button>
+```
+
+For components that ship companion JS (currently `sk-nav-pill`):
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@spec-kitty/html-js/src/nav-pill/sk-nav-pill.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@spec-kitty/html-js/src/nav-pill/sk-nav-pill-drawer.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@spec-kitty/html-js/src/nav-pill/sk-nav-pill.js"></script>
+```
+
+### Angular
+
+```bash
+npm install @spec-kitty/angular @spec-kitty/tokens
+```
+
+```ts
+import { SkButtonPrimaryComponent } from '@spec-kitty/angular';
+```
+
+All Angular components are standalone — import them directly into a
+`@Component({ imports: [...] })` declaration. The full export list lives at
+`packages/angular/src/index.ts` and includes: `SkStubComponent`,
+`SkButtonPrimaryComponent`, `SkButtonSecondaryComponent`,
+`SkButtonGhostComponent`, `SkCheckBulletComponent`, `SkSectionBannerComponent`,
+`SkFormFieldComponent`, `SkFormInputComponent`, `SkFormTextareaComponent`,
+`SkNavPillComponent` (+ `NavPillItem` type), `SkPillTagComponent` (+
+`PillTagVariant` type), `SkEyebrowPillComponent`, `SkFeatureCardComponent`,
+`SkRibbonCardComponent`, `SkCardComponent`.
+
+The token CSS must still be loaded once at the application root (typically via
+`styles.css` `@import` or a global `<link>`).
+
+---
+
+## 8. Adding to the design system (agent recipe)
+
+Concise step-by-step that an LLM agent or contributor can follow to add a new
+piece to the system without violating any gate.
+
+1. **Choose a package.**
+   - New design value (colour, spacing step, radius, shadow, motion curve) — `@spec-kitty/tokens`.
+   - New framework-free component — `@spec-kitty/html-js`.
+   - New Angular wrapper of an existing primitive — `@spec-kitty/angular`.
+   - New pattern that needs to land in both renderers — implement in `html-js` first, then Angular wrapper that mirrors the markup.
+
+2. **Create files** under the package:
+   - `packages/<pkg>/src/<component>/<sk-name>.css` — styles.
+   - `packages/<pkg>/src/<component>/<sk-name>.html` — markup (html-js) or `<sk-name>.component.html` (Angular).
+   - `packages/<pkg>/src/<component>/<sk-name>.stories.ts` — Storybook entry.
+   - Angular only: `<sk-name>.component.ts` (or `<sk-name>.ts`) plus `<sk-name>.spec.ts` for unit tests.
+   - Update the package's `src/index.ts` to export the new symbol (Angular: the component class; html-js: an HTML string constant).
+
+3. **CSS rules.**
+   - Use only `var(--sk-*)` references. No raw `#hex`, `rgb()`, `rem`, `px` literals on the property families enforced by Stylelint (`color`, `background`, `background-color`, `font-family`, `padding`, `margin`, `border-radius`). Allowed literal values: `transparent`, `inherit`, `initial`, `unset`, `none`, `currentColor`, `0`.
+   - Add new token values to `packages/tokens/src/tokens.css` first, then run `npx nx run tokens:catalogue` so the catalogue and Stylelint allowlist update before the consuming component CSS is committed.
+
+4. **Story file.**
+   - `title:` must match the existing taxonomy: `Components/<Name>`, `Form/<Name>`, `Navigation/<Name>`, `Primitives/<Name>`, `Tags/<Name>`, or `Tokens/<Name>`. Mirror Angular and html-js entries with `(Angular)` / `(HTML)` suffixes per ADR-006 fallback.
+   - Required exports: `Default` plus a `LightMode` variant. The `LightMode` story wraps the rendered output in `<div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-7);">…</div>` and sets `parameters.backgrounds.default: 'sk-light'`.
+   - Cover meaningful states: error, disabled, hover, focus, mobile viewport — each as a separate named export.
+
+5. **Naming.**
+   - BEM with `sk-` block prefix: `sk-block`, `sk-block__element`, `sk-block--modifier`. JS state classes use the `is-` prefix (e.g. `is-active`).
+   - Selectors / Angular component selectors are kebab-case with `sk-` prefix (e.g. `sk-button-primary`).
+   - Angular class names: PascalCase ending in `Component` (e.g. `SkButtonPrimaryComponent`).
+
+6. **Run the local quality gates** before pushing:
+   ```bash
+   npm run quality:all
+   npx nx run storybook:storybook:build
+   ```
+
+7. **Commit** using a conventional-commit message with a scope from the
+   commitlint allowlist:
+
+   ```
+   feat(html-js): add sk-modal primitive
+   feat(angular): add SkModalComponent wrapper
+   feat(tokens): add --sk-shadow-overlay token
+   docs(docs): document sk-modal usage in storybook getting-started
+   ```
+
+   Subject case must be lowercase / sentence-case, never start-case.
+
+8. **Open the PR.** CI will execute the workflow described in §5: lint, a11y
+   (axe WCAG 2.1 AA), visual regression, cross-browser smoke. The `gate` job
+   blocks merge until all hard gates are green. Lighthouse runs advisory.
+   Lint-output is auto-commented on the PR if either ESLint or Stylelint
+   failed.
+
+9. **After merge.** `storybook-deploy.yml` rebuilds and pushes to GitHub
+   Pages. If the change ships a token, a component, or a structural piece
+   that consumers will install, bump the affected package version per the
+   release workflow's conventional-commit-driven semver rules and let
+   `release.yml` produce the provenance-attested npm publish + SBOM.
+
+---
+
+## 9. Reference: useful URLs
+
+Flat link list of every URL referenced above, for skim use.
+
+- Live Storybook — <https://stijn-dejongh.github.io/spec-kitty-design/>
+- Blog demo — <https://stijn-dejongh.github.io/spec-kitty-design/blog-demo.html>
+- Dashboard demo — <https://stijn-dejongh.github.io/spec-kitty-design/dashboard-demo.html>
+- Spec Kitty org — <https://github.com/Priivacy-ai>
+- Spec Kitty CLI / runtime — <https://github.com/Priivacy-ai/spec-kitty>
+- Spec Kitty issue #832 (org-layer DRG, ADR-4 follow-on) — <https://github.com/Priivacy-ai/spec-kitty/issues/832>
+- Storybook 8.x→10.x framework docs (ADR-6 reference) — <https://storybook.js.org/docs/configure/integration/frameworks>
+- jsDelivr CDN base for the `@spec-kitty` scope — <https://cdn.jsdelivr.net/npm/@spec-kitty/>
+- Tokens CSS via CDN — <https://cdn.jsdelivr.net/npm/@spec-kitty/tokens/dist/tokens.css>
+- html-js button CSS via CDN — <https://cdn.jsdelivr.net/npm/@spec-kitty/html-js/src/button/sk-button-primary.css>
