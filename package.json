@@ -31,6 +31,7 @@
     "@angular/compiler": "^21.2.11",
     "@angular/compiler-cli": "^21.2.11",
     "@angular/core": "^21.2.11",
+    "@angular/forms": "^21.2.11",
     "@angular/platform-browser": "^21.2.11",
     "@angular/platform-browser-dynamic": "^21.2.11",
     "@axe-core/cli": "^4.11.3",
