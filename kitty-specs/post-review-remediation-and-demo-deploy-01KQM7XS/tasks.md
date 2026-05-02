@@ -40,9 +40,9 @@
 | T028 | Add `LightMode` story to `sk-nav-pill.stories.ts` (Angular) | WP06 | Yes | [D] |
 | T029 | Add `LightMode` story to `sk-pill-tag.stories.ts` (Angular) | WP06 | Yes | [D] |
 | T030 | Add `LightMode` story to `sk-ribbon-card.stories.ts` (Angular) | WP06 | Yes | [D] |
-| T031 | Update `storybook-deploy.yml` to copy demo pages + fix asset paths | WP07 | No |
-| T032 | Update `getting-started.mdx` with links to deployed demo pages | WP07 | No |
-| T033 | Rewrite `README.md` with vision, usage guide, and live site links | WP07 | No |
+| T031 | Update `storybook-deploy.yml` to copy demo pages + fix asset paths | WP07 | No | [D] |
+| T032 | Update `getting-started.mdx` with links to deployed demo pages | WP07 | No | [D] |
+| T033 | Rewrite `README.md` with vision, usage guide, and live site links | WP07 | No | [D] |
 
 ---
 
@@ -159,6 +159,6 @@
 
 **Goal:** Update the GitHub Actions deploy workflow to copy both demo pages into the Storybook static output with fixed asset paths. Add navigation links from the Storybook introduction page. Rewrite README.md with vision, usage guide, and live site links.
 
-- [ ] T031 Update `storybook-deploy.yml` to copy demo pages + fix asset paths (WP07)
-- [ ] T032 Update `getting-started.mdx` with links to deployed demo pages (WP07)
-- [ ] T033 Rewrite `README.md` with vision, usage guide, and live site links (WP07)
+- [x] T031 Update `storybook-deploy.yml` to copy demo pages + fix asset paths (WP07)
+- [x] T032 Update `getting-started.mdx` with links to deployed demo pages (WP07)
+- [x] T033 Rewrite `README.md` with vision, usage guide, and live site links (WP07)
