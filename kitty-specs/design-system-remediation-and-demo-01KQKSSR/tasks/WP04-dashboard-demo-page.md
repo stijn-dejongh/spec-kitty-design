@@ -442,3 +442,4 @@ Open the dashboard in Chrome. Verify: (1) the Spec Kitty logo renders in Falling
 ## Activity Log
 
 - 2026-05-02T07:53:15Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=2014096 – Started implementation via action command
+- 2026-05-02T08:04:44Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=2014096 – dashboard-demo.html: 5-column Kanban with coloured WP cards; index.html linking both demos
