@@ -112,7 +112,7 @@ export const CollapsedHamburger: Story = {
       <!-- Hamburger — hidden on desktop, shown on mobile -->
       <button
         class="sk-nav-pill__hamburger"
-        aria-label="Open menu"
+        aria-label="Open navigation"
         aria-expanded="false"
         aria-controls="sk-nav-drawer"
         type="button"
@@ -140,24 +140,18 @@ export const CollapsedHamburger: Story = {
 
 export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' } },
-  render: (args) => {
-    const items = args['items'] ?? [
-      { label: 'Platform', href: '#' },
-      { label: 'Getting Started', href: '#', active: true },
-      { label: 'About', href: '#' },
-    ];
-    const itemsHtml = items.map((item: any) =>
-      `<a href="${item.href}" class="sk-nav-pill__item${item.active ? ' sk-nav-pill__item--active' : ''}">${item.label}</a>`
-    ).join('\n    ');
-    return `
-      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6);">
-        <nav class="sk-nav-pill" aria-label="Primary navigation">
-          <div class="sk-nav-pill__items">${itemsHtml}</div>
-          <div class="sk-nav-pill__cta">
-            <button class="sk-nav-pill__cta-btn" type="button">Book Demo</button>
-          </div>
-        </nav>
-      </div>
-    `;
-  },
+  render: () => `
+    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+      <nav class="sk-nav-pill" aria-label="Primary navigation">
+        <div class="sk-nav-pill__items">
+          <a href="#" class="sk-nav-pill__item">Platform</a>
+          <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" aria-current="page">Getting Started</a>
+          <a href="#" class="sk-nav-pill__item">About</a>
+        </div>
+        <div class="sk-nav-pill__cta">
+          <button class="sk-nav-pill__cta-btn" type="button">Book Demo</button>
+        </div>
+      </nav>
+    </div>
+  `,
 };
