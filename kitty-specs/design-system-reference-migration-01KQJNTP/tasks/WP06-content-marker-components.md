@@ -19,7 +19,8 @@ subtasks:
 - T029
 - T030
 - T031
-agent: claude
+agent: "claude:claude-sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "1625658"
 history:
 - date: '2026-05-01'
   event: created
@@ -142,3 +143,7 @@ Stories: CheckBullet (Default, List of 3), SectionBanner (Neutral, Purple, Green
 ## Reviewer Guidance
 
 Verify SectionBanner purple variant uses `--sk-surface-purple-tint` (not hardcoded purple). Check that `aria-hidden="true"` on the decorative dot is present.
+
+## Activity Log
+
+- 2026-05-02T06:23:29Z – claude:claude-sonnet-4-6:frontend-freddy:implementer – shell_pid=1625658 – Started implementation via action command
