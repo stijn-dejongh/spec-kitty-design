@@ -48,12 +48,12 @@
 | T035 | Export from package entry points | WP07 | |
 | T036 | Write stories: FeatureCard (Default, light), RibbonCard (Default, with ribbon, without ribbon); verify axe | WP07 | |
 | T037 | Update visual regression baselines for card stories | WP07 | |
-| T038 | Implement `FormField` container HTML primitive in `packages/html-js/src/form-field/` | WP08 | |
-| T039 | Implement `FormInput` and `FormTextarea` HTML primitives with all validation states | WP08 | |
-| T040 | Implement `FormFieldComponent`, `FormInputComponent`, `FormTextareaComponent` in Angular package | WP08 | |
-| T041 | Export all form components from entry points | WP08 | |
-| T042 | Write stories: FormField (Default, Focus, Error, Disabled, Filled), FormTextarea (same); verify axe | WP08 | |
-| T043 | Update visual regression baselines for form stories | WP08 | |
+| T038 | Implement `FormField` container HTML primitive in `packages/html-js/src/form-field/` | WP08 | | [D] |
+| T039 | Implement `FormInput` and `FormTextarea` HTML primitives with all validation states | WP08 | | [D] |
+| T040 | Implement `FormFieldComponent`, `FormInputComponent`, `FormTextareaComponent` in Angular package | WP08 | | [D] |
+| T041 | Export all form components from entry points | WP08 | | [D] |
+| T042 | Write stories: FormField (Default, Focus, Error, Disabled, Filled), FormTextarea (same); verify axe | WP08 | | [D] |
+| T043 | Update visual regression baselines for form stories | WP08 | | [D] |
 
 | T044 | Create `docs/design-system/README.md` overview and navigation hub | WP09 | | [D] |
 | T045 | Create `docs/design-system/using-tokens.md` — install, load, consume `--sk-*` properties | WP09 | [D] |
@@ -207,12 +207,12 @@
 **Estimated prompt size**: ~400 lines
 **Prompt**: [WP08-form-field-components.md](tasks/WP08-form-field-components.md)
 
-- [ ] T038 Implement FormField container HTML primitive (WP08)
-- [ ] T039 Implement FormInput + FormTextarea HTML primitives with all states (WP08)
-- [ ] T040 Implement FormFieldComponent, FormInputComponent, FormTextareaComponent Angular (WP08)
-- [ ] T041 Export all from entry points (WP08)
-- [ ] T042 Write stories for all form states; verify axe (label association, error announcements) (WP08)
-- [ ] T043 Update visual regression baselines (WP08)
+- [x] T038 Implement FormField container HTML primitive (WP08)
+- [x] T039 Implement FormInput + FormTextarea HTML primitives with all states (WP08)
+- [x] T040 Implement FormFieldComponent, FormInputComponent, FormTextareaComponent Angular (WP08)
+- [x] T041 Export all from entry points (WP08)
+- [x] T042 Write stories for all form states; verify axe (label association, error announcements) (WP08)
+- [x] T043 Update visual regression baselines (WP08)
 
 **Dependencies**: WP01, WP02
 **Parallel with**: WP04, WP05, WP06, WP07
