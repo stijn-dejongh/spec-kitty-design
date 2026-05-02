@@ -1,7 +1,7 @@
 {
-  "event_count": 50,
-  "last_event_id": "01KQKPE2TKN84BRJRM1D91HG5X",
-  "materialized_at": "2026-05-02T06:36:23.251626+00:00",
+  "event_count": 51,
+  "last_event_id": "01KQKPJYEX21CN33ET6BRQXSCA",
+  "materialized_at": "2026-05-02T06:39:02.621145+00:00",
   "mission_number": "",
   "mission_slug": "design-system-reference-migration-01KQJNTP",
   "mission_type": "software-dev",
@@ -68,10 +68,10 @@
     },
     "WP08": {
       "actor": "user",
-      "force_count": 3,
+      "force_count": 4,
       "lane": "approved",
-      "last_event_id": "01KQKPAF70FW9CB55VSJ3Z4GJ0",
-      "last_transition_at": "2026-05-02T06:34:24.864415+00:00"
+      "last_event_id": "01KQKPJYEX21CN33ET6BRQXSCA",
+      "last_transition_at": "2026-05-02T06:39:02.621145+00:00"
     },
     "WP09": {
       "actor": "user",
