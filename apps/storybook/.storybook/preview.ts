@@ -1,3 +1,4 @@
+import '../../../packages/tokens/src/tokens.css';
 import type { Preview } from '@storybook/angular';
 
 const preview: Preview = {

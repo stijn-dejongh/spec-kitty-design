@@ -1,32 +1,71 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T18:30:34.905Z",
+  "generated_at": "2026-05-02T06:11:00.606Z",
   "generated_from": "packages/tokens/src/tokens.css",
   "categories": {
     "color": {
       "prefix": "--sk-color-",
       "tokens": [
         "--sk-color-yellow",
+        "--sk-color-yellow-soft",
+        "--sk-color-yellow-deep",
         "--sk-color-haygold",
+        "--sk-color-haygold-soft",
         "--sk-color-blue",
+        "--sk-color-blue-deep",
+        "--sk-color-blue-bg",
         "--sk-color-purple",
+        "--sk-color-purple-deep",
+        "--sk-color-purple-bg",
         "--sk-color-green",
-        "--sk-color-red"
+        "--sk-color-green-bg",
+        "--sk-color-red",
+        "--sk-color-red-soft",
+        "--sk-color-sage",
+        "--sk-color-sage-deep",
+        "--sk-color-sage-soft",
+        "--sk-color-accent",
+        "--sk-color-accent-fg"
       ]
     },
     "surface": {
       "prefix": "--sk-surface-",
       "tokens": [
         "--sk-surface-page",
+        "--sk-surface-hero",
         "--sk-surface-card",
-        "--sk-surface-input"
+        "--sk-surface-input",
+        "--sk-surface-pill",
+        "--sk-surface-muted",
+        "--sk-surface-tint-mint",
+        "--sk-surface-tint-butter",
+        "--sk-surface-tint-lilac",
+        "--sk-surface-tint-sky"
+      ]
+    },
+    "on": {
+      "prefix": "--sk-on-",
+      "tokens": [
+        "--sk-on-tint-mint",
+        "--sk-on-tint-butter",
+        "--sk-on-tint-lilac",
+        "--sk-on-tint-sky"
+      ]
+    },
+    "bg": {
+      "prefix": "--sk-bg-",
+      "tokens": [
+        "--sk-bg-pill"
       ]
     },
     "fg": {
       "prefix": "--sk-fg-",
       "tokens": [
         "--sk-fg-default",
+        "--sk-fg-body",
         "--sk-fg-muted",
+        "--sk-fg-subtle",
+        "--sk-fg-placeholder",
         "--sk-fg-on-primary",
         "--sk-fg-on-card"
       ]
@@ -36,16 +75,22 @@
       "tokens": [
         "--sk-border-default",
         "--sk-border-strong",
-        "--sk-border-focus"
+        "--sk-border-focus",
+        "--sk-border-width-1",
+        "--sk-border-width-2"
       ]
     },
     "font": {
       "prefix": "--sk-font-",
       "tokens": [
-        "--sk-font-display",
         "--sk-font-sans",
-        "--sk-font-mono",
-        "--sk-font-reference"
+        "--sk-font-display",
+        "--sk-font-reference",
+        "--sk-font-condensed",
+        "--sk-font-extended",
+        "--sk-font-outline",
+        "--sk-font-boldplus",
+        "--sk-font-mono"
       ]
     },
     "text": {
@@ -65,6 +110,7 @@
       "tokens": [
         "--sk-weight-normal",
         "--sk-weight-medium",
+        "--sk-weight-semibold",
         "--sk-weight-bold",
         "--sk-weight-extrabold"
       ]
@@ -92,6 +138,7 @@
         "--sk-radius-sm",
         "--sk-radius-md",
         "--sk-radius-lg",
+        "--sk-radius-xl",
         "--sk-radius-pill"
       ]
     },
@@ -99,7 +146,9 @@
       "prefix": "--sk-shadow-",
       "tokens": [
         "--sk-shadow-card",
-        "--sk-shadow-glow-primary"
+        "--sk-shadow-elev",
+        "--sk-shadow-glow-primary",
+        "--sk-shadow-focus"
       ]
     },
     "motion": {
@@ -107,7 +156,9 @@
       "tokens": [
         "--sk-motion-duration-fast",
         "--sk-motion-duration-base",
-        "--sk-motion-ease-out"
+        "--sk-motion-duration-slow",
+        "--sk-motion-ease-out",
+        "--sk-motion-ease-in-out"
       ]
     }
   }

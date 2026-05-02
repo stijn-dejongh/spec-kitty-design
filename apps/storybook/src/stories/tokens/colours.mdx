@@ -1,0 +1,253 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Tokens/Colours" />
+
+# Colours
+
+All colour tokens use the `--sk-*` CSS custom property naming schema. Reference them via `var(--sk-*)` in your stylesheets — never hardcode hex values.
+
+---
+
+## Brand colours
+
+The yellow is the signature primary used for CTAs, focus rings, and the logo bow.
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '32px'}}>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{background: 'var(--sk-color-yellow)', width: '80px', height: '80px', borderRadius: 'var(--sk-radius-sm)'}} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-color-yellow</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#F5C518</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{background: 'var(--sk-color-yellow-soft)', width: '80px', height: '80px', borderRadius: 'var(--sk-radius-sm)'}} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-color-yellow-soft</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#FFD84D</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{background: 'var(--sk-color-yellow-deep)', width: '80px', height: '80px', borderRadius: 'var(--sk-radius-sm)'}} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-color-yellow-deep</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#C99A0E</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{background: 'var(--sk-color-haygold)', width: '80px', height: '80px', borderRadius: 'var(--sk-radius-sm)'}} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-color-haygold</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#D9B36A</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{background: 'var(--sk-color-blue)', width: '80px', height: '80px', borderRadius: 'var(--sk-radius-sm)'}} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-color-blue</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#A9C7E8</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{background: 'var(--sk-color-purple)', width: '80px', height: '80px', borderRadius: 'var(--sk-radius-sm)'}} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-color-purple</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#B8A9E0</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{background: 'var(--sk-color-green)', width: '80px', height: '80px', borderRadius: 'var(--sk-radius-sm)'}} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-color-green</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#8FCB8F</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{background: 'var(--sk-color-red)', width: '80px', height: '80px', borderRadius: 'var(--sk-radius-sm)'}} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-color-red</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#E97373</span>
+  </div>
+</div>
+
+---
+
+## Dark surfaces
+
+The dark surface stack provides depth through subtle lightness steps. A 1px `--sk-border-default` hairline separates surface layers.
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '32px'}}>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{
+      background: 'var(--sk-surface-page)',
+      width: '120px', height: '80px',
+      borderRadius: 'var(--sk-radius-sm)',
+      border: '1px solid var(--sk-border-default)'
+    }} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-surface-page</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#0D0E11</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{
+      background: 'var(--sk-surface-card)',
+      width: '120px', height: '80px',
+      borderRadius: 'var(--sk-radius-sm)',
+      border: '1px solid var(--sk-border-default)'
+    }} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-surface-card</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#181A1F</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{
+      background: 'var(--sk-surface-input)',
+      width: '120px', height: '80px',
+      borderRadius: 'var(--sk-radius-sm)',
+      border: '1px solid var(--sk-border-default)'
+    }} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-surface-input</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#1C1F25</span>
+  </div>
+</div>
+
+**Border token used for hairline separation:**
+
+<div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px'}}>
+  <div style={{width: '120px', height: '1px', background: 'var(--sk-border-default)'}} />
+  <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-border-default — #2B313B</code>
+</div>
+
+---
+
+## Section tints
+
+Tint surfaces pair with a matching foreground token for accessible contrast.
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '32px'}}>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+    <div style={{
+      background: 'var(--sk-surface-tint-sky)',
+      width: '160px', height: '80px',
+      borderRadius: 'var(--sk-radius-sm)',
+      padding: '12px',
+      display: 'flex', alignItems: 'center', justifyContent: 'center'
+    }}>
+      <span style={{color: 'var(--sk-on-tint-sky)', fontSize: '0.875rem', fontWeight: 600}}>Sky tint</span>
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-surface-tint-sky</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>fg: --sk-on-tint-sky</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+    <div style={{
+      background: 'var(--sk-surface-tint-lilac)',
+      width: '160px', height: '80px',
+      borderRadius: 'var(--sk-radius-sm)',
+      padding: '12px',
+      display: 'flex', alignItems: 'center', justifyContent: 'center'
+    }}>
+      <span style={{color: 'var(--sk-on-tint-lilac)', fontSize: '0.875rem', fontWeight: 600}}>Lilac tint</span>
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-surface-tint-lilac</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>fg: --sk-on-tint-lilac</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+    <div style={{
+      background: 'var(--sk-surface-tint-mint)',
+      width: '160px', height: '80px',
+      borderRadius: 'var(--sk-radius-sm)',
+      padding: '12px',
+      display: 'flex', alignItems: 'center', justifyContent: 'center'
+    }}>
+      <span style={{color: 'var(--sk-on-tint-mint)', fontSize: '0.875rem', fontWeight: 600}}>Mint tint</span>
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-surface-tint-mint</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>fg: --sk-on-tint-mint</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+    <div style={{
+      background: 'var(--sk-surface-tint-butter)',
+      width: '160px', height: '80px',
+      borderRadius: 'var(--sk-radius-sm)',
+      padding: '12px',
+      display: 'flex', alignItems: 'center', justifyContent: 'center'
+    }}>
+      <span style={{color: 'var(--sk-on-tint-butter)', fontSize: '0.875rem', fontWeight: 600}}>Butter tint</span>
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-surface-tint-butter</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>fg: --sk-on-tint-butter</span>
+  </div>
+</div>
+
+---
+
+## Foreground / text
+
+Each foreground token is paired with a surface. Always use the matched pair to guarantee contrast.
+
+<div style={{display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px'}}>
+  <div style={{
+    background: 'var(--sk-surface-page)',
+    padding: '16px',
+    borderRadius: 'var(--sk-radius-sm)',
+    border: '1px solid var(--sk-border-default)'
+  }}>
+    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px'}}>
+      <span style={{color: 'var(--sk-fg-default)', fontWeight: 700}}>Default — headlines</span>
+      <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-fg-default #FFFFFF</code>
+    </div>
+    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px'}}>
+      <span style={{color: 'var(--sk-fg-muted)'}}>Muted — secondary body</span>
+      <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-fg-muted #A9A9B0</code>
+    </div>
+    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px'}}>
+      <span style={{color: 'var(--sk-fg-subtle)'}}>Subtle — tertiary / labels</span>
+      <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-fg-subtle #6E6E78</code>
+    </div>
+  </div>
+  <div style={{
+    background: 'var(--sk-color-yellow)',
+    padding: '16px',
+    borderRadius: 'var(--sk-radius-sm)',
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+  }}>
+    <span style={{color: 'var(--sk-fg-on-primary)', fontWeight: 700}}>On primary — dark ink on yellow CTA</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-on-primary)'}}>--sk-fg-on-primary #1A1408</code>
+  </div>
+  <div style={{
+    background: 'var(--sk-surface-card)',
+    padding: '16px',
+    borderRadius: 'var(--sk-radius-sm)',
+    border: '1px solid var(--sk-border-strong)',
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+  }}>
+    <span style={{color: 'var(--sk-fg-on-card)'}}>On card — body text on card surface</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-fg-on-card #D6D6DA</code>
+  </div>
+</div>
+
+---
+
+## Borders
+
+<div style={{display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px'}}>
+  <div style={{display: 'flex', alignItems: 'center', gap: '16px'}}>
+    <div style={{
+      width: '120px', height: '48px',
+      border: '1px solid var(--sk-border-default)',
+      borderRadius: 'var(--sk-radius-sm)',
+      background: 'var(--sk-surface-card)'
+    }} />
+    <div>
+      <code style={{display: 'block', fontSize: '0.75rem', color: 'var(--sk-fg-muted)', marginBottom: '4px'}}>--sk-border-default</code>
+      <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#2B313B — hairline default</span>
+    </div>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '16px'}}>
+    <div style={{
+      width: '120px', height: '48px',
+      border: '1px solid var(--sk-border-strong)',
+      borderRadius: 'var(--sk-radius-sm)',
+      background: 'var(--sk-surface-card)'
+    }} />
+    <div>
+      <code style={{display: 'block', fontSize: '0.75rem', color: 'var(--sk-fg-muted)', marginBottom: '4px'}}>--sk-border-strong</code>
+      <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#353C48 — card border</span>
+    </div>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '16px'}}>
+    <div style={{
+      width: '120px', height: '48px',
+      border: '2px solid var(--sk-border-focus)',
+      borderRadius: 'var(--sk-radius-sm)',
+      background: 'var(--sk-surface-input)'
+    }} />
+    <div>
+      <code style={{display: 'block', fontSize: '0.75rem', color: 'var(--sk-fg-muted)', marginBottom: '4px'}}>--sk-border-focus</code>
+      <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>#F5C518 — focus ring (= yellow)</span>
+    </div>
+  </div>
+</div>

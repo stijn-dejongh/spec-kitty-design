@@ -1,0 +1,216 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Tokens/Typography" />
+
+# Typography
+
+Spec Kitty uses three font families. All are loaded automatically when `tokens.css` is imported.
+
+---
+
+## Falling Sky — display family
+
+Falling Sky is the primary brand display face. Use it for headlines, hero copy, and calls to action.
+
+### Weight range (300–900)
+
+<div style={{display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '32px', padding: '24px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)'}}>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontWeight: 300, fontSize: '1.875rem', color: 'var(--sk-fg-default)', minWidth: '280px'}}>Design system</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-normal (300) — light</code>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontWeight: 400, fontSize: '1.875rem', color: 'var(--sk-fg-default)', minWidth: '280px'}}>Design system</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>400 — regular</code>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontWeight: 500, fontSize: '1.875rem', color: 'var(--sk-fg-default)', minWidth: '280px'}}>Design system</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-medium (500)</code>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontWeight: 600, fontSize: '1.875rem', color: 'var(--sk-fg-default)', minWidth: '280px'}}>Design system</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-semibold (600)</code>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontWeight: 700, fontSize: '1.875rem', color: 'var(--sk-fg-default)', minWidth: '280px'}}>Design system</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-bold (700)</code>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontWeight: 800, fontSize: '1.875rem', color: 'var(--sk-fg-default)', minWidth: '280px'}}>Design system</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-extrabold (800)</code>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontWeight: 900, fontSize: '1.875rem', color: 'var(--sk-fg-default)', minWidth: '280px'}}>Design system</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>900 — black</code>
+  </div>
+</div>
+
+### Boldplus cut
+
+The Boldplus cut is heavier than Bold and is reserved for large hero numerals and impact headlines.
+
+<div style={{padding: '24px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)', marginBottom: '32px'}}>
+  <p style={{fontFamily: 'var(--sk-font-boldplus)', fontWeight: 800, fontSize: '2.5rem', color: 'var(--sk-color-yellow)', margin: 0, lineHeight: 1.1}}>
+    Spec Kitty Design
+  </p>
+  <p style={{fontFamily: 'var(--sk-font-boldplus)', fontWeight: 800, fontSize: '2.5rem', fontStyle: 'italic', color: 'var(--sk-fg-default)', margin: '8px 0 0', lineHeight: 1.1}}>
+    Falling Sky Boldplus oblique
+  </p>
+  <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', display: 'block', marginTop: '12px'}}>--sk-font-boldplus — reserved for large hero and splash</code>
+</div>
+
+### Condensed cut
+
+Use Condensed for narrow-column headlines where horizontal space is limited.
+
+<div style={{padding: '24px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)', marginBottom: '32px'}}>
+  <p style={{fontFamily: 'var(--sk-font-condensed)', fontWeight: 400, fontSize: '2rem', color: 'var(--sk-fg-default)', margin: 0, lineHeight: 1.2}}>
+    Condensed — narrow column headline
+  </p>
+  <p style={{fontFamily: 'var(--sk-font-condensed)', fontWeight: 400, fontSize: '2rem', fontStyle: 'italic', color: 'var(--sk-fg-muted)', margin: '8px 0 0', lineHeight: 1.2}}>
+    Condensed oblique variant
+  </p>
+  <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', display: 'block', marginTop: '12px'}}>--sk-font-condensed</code>
+</div>
+
+---
+
+## Swansea — reference / editorial family
+
+Swansea is used for body copy, editorial prose, and reference documentation.
+
+<div style={{padding: '24px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)', marginBottom: '32px'}}>
+  <p style={{fontFamily: 'var(--sk-font-reference)', fontWeight: 400, fontStyle: 'normal', fontSize: '1rem', color: 'var(--sk-fg-body)', margin: '0 0 12px', lineHeight: 1.6}}>
+    Regular — A well-crafted design system gives every team member the same vocabulary. Shared tokens mean fewer decisions at the implementation layer.
+  </p>
+  <p style={{fontFamily: 'var(--sk-font-reference)', fontWeight: 400, fontStyle: 'italic', fontSize: '1rem', color: 'var(--sk-fg-body)', margin: '0 0 12px', lineHeight: 1.6}}>
+    Italic — A well-crafted design system gives every team member the same vocabulary. Shared tokens mean fewer decisions at the implementation layer.
+  </p>
+  <p style={{fontFamily: 'var(--sk-font-reference)', fontWeight: 700, fontStyle: 'normal', fontSize: '1rem', color: 'var(--sk-fg-body)', margin: '0 0 12px', lineHeight: 1.6}}>
+    Bold — A well-crafted design system gives every team member the same vocabulary. Shared tokens mean fewer decisions at the implementation layer.
+  </p>
+  <p style={{fontFamily: 'var(--sk-font-reference)', fontWeight: 700, fontStyle: 'italic', fontSize: '1rem', color: 'var(--sk-fg-body)', margin: '0 0 12px', lineHeight: 1.6}}>
+    Bold italic — A well-crafted design system gives every team member the same vocabulary. Shared tokens mean fewer decisions at the implementation layer.
+  </p>
+  <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-font-reference — four variants: regular, italic, bold, bold italic</code>
+</div>
+
+---
+
+## JetBrains Mono — monospace
+
+JetBrains Mono is used for code blocks, pipeline labels, and eyebrow conventions. It loads from Google Fonts CDN.
+
+<div style={{padding: '24px', background: 'var(--sk-surface-muted)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)', marginBottom: '32px'}}>
+  <p style={{fontFamily: 'var(--sk-font-mono)', fontWeight: 400, fontSize: '0.875rem', color: 'var(--sk-color-green)', margin: '0 0 8px', lineHeight: 1.7, letterSpacing: '0.01em'}}>
+    spec -&gt; plan -&gt; tasks -&gt; implement -&gt; review -&gt; merge
+  </p>
+  <p style={{fontFamily: 'var(--sk-font-mono)', fontWeight: 500, fontSize: '0.875rem', color: 'var(--sk-fg-body)', margin: '0 0 8px', lineHeight: 1.7}}>
+    npm install @spec-kitty/tokens
+  </p>
+  <p style={{fontFamily: 'var(--sk-font-mono)', fontWeight: 700, fontSize: '0.875rem', color: 'var(--sk-fg-default)', margin: 0, lineHeight: 1.7}}>
+    const token = 'var(--sk-color-yellow)';
+  </p>
+  <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', display: 'block', marginTop: '12px'}}>--sk-font-mono — Google Fonts CDN</code>
+</div>
+
+---
+
+## Type scale
+
+<div style={{display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px', padding: '24px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)'}}>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px', borderBottom: '1px solid var(--sk-border-default)', paddingBottom: '8px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontSize: 'var(--sk-text-xs)', color: 'var(--sk-fg-default)', minWidth: '200px'}}>Extra small</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', minWidth: '200px'}}>--sk-text-xs</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>0.75rem / 12px</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px', borderBottom: '1px solid var(--sk-border-default)', paddingBottom: '8px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontSize: 'var(--sk-text-sm)', color: 'var(--sk-fg-default)', minWidth: '200px'}}>Small</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', minWidth: '200px'}}>--sk-text-sm</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>0.875rem / 14px</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px', borderBottom: '1px solid var(--sk-border-default)', paddingBottom: '8px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontSize: 'var(--sk-text-base)', color: 'var(--sk-fg-default)', minWidth: '200px'}}>Base</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', minWidth: '200px'}}>--sk-text-base</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>1rem / 16px</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px', borderBottom: '1px solid var(--sk-border-default)', paddingBottom: '8px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontSize: 'var(--sk-text-lg)', color: 'var(--sk-fg-default)', minWidth: '200px'}}>Large</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', minWidth: '200px'}}>--sk-text-lg</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>1.125rem / 18px — lead / h4</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px', borderBottom: '1px solid var(--sk-border-default)', paddingBottom: '8px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontSize: 'var(--sk-text-xl)', color: 'var(--sk-fg-default)', minWidth: '200px'}}>Extra large</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', minWidth: '200px'}}>--sk-text-xl</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>1.25rem / 20px</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px', borderBottom: '1px solid var(--sk-border-default)', paddingBottom: '8px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontSize: 'var(--sk-text-2xl)', color: 'var(--sk-fg-default)', minWidth: '200px'}}>2XL</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', minWidth: '200px'}}>--sk-text-2xl</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>1.5rem / 24px</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '16px'}}>
+    <span style={{fontFamily: 'var(--sk-font-display)', fontSize: 'var(--sk-text-3xl)', color: 'var(--sk-fg-default)', minWidth: '200px'}}>3XL</span>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', minWidth: '200px'}}>--sk-text-3xl</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>1.875rem / 30px</span>
+  </div>
+</div>
+
+---
+
+## Weight tokens
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '32px'}}>
+  <div style={{padding: '16px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-sm)', border: '1px solid var(--sk-border-default)', minWidth: '160px'}}>
+    <p style={{fontFamily: 'var(--sk-font-display)', fontWeight: 'var(--sk-weight-normal)', fontSize: '1.125rem', color: 'var(--sk-fg-default)', margin: '0 0 8px'}}>Normal</p>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-normal (400)</code>
+  </div>
+  <div style={{padding: '16px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-sm)', border: '1px solid var(--sk-border-default)', minWidth: '160px'}}>
+    <p style={{fontFamily: 'var(--sk-font-display)', fontWeight: 'var(--sk-weight-medium)', fontSize: '1.125rem', color: 'var(--sk-fg-default)', margin: '0 0 8px'}}>Medium</p>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-medium (500)</code>
+  </div>
+  <div style={{padding: '16px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-sm)', border: '1px solid var(--sk-border-default)', minWidth: '160px'}}>
+    <p style={{fontFamily: 'var(--sk-font-display)', fontWeight: 'var(--sk-weight-semibold)', fontSize: '1.125rem', color: 'var(--sk-fg-default)', margin: '0 0 8px'}}>Semibold</p>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-semibold (600)</code>
+  </div>
+  <div style={{padding: '16px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-sm)', border: '1px solid var(--sk-border-default)', minWidth: '160px'}}>
+    <p style={{fontFamily: 'var(--sk-font-display)', fontWeight: 'var(--sk-weight-bold)', fontSize: '1.125rem', color: 'var(--sk-fg-default)', margin: '0 0 8px'}}>Bold</p>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-bold (700)</code>
+  </div>
+  <div style={{padding: '16px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-sm)', border: '1px solid var(--sk-border-default)', minWidth: '160px'}}>
+    <p style={{fontFamily: 'var(--sk-font-display)', fontWeight: 'var(--sk-weight-extrabold)', fontSize: '1.125rem', color: 'var(--sk-fg-default)', margin: '0 0 8px'}}>Extrabold</p>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>--sk-weight-extrabold (800)</code>
+  </div>
+</div>
+
+---
+
+## Eyebrow convention
+
+Eyebrow labels use ALL-CAPS monospace with wide letter-spacing. They precede section headings and data panels.
+
+<div style={{padding: '24px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)', marginBottom: '32px', display: 'flex', flexDirection: 'column', gap: '24px'}}>
+  <div>
+    <span style={{
+      fontFamily: 'var(--sk-font-mono)',
+      fontWeight: 600,
+      fontSize: 'var(--sk-text-xs)',
+      letterSpacing: '0.15em',
+      textTransform: 'uppercase',
+      color: 'var(--sk-color-yellow)'
+    }}>COMPETITIVE MATRIX</span>
+    <p style={{fontFamily: 'var(--sk-font-display)', fontWeight: 700, fontSize: 'var(--sk-text-2xl)', color: 'var(--sk-fg-default)', margin: '4px 0 0'}}>How we compare</p>
+  </div>
+  <div>
+    <span style={{
+      fontFamily: 'var(--sk-font-mono)',
+      fontWeight: 600,
+      fontSize: 'var(--sk-text-xs)',
+      letterSpacing: '0.15em',
+      textTransform: 'uppercase',
+      color: 'var(--sk-color-green)'
+    }}>BY THE NUMBERS</span>
+    <p style={{fontFamily: 'var(--sk-font-display)', fontWeight: 700, fontSize: 'var(--sk-text-2xl)', color: 'var(--sk-fg-default)', margin: '4px 0 0'}}>Measurable outcomes</p>
+  </div>
+  <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>font-family: --sk-font-mono; text-transform: uppercase; letter-spacing: 0.15em; font-size: --sk-text-xs</code>
+</div>

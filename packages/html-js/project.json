@@ -14,6 +14,11 @@
             "input": "packages/html-js/src/stub",
             "glob": "**/*.{html,css}",
             "output": "stub"
+          },
+          {
+            "input": "packages/html-js/src/button",
+            "glob": "**/*.{html,css}",
+            "output": "button"
           }
         ]
       }

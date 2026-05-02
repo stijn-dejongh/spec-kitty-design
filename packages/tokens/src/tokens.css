@@ -1,76 +1,224 @@
 /* @spec-kitty/tokens — ADR-003 naming schema: --sk-<category>-<name> */
+/* Values reconciled with Spec Kitty Design System reference (colors_and_type.css). */
 :root {
   /* ── Brand Colors ────────────────── */
-  --sk-color-yellow:   #F5C518;
-  --sk-color-haygold:  #D9B36A;
-  --sk-color-blue:     #A9C7E8;
-  --sk-color-purple:   #B8A9E0;
-  --sk-color-green:    #8FCB8F;
-  --sk-color-red:      #E97373;
+  /* Core palette — yellow is the signature primary. */
+  --sk-color-yellow:        #F5C518;   /* signature primary, CTAs, logo bow */
+  --sk-color-yellow-soft:   #FFD84D;   /* hover / highlight */
+  --sk-color-yellow-deep:   #C99A0E;   /* pressed / on-light fg */
+  --sk-color-haygold:       #D9B36A;   /* muted warm gold, bullet dots, dim accents */
+  --sk-color-haygold-soft:  #E8C988;
+  --sk-color-blue:          #A9C7E8;   /* soft icy blue (illustration sky / muted info) */
+  --sk-color-blue-deep:     #6B8FB8;   /* hover state for blue */
+  --sk-color-blue-bg:       #14202E;   /* deep blue surface for muted-info panel */
+  --sk-color-purple:        #B8A9E0;   /* soft lavender, v2.x evolution accent */
+  --sk-color-purple-deep:   #8C7AC2;
+  --sk-color-purple-bg:     #1E1A2E;   /* deep purple surface for v2.x section banners */
+  --sk-color-green:         #8FCB8F;   /* checkmark / success / "by the numbers" */
+  --sk-color-green-bg:      #15241A;   /* dark green surface behind numbers banner */
+  --sk-color-red:           #E97373;   /* validation errors */
+  --sk-color-red-soft:      #F0A0A0;
+  --sk-color-sage:          #4F8F4F;   /* heading sage on cream (light-mode only) */
+  --sk-color-sage-deep:     #3D7A3D;   /* hover / pressed */
+  --sk-color-sage-soft:     #7CAE7C;   /* dim / 70% sage for chips */
 
-  /* ── Dark Surfaces ───────────────── */
-  --sk-surface-page:   #0A0A0B;
-  --sk-surface-card:   #161619;
-  --sk-surface-input:  #1C1C20;
+  /* ── Accent ──────────────────────── */
+  --sk-color-accent:        #F5C518;   /* interactive accent (= yellow) */
+  --sk-color-accent-fg:     #1A1408;   /* dark ink on yellow buttons */
+
+  /* ── Dark Surfaces (default — dark mode) ─── */
+  --sk-surface-page:        #0D0E11;   /* blackish — deepest page background */
+  --sk-surface-hero:        #121317;   /* hero / section background */
+  --sk-surface-card:        #181A1F;   /* card surface */
+  --sk-surface-input:       #1C1F25;   /* elevated card / form input fill */
+  --sk-surface-pill:        #212830;   /* off-gray — nav pill, chips, hover row */
+  --sk-surface-muted:       #262C36;   /* dark gray — muted info panel, code block */
+
+  /* ── Section Tint Surfaces ───────── */
+  /* Dark-mode tint surfaces for cards, status panels, section banners. */
+  --sk-surface-tint-mint:   #15241A;   /* dark: numbers banner / green */
+  --sk-surface-tint-butter: #2A2410;   /* dark: warm-yellow card */
+  --sk-surface-tint-lilac:  #1E1A2E;   /* dark: v2.x banner / purple */
+  --sk-surface-tint-sky:    #14202E;   /* dark: muted info / blue */
+
+  /* ── On-Tint Foregrounds ─────────── */
+  --sk-on-tint-mint:        var(--sk-color-green);
+  --sk-on-tint-butter:      var(--sk-color-yellow-soft);
+  --sk-on-tint-lilac:       var(--sk-color-purple);
+  --sk-on-tint-sky:         var(--sk-color-blue);
+
+  /* ── Pill/Chip Background ────────── */
+  --sk-bg-pill:             #212830;   /* nav pill rail, chips, hover row */
 
   /* ── Foreground / Text ───────────── */
-  --sk-fg-default:     rgba(255,255,255,0.91);
-  --sk-fg-muted:       rgba(255,255,255,0.55);
-  --sk-fg-on-primary:  #0A0A0B;
-  --sk-fg-on-card:     rgba(255,255,255,0.91);
+  --sk-fg-default:          #FFFFFF;   /* headlines — maps to --sk-fg-0 */
+  --sk-fg-body:             #D6D6DA;   /* body text — maps to --sk-fg-1 */
+  --sk-fg-muted:            #A9A9B0;   /* secondary body, muted copy — maps to --sk-fg-2 */
+  --sk-fg-subtle:           #6E6E78;   /* tertiary / labels — maps to --sk-fg-3 */
+  --sk-fg-placeholder:      #4A4A52;   /* placeholder text — maps to --sk-fg-4 */
+  --sk-fg-on-primary:       #1A1408;   /* dark ink on yellow buttons */
+  --sk-fg-on-card:          #D6D6DA;   /* text on card surface */
 
   /* ── Borders ─────────────────────── */
-  --sk-border-default: #26262C;
-  --sk-border-strong:  #3a3a42;
-  --sk-border-focus:   #F5C518;
+  --sk-border-default:      #2B313B;   /* hairline default — slightly cool */
+  --sk-border-strong:       #353C48;   /* card border */
+  --sk-border-focus:        #F5C518;   /* focus ring (= yellow) */
+  --sk-border-width-1:      1px;
+  --sk-border-width-2:      2px;
 
   /* ── Typography — Families ───────── */
-  --sk-font-display:   "Falling Sky", ui-sans-serif, system-ui, sans-serif;
-  --sk-font-sans:      ui-sans-serif, system-ui, sans-serif;
-  --sk-font-mono:      "JetBrains Mono", ui-monospace, monospace;
-  --sk-font-reference: "Swansea", Georgia, serif;
+  --sk-font-sans:           ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --sk-font-display:        'Falling Sky', ui-sans-serif, system-ui, sans-serif;
+  --sk-font-reference:      'Swansea', ui-sans-serif, system-ui, sans-serif;
+  --sk-font-condensed:      'Falling Sky Condensed', 'Falling Sky', ui-sans-serif, sans-serif;
+  --sk-font-extended:       'Falling Sky Extended', 'Falling Sky', ui-sans-serif, sans-serif;
+  --sk-font-outline:        'Falling Sky Outline', 'Falling Sky', ui-sans-serif, sans-serif;
+  --sk-font-boldplus:       'Falling Sky Boldplus', 'Falling Sky', ui-sans-serif, sans-serif;
+  --sk-font-mono:           'JetBrains Mono', ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   /* ── Typography — Scale ──────────── */
-  --sk-text-xs:   0.75rem;
-  --sk-text-sm:   0.875rem;
-  --sk-text-base: 1rem;
-  --sk-text-lg:   1.125rem;
-  --sk-text-xl:   1.25rem;
-  --sk-text-2xl:  1.5rem;
-  --sk-text-3xl:  1.875rem;
+  --sk-text-xs:             0.75rem;    /* 12px — eyebrow labels */
+  --sk-text-sm:             0.875rem;   /* 14px */
+  --sk-text-base:           1rem;       /* 16px */
+  --sk-text-lg:             1.125rem;   /* 18px — lead / h4 */
+  --sk-text-xl:             1.25rem;
+  --sk-text-2xl:            1.5rem;
+  --sk-text-3xl:            1.875rem;
 
   /* ── Typography — Weights ────────── */
-  --sk-weight-normal:    400;
-  --sk-weight-medium:    500;
-  --sk-weight-bold:      700;
-  --sk-weight-extrabold: 800;
+  --sk-weight-normal:       400;
+  --sk-weight-medium:       500;
+  --sk-weight-semibold:     600;
+  --sk-weight-bold:         700;
+  --sk-weight-extrabold:    800;
 
   /* ── Spacing ─────────────────────── */
-  --sk-space-1:  0.25rem;
-  --sk-space-2:  0.5rem;
-  --sk-space-3:  0.75rem;
-  --sk-space-4:  1rem;
-  --sk-space-5:  1.25rem;
-  --sk-space-6:  1.5rem;
-  --sk-space-7:  2rem;
-  --sk-space-8:  2.5rem;
-  --sk-space-9:  3rem;
-  --sk-space-10: 4rem;
-  --sk-space-11: 6rem;
-  --sk-space-12: 8rem;
+  --sk-space-1:   0.25rem;   /*  4px */
+  --sk-space-2:   0.5rem;    /*  8px */
+  --sk-space-3:   0.75rem;   /* 12px */
+  --sk-space-4:   1rem;      /* 16px */
+  --sk-space-5:   1.25rem;   /* 20px */
+  --sk-space-6:   1.5rem;    /* 24px */
+  --sk-space-7:   2rem;      /* 32px */
+  --sk-space-8:   2.5rem;    /* 40px */
+  --sk-space-9:   3rem;      /* 48px */
+  --sk-space-10:  4rem;      /* 64px */
+  --sk-space-11:  6rem;      /* 96px */
+  --sk-space-12:  8rem;      /* 128px */
 
   /* ── Radius ──────────────────────── */
-  --sk-radius-sm:   0.5rem;
-  --sk-radius-md:   1rem;
-  --sk-radius-lg:   1.5rem;
-  --sk-radius-pill: 999px;
+  --sk-radius-sm:   0.5rem;    /*  8px — chips, eyebrow pills */
+  --sk-radius-md:   0.75rem;   /* 12px — form inputs */
+  --sk-radius-lg:   1rem;      /* 16px — cards */
+  --sk-radius-xl:   1.25rem;   /* 20px — hero card */
+  --sk-radius-pill: 999px;     /* nav pills, primary buttons */
 
   /* ── Shadows ─────────────────────── */
-  --sk-shadow-card:         0 1px 3px rgba(0,0,0,0.5);
-  --sk-shadow-glow-primary: 0 0 12px rgba(245,197,24,0.4);
+  --sk-shadow-card:          0 1px 0 rgba(255,255,255,0.02) inset, 0 1px 2px rgba(0,0,0,0.4);
+  --sk-shadow-elev:          0 8px 24px rgba(0,0,0,0.45);
+  --sk-shadow-glow-primary:  0 6px 20px -6px rgba(245,197,24,0.45);
+  --sk-shadow-focus:         0 0 0 3px rgba(13,14,17,0.55), 0 0 0 4px rgba(43,49,59,0.6);
 
   /* ── Motion ──────────────────────── */
   --sk-motion-duration-fast: 120ms;
   --sk-motion-duration-base: 200ms;
-  --sk-motion-ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --sk-motion-duration-slow: 320ms;
+  --sk-motion-ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
+  --sk-motion-ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ── Font loading ────────────────────────────────────────────────────────── */
+
+/* JetBrains Mono via Google Fonts CDN */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+/* --- Falling Sky: upright weights --- */
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyLight-K2EX.otf') format('opentype');     font-weight: 300; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSky-JKwK.otf') format('opentype');          font-weight: 400; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyMedium-ved9.otf') format('opentype');    font-weight: 500; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkySemibold-Bn7B.otf') format('opentype');  font-weight: 600; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyBold-zemL.otf') format('opentype');      font-weight: 700; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyExtrabold-redB.otf') format('opentype'); font-weight: 800; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyBlack-GYXA.otf') format('opentype');     font-weight: 900; font-style: normal;  font-display: swap; }
+
+/* --- Falling Sky: oblique weights --- */
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyLightOblique-2q3o.otf') format('opentype');    font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyOblique-n5XV.otf') format('opentype');         font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyMediumOblique-leLD.otf') format('opentype');   font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkySemiboldOblique-8q7M.otf') format('opentype'); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyBoldOblique-5zmv.otf') format('opentype');     font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyExtraboldOblique-MwdP.otf') format('opentype'); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky'; src: url('./fonts/FallingSkyBlackOblique-j37y.otf') format('opentype');    font-weight: 900; font-style: italic; font-display: swap; }
+
+/* --- Falling Sky: Bold-plus (a heavier-than-Bold display cut) --- */
+@font-face { font-family: 'Falling Sky Boldplus'; src: url('./fonts/FallingSkyBoldplus-6GZ1.otf') format('opentype');         font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Boldplus'; src: url('./fonts/FallingSkyBoldplusOblique-yxmV.otf') format('opentype');  font-weight: 800; font-style: italic; font-display: swap; }
+
+/* --- Falling Sky: Condensed (use for narrow-column headlines) --- */
+@font-face { font-family: 'Falling Sky Condensed'; src: url('./fonts/FallingSkyCondensed-9qm2.otf') format('opentype');                   font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Condensed'; src: url('./fonts/FallingSkyCondensedOblique-leLw.otf') format('opentype');            font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky Condensed Outline'; src: url('./fonts/FallingSkyCondensedOutline-n5XO.otf') format('opentype');             font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Condensed Outline'; src: url('./fonts/FallingSkyCondensedOutlineOblique-1qZv.otf') format('opentype');      font-weight: 400; font-style: italic; font-display: swap; }
+
+/* --- Falling Sky: Extended (use for wide hero numerals / splash) --- */
+@font-face { font-family: 'Falling Sky Extended'; src: url('./fonts/FallingSkyExtended-RLdE.otf') format('opentype');                     font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Extended'; src: url('./fonts/FallingSkyExtendedOblique-BnYw.otf') format('opentype');              font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Falling Sky Extended Outline'; src: url('./fonts/FallingSkyExtendedOutline-8qjn.otf') format('opentype');               font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Extended Outline'; src: url('./fonts/FallingSkyExtendedOutlineOblique-YBO2.otf') format('opentype');        font-weight: 400; font-style: italic; font-display: swap; }
+
+/* --- Falling Sky: Outline (display only, large sizes) --- */
+@font-face { font-family: 'Falling Sky Outline'; src: url('./fonts/FallingSkyOutline-1qZ0.otf') format('opentype');                       font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Falling Sky Outline'; src: url('./fonts/FallingSkyOutlineOblique-RLdV.otf') format('opentype');                font-weight: 400; font-style: italic; font-display: swap; }
+
+/* --- Swansea: secondary reference family --- */
+@font-face { font-family: 'Swansea'; src: url('./fonts/Swansea-q3pd.ttf') format('truetype');           font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Swansea'; src: url('./fonts/SwanseaItalic-AwqD.ttf') format('truetype');     font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Swansea'; src: url('./fonts/SwanseaBold-D0ox.ttf') format('truetype');       font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Swansea'; src: url('./fonts/SwanseaBoldItalic-p3Dv.ttf') format('truetype'); font-weight: 700; font-style: italic; font-display: swap; }
+
+/* ── Light mode override ─────────────────────────────────────────────────── */
+/* Anchored on warm cream (page) → pure white (cards). */
+:root[data-theme="light"],
+.sk-light {
+  /* Surface scale — cream page, white cards */
+  --sk-surface-page:        #F8F5EC;   /* warm cream — page background */
+  --sk-surface-hero:        #FCFAF4;   /* hero / banded section background */
+  --sk-surface-card:        #FFFFFF;   /* card surface — pure white, lifted */
+  --sk-surface-input:       #F5F1E6;   /* elevated card / input fill / inset */
+  --sk-surface-pill:        #ECE7D8;   /* off-cream — nav pill rail, chips */
+  --sk-surface-muted:       #E8E2D0;   /* warm-gray — muted info panel */
+
+  --sk-fg-default:          #1A1A14;   /* near-black ink for headlines */
+  --sk-fg-body:             #2A2A22;   /* body */
+  --sk-fg-muted:            #5C5C52;   /* secondary body */
+  --sk-fg-subtle:           #8A8A7E;   /* tertiary / labels */
+  --sk-fg-placeholder:      #B8B8AC;   /* placeholder */
+
+  --sk-border-default:      #EAE4D2;   /* hairline default */
+  --sk-border-strong:       #D6CFB9;   /* card border / divider */
+
+  /* Light-mode link accent flips to sage */
+  --sk-color-accent:        var(--sk-color-sage);
+  --sk-color-accent-fg:     #FFFFFF;
+
+  /* Pastel tint surfaces — high-key, high-readability */
+  --sk-surface-tint-mint:   #E8F4E8;
+  --sk-surface-tint-butter: #FFF6D9;
+  --sk-surface-tint-lilac:  #F0EAF8;
+  --sk-surface-tint-sky:    #E4EDF8;
+
+  /* On-tint inks: dark, accessible foregrounds */
+  --sk-on-tint-mint:        #2D5A2D;
+  --sk-on-tint-butter:      #6B5A0E;
+  --sk-on-tint-lilac:       #4A3D78;
+  --sk-on-tint-sky:         #2E4A6B;
+
+  /* Pill background */
+  --sk-bg-pill:             #ECE7D8;
+
+  /* Light shadows — visible on cream */
+  --sk-shadow-card:         0 1px 2px rgba(20,20,15,0.04), 0 1px 1px rgba(20,20,15,0.06);
+  --sk-shadow-elev:         0 12px 32px -12px rgba(20,20,15,0.18);
+  --sk-shadow-glow-primary: 0 6px 20px -6px rgba(245,197,24,0.55);
+  --sk-shadow-focus:        0 0 0 3px rgba(255,250,235,1), 0 0 0 4px rgba(217,179,106,0.5);
 }

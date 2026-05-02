@@ -1,0 +1,212 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Tokens/Brand" />
+
+# Brand
+
+Reference for the Spec Kitty brand assets: logo, favicon, iconography guidance, and brand voice rules.
+
+No mascot illustrations are used on any brand surface. The logo and favicon are the only permitted image assets.
+
+---
+
+## Logo
+
+Use the logo in navigation headers, splash pages, and marketing materials. Maintain clear space equal to the height of the bow graphic on all sides.
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: '32px', alignItems: 'flex-start', marginBottom: '32px'}}>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'flex-start'}}>
+    <div style={{
+      padding: '24px',
+      background: 'var(--sk-surface-card)',
+      borderRadius: 'var(--sk-radius-lg)',
+      border: '1px solid var(--sk-border-default)'
+    }}>
+      <img src="/tokens-assets/logo.webp" alt="Spec Kitty logo" style={{height: '48px', display: 'block'}} />
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>Standard — 48px height</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>Navigation header, app bar</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'flex-start'}}>
+    <div style={{
+      padding: '32px',
+      background: 'var(--sk-surface-card)',
+      borderRadius: 'var(--sk-radius-lg)',
+      border: '1px solid var(--sk-border-default)'
+    }}>
+      <img src="/tokens-assets/logo.webp" alt="Spec Kitty logo" style={{height: '96px', display: 'block'}} />
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>Large — 96px height</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>Hero sections, splash pages</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'flex-start'}}>
+    <div style={{
+      padding: '24px',
+      background: '#FFFFFF',
+      borderRadius: 'var(--sk-radius-lg)',
+      border: '1px solid var(--sk-border-default)'
+    }}>
+      <img src="/tokens-assets/logo.webp" alt="Spec Kitty logo" style={{height: '48px', display: 'block'}} />
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>On light surface</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>Light-mode contexts</span>
+  </div>
+</div>
+
+**Usage rules:**
+
+- Always use the `.webp` asset for web surfaces; use `.png` only when WebP is not supported
+- Do not recolour, stretch, rotate, or crop the logo
+- Never place the logo on a background that reduces contrast against the bow colour
+
+---
+
+## Favicon
+
+The favicon is used in browser tabs, bookmarks, PWA app icons, and `<link rel="icon">` references.
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: '32px', alignItems: 'flex-start', marginBottom: '32px'}}>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center'}}>
+    <div style={{
+      padding: '12px',
+      background: 'var(--sk-surface-card)',
+      borderRadius: 'var(--sk-radius-sm)',
+      border: '1px solid var(--sk-border-default)'
+    }}>
+      <img src="/tokens-assets/favicon.png" alt="Spec Kitty favicon" style={{width: '32px', height: '32px', display: 'block'}} />
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>32 × 32 px</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>Browser tab</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center'}}>
+    <div style={{
+      padding: '12px',
+      background: 'var(--sk-surface-card)',
+      borderRadius: 'var(--sk-radius-sm)',
+      border: '1px solid var(--sk-border-default)'
+    }}>
+      <img src="/tokens-assets/favicon.png" alt="Spec Kitty favicon" style={{width: '128px', height: '128px', display: 'block'}} />
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>128 × 128 px</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>PWA icon, bookmark thumbnail</span>
+  </div>
+</div>
+
+**HTML reference:**
+
+```html
+<link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+```
+
+---
+
+## Iconography
+
+Spec Kitty uses Lucide-style stroke icons throughout. These are clean, single-weight, rounded-cap line icons that read clearly at small sizes.
+
+**Icon specifications:**
+
+- Stroke width: 2px
+- Line caps: round
+- Line joins: round
+- Grid: 24 × 24 px viewBox
+- No filled variants; stroke only
+- Never use emoji as icons
+
+**Colour usage for icons:**
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: '24px', marginBottom: '32px'}}>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', padding: '16px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-sm)', border: '1px solid var(--sk-border-default)', minWidth: '120px'}}>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--sk-color-yellow)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', textAlign: 'center'}}>--sk-color-yellow</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>Primary action</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', padding: '16px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-sm)', border: '1px solid var(--sk-border-default)', minWidth: '120px'}}>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--sk-color-green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', textAlign: 'center'}}>--sk-color-green</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>Success / done</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', padding: '16px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-sm)', border: '1px solid var(--sk-border-default)', minWidth: '120px'}}>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--sk-fg-muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="8" x2="12" y2="12" />
+      <line x1="12" y1="16" x2="12.01" y2="16" />
+    </svg>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', textAlign: 'center'}}>--sk-fg-muted</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>Informational</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center', padding: '16px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-sm)', border: '1px solid var(--sk-border-default)', minWidth: '120px'}}>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--sk-color-red)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+      <line x1="12" y1="9" x2="12" y2="13" />
+      <line x1="12" y1="17" x2="12.01" y2="17" />
+    </svg>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', textAlign: 'center'}}>--sk-color-red</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>Warning / error</span>
+  </div>
+</div>
+
+**Installation:**
+
+```bash
+npm install lucide-angular
+```
+
+```typescript
+import { LucideAngularModule, Check, CircleCheck, Info, AlertTriangle } from 'lucide-angular';
+```
+
+---
+
+## Brand voice
+
+These rules apply to all copy in product UI, documentation, and marketing materials.
+
+<div style={{marginBottom: '32px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)', overflow: 'hidden'}}>
+  <table style={{width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem'}}>
+    <thead>
+      <tr style={{borderBottom: '1px solid var(--sk-border-strong)'}}>
+        <th style={{padding: '12px 16px', textAlign: 'left', color: 'var(--sk-fg-muted)', fontWeight: 600, fontFamily: 'var(--sk-font-mono)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', width: '30%'}}>Rule</th>
+        <th style={{padding: '12px 16px', textAlign: 'left', color: 'var(--sk-fg-muted)', fontWeight: 600, fontFamily: 'var(--sk-font-mono)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', width: '35%'}}>Correct</th>
+        <th style={{padding: '12px 16px', textAlign: 'left', color: 'var(--sk-fg-muted)', fontWeight: 600, fontFamily: 'var(--sk-font-mono)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', width: '35%'}}>Avoid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style={{borderBottom: '1px solid var(--sk-border-default)'}}>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)', fontWeight: 600}}>Sentence case</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-green)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>Design token reference</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-red)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>Design Token Reference</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid var(--sk-border-default)'}}>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)', fontWeight: 600}}>No emoji in copy</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-green)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>Build complete.</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-red)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>Build complete! ✅</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid var(--sk-border-default)'}}>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)', fontWeight: 600}}>Concrete outcomes</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-green)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>Reduces review time by 40%</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-red)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>Improves developer experience</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid var(--sk-border-default)'}}>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)', fontWeight: 600}}>Canonical SK nouns</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-green)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>work package, mission, token</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-red)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>task group, project, variable</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid var(--sk-border-default)'}}>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)', fontWeight: 600}}>Direct voice</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-green)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>Install the token package.</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-red)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>You might want to consider installing...</td>
+      </tr>
+      <tr>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)', fontWeight: 600}}>No mascot illustrations</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-green)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>logo.webp, favicon.png only</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-red)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>Mascot character art (C-101)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

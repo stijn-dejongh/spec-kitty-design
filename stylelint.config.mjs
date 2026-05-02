@@ -40,7 +40,7 @@ export default {
     ],
 
     // All SK component class names must follow BEM with sk- prefix
-    'selector-class-pattern': '^sk-[a-z][a-z0-9]*(__[a-z][a-z0-9]*)?(-{1,2}[a-z][a-z0-9]*)*$',
+    'selector-class-pattern': ['^(sk-[a-z][a-z0-9-]*((__[a-z][a-z0-9-]*)?(--[a-z][a-z0-9-]*)*)?)|(is-[a-z][a-z0-9-]*)$', { message: 'Use sk-block__element--modifier naming, or is-state for JS states' }],
 
     // Standard CSS validity rules
     'color-no-invalid-hex': true,

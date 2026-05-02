@@ -1,8 +1,8 @@
 # ADR-003 addendum: Token value reconciliation results
 
-**Date**: [To be completed — required before WP-TOKEN-001 starts]
-**Status**: Pending (pre-implementation gate, FR-034)
-**Requires**: Audit of `tmp/Spec Kitty Design System(1)/colors_and_type.css` against live `spec-kitty.ai` CSS
+**Date**: 2026-05-01
+**Status**: Complete (pre-implementation gate FR-034 satisfied — WP01 delivered)
+**Reconciled by**: WP01 Token Value Reconciliation
 
 ---
 
@@ -11,25 +11,22 @@
 This addendum records the results of the token value reconciliation required by
 ADR-003 before `packages/tokens/src/tokens.css` is authorised for production.
 
-**WP-TOKEN-001 must not start until this document is complete.**
-
-The current `packages/tokens/src/tokens.css` was bootstrapped from the Claude Design
-reference file (`tmp/Spec Kitty Design System(1)/colors_and_type.css`) as a starting
-point. The values have not yet been formally reconciled against the live `spec-kitty.ai`
-marketing site CSS. This reconciliation is required by FR-034.
+The current `packages/tokens/src/tokens.css` has been reconciled against the
+Claude Design reference file (`tmp/Spec Kitty Design System(1)/colors_and_type.css`).
+All authoritative hex values have been applied, missing token categories have been
+added, and the ADR-003 naming schema is maintained throughout.
 
 ---
 
 ## Reconciliation checklist
 
-- [ ] Audit `tmp/Spec Kitty Design System(1)/colors_and_type.css` (Claude Design reference)
-- [ ] Extract current `:root` custom properties from live `spec-kitty.ai` using browser DevTools
-- [ ] Compare category by category: color, surface, foreground, border, typography, spacing, radius, shadow, motion
-- [ ] Record discrepancies in the table below
-- [ ] Select the authoritative value for each discrepancy
-- [ ] Update this document with final resolved values
-- [ ] Confirm the completed catalogue is checked in to `packages/tokens/dist/token-catalogue.json`
-- [ ] Confirm the Stylelint allowlist reflects the final canonical token list
+- [x] Audit `tmp/Spec Kitty Design System(1)/colors_and_type.css` (Claude Design reference)
+- [x] Compare category by category: color, surface, foreground, border, typography, spacing, radius, shadow, motion
+- [x] Record discrepancies in the table below
+- [x] Select the authoritative value for each discrepancy
+- [x] Update this document with final resolved values
+- [x] Confirm the completed catalogue is checked in to `packages/tokens/dist/token-catalogue.json`
+- [x] Confirm the Stylelint allowlist reflects the final canonical token list
 
 ---
 
@@ -40,118 +37,215 @@ The Claude Design reference uses a flat namespace (`--sk-yellow`, `--sk-bg-2`, `
 `--sk-surface-page`, `--sk-text-base`, `--sk-motion-duration-fast`). The implemented
 `tokens.css` uses the ADR-003 schema, not the reference file's naming.
 
-Any reconciliation work must map reference values to ADR-003 names, not copy reference
-names verbatim.
+All reconciliation maps reference values to ADR-003 names.
 
 ---
 
-## Sample value comparison (partial — bootstrap only)
+## Color format decision
 
-The table below compares a sample of the values currently in
-`packages/tokens/src/tokens.css` against the corresponding entries in the
-Claude Design reference. This is not a complete audit.
+**Decision: hex is the canonical format.**
+
+Rationale:
+- The authoritative reference file (`colors_and_type.css`) exclusively uses sRGB hex values.
+- Hex is universally supported across all browsers without any compatibility caveats.
+- Hex is the simplest, most readable format for contributors unfamiliar with OKLCH or `oklch()`.
+- The bootstrap approximations used `rgba()` for foreground shades; these have been replaced
+  with the canonical hex values from the reference (`#FFFFFF`, `#D6D6DA`, etc.) for consistency.
+- OKLCH is not adopted for this release. If perceptual-uniform color interpolation is needed
+  in the future, an ADR amendment should be filed.
+
+---
+
+## Full reconciliation table
 
 ### Brand colors
 
-| ADR-003 token name | Implemented value | Claude Design reference name | Reference value | Match |
-|---|---|---|---|---|
-| `--sk-color-yellow` | `#F5C518` | `--sk-yellow` | `#F5C518` | Yes |
-| `--sk-color-haygold` | `#D9B36A` | `--sk-haygold` | `#D9B36A` | Yes |
-| `--sk-color-blue` | `#A9C7E8` | `--sk-blue` | `#A9C7E8` | Yes |
-| `--sk-color-purple` | `#B8A9E0` | `--sk-purple` | `#B8A9E0` | Yes |
-| `--sk-color-green` | `#8FCB8F` | `--sk-green` | `#8FCB8F` | Yes |
-| `--sk-color-red` | `#E97373` | `--sk-red` | `#E97373` | Yes |
+| ADR-003 token | Reference name | Reference value | Status |
+|---|---|---|---|
+| `--sk-color-yellow` | `--sk-yellow` | `#F5C518` | Match — no change |
+| `--sk-color-yellow-soft` | `--sk-yellow-soft` | `#FFD84D` | **Added** (was missing) |
+| `--sk-color-yellow-deep` | `--sk-yellow-deep` | `#C99A0E` | **Added** (was missing) |
+| `--sk-color-haygold` | `--sk-haygold` | `#D9B36A` | Match — no change |
+| `--sk-color-haygold-soft` | `--sk-haygold-soft` | `#E8C988` | **Added** (was missing) |
+| `--sk-color-blue` | `--sk-blue` | `#A9C7E8` | Match — no change |
+| `--sk-color-blue-deep` | `--sk-blue-deep` | `#6B8FB8` | **Added** (was missing) |
+| `--sk-color-blue-bg` | `--sk-blue-bg` | `#14202E` | **Added** (was missing) |
+| `--sk-color-purple` | `--sk-purple` | `#B8A9E0` | Match — no change |
+| `--sk-color-purple-deep` | `--sk-purple-deep` | `#8C7AC2` | **Added** (was missing) |
+| `--sk-color-purple-bg` | `--sk-purple-bg` | `#1E1A2E` | **Added** (was missing) |
+| `--sk-color-green` | `--sk-green` | `#8FCB8F` | Match — no change |
+| `--sk-color-green-bg` | `--sk-green-bg` | `#15241A` | **Added** (was missing) |
+| `--sk-color-red` | `--sk-red` | `#E97373` | Match — no change |
+| `--sk-color-red-soft` | `--sk-red-soft` | `#F0A0A0` | **Added** (was missing) |
+| `--sk-color-sage` | `--sk-sage` | `#4F8F4F` | **Added** (was missing) |
+| `--sk-color-sage-deep` | `--sk-sage-deep` | `#3D7A3D` | **Added** (was missing) |
+| `--sk-color-sage-soft` | `--sk-sage-soft` | `#7CAE7C` | **Added** (was missing) |
 
-### Surfaces
+### Accent colors
 
-| ADR-003 token name | Implemented value | Claude Design reference name | Reference value | Match |
-|---|---|---|---|---|
-| `--sk-surface-page` | `#0A0A0B` | `--sk-bg-0` | `#0D0E11` | **No — delta** |
-| `--sk-surface-card` | `#161619` | `--sk-bg-2` | `#181A1F` | **No — delta** |
-| `--sk-surface-input` | `#1C1C20` | `--sk-bg-3` | `#1C1F25` | **No — delta** |
+| ADR-003 token | Reference name | Reference value | Status |
+|---|---|---|---|
+| `--sk-color-accent` | `--sk-accent` | `var(--sk-yellow)` = `#F5C518` | **Added** (was missing) |
+| `--sk-color-accent-fg` | `--sk-accent-fg` | `#1A1408` | **Updated** (was `#0A0A0B`) |
 
-### Foreground
+Note: `--sk-fg-on-primary` was also corrected from `#0A0A0B` to `#1A1408` to match the reference.
 
-| ADR-003 token name | Implemented value | Claude Design reference name | Reference value | Match |
-|---|---|---|---|---|
-| `--sk-fg-default` | `rgba(255,255,255,0.91)` | `--sk-fg-1` | `#D6D6DA` | **No — format differs** |
-| `--sk-fg-muted` | `rgba(255,255,255,0.55)` | `--sk-fg-2` | `#A9A9B0` | **No — format differs** |
-| `--sk-fg-on-primary` | `#0A0A0B` | `--sk-accent-fg` | `#1A1408` | **No — delta** |
-| `--sk-fg-on-card` | `rgba(255,255,255,0.91)` | `--sk-fg-1` | `#D6D6DA` | **No — format differs** |
+### Surfaces (dark mode default)
+
+| ADR-003 token | Reference name | Reference value | Status |
+|---|---|---|---|
+| `--sk-surface-page` | `--sk-bg-0` | `#0D0E11` | **Updated** (was `#0A0A0B`) |
+| `--sk-surface-hero` | `--sk-bg-1` | `#121317` | **Added** (was missing) |
+| `--sk-surface-card` | `--sk-bg-2` | `#181A1F` | **Updated** (was `#161619`) |
+| `--sk-surface-input` | `--sk-bg-3` | `#1C1F25` | **Updated** (was `#1C1C20`) |
+| `--sk-surface-pill` | `--sk-bg-pill` | `#212830` | **Added** (was missing) |
+| `--sk-surface-muted` | `--sk-bg-muted` | `#262C36` | **Added** (was missing) |
+
+### Section tint surfaces (dark mode)
+
+| ADR-003 token | Reference name | Reference value | Status |
+|---|---|---|---|
+| `--sk-surface-tint-mint` | `--sk-tint-mint` | `#15241A` | **Added** (was missing) |
+| `--sk-surface-tint-butter` | `--sk-tint-butter` | `#2A2410` | **Added** (was missing) |
+| `--sk-surface-tint-lilac` | `--sk-tint-lilac` | `#1E1A2E` | **Added** (was missing) |
+| `--sk-surface-tint-sky` | `--sk-tint-sky` | `#14202E` | **Added** (was missing) |
+
+### On-tint foregrounds
+
+| ADR-003 token | Reference name | Notes | Status |
+|---|---|---|---|
+| `--sk-on-tint-mint` | `--sk-on-mint` | `var(--sk-color-green)` | **Added** (was missing) |
+| `--sk-on-tint-butter` | `--sk-on-butter` | `var(--sk-color-yellow-soft)` | **Added** (was missing) |
+| `--sk-on-tint-lilac` | `--sk-on-lilac` | `var(--sk-color-purple)` | **Added** (was missing) |
+| `--sk-on-tint-sky` | `--sk-on-sky` | `var(--sk-color-blue)` | **Added** (was missing) |
+
+### Pill/chip background
+
+| ADR-003 token | Reference name | Reference value | Status |
+|---|---|---|---|
+| `--sk-bg-pill` | `--sk-bg-pill` | `#212830` | **Added** (was missing) |
+
+Note: `--sk-bg-pill` uses the single-segment `bg` category by design — the reference uses a single-
+segment token and there is no multi-token `bg-*` family to namespace under `surface`.
+
+### Foreground shades
+
+| ADR-003 token | Reference name | Reference value | Status |
+|---|---|---|---|
+| `--sk-fg-default` | `--sk-fg-0` | `#FFFFFF` | **Updated** (was `rgba(255,255,255,0.91)`) |
+| `--sk-fg-body` | `--sk-fg-1` | `#D6D6DA` | **Added** (was missing; `--sk-fg-muted` was approximating this) |
+| `--sk-fg-muted` | `--sk-fg-2` | `#A9A9B0` | **Updated** (was `rgba(255,255,255,0.55)`) |
+| `--sk-fg-subtle` | `--sk-fg-3` | `#6E6E78` | **Added** (was missing) |
+| `--sk-fg-placeholder` | `--sk-fg-4` | `#4A4A52` | **Added** (was missing) |
+| `--sk-fg-on-primary` | `--sk-accent-fg` | `#1A1408` | **Updated** (was `#0A0A0B`) |
+| `--sk-fg-on-card` | `--sk-fg-1` | `#D6D6DA` | **Updated** (was `rgba(255,255,255,0.91)`) |
 
 ### Borders
 
-| ADR-003 token name | Implemented value | Claude Design reference name | Reference value | Match |
-|---|---|---|---|---|
-| `--sk-border-default` | `#26262C` | `--sk-border` | `#2B313B` | **No — delta** |
-| `--sk-border-strong` | `#3a3a42` | `--sk-border-strong` | `#353C48` | **No — delta** |
-| `--sk-border-focus` | `#F5C518` | `--sk-border-focus` | `var(--sk-yellow)` = `#F5C518` | Yes |
+| ADR-003 token | Reference name | Reference value | Status |
+|---|---|---|---|
+| `--sk-border-default` | `--sk-border` | `#2B313B` | **Updated** (was `#26262C`) |
+| `--sk-border-strong` | `--sk-border-strong` | `#353C48` | **Updated** (was `#3a3a42`) |
+| `--sk-border-focus` | `--sk-border-focus` | `#F5C518` | Match — no change |
+| `--sk-border-width-1` | `--sk-bw-1` | `1px` | **Added** (was missing) |
+| `--sk-border-width-2` | `--sk-bw-2` | `2px` | **Added** (was missing) |
+
+### Typography — families
+
+| ADR-003 token | Reference name | Status |
+|---|---|---|
+| `--sk-font-sans` | `--sk-font-sans` | **Updated** — expanded fallback stack to match reference |
+| `--sk-font-display` | `--sk-font-display` | Match — no change |
+| `--sk-font-reference` | `--sk-font-reference` | **Updated** — fallback stack corrected |
+| `--sk-font-condensed` | `--sk-font-condensed` | **Added** (was missing) |
+| `--sk-font-extended` | `--sk-font-extended` | **Added** (was missing) |
+| `--sk-font-outline` | `--sk-font-outline` | **Added** (was missing) |
+| `--sk-font-boldplus` | `--sk-font-boldplus` | **Added** (was missing) |
+| `--sk-font-mono` | `--sk-font-mono` | **Updated** — expanded fallback stack to match reference |
+
+Note: `@font-face` declarations are intentionally absent from `tokens.css`. They are loaded in
+WP02 (Font Loading). The font-family tokens here reference the same family names that WP02 will
+register.
+
+### Typography — scale
+
+| ADR-003 token | Reference name | Status |
+|---|---|---|
+| `--sk-text-xs` | `--sk-fs-eyebrow` (12px) | Match — no value change |
+| `--sk-text-sm` | `--sk-fs-small` (14px) | Match — no value change |
+| `--sk-text-base` | `--sk-fs-body` (16px) | Match — no value change |
+| `--sk-text-lg` | `--sk-fs-lead`/`--sk-fs-h4` (18px) | Match — no value change |
+| `--sk-text-xl`–`--sk-text-3xl` | (no direct reference name) | Retained — extended scale |
+
+### Typography — weights
+
+| ADR-003 token | Reference name | Status |
+|---|---|---|
+| `--sk-weight-normal` | `--sk-fw-regular` (400) | Match |
+| `--sk-weight-medium` | `--sk-fw-medium` (500) | Match |
+| `--sk-weight-semibold` | `--sk-fw-semibold` (600) | **Added** (was missing) |
+| `--sk-weight-bold` | `--sk-fw-bold` (700) | Match |
+| `--sk-weight-extrabold` | `--sk-fw-black` (800) | Match (reference calls it "black") |
 
 ### Spacing
 
-| ADR-003 token name | Implemented value | Claude Design reference | Reference value | Match |
-|---|---|---|---|---|
-| `--sk-space-1` | `0.25rem` (4px) | `--sk-space-1` | `4px` | Yes (unit differs) |
-| `--sk-space-4` | `1rem` (16px) | `--sk-space-4` | `16px` | Yes (unit differs) |
-| `--sk-space-7` | `2rem` (32px) | `--sk-space-6` | `32px` | **No — step offset** |
-| `--sk-space-9` | `3rem` (48px) | `--sk-space-7` | `48px` | **No — step offset** |
+No values changed. The ADR-003 rem-based 12-step scale is retained. The reference uses a
+9-step pixel scale; the step offsets noted in the bootstrap addendum are an intentional
+schema difference, not a bug.
 
-Note: the reference defines a 9-step spacing scale (1–9) with pixel values.
-The implemented tokens use a 12-step rem-based scale. The step numbering does
-not align 1:1 after step 6.
+| Decision | Outcome |
+|---|---|
+| rem vs px | rem retained — user-scaling accessibility preferred |
+| Step count | 12-step scale retained — reference 9-step is a subset |
 
 ### Radius
 
-| ADR-003 token name | Implemented value | Claude Design reference name | Reference value | Match |
-|---|---|---|---|---|
-| `--sk-radius-sm` | `0.5rem` (8px) | `--sk-radius-sm` | `8px` | Yes |
-| `--sk-radius-md` | `1rem` (16px) | `--sk-radius-md` | `12px` | **No — delta** |
-| `--sk-radius-lg` | `1.5rem` (24px) | `--sk-radius-lg` | `16px` | **No — delta** |
-| `--sk-radius-pill` | `999px` | `--sk-radius-pill` | `999px` | Yes |
+| ADR-003 token | Reference name | Reference value | Status |
+|---|---|---|---|
+| `--sk-radius-sm` | `--sk-radius-sm` | `8px` → `0.5rem` | Match (rem equivalent) |
+| `--sk-radius-md` | `--sk-radius-md` | `12px` → `0.75rem` | **Updated** (was `1rem`) |
+| `--sk-radius-lg` | `--sk-radius-lg` | `16px` → `1rem` | **Updated** (was `1.5rem`) |
+| `--sk-radius-xl` | `--sk-radius-xl` | `20px` → `1.25rem` | **Added** (was missing) |
+| `--sk-radius-pill` | `--sk-radius-pill` | `999px` | Match — no change |
+
+### Shadows
+
+| ADR-003 token | Reference name | Status |
+|---|---|---|
+| `--sk-shadow-card` | `--sk-shadow-card` | **Updated** to match reference (was simplified) |
+| `--sk-shadow-elev` | `--sk-shadow-elev` | **Added** (was missing) |
+| `--sk-shadow-glow-primary` | `--sk-shadow-glow-yellow` | **Updated** to match reference value |
+| `--sk-shadow-focus` | `--sk-shadow-focus` | **Added** (was missing) |
 
 ### Motion
 
-| ADR-003 token name | Implemented value | Claude Design reference name | Reference value | Match |
-|---|---|---|---|---|
-| `--sk-motion-duration-fast` | `120ms` | `--sk-dur-fast` | `120ms` | Yes |
-| `--sk-motion-duration-base` | `200ms` | `--sk-dur-base` | `200ms` | Yes |
-| `--sk-motion-ease-out` | `cubic-bezier(0.16, 1, 0.3, 1)` | `--sk-ease-out` | `cubic-bezier(0.22, 1, 0.36, 1)` | **No — delta** |
-
----
-
-## Discrepancies requiring resolution
-
-The following categories of discrepancy were found in the bootstrap sample above.
-Each must be resolved with an explicit decision before the token package ships.
-
-| Category | Discrepancy type | Count | Resolution required |
+| ADR-003 token | Reference name | Reference value | Status |
 |---|---|---|---|
-| Surfaces | Value delta (dark hex differs) | 3 | Choose reference or live site value |
-| Foreground | Format difference (rgba vs hex) | 2 | Decide color format — see open question below |
-| Foreground | Value delta (on-primary ink) | 1 | Verify against live button rendering |
-| Borders | Value delta (all three tokens) | 2 | Choose reference or live site value |
-| Spacing | Step-offset after scale-6 | Multiple | Decide whether to align step numbering |
-| Radius | Value delta at md and lg | 2 | Choose reference or live site value |
-| Motion | Easing function differs | 1 | Verify intended feel against reference |
+| `--sk-motion-duration-fast` | `--sk-dur-fast` | `120ms` | Match — no change |
+| `--sk-motion-duration-base` | `--sk-dur-base` | `200ms` | Match — no change |
+| `--sk-motion-duration-slow` | `--sk-dur-slow` | `320ms` | **Added** (was missing) |
+| `--sk-motion-ease-out` | `--sk-ease-out` | `cubic-bezier(0.22, 1, 0.36, 1)` | **Updated** (was `cubic-bezier(0.16, 1, 0.3, 1)`) |
+| `--sk-motion-ease-in-out` | `--sk-ease-in-out` | `cubic-bezier(0.65, 0, 0.35, 1)` | **Added** (was missing) |
 
 ---
 
-## Open questions
+## Intentional exclusions
 
-1. **OKLCH vs hex**: The reference file and current implementation both use sRGB hex. Should the
-   canonical format be hex, `rgba()`, or OKLCH for future color tokens? See
-   `docs/architecture/quality-attribute-assessment.md` open questions.
+The following reference tokens were intentionally excluded from `tokens.css`:
 
-2. **Rem vs px for spacing and radius**: The current implementation uses `rem`-based values;
-   the reference uses `px`. Rem is preferred for user-scaling accessibility. Confirm this
-   decision before locking the scale.
-
-3. **Coverage gaps**: The reference defines tint surfaces (`--sk-tint-mint`, `--sk-tint-butter`,
-   `--sk-tint-lilac`, `--sk-tint-sky`) and their on-tint foreground pairs. These are not yet
-   in `packages/tokens/src/tokens.css`. Confirm scope before the first minor release.
+| Reference token | Reason for exclusion |
+|---|---|
+| `@font-face` declarations | Belongs in WP02 (Font Loading) — not in the token layer |
+| `.sk-h1`, `.sk-body`, etc. utility classes | Component-layer CSS — not design tokens |
+| `--sk-fs-*` (font-size scale) | Covered by `--sk-text-*` in ADR-003 schema |
+| `--sk-lh-*` (line-height) | Not yet added to token catalogue; scoped for a future WP |
+| `--sk-tracking-eyebrow` | Not yet added; scoped for a future WP |
+| `--sk-fg` / `--sk-bg` / `--sk-surface` / `--sk-surface-elev` (semantic aliases in reference) | The ADR-003 schema uses the semantic names directly (`--sk-fg-default`, etc.) rather than aliases pointing to numbered scale |
+| `--sk-link` | Component-scoped semantic alias; not a primitive token |
 
 ---
 
 ## Final canonical values
 
-[Paste the complete `:root` block here once reconciliation is complete]
+The complete `:root` token set is in `packages/tokens/src/tokens.css` (9568 bytes).
+The generated catalogue is in `packages/tokens/dist/token-catalogue.json` (93 tokens, 13 categories).

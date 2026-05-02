@@ -1,0 +1,197 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Tokens/Spacing" />
+
+# Spacing
+
+Reference for all layout tokens: spacing scale, border radius, shadows, and motion.
+
+---
+
+## Spacing scale
+
+The spacing scale uses a base-4 system. All values are expressed in `rem` for proportional scaling with the root font size (16px base).
+
+<div style={{display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px', padding: '24px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)'}}>
+  {[
+    { token: '--sk-space-1',  rem: '0.25rem',  px: '4px'   },
+    { token: '--sk-space-2',  rem: '0.5rem',   px: '8px'   },
+    { token: '--sk-space-3',  rem: '0.75rem',  px: '12px'  },
+    { token: '--sk-space-4',  rem: '1rem',     px: '16px'  },
+    { token: '--sk-space-5',  rem: '1.25rem',  px: '20px'  },
+    { token: '--sk-space-6',  rem: '1.5rem',   px: '24px'  },
+    { token: '--sk-space-7',  rem: '2rem',     px: '32px'  },
+    { token: '--sk-space-8',  rem: '2.5rem',   px: '40px'  },
+    { token: '--sk-space-9',  rem: '3rem',     px: '48px'  },
+    { token: '--sk-space-10', rem: '4rem',     px: '64px'  },
+    { token: '--sk-space-11', rem: '6rem',     px: '96px'  },
+    { token: '--sk-space-12', rem: '8rem',     px: '128px' },
+  ].map(({ token, rem, px }) => (
+    <div key={token} style={{display: 'flex', alignItems: 'center', gap: '16px', borderBottom: '1px solid var(--sk-border-default)', paddingBottom: '10px'}}>
+      <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)', minWidth: '140px'}}>{token}</code>
+      <div style={{
+        height: '12px',
+        width: `var(${token})`,
+        background: 'var(--sk-color-yellow)',
+        borderRadius: '2px',
+        minWidth: '4px',
+        flexShrink: 0
+      }} />
+      <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', marginLeft: 'auto', minWidth: '120px', textAlign: 'right'}}>{rem} / {px}</span>
+    </div>
+  ))}
+</div>
+
+---
+
+## Border radius
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: '24px', marginBottom: '32px'}}>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
+    <div style={{
+      width: '80px', height: '80px',
+      background: 'var(--sk-surface-input)',
+      border: '1px solid var(--sk-border-strong)',
+      borderRadius: 'var(--sk-radius-sm)'
+    }} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-radius-sm</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>0.5rem / 8px</span>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>chips, eyebrow pills</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
+    <div style={{
+      width: '80px', height: '80px',
+      background: 'var(--sk-surface-input)',
+      border: '1px solid var(--sk-border-strong)',
+      borderRadius: 'var(--sk-radius-md)'
+    }} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-radius-md</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>0.75rem / 12px</span>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>form inputs</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
+    <div style={{
+      width: '80px', height: '80px',
+      background: 'var(--sk-surface-input)',
+      border: '1px solid var(--sk-border-strong)',
+      borderRadius: 'var(--sk-radius-lg)'
+    }} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-radius-lg</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>1rem / 16px</span>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>cards</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
+    <div style={{
+      width: '80px', height: '80px',
+      background: 'var(--sk-surface-input)',
+      border: '1px solid var(--sk-border-strong)',
+      borderRadius: 'var(--sk-radius-xl)'
+    }} />
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-radius-xl</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>1.25rem / 20px</span>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>hero card</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px'}}>
+    <div style={{
+      width: '120px', height: '48px',
+      background: 'var(--sk-color-yellow)',
+      border: '1px solid var(--sk-border-strong)',
+      borderRadius: 'var(--sk-radius-pill)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center'
+    }}>
+      <span style={{color: 'var(--sk-fg-on-primary)', fontSize: '0.875rem', fontWeight: 600}}>Pill</span>
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-radius-pill</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>999px</span>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)'}}>nav pills, buttons</span>
+  </div>
+</div>
+
+---
+
+## Shadows
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: '32px', marginBottom: '32px'}}>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
+    <div style={{
+      padding: '24px',
+      background: 'var(--sk-surface-card)',
+      borderRadius: 'var(--sk-radius-lg)',
+      border: '1px solid var(--sk-border-default)',
+      boxShadow: 'var(--sk-shadow-card)',
+      width: '200px'
+    }}>
+      <p style={{color: 'var(--sk-fg-on-card)', fontSize: '0.875rem', margin: 0}}>Card shadow</p>
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-shadow-card</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', maxWidth: '200px'}}>Subtle depth; inner highlight + base drop shadow</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
+    <div style={{
+      padding: '24px',
+      background: 'var(--sk-color-yellow)',
+      borderRadius: 'var(--sk-radius-pill)',
+      boxShadow: 'var(--sk-shadow-glow-primary)',
+      width: '200px',
+      display: 'flex', alignItems: 'center', justifyContent: 'center'
+    }}>
+      <p style={{color: 'var(--sk-fg-on-primary)', fontSize: '0.875rem', fontWeight: 700, margin: 0}}>Glow primary</p>
+    </div>
+    <code style={{fontSize: '0.75rem', color: 'var(--sk-fg-muted)'}}>--sk-shadow-glow-primary</code>
+    <span style={{fontSize: '0.75rem', color: 'var(--sk-fg-subtle)', maxWidth: '200px'}}>Yellow ambient glow; use on primary CTA buttons</span>
+  </div>
+</div>
+
+---
+
+## Motion
+
+Motion tokens define the timing and easing for all interactive transitions. No animated demos are shown here — this is a reference table.
+
+<div style={{marginBottom: '32px', background: 'var(--sk-surface-card)', borderRadius: 'var(--sk-radius-lg)', border: '1px solid var(--sk-border-default)', overflow: 'hidden'}}>
+  <table style={{width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem'}}>
+    <thead>
+      <tr style={{borderBottom: '1px solid var(--sk-border-strong)'}}>
+        <th style={{padding: '12px 16px', textAlign: 'left', color: 'var(--sk-fg-muted)', fontWeight: 600, fontFamily: 'var(--sk-font-mono)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Token</th>
+        <th style={{padding: '12px 16px', textAlign: 'left', color: 'var(--sk-fg-muted)', fontWeight: 600, fontFamily: 'var(--sk-font-mono)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Value</th>
+        <th style={{padding: '12px 16px', textAlign: 'left', color: 'var(--sk-fg-muted)', fontWeight: 600, fontFamily: 'var(--sk-font-mono)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style={{borderBottom: '1px solid var(--sk-border-default)'}}>
+        <td style={{padding: '12px 16px'}}><code style={{color: 'var(--sk-fg-muted)', fontSize: '0.8125rem'}}>--sk-motion-duration-fast</code></td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-yellow)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.875rem'}}>120ms</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)'}}>Hover states, icon swaps, tooltip open</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid var(--sk-border-default)'}}>
+        <td style={{padding: '12px 16px'}}><code style={{color: 'var(--sk-fg-muted)', fontSize: '0.8125rem'}}>--sk-motion-duration-base</code></td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-yellow)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.875rem'}}>200ms</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)'}}>Panel open/close, accordion, tab transitions</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid var(--sk-border-default)'}}>
+        <td style={{padding: '12px 16px'}}><code style={{color: 'var(--sk-fg-muted)', fontSize: '0.8125rem'}}>--sk-motion-duration-slow</code></td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-yellow)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.875rem'}}>320ms</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)'}}>Page-level transitions, drawer open</td>
+      </tr>
+      <tr style={{borderBottom: '1px solid var(--sk-border-default)'}}>
+        <td style={{padding: '12px 16px'}}><code style={{color: 'var(--sk-fg-muted)', fontSize: '0.8125rem'}}>--sk-motion-ease-out</code></td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-green)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>cubic-bezier(0.22, 1, 0.36, 1)</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)'}}>Elements entering the viewport (spring-like deceleration)</td>
+      </tr>
+      <tr>
+        <td style={{padding: '12px 16px'}}><code style={{color: 'var(--sk-fg-muted)', fontSize: '0.8125rem'}}>--sk-motion-ease-in-out</code></td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-color-green)', fontFamily: 'var(--sk-font-mono)', fontSize: '0.8125rem'}}>cubic-bezier(0.65, 0, 0.35, 1)</td>
+        <td style={{padding: '12px 16px', color: 'var(--sk-fg-body)'}}>Elements moving between two positions (smooth S-curve)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+**Usage pattern:**
+
+```css
+.my-button {
+  transition: background var(--sk-motion-duration-fast) var(--sk-motion-ease-out),
+              box-shadow var(--sk-motion-duration-base) var(--sk-motion-ease-out);
+}
+```

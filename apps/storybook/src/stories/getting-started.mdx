@@ -22,6 +22,30 @@ npm install @spec-kitty/tokens
 npm install @spec-kitty/angular @spec-kitty/tokens
 ```
 
+## Loading brand fonts
+
+When you link `tokens.css`, the Falling Sky and Swansea fonts load automatically
+from the bundled `fonts/` directory. JetBrains Mono loads from Google Fonts CDN.
+
+**CDN link (no build step):**
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@spec-kitty/tokens/dist/tokens.css">
+```
+
+**npm install:**
+After `npm install @spec-kitty/tokens`, import in your CSS:
+```css
+@import '@spec-kitty/tokens/dist/tokens.css';
+```
+The `fonts/` directory ships alongside `tokens.css` in the package; the relative
+`@font-face` paths resolve automatically.
+
+**Angular project:**
+```json
+// angular.json → projects → yourApp → architect → build → options
+"styles": ["node_modules/@spec-kitty/tokens/dist/tokens.css"]
+```
+
 ## Using tokens in your CSS
 
 Once the token file is loaded, reference `--sk-*` custom properties:

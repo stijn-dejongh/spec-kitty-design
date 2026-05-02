@@ -2,7 +2,7 @@
   "created_at": "2026-05-01T21:06:33.226334+00:00",
   "friendly_name": "Design System Reference Migration",
   "mission_id": "01KQJNTP49SPQNNXQ1TG3BKKKW",
-  "mission_number": null,
+  "mission_number": 2,
   "mission_slug": "design-system-reference-migration-01KQJNTP",
   "mission_type": "software-dev",
   "purpose_context": "The Spec Kitty design system monorepo has the infrastructure in place (packages, Storybook, CI) but only a single stub component. The Claude Design reference in tmp/ contains the actual token values, 30 brand font files, brand assets, and 8 component categories with full visual previews. This mission brings the reference into the live system: correct token values replace the bootstrap approximations, fonts are bundled in @spec-kitty/tokens for self-contained consumption, and each component category becomes a distributable HTML/JS primitive and Angular component with Storybook stories. The marketing-site JSX components are explicitly out of scope — this mission delivers atomic and molecular primitives only.",
