@@ -145,49 +145,82 @@ Prefer the `.d.ts` approach as it gives type safety to consumers.
 
 ### T009 — Update `CollapsedHamburger` Storybook story
 
-**Purpose:** Make the drawer toggle interactive within Storybook by importing the module.
+**Purpose:** Apply three distinct changes to `sk-nav-pill.stories.ts` — CSS drawer import, JS module import and use, and LightMode story. This task absorbs work originally split across WP02 (CSS import) and the story's LightMode variant.
 
 **File:** `packages/html-js/src/nav-pill/sk-nav-pill.stories.ts`
 
-Add import at the top:
+#### Step A — Add CSS and JS imports (top of file)
+
 ```ts
-import { skToggleDrawer } from './index';
+import './sk-nav-pill.css';
+import './sk-nav-pill-drawer.css';   // ← NEW: drawer CSS (FR-003/FR-004)
+import { skToggleDrawer } from './index';  // ← NEW: JS module (FR-005/FR-006)
 ```
 
-In the `CollapsedHamburger` story's `render` function, replace the inline `onclick` IIFE on the hamburger button:
-```html
-<!-- Before -->
-onclick="(function(btn){ ... })(this)"
+#### Step B — Update `CollapsedHamburger` story parameters and docs
 
-<!-- After -->
-onclick="window.__skToggleDrawer && window.__skToggleDrawer(this)"
-```
+Replace the story's `parameters` block to add the two-file + JS dependency note:
 
-And add a decorator to the story that registers the function on the window for the story context:
 ```ts
 export const CollapsedHamburger: Story = {
+  name: 'Collapsed / Hamburger (responsive)',
+  parameters: {
+    viewport: { defaultViewport: 'mobile1' },
+    docs: {
+      description: {
+        story: 'Responsive nav pill that collapses to a hamburger at ≤ 720 px. ' +
+          'Requires both `sk-nav-pill.css` (base) and `sk-nav-pill-drawer.css` (drawer extension). ' +
+          'The drawer toggle also requires `skToggleDrawer` from `sk-nav-pill.js`. ' +
+          'Drag the right edge of the sandbox to cross the breakpoint.',
+      },
+    },
+  },
   decorators: [
     (story) => {
       (window as any).__skToggleDrawer = skToggleDrawer;
       return story();
     },
   ],
-  // ... rest unchanged
+  render: () => `…`, // existing render unchanged — update onclick to use window.__skToggleDrawer
 };
 ```
 
-**Alternative simpler approach** — replace the inline onclick entirely with a direct call pattern that works in the story:
+In the render's hamburger button, change the onclick from the inline IIFE to:
 ```html
-onclick="(function(btn){ 
-  var d=document.getElementById('sk-nav-drawer'); 
-  if(!d) return; 
-  var o=d.classList.toggle('is-open'); 
-  btn.setAttribute('aria-expanded',o?'true':'false'); 
-  btn.setAttribute('aria-label',o?'Close navigation':'Open navigation'); 
-})(this)"
+onclick="window.__skToggleDrawer && window.__skToggleDrawer(this)"
 ```
 
-This is acceptable if the import approach introduces TypeScript complexity — the goal is the story being interactive and the module existing as a distributable.
+**Alternative**: if the decorator approach introduces complexity, keep the existing inline IIFE onclick — the goal is the module existing as a distributable and being imported; perfect story interactivity is a nice-to-have.
+
+#### Step C — Add `LightMode` story
+
+After the `CollapsedHamburger` story, add:
+
+```ts
+export const LightMode: Story = {
+  parameters: { backgrounds: { default: 'sk-light' } },
+  render: (args) => {
+    const items = args['items'] ?? [
+      { label: 'Platform', href: '#' },
+      { label: 'Getting Started', href: '#', active: true },
+      { label: 'About', href: '#' },
+    ];
+    const itemsHtml = items.map((item: any) =>
+      `<a href="${item.href}" class="sk-nav-pill__item${item.active ? ' sk-nav-pill__item--active' : ''}">${item.label}</a>`
+    ).join('\n    ');
+    return `
+      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6);">
+        <nav class="sk-nav-pill" aria-label="Primary navigation">
+          <div class="sk-nav-pill__items">${itemsHtml}</div>
+          <div class="sk-nav-pill__cta">
+            <button class="sk-nav-pill__cta-btn" type="button">Book Demo</button>
+          </div>
+        </nav>
+      </div>
+    `;
+  },
+};
+```
 
 ---
 

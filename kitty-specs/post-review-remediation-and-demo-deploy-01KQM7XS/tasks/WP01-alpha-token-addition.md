@@ -155,6 +155,7 @@ If the build scripts are not available, verify that `packages/tokens/src/tokens.
 - [ ] The old deviation comment is removed from `sk-nav-pill.css`
 - [ ] `nx run tokens:build` exits 0
 - [ ] `nx run html-js:build` exits 0 (or equivalent build check)
+- [ ] **Charter sign-off**: Token namespace change (FR-001) flagged for maintainer approval per charter Review Policy — do not merge without one human approval on the PR.
 
 ---
 
@@ -164,3 +165,10 @@ If the build scripts are not available, verify that `packages/tokens/src/tokens.
 - Confirm the tokens are in the `:root` block of `tokens.css`, not in a component file
 - Confirm zero `rgba(245` hits remain in any `packages/html-js/` CSS file
 - The visual output of `.sk-nav-pill__hamburger:hover` must be pixel-identical before and after (same colour, same glow)
+- **Charter gate**: this WP adds to the `--sk-*` token namespace; one maintainer approval is required before the branch merges (charter Review Policy)
+
+---
+
+## Ownership Note (F3 — analysis finding)
+
+`sk-nav-pill.css` is listed in WP02's `owned_files`, not WP01's. WP01 is permitted to make the T002 hover-rule change because WP02 depends on WP01 — WP01 commits first, then WP02 takes over the file for the CSS split. Scope of T002 is strictly limited to the `.sk-nav-pill__hamburger:hover` rule. Do not make any other edits to `sk-nav-pill.css` beyond replacing the three `rgba()` literals.

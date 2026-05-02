@@ -186,12 +186,13 @@ Check that zero axe violations were introduced by the new stories:
 
 ## Definition of Done
 
-- [ ] All 10 non-stub html-js story files have a `LightMode` named export
+- [ ] All 9 non-stub non-nav-pill html-js story files have a `LightMode` named export
 - [ ] Each `LightMode` story wraps its render output in `<div data-theme="light">`
 - [ ] Each `LightMode` story sets `parameters.backgrounds.default: 'sk-light'`
 - [ ] `OnLightBackground` and `LightBackground` exports are renamed to `LightMode` (or removed if superseded)
 - [ ] Storybook build passes with zero TypeScript errors
-- [ ] No new axe violations in any `LightMode` story
+- [ ] No new axe violations in any `LightMode` story (verify via Storybook a11y addon — charter requirement)
+- [ ] **Charter visual diff (D1)**: Each `LightMode` story render is compared against the corresponding component screenshot in `tmp/` — no unexpected colour or layout changes. Document review outcome in PR description.
 
 ---
 
@@ -200,3 +201,4 @@ Check that zero axe violations were introduced by the new stories:
 - Open each component's `LightMode` story in Storybook and confirm the component renders with light-mode tokens (backgrounds should be light, text should be dark)
 - Confirm that just changing the Storybook background WITHOUT selecting the LightMode story still shows dark-mode tokens (the two concerns are separate)
 - `grep -rn "OnLightBackground\|LightBackground" packages/html-js/src/ --include="*.stories.ts"` — should return zero after rename
+- **Charter gate**: compare LightMode renders against `tmp/` reference screenshots; flag any divergence in PR review

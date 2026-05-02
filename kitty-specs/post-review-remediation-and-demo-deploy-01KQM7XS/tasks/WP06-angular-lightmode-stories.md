@@ -158,6 +158,8 @@ Zero errors expected. If TypeScript errors appear related to template syntax (mi
 - [ ] Each `LightMode` story sets `parameters.backgrounds.default: 'sk-light'`
 - [ ] `LightBackground` exports are renamed to `LightMode`
 - [ ] Storybook build passes with zero TypeScript errors
+- [ ] No new axe violations in any `LightMode` story (verify via Storybook a11y addon — charter requirement)
+- [ ] **Charter visual diff (D1)**: Each `LightMode` story render is compared against the corresponding component screenshot in `tmp/` — no unexpected colour or layout changes. Document review outcome in PR description.
 
 ---
 
@@ -166,3 +168,4 @@ Zero errors expected. If TypeScript errors appear related to template syntax (mi
 - Open each Angular `LightMode` story in Storybook — confirm components render with light-mode colours (not dark tokens on a white background)
 - Specifically check button primary: text should be dark, background should be light (token-driven)
 - `grep -rn "LightBackground" packages/angular/src/ --include="*.stories.ts"` — should return zero after rename
+- **Charter gate**: compare LightMode renders against `tmp/` reference screenshots; flag any divergence in PR review
