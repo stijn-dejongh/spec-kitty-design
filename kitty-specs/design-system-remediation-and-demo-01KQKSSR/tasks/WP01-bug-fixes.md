@@ -3,6 +3,7 @@ work_package_id: WP01
 title: Bug Fixes — Angular Buttons + html-js CSS Imports
 dependencies: []
 requirement_refs:
+- FR-119
 - FR-201
 - FR-202
 - FR-203
