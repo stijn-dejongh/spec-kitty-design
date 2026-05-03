@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "mission_slug": "catalog-completeness-and-brand-consistency-01KQPDB5",
+  "mission_id": "01KQPDB5J5EK82K39TF1MPQA7H",
+  "mission_branch": "kitty/mission-catalog-completeness-and-brand-consistency-01KQPDB5",
+  "target_branch": "feature/issue-18-catalog-and-diagram-pipeline",
+  "lanes": [
+    {
+      "lane_id": "lane-a",
+      "wp_ids": [
+        "WP01"
+      ],
+      "write_scope": [
+        "packages/angular/src/lib/button/**",
+        "packages/html-js/src/feature-card/**",
+        "packages/html-js/src/pill-tag/**",
+        "packages/html-js/src/ribbon-card/**",
+        "packages/html-js/src/section-banner/**"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "artifact-rendering"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    },
+    {
+      "lane_id": "lane-b",
+      "wp_ids": [
+        "WP02"
+      ],
+      "write_scope": [
+        "packages/html-js/src/blog-card/**",
+        "packages/html-js/src/grid/**",
+        "packages/html-js/src/index.ts"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    },
+    {
+      "lane_id": "lane-c",
+      "wp_ids": [
+        "WP03",
+        "WP04"
+      ],
+      "write_scope": [
+        "apps/demo/dashboard-demo.html",
+        "docs/contributing/adding-a-token.md",
+        "packages/html-js/README.md",
+        "packages/html-js/src/nav-pill/**",
+        "packages/tokens/dist/token-catalogue.json",
+        "packages/tokens/src/tokens.css"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering",
+        "dashboard",
+        "legacy-cleanup"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    },
+    {
+      "lane_id": "lane-d",
+      "wp_ids": [
+        "WP05",
+        "WP06"
+      ],
+      "write_scope": [
+        ".github/workflows/docs-diagrams.yml",
+        "docs/architecture/assets/**",
+        "package-lock.json",
+        "package.json",
+        "scripts/render-diagrams.js"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "artifact-rendering",
+        "legacy-cleanup",
+        "tracker-integration"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    }
+  ],
+  "computed_at": "2026-05-03T08:24:38.861390+00:00",
+  "computed_from": "dependency_graph+ownership",
+  "planning_artifact_wps": [],
+  "collapse_report": {
+    "events": [
+      {
+        "wp_a": "WP04",
+        "wp_b": "WP03",
+        "rule": "dependency",
+        "evidence": "WP04 depends on WP03"
+      },
+      {
+        "wp_a": "WP06",
+        "wp_b": "WP05",
+        "rule": "dependency",
+        "evidence": "WP06 depends on WP05"
+      }
+    ],
+    "total_merges": 2,
+    "independent_wps_collapsed": 0,
+    "by_rule": {
+      "dependency": 2
+    }
+  }
+}
