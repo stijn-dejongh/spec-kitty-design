@@ -44,6 +44,22 @@
   color: var(--sk-color-purple);
 }
 
+/* Colorized-border variants — accent the card edge with a brand colour
+   instead of the default neutral hairline border. Per WP01 / issue #10.
+   These modifiers compose with the existing icon-chip variants and do
+   NOT touch the rgba() tint rules above (out-of-scope debt). */
+.sk-feature-card--border-yellow {
+  border-color: var(--sk-color-yellow);
+}
+
+.sk-feature-card--border-green {
+  border-color: var(--sk-color-green);
+}
+
+.sk-feature-card--border-purple {
+  border-color: var(--sk-color-purple);
+}
+
 .sk-feature-card__title {
   font-family: var(--sk-font-sans);
   font-size: var(--sk-text-lg);
