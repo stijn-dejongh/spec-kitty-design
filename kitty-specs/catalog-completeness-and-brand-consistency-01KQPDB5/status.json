@@ -1,7 +1,7 @@
 {
-  "event_count": 39,
-  "last_event_id": "01KQQ4W3EYXZJ9JTGGHEET114X",
-  "materialized_at": "2026-05-03T14:46:26.014221+00:00",
+  "event_count": 42,
+  "last_event_id": "01KQQBR2JDAE5JTF2ND8WTG0AF",
+  "materialized_at": "2026-05-03T16:46:34.061082+00:00",
   "mission_number": "",
   "mission_slug": "catalog-completeness-and-brand-consistency-01KQPDB5",
   "mission_type": "software-dev",
@@ -53,11 +53,11 @@
       "last_transition_at": "2026-05-03T14:45:59.244253+00:00"
     },
     "WP06": {
-      "actor": "claude:opus-4-7:node-norris:implementer",
-      "force_count": 1,
+      "actor": "opencode:claude-sonnet-4-6:node-norris:implementer",
+      "force_count": 2,
       "lane": "in_progress",
-      "last_event_id": "01KQQ4W3EYXZJ9JTGGHEET114X",
-      "last_transition_at": "2026-05-03T14:46:26.014221+00:00"
+      "last_event_id": "01KQQBR2JDAE5JTF2ND8WTG0AF",
+      "last_transition_at": "2026-05-03T16:46:34.061082+00:00"
     }
   }
 }
