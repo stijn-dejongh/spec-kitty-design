@@ -104,12 +104,12 @@ The `[P]` markers above indicate parallelism, not status. Per-WP tracking checkb
 
 ### Included subtasks
 
-- [ ] T007 Create sk-grid CSS primitive (WP02)
-- [ ] T008 [P] Create sk-grid stories (Default, 2/3/4-col, responsive, LightMode) (WP02)
-- [ ] T009 Create sk-grid index.ts + register in package barrel (WP02)
-- [ ] T010 Create sk-blog-card CSS (composing sk-card) (WP02)
-- [ ] T011 [P] Create sk-blog-card stories (Default, with-image, without-image, LightMode) (WP02)
-- [ ] T012 Create sk-blog-card index.ts + register in package barrel (WP02)
+- [x] T007 Create sk-grid CSS primitive (WP02)
+- [x] T008 [P] Create sk-grid stories (Default, 2/3/4-col, responsive, LightMode) (WP02)
+- [x] T009 Create sk-grid index.ts + register in package barrel (WP02)
+- [x] T010 Create sk-blog-card CSS (composing sk-card) (WP02)
+- [x] T011 [P] Create sk-blog-card stories (Default, with-image, without-image, LightMode) (WP02)
+- [x] T012 Create sk-blog-card index.ts + register in package barrel (WP02)
 
 ### Implementation sketch
 
