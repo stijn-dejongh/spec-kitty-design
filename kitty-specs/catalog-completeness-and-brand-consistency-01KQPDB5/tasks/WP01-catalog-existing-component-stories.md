@@ -22,8 +22,8 @@ subtasks:
 - T004
 - T005
 - T006
-agent: claude
-shell_pid: '1294561'
+agent: "claude:sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "1294561"
 history:
 - timestamp: '2026-05-03T08:00:00Z'
   actor: spec-kitty.tasks
@@ -213,3 +213,7 @@ Reviewer should:
 3. Confirm stylelint passes (no new rgba/hex/pixel literals introduced — even outside the changed files, since stylelint runs on the whole package).
 4. Confirm no nav-pill or new-component (grid/blog-card) files were touched.
 5. Confirm visual baselines were refreshed for changed stories AND untouched stories' baselines are unchanged.
+
+## Activity Log
+
+- 2026-05-03T08:57:17Z – claude:sonnet-4-6:frontend-freddy:implementer – shell_pid=1294561 – Assigned agent via action command
