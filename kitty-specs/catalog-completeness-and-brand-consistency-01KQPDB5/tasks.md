@@ -8,7 +8,7 @@
 
 ## Overview
 
-Six work packages across four engineering tracks, organized for maximum parallelism. Total: **33 subtasks** sized at 4–8 per WP. Two sequential edges only (WP04 → WP03; WP06 → WP05); everything else parallelizable.
+Six work packages across four engineering tracks, organized for maximum parallelism. Total: **34 subtasks** (33 original + T034 added during analyze-phase remediation), sized at 4–9 per WP. Two sequential edges only (WP04 → WP03; WP06 → WP05); everything else parallelizable.
 
 ## Engineering tracks
 
@@ -56,6 +56,7 @@ Six work packages across four engineering tracks, organized for maximum parallel
 | T031 | Update `package-lock.json` | WP06 |  |
 | T032 | Add `.github/workflows/docs-diagrams.yml` with path filter | WP06 |  |
 | T033 | Smoke-test the gate: deliberately drift a `.mmd` and confirm CI rejection | WP06 |  |
+| T034 | Verify and populate NavPill empty HTML story (FR-005) — added by analyze remediation | WP04 |  |
 
 The `[P]` markers above indicate parallelism, not status. Per-WP tracking checkboxes live below.
 
@@ -171,6 +172,7 @@ The `[P]` markers above indicate parallelism, not status. Per-WP tracking checkb
 - [ ] T022 Replace .dash-card--done { opacity: 0.6 } cascade with semantic colour tokens (WP04)
 - [ ] T023 Update package README with both import patterns (basic-pill + drawer) (WP04)
 - [ ] T024 Refresh visual baselines for affected stories/demo (WP04)
+- [ ] T034 Verify and populate NavPill empty HTML story (FR-005) — added by analyze remediation (WP04)
 
 ### Implementation sketch
 

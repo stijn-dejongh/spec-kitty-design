@@ -193,6 +193,7 @@ Read first:
 - [ ] `sk-mermaid-theme.yaml` exists and validates
 - [ ] README documents the workflow
 - [ ] Conventional-commit messages (scopes: `docs`, possibly `ci` for the script)
+- [ ] Findings symlink workaround applied — `tmp/finding/` in this lane is symlinked to the repo root before lane teardown (charter Findings Log Practice; per-lane manual workaround documented in [`../quickstart.md`](../quickstart.md))
 
 ## Risks and mitigations
 

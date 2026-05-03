@@ -187,9 +187,11 @@ Read these before starting:
 - [ ] `npm run quality:all` passes
 - [ ] `npx nx run storybook:storybook:build` succeeds
 - [ ] All affected component stories include `LightMode` variants per C-004
+- [ ] **Per charter Testing Standards**: every component touched here has Storybook stories covering `Hover`, `Focus`, `Active`, `Disabled` interactive states (in addition to `Default` and `LightMode`). For components that don't have inherently interactive states (e.g. a static SectionBanner), document the absence in the story file's `parameters.docs.description.story`.
 - [ ] Visual baselines refreshed for any story whose rendered output changed
 - [ ] Commit messages follow conventional commits (scopes: `html-js`, `angular`, `storybook`)
 - [ ] No files outside `owned_files` were modified
+- [ ] Findings symlink workaround applied — `tmp/finding/` in this lane is symlinked to the repo root before lane teardown (charter Findings Log Practice; per-lane manual workaround documented in [`../quickstart.md`](../quickstart.md))
 
 ## Risks and mitigations
 
