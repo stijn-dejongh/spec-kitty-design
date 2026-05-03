@@ -23,12 +23,12 @@ Six work packages across four engineering tracks, organized for maximum parallel
 
 | ID | Description | WP | Parallel |
 |---|---|---|---|
-| T001 | Verify and fix Button primary story full styling (Angular) | WP01 | [P] |
-| T002 | Verify and fix Button secondary story full styling (Angular) | WP01 | [P] |
-| T003 | Add FeatureCard colorized-border variant story | WP01 | [P] |
-| T004 | Add RibbonCard colorized-border variant story | WP01 | [P] |
-| T005 | Verify and populate PillTag HTML story | WP01 | [P] |
-| T006 | Verify and populate SectionBanner HTML story | WP01 | [P] |
+| T001 | Verify and fix Button primary story full styling (Angular) | WP01 | [P] | [D] |
+| T002 | Verify and fix Button secondary story full styling (Angular) | WP01 | [D] |
+| T003 | Add FeatureCard colorized-border variant story | WP01 | [D] |
+| T004 | Add RibbonCard colorized-border variant story | WP01 | [D] |
+| T005 | Verify and populate PillTag HTML story | WP01 | [D] |
+| T006 | Verify and populate SectionBanner HTML story | WP01 | [D] |
 | T007 | Create sk-grid CSS primitive | WP02 |  |
 | T008 | Create sk-grid stories (Default, 2/3/4-col, responsive, LightMode) | WP02 | [P] |
 | T009 | Create sk-grid index.ts + register in package barrel | WP02 |  |
@@ -73,12 +73,12 @@ The `[P]` markers above indicate parallelism, not status. Per-WP tracking checkb
 
 ### Included subtasks
 
-- [ ] T001 [P] Verify and fix Button primary story full styling (Angular) (WP01)
-- [ ] T002 [P] Verify and fix Button secondary story full styling (Angular) (WP01)
-- [ ] T003 [P] Add FeatureCard colorized-border variant story (WP01)
-- [ ] T004 [P] Add RibbonCard colorized-border variant story (WP01)
-- [ ] T005 [P] Verify and populate PillTag HTML story (WP01)
-- [ ] T006 [P] Verify and populate SectionBanner HTML story (WP01)
+- [x] T001 [P] Verify and fix Button primary story full styling (Angular) (WP01)
+- [x] T002 [P] Verify and fix Button secondary story full styling (Angular) (WP01)
+- [x] T003 [P] Add FeatureCard colorized-border variant story (WP01)
+- [x] T004 [P] Add RibbonCard colorized-border variant story (WP01)
+- [x] T005 [P] Verify and populate PillTag HTML story (WP01)
+- [x] T006 [P] Verify and populate SectionBanner HTML story (WP01)
 
 ### Implementation sketch
 
