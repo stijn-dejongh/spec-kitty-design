@@ -66,6 +66,14 @@ template_set: software-dev-default
 
 8. Keep documentation synchronized with workflow and behavior changes.
 
+## Findings Log Practice
+
+Every reasoning-loop failure, recovery, or `spec-kitty` skill-invocation error encountered by an agent during mission work must be logged to `tmp/finding/` in the repository root. Each entry should include: what was attempted, what failed (verbatim error text where possible), the workaround taken, root-cause hypothesis, and proposed remediation.
+
+Worktree wiring: when a worktree is created for a lane (under `.worktrees/<slug>-<mid8>-lane-*/`), the lane's `tmp/finding/` directory **must be symlinked to the repository root's `tmp/finding/`** rather than created as an isolated directory. All lanes therefore write to a single shared location.
+
+Persistence: `tmp/` is gitignored, but `tmp/finding/` contents persist across mission completion (worktrees are cleaned up; the root checkout is not). After a mission merges, the accumulated findings drive a post-mortem remediation pass — typically a triage of which entries need to become tracker issues, which need doctrine/skill fixes upstream, and which were one-offs to discard.
+
 ## Reference Index
 
 | Reference ID | Kind | Summary | Local Doc |
