@@ -15,7 +15,7 @@ subtasks:
 - T014
 - T015
 - T016
-agent: "claude:sonnet-4-6:designer-dagmar:implementer"
+agent: "codex:gpt-5:designer-dagmar:implementer"
 shell_pid: "1294993"
 history:
 - timestamp: '2026-05-03T08:00:00Z'
@@ -191,3 +191,4 @@ Reviewer (must be a maintainer per charter):
 ## Activity Log
 
 - 2026-05-03T08:57:41Z – claude:sonnet-4-6:designer-dagmar:implementer – shell_pid=1294993 – Assigned agent via action command
+- 2026-05-03T13:49:19Z – codex:gpt-5:designer-dagmar:implementer – shell_pid=1294993 – Ready for review: added --sk-color-yellow-alpha-15, --sk-color-yellow-alpha-35, --sk-color-yellow-alpha-60; regenerated token catalogue; T016 no-op because these remain under existing --sk-color-* prefix; stylelint and quality:all passed.

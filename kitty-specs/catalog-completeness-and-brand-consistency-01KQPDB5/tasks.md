@@ -135,10 +135,10 @@ The `[P]` markers above indicate parallelism, not status. Per-WP tracking checkb
 
 ### Included subtasks
 
-- [ ] T013 Add `--sk-color-yellow-alpha-{15,35,60}` to tokens.css (WP03)
-- [ ] T014 Regenerate token catalogue (npx nx run tokens:catalogue) (WP03)
-- [ ] T015 Verify stylelint accepts new tokens (no consumer references yet) (WP03)
-- [ ] T016 Update docs/contributing/adding-a-token.md if a new prefix is introduced (WP03)
+- [x] T013 Add `--sk-color-yellow-alpha-{15,35,60}` to tokens.css (WP03)
+- [x] T014 Regenerate token catalogue (npx nx run tokens:catalogue) (WP03)
+- [x] T015 Verify stylelint accepts new tokens (no consumer references yet) (WP03)
+- [x] T016 Update docs/contributing/adding-a-token.md if a new prefix is introduced (WP03)
 
 ### Implementation sketch
 
