@@ -1,7 +1,7 @@
 {
-  "event_count": 45,
-  "last_event_id": "01KQQC4VP9884SN9R4KCNVST2R",
-  "materialized_at": "2026-05-03T16:53:33.001083+00:00",
+  "event_count": 46,
+  "last_event_id": "01KQQC9T3GS2HCKFCDS1KAQ46D",
+  "materialized_at": "2026-05-03T16:56:15.216970+00:00",
   "mission_number": "",
   "mission_slug": "catalog-completeness-and-brand-consistency-01KQPDB5",
   "mission_type": "software-dev",
@@ -11,9 +11,9 @@
     "canceled": 0,
     "claimed": 0,
     "done": 0,
-    "for_review": 1,
+    "for_review": 0,
     "in_progress": 0,
-    "in_review": 0,
+    "in_review": 1,
     "planned": 0
   },
   "work_packages": {
@@ -53,11 +53,11 @@
       "last_transition_at": "2026-05-03T14:45:59.244253+00:00"
     },
     "WP06": {
-      "actor": "user",
+      "actor": "opencode",
       "force_count": 3,
-      "lane": "for_review",
-      "last_event_id": "01KQQC4VP9884SN9R4KCNVST2R",
-      "last_transition_at": "2026-05-03T16:53:33.001083+00:00"
+      "lane": "in_review",
+      "last_event_id": "01KQQC9T3GS2HCKFCDS1KAQ46D",
+      "last_transition_at": "2026-05-03T16:56:15.216970+00:00"
     }
   }
 }
