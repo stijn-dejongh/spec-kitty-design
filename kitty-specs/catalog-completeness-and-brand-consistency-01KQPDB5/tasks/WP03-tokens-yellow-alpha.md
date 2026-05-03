@@ -15,8 +15,8 @@ subtasks:
 - T014
 - T015
 - T016
-agent: claude
-shell_pid: '1294993'
+agent: "claude:sonnet-4-6:designer-dagmar:implementer"
+shell_pid: "1294993"
 history:
 - timestamp: '2026-05-03T08:00:00Z'
   actor: spec-kitty.tasks
@@ -187,3 +187,7 @@ Reviewer (must be a maintainer per charter):
 3. Confirm no consumer was changed (WP04 owns that).
 4. Confirm `npm run quality:all` passes.
 5. Per charter Review Policy: this token addition is additive (no rename, no removal) — does NOT trigger a major version bump.
+
+## Activity Log
+
+- 2026-05-03T08:57:41Z – claude:sonnet-4-6:designer-dagmar:implementer – shell_pid=1294993 – Assigned agent via action command
