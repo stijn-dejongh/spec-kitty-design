@@ -188,10 +188,12 @@ Read first:
 - [ ] `npm run quality:all` passes
 - [ ] `npx nx run storybook:storybook:build` succeeds
 - [ ] Both new components have `Default` + `LightMode` exports
+- [ ] **Per charter Testing Standards**: each new component has Storybook stories covering the relevant interactive states. For `sk-grid` (presentational only, no interactive states) document the absence in `parameters.docs.description.story`. For `sk-blog-card`, include `Hover` (link/read-more hover) at minimum.
 - [ ] Both new components reachable from the package barrel
 - [ ] No files outside `owned_files` were modified
 - [ ] Visual baselines for the new stories committed alongside the code
 - [ ] axe-core scan reports zero violations on every new story
+- [ ] Findings symlink workaround applied — `tmp/finding/` in this lane is symlinked to the repo root before lane teardown (charter Findings Log Practice; per-lane manual workaround documented in [`../quickstart.md`](../quickstart.md))
 
 ## Risks and mitigations
 

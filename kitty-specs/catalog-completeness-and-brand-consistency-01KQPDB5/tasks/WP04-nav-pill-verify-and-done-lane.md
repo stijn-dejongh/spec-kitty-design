@@ -22,6 +22,7 @@ subtasks:
 - T022
 - T023
 - T024
+- T034
 agent: claude
 history:
 - timestamp: '2026-05-03T08:00:00Z'
@@ -35,6 +36,8 @@ owned_files:
 - packages/html-js/src/nav-pill/**
 - apps/demo/dashboard-demo.html
 - packages/html-js/README.md
+- apps/storybook/src/tests/visual.spec.ts-snapshots/sk-nav-pill-*.png
+- apps/storybook/src/tests/visual.spec.ts-snapshots/dashboard-demo-*.png
 role: implementer
 tags: []
 ---
@@ -272,18 +275,39 @@ Read first:
 - [ ] Other components' baselines unchanged
 - [ ] Visual diff CI step passes after baseline refresh
 
-> **Ownership note for T024**: visual-baseline PNGs live outside this WP's `owned_files`. If the finalize-tasks validation flags this as a violation, escalate to the orchestrator to broaden ownership for this WP, or split T024 into a follow-up tiny WP. Do NOT touch baselines for components outside `nav-pill` / `dashboard-demo`.
+> **Ownership note for T024**: visual-baseline PNGs are now included in this WP's `owned_files` via the `sk-nav-pill-*.png` and `dashboard-demo-*.png` globs (G1+U1 remediation). Do NOT touch baselines for components outside `nav-pill` / `dashboard-demo`.
+
+### T034 — Verify and populate NavPill empty HTML story (FR-005)
+
+**Purpose**: close FR-005 — issue #10 reports `SKNavPill has an empty HTML version`. Verify and populate. This subtask was added in the analyze-phase remediation pass (finding G1).
+
+**Steps**:
+1. Open `packages/html-js/src/nav-pill/sk-nav-pill.stories.ts` and inspect every exported story. Identify any that returns blank/empty HTML (likely a "raw HTML" or "Default HTML" variant separate from `CollapsedHamburger`).
+2. If a story is empty, replace its `render()` with a populated, fully styled HTML example using the `SkNavPillHTML` constant from `index.ts` (which already exposes the canonical markup).
+3. Cross-check against the reference: `tmp/reference_system/preview/` for what a populated NavPill looks like.
+4. Ensure the populated story includes a `LightMode` companion variant per C-004.
+5. Refresh the visual baseline for the newly populated story (see T024).
+
+**Files**: `packages/html-js/src/nav-pill/sk-nav-pill.stories.ts` (and `index.ts` only if a new constant is needed — it almost certainly is not, since `SkNavPillHTML` already exists)
+
+**Validation**:
+- [ ] No NavPill story renders blank or unstyled
+- [ ] Every NavPill story has a corresponding `LightMode` variant (or one combined LightMode story exists for the populated story)
+- [ ] axe-core scan passes
+- [ ] Visual baseline refreshed (handled by T024)
 
 ## Definition of Done
 
-- [ ] All 8 subtasks pass per-subtask validation
+- [ ] All 9 subtasks pass per-subtask validation
 - [ ] `npm run quality:all` passes (stylelint, eslint, htmlhint)
 - [ ] `npx nx run storybook:storybook:build` succeeds
 - [ ] `CollapsedHamburger` story is interactive
+- [ ] NavPill empty HTML story is populated (FR-005)
 - [ ] Done-lane visual reads as muted via tokens, not opacity
 - [ ] Package README documents both consumer integration patterns
 - [ ] Visual baselines refreshed for affected stories only
 - [ ] Conventional-commit messages with scopes (`html-js`, `storybook`, `docs`)
+- [ ] Findings symlink workaround applied — `tmp/finding/` in this lane is symlinked to the repo root before lane teardown (charter Findings Log Practice; per-lane manual workaround documented in [`../quickstart.md`](../quickstart.md))
 
 ## Risks and mitigations
 

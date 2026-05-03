@@ -50,6 +50,8 @@
       ],
       "write_scope": [
         "apps/demo/dashboard-demo.html",
+        "apps/storybook/src/tests/visual.spec.ts-snapshots/dashboard-demo-*.png",
+        "apps/storybook/src/tests/visual.spec.ts-snapshots/sk-nav-pill-*.png",
         "docs/contributing/adding-a-token.md",
         "packages/html-js/README.md",
         "packages/html-js/src/nav-pill/**",
@@ -89,7 +91,7 @@
       "parallel_group": 0
     }
   ],
-  "computed_at": "2026-05-03T08:24:45.516719+00:00",
+  "computed_at": "2026-05-03T08:56:08.085269+00:00",
   "computed_from": "dependency_graph+ownership",
   "planning_artifact_wps": [],
   "collapse_report": {

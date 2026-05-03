@@ -165,6 +165,7 @@ Read first:
 - [ ] `npm run quality:all` passes
 - [ ] No files outside `owned_files` modified
 - [ ] WP completion message lists the three new token names so WP04 can reference them
+- [ ] Findings symlink workaround applied — `tmp/finding/` in this lane is symlinked to the repo root before lane teardown (charter Findings Log Practice; per-lane manual workaround documented in [`../quickstart.md`](../quickstart.md))
 
 ## Risks and mitigations
 

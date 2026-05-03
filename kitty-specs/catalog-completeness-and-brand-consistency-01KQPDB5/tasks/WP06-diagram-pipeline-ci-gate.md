@@ -199,6 +199,7 @@ Read first:
 - [ ] `bash scripts/npm-audit-gate.sh` passes (or surface findings to reviewer)
 - [ ] Smoke-tests A, B, C documented in WP completion message
 - [ ] Conventional-commit messages (scopes: `ci`, `deps`)
+- [ ] Findings symlink workaround applied — `tmp/finding/` in this lane is symlinked to the repo root before lane teardown (charter Findings Log Practice; per-lane manual workaround documented in [`../quickstart.md`](../quickstart.md))
 
 ## Risks and mitigations
 
