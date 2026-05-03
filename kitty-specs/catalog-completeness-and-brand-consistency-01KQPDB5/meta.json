@@ -8,5 +8,7 @@
   "purpose_context": "This mission completes the visible polish work needed before the design system can be promoted to a 1.0 publish and consumed by an external docsite. It fills missing Storybook stories and components identified in post-review feedback, eliminates remaining hardcoded color and opacity values from shipped CSS, makes the nav-pill drawer pattern self-contained for downstream consumers, and introduces a shared brand theme source plus CI enforcement for architecture diagrams. It is the prerequisite catalog-completeness pass that unblocks the docsite pilot (epic #17) and any 1.0 publish to npm.",
   "purpose_tldr": "Close catalog gaps, token-compliance debt, and diagram branding to reach 1.0-ready state.",
   "slug": "catalog-completeness-and-brand-consistency-01KQPDB5",
-  "target_branch": "feature/issue-18-catalog-and-diagram-pipeline"
+  "target_branch": "feature/issue-18-catalog-and-diagram-pipeline",
+  "vcs": "git",
+  "vcs_locked_at": "2026-05-03T08:57:15.395593+00:00"
 }

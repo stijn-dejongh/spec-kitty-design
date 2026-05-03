@@ -12,6 +12,9 @@ requirement_refs:
 planning_base_branch: feature/issue-18-catalog-and-diagram-pipeline
 merge_target_branch: feature/issue-18-catalog-and-diagram-pipeline
 branch_strategy: Planning artifacts for this feature were generated on feature/issue-18-catalog-and-diagram-pipeline. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feature/issue-18-catalog-and-diagram-pipeline unless the human explicitly redirects the landing branch.
+base_branch: kitty/mission-catalog-completeness-and-brand-consistency-01KQPDB5
+base_commit: 9fd60cd389a77b5a5af50f7e113444aca158996c
+created_at: '2026-05-03T08:57:15.559610+00:00'
 subtasks:
 - T001
 - T002
@@ -20,6 +23,7 @@ subtasks:
 - T005
 - T006
 agent: claude
+shell_pid: '1294561'
 history:
 - timestamp: '2026-05-03T08:00:00Z'
   actor: spec-kitty.tasks
