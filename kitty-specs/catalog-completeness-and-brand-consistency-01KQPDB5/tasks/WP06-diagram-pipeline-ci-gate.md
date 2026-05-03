@@ -9,7 +9,7 @@ requirement_refs:
 - FR-016
 planning_base_branch: feature/issue-18-catalog-and-diagram-pipeline
 merge_target_branch: feature/issue-18-catalog-and-diagram-pipeline
-branch_strategy: Lane worktree under .worktrees/<slug>-<mid8>-lane-<id>/, branched from planning_base_branch (after WP05 merges), merging back to merge_target_branch.
+branch_strategy: Planning artifacts for this feature were generated on feature/issue-18-catalog-and-diagram-pipeline. During /spec-kitty.implement this WP may branch from a dependency-specific base, but completed changes must merge back into feature/issue-18-catalog-and-diagram-pipeline unless the human explicitly redirects the landing branch.
 subtasks:
 - T030
 - T031
