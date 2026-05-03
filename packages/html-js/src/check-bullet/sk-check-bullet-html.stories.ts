@@ -26,7 +26,7 @@ export const ListOfThree: Story = {
 export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' } },
   render: () => `
-    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+    <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
       <ul style="list-style:none;padding:0;margin:0">${SkCheckBulletHTML}</ul>
     </div>
   `,

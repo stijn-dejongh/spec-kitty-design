@@ -94,7 +94,7 @@ export const LightMode: Story = {
     },
   },
   render: () => `
-    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: block; width: 100%;">
+    <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: block; width: 100%;">
       <div style="display:flex;flex-direction:column;gap:var(--sk-space-3);align-items:flex-start;">
         ${SkSectionBannerNeutralHTML}
         ${SkSectionBannerPurpleHTML}

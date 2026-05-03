@@ -1,15 +1,22 @@
-/* Same rules as Angular stub — tokens only, no hardcoded values */
+/* @spec-kitty/html-js — sk-stub: placeholder primitive used during WP scaffolding */
+/* All values use --sk-* tokens only */
+
 .sk-stub {
   display: inline-flex;
   align-items: center;
-  padding: var(--sk-space-2) var(--sk-space-4);
-  background: var(--sk-surface-card);
-  border: 1px solid var(--sk-border-default);
-  border-radius: var(--sk-radius-sm);
+  justify-content: center;
+  padding: var(--sk-space-4) var(--sk-space-6);
+  background: var(--sk-surface-input);
+  border: var(--sk-border-width-1) dashed var(--sk-border-default);
+  border-radius: var(--sk-radius-md);
+  min-width: 200px;
+  min-height: 64px;
 }
 
 .sk-stub__label {
-  color: var(--sk-fg-default);
-  font-family: var(--sk-font-sans);
-  font-size: var(--sk-text-sm);
+  font-family: var(--sk-font-mono);
+  font-size: var(--sk-text-xs);
+  color: var(--sk-fg-subtle);
+  letter-spacing: 0.06em;
+  text-align: center;
 }

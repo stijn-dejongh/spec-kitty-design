@@ -141,7 +141,7 @@ export const CollapsedHamburger: Story = {
 export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' } },
   render: () => `
-    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+    <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
       <nav class="sk-nav-pill" aria-label="Primary navigation">
         <div class="sk-nav-pill__items">
           <a href="#" class="sk-nav-pill__item">Platform</a>

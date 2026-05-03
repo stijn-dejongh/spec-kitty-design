@@ -17,12 +17,12 @@
 }
 
 .sk-section-banner--purple {
-  background: var(--sk-surface-purple-tint);
+  background: var(--sk-surface-tint-lilac);
   color: var(--sk-color-purple);
 }
 
 .sk-section-banner--green {
-  background: var(--sk-surface-green-tint);
+  background: var(--sk-surface-tint-mint);
   color: var(--sk-color-green);
 }
 

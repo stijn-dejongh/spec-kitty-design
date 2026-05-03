@@ -99,7 +99,7 @@ export const LightMode: Story = {
     },
   },
   render: () => `
-    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+    <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
       <div style="display:flex;gap:var(--sk-space-2);flex-wrap:wrap;align-items:center;">
         ${SkTagHTML('v1.0.0')}
         ${SkTagHTML('Breaking', 'breaking')}

@@ -44,7 +44,7 @@ export const Green: Story = {
 export const LightMode: Story = {
   render: () => ({
     template: `
-      <div data-theme="light" style="background:var(--sk-surface-page);padding:var(--sk-space-6);display:flex;flex-direction:column;gap:var(--sk-space-4);">
+      <div class="sk-light" style="background:var(--sk-surface-page);padding:var(--sk-space-6);display:flex;flex-direction:column;gap:var(--sk-space-4);">
         <sk-section-banner variant="neutral" label="NEUTRAL — LIGHT SURFACE"></sk-section-banner>
         <sk-section-banner variant="purple"  label="PURPLE — LIGHT SURFACE"></sk-section-banner>
         <sk-section-banner variant="green"   label="GREEN — LIGHT SURFACE"></sk-section-banner>

@@ -198,7 +198,7 @@ export const LightMode: InputStory = {
     props: {},
     moduleMetadata: { imports: [CommonModule, SkFormFieldComponent, SkFormInputComponent] },
     template: `
-      <div data-theme="light" style="background:var(--sk-surface-page);padding:var(--sk-space-6);display:inline-block;min-width:320px;">
+      <div class="sk-light" style="background:var(--sk-surface-page);padding:var(--sk-space-6);display:inline-block;min-width:320px;">
         <sk-form-field label="Your name" fieldId="story-lm-name">
           <sk-form-input inputId="story-lm-name" placeholder="Jane Smith"></sk-form-input>
         </sk-form-field>

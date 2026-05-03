@@ -8,7 +8,7 @@ const preview: Preview = {
       values: [
         { name: 'sk-dark', value: '#0A0A0B' },
         { name: 'sk-card', value: '#161619' },
-        { name: 'sk-light', value: '#ffffff' },
+        { name: 'sk-light', value: '#F8F5EC' },
       ],
     },
     a11y: { config: { rules: [{ id: 'color-contrast', enabled: true }] } },

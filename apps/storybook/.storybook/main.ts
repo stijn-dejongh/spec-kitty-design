@@ -19,6 +19,10 @@ const config: StorybookConfig = {
       from: path.resolve(__dirname, '../../../packages/tokens/assets'),
       to: '/tokens-assets',
     },
+    {
+      from: path.resolve(__dirname, '../../../packages/tokens/fonts'),
+      to: '/fonts',
+    },
   ],
   webpackFinal: async (webpackConfig: Configuration) => {
     const rules = webpackConfig.module?.rules ?? [];
@@ -26,13 +30,20 @@ const config: StorybookConfig = {
     const tokensPath = path.resolve(__dirname, '../../../packages/tokens');
     // Allow direct CSS imports (ES module style) from html-js stories and tokens preview.
     // Angular component CSS files (packages/angular) go through the Angular pipeline — do NOT include them here.
+    // url: true (default) so webpack rewrites ./fonts/ references in tokens.css correctly.
     rules.push({
       test: /\.css$/,
       use: [
         'style-loader',
-        { loader: 'css-loader', options: { sourceMap: false, url: false, import: false } },
+        { loader: 'css-loader', options: { sourceMap: false, import: false } },
       ],
       include: [htmlJsPath, tokensPath],
+    });
+    // Serve font files referenced by tokens.css (./fonts/... relative URLs).
+    rules.push({
+      test: /\.(otf|ttf|woff2?)$/,
+      type: 'asset/resource',
+      include: [tokensPath],
     });
     if (webpackConfig.module) {
       webpackConfig.module.rules = rules;

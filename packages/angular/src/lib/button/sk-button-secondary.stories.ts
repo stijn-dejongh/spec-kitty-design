@@ -122,7 +122,7 @@ export const LightMode: Story = {
   },
   render: () => ({
     template: `
-      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+      <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
         <sk-button-secondary>Star on GitHub</sk-button-secondary>
       </div>
     `,

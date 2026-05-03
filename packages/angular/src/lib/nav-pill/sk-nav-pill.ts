@@ -12,7 +12,7 @@ export interface NavPillItem {
   standalone: true,
   imports: [NgFor, NgIf],
   templateUrl: './sk-nav-pill.html',
-  styleUrl: './sk-nav-pill.css',
+  styleUrls: ['./sk-nav-pill.css', './sk-nav-pill-drawer.css'],
 })
 export class SkNavPillComponent {
   @Input() items: NavPillItem[] = [
@@ -24,4 +24,11 @@ export class SkNavPillComponent {
 
   @Input() ctaLabel = 'Book Demo';
   @Input() ctaHref: string | null = null;
+  @Input() responsive = false;
+
+  drawerOpen = false;
+
+  toggleDrawer(): void {
+    this.drawerOpen = !this.drawerOpen;
+  }
 }

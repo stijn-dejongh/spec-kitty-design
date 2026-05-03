@@ -1,4 +1,9 @@
-<nav class="sk-nav-pill" aria-label="Primary navigation">
+<nav
+  class="sk-nav-pill"
+  [class.sk-nav-pill--responsive]="responsive"
+  [class.sk-nav-pill--has-drawer]="responsive"
+  aria-label="Primary navigation"
+>
   <div class="sk-nav-pill__items">
     <a
       *ngFor="let item of items"
@@ -8,7 +13,22 @@
       [attr.aria-current]="item.active ? 'page' : null"
     >{{ item.label }}</a>
   </div>
-  <div class="sk-nav-pill__cta" *ngIf="ctaLabel">
+  <div class="sk-nav-pill__cta" style="display:flex;align-items:center;gap:var(--sk-space-2);">
+    <button
+      *ngIf="responsive"
+      class="sk-nav-pill__hamburger"
+      type="button"
+      aria-label="Open navigation"
+      [attr.aria-expanded]="drawerOpen"
+      aria-controls="sk-ng-nav-drawer"
+      (click)="toggleDrawer()"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="4" y1="7" x2="20" y2="7"/>
+        <line x1="4" y1="12" x2="20" y2="12"/>
+        <line x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+    </button>
     <a
       *ngIf="ctaHref; else ctaButton"
       [href]="ctaHref"
@@ -19,3 +39,17 @@
     </ng-template>
   </div>
 </nav>
+<div
+  *ngIf="responsive"
+  id="sk-ng-nav-drawer"
+  class="sk-nav-pill__drawer"
+  [class.is-open]="drawerOpen"
+>
+  <a
+    *ngFor="let item of items"
+    [href]="item.href"
+    class="sk-nav-pill__item"
+    [class.sk-nav-pill__item--active]="item.active"
+    [attr.aria-current]="item.active ? 'page' : null"
+  >{{ item.label }}</a>
+</div>

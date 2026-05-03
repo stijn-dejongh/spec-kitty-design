@@ -17,7 +17,7 @@ export const Default: Story = {
 export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' }, layout: 'fullscreen' },
   render: () => `
-    <div data-theme="light" style="background: var(--sk-surface-page); display: block; width: 100%;">
+    <div class="sk-light" style="background: var(--sk-surface-page); display: block; width: 100%;">
       ${SkSiteFooterHTML}
     </div>
   `,

@@ -103,7 +103,7 @@ export const LightMode: Story = {
     },
   },
   render: () => `
-    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+    <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
       <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:var(--sk-space-4);max-width:900px;">
         ${SkFeatureCardBorderYellowHTML}
         ${SkFeatureCardBorderGreenHTML}

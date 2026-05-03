@@ -184,6 +184,7 @@
 /* ── Light mode override ─────────────────────────────────────────────────── */
 /* Anchored on warm cream (page) → pure white (cards). */
 :root[data-theme="light"],
+[data-theme="light"],
 .sk-light {
   /* Surface scale — cream page, white cards */
   --sk-surface-page:        #F8F5EC;   /* warm cream — page background */
@@ -205,6 +206,7 @@
   /* Light-mode link accent flips to sage */
   --sk-color-accent:        var(--sk-color-sage);
   --sk-color-accent-fg:     #FFFFFF;
+  --sk-link:                var(--sk-color-sage);   /* semantic link colour — sage replaces yellow in light mode */
 
   /* Pastel tint surfaces — high-key, high-readability */
   --sk-surface-tint-mint:   #E8F4E8;

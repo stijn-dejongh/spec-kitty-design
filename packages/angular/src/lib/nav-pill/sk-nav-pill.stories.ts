@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { SkNavPillComponent } from './sk-nav-pill';
 
 const meta: Meta<SkNavPillComponent> = {
@@ -50,12 +51,23 @@ export const FirstItemActive: Story = {
 };
 
 export const LightMode: Story = {
+  decorators: [
+    moduleMetadata({ imports: [SkNavPillComponent] }),
+  ],
   render: () => ({
     template: `
-      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
-        <sk-nav-pill></sk-nav-pill>
+      <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+        <sk-nav-pill [items]="items" ctaLabel="Book Demo"></sk-nav-pill>
       </div>
     `,
+    props: {
+      items: [
+        { label: 'Platform', href: '#' },
+        { label: 'Getting Started', href: '#', active: true },
+        { label: 'About', href: '#' },
+        { label: 'Blog', href: '#' },
+      ],
+    },
   }),
   parameters: { backgrounds: { default: 'sk-light' } },
 };

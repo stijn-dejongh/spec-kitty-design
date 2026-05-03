@@ -111,7 +111,7 @@ export const LightMode: Story = {
     },
   },
   render: () => `
-    <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block; width: 100%;">
+    <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block; width: 100%;">
       <div class="sk-grid sk-grid--cols-3 sk-grid--gap-4">
         ${threeCards}
       </div>

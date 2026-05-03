@@ -5,7 +5,7 @@ export const SkSiteFooterHTML = `
   <div class="sk-site-footer__grid">
     <div>
       <div class="sk-site-footer__brand">
-        <img src="../../packages/tokens/assets/logo.webp" alt="Spec Kitty logo" width="28" height="28" />
+        <img src="/tokens-assets/logo.webp" alt="Spec Kitty logo" width="28" height="28" />
         <span class="sk-site-footer__wordmark">Spec Kitty</span>
       </div>
       <p class="sk-site-footer__tagline">

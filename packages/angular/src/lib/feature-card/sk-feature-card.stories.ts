@@ -56,7 +56,7 @@ export const PurpleIcon: Story = {
 export const LightMode: Story = {
   render: () => ({
     template: `
-      <div data-theme="light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
+      <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
         <sk-feature-card iconVariant="yellow" title="Stay in flow">When requirements are scattered across meetings, tickets, and chat — Spec Kitty keeps context in one place.</sk-feature-card>
       </div>
     `,
