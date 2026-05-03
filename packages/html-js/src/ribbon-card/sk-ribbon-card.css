@@ -68,6 +68,29 @@
   color: var(--sk-fg-on-primary);
 }
 
+/* Colorized-border variants — accent the card edge with a brand colour
+   instead of the default neutral hairline border. Per WP01 / issue #10.
+   Pairs with a matching ribbon variant for a coherent accent treatment. */
+.sk-ribbon-card--border-yellow {
+  border-color: var(--sk-color-yellow);
+}
+
+.sk-ribbon-card--border-green {
+  border-color: var(--sk-color-green);
+}
+
+.sk-ribbon-card--border-purple {
+  border-color: var(--sk-color-purple);
+}
+
+.sk-ribbon-card--border-blue {
+  border-color: var(--sk-color-blue);
+}
+
+.sk-ribbon-card--border-red {
+  border-color: var(--sk-color-red);
+}
+
 /* Card content — top margin creates space for the ribbon tab */
 .sk-ribbon-card__content {
   margin-top: var(--sk-space-5);

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T06:11:00.606Z",
+  "generated_at": "2026-05-03T09:33:03.341Z",
   "generated_from": "packages/tokens/src/tokens.css",
   "categories": {
     "color": {
@@ -9,6 +9,9 @@
         "--sk-color-yellow",
         "--sk-color-yellow-soft",
         "--sk-color-yellow-deep",
+        "--sk-color-yellow-alpha-15",
+        "--sk-color-yellow-alpha-35",
+        "--sk-color-yellow-alpha-60",
         "--sk-color-haygold",
         "--sk-color-haygold-soft",
         "--sk-color-blue",

@@ -1,1 +1,1 @@
-export declare function skToggleDrawer(btn: HTMLElement): void;
+export declare function skToggleDrawer(btn: HTMLElement | null): boolean;

@@ -334,8 +334,23 @@
       border: 2px solid var(--sk-border-default);
     }
 
+    /* Done: muted via semantic colour tokens, not opacity (FR-017).
+       Avoids the opacity cascade that fades child elements (badges, dots)
+       below their intended contrast. */
     .dash-card--done {
-      opacity: 0.6;
+      background: var(--sk-surface-card);
+      color: var(--sk-fg-muted);
+    }
+
+    .dash-card--done .dash-card__title,
+    .dash-card--done .dash-card__id,
+    .dash-card--done .dash-card__agent,
+    .dash-card--done .dash-card__subtasks {
+      color: var(--sk-fg-muted);
+    }
+
+    .dash-card--done .dash-card__subtask-fill {
+      background: var(--sk-fg-subtle);
     }
 
     .dash-card--planned:hover,

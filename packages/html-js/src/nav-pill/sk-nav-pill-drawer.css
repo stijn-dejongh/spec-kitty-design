@@ -34,7 +34,7 @@
   color: var(--sk-color-yellow);
   background: var(--sk-color-yellow-alpha-15);
   box-shadow:
-    0 0 0 1px var(--sk-color-yellow-alpha-35),
+    0 0 0 var(--sk-border-width-1) var(--sk-color-yellow-alpha-35),
     0 6px 22px -4px var(--sk-color-yellow-alpha-60);
   transform: translateY(-1px);
 }
@@ -46,7 +46,7 @@
   gap: var(--sk-space-1);
   padding: var(--sk-space-3);
   background: var(--sk-surface-card);
-  border: 1px solid var(--sk-border-default);
+  border: var(--sk-border-width-1) solid var(--sk-border-default);
   border-radius: var(--sk-radius-md);
   margin-top: var(--sk-space-2);
   /* Collapse animation */
@@ -70,7 +70,7 @@
 .sk-nav-pill--has-drawer .sk-nav-pill__hamburger[aria-expanded="true"] {
   color: var(--sk-fg-default);
   background: var(--sk-surface-card);
-  box-shadow: 0 0 0 1px var(--sk-border-default);
+  box-shadow: 0 0 0 var(--sk-border-width-1) var(--sk-border-default);
 }
 
 .sk-nav-pill__drawer .sk-nav-pill__item {

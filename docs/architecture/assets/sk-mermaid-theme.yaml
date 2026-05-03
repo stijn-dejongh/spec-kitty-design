@@ -1,0 +1,28 @@
+# sk-mermaid-theme.yaml
+# Single source of truth for Mermaid diagram branding across docs/architecture/assets/.
+# A change to any value here must be followed by `node scripts/render-diagrams.js`
+# to regenerate every dependent SVG, otherwise CI rejects the PR.
+#
+# Contract: kitty-specs/<mission>/contracts/brand-theme-source.md
+# Upstream brand source: packages/tokens/src/tokens.css (--sk-* custom properties).
+# Mermaid does not consume CSS custom properties, so values are duplicated here
+# intentionally; the diagram-CI gate is the safety net (FR-013, FR-015).
+
+theme: base
+themeVariables:
+  fontFamily: "ui-sans-serif, system-ui, sans-serif"
+  fontSize: "14px"
+  primaryColor: "#161619"          # Node fill (sk-surface-page equivalent)
+  primaryTextColor: "#e8e8eb"      # Node text (sk-on-page equivalent)
+  primaryBorderColor: "#F5C518"    # Node border (sk-color-yellow)
+  lineColor: "#A9C7E8"             # Edge line colour (sk-color-blue)
+  secondaryColor: "#1C1C20"        # Secondary node fill (sk-surface-card equivalent)
+  tertiaryColor: "#0A0A0B"         # Tertiary node fill
+  edgeLabelBackground: "#1C1C20"   # Edge label background
+  clusterBkg: "#1C1C20"            # Subgraph background
+  clusterBorder: "#26262C"         # Subgraph border
+  titleColor: "#F5C518"            # Subgraph title colour (sk-color-yellow). Two of the
+                                   # eight inline themes (c4-l1-system-context,
+                                   # c4-l2-package-topology) set this; including it here
+                                   # promotes the brand-yellow subgraph title across all
+                                   # eight diagrams as the consistent canonical look.

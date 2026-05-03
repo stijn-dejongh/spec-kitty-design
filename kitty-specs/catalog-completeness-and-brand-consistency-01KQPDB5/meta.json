@@ -2,7 +2,7 @@
   "created_at": "2026-05-03T07:55:13.861917+00:00",
   "friendly_name": "Catalog Completeness & Brand Consistency Pass",
   "mission_id": "01KQPDB5J5EK82K39TF1MPQA7H",
-  "mission_number": null,
+  "mission_number": 5,
   "mission_slug": "catalog-completeness-and-brand-consistency-01KQPDB5",
   "mission_type": "software-dev",
   "purpose_context": "This mission completes the visible polish work needed before the design system can be promoted to a 1.0 publish and consumed by an external docsite. It fills missing Storybook stories and components identified in post-review feedback, eliminates remaining hardcoded color and opacity values from shipped CSS, makes the nav-pill drawer pattern self-contained for downstream consumers, and introduces a shared brand theme source plus CI enforcement for architecture diagrams. It is the prerequisite catalog-completeness pass that unblocks the docsite pilot (epic #17) and any 1.0 publish to npm.",
