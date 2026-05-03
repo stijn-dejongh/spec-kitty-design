@@ -1,7 +1,7 @@
 {
-  "event_count": 25,
-  "last_event_id": "01KQQ3F4NAZ3ZGV6PNQ06GPHG5",
-  "materialized_at": "2026-05-03T14:21:52.682511+00:00",
+  "event_count": 27,
+  "last_event_id": "01KQQ3G1J5GY7P9YXWPW5XNH1T",
+  "materialized_at": "2026-05-03T14:22:22.277428+00:00",
   "mission_number": "",
   "mission_slug": "catalog-completeness-and-brand-consistency-01KQPDB5",
   "mission_type": "software-dev",
@@ -12,9 +12,9 @@
     "claimed": 0,
     "done": 0,
     "for_review": 0,
-    "in_progress": 2,
+    "in_progress": 3,
     "in_review": 1,
-    "planned": 2
+    "planned": 1
   },
   "work_packages": {
     "WP01": {
@@ -39,11 +39,11 @@
       "last_transition_at": "2026-05-03T14:21:52.682511+00:00"
     },
     "WP04": {
-      "actor": "finalize-tasks",
+      "actor": "claude:opus-4-7:designer-dagmar:implementer",
       "force_count": 1,
-      "lane": "planned",
-      "last_event_id": "01KQPF115R0C1725RCWW8VWY4H",
-      "last_transition_at": "2026-05-03T08:24:38.840907+00:00"
+      "lane": "in_progress",
+      "last_event_id": "01KQQ3G1J5GY7P9YXWPW5XNH1T",
+      "last_transition_at": "2026-05-03T14:22:22.277428+00:00"
     },
     "WP05": {
       "actor": "claude:opus-4-7:node-norris:implementer",
