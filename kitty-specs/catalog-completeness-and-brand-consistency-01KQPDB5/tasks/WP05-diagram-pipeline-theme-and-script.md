@@ -17,8 +17,8 @@ subtasks:
 - T027
 - T028
 - T029
-agent: claude
-shell_pid: '1295163'
+agent: "claude:sonnet-4-6:node-norris:implementer"
+shell_pid: "1295163"
 history:
 - timestamp: '2026-05-03T08:00:00Z'
   actor: spec-kitty.tasks
@@ -216,3 +216,7 @@ Reviewer should:
 3. Open each rendered SVG visually and confirm the brand looks correct (yellow border, dark background, etc.).
 4. Read `sk-mermaid-theme.yaml` and confirm values match the upstream brand tokens.
 5. Read the new `README.md` and confirm a fresh contributor could follow the workflow.
+
+## Activity Log
+
+- 2026-05-03T08:57:54Z – claude:sonnet-4-6:node-norris:implementer – shell_pid=1295163 – Assigned agent via action command
