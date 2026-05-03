@@ -39,14 +39,14 @@ Six work packages across four engineering tracks, organized for maximum parallel
 | T014 | Regenerate token catalogue (`npx nx run tokens:catalogue`) | WP03 |  |
 | T015 | Verify stylelint accepts new tokens (no consumer references yet) | WP03 |  |
 | T016 | Update `docs/contributing/adding-a-token.md` if a new prefix is introduced (likely no-op) | WP03 |  |
-| T017 | Verify drawer CSS extraction is complete (no drawer rules in `sk-nav-pill.css`) | WP04 |  |
-| T018 | Verify `skToggleDrawer` module satisfies `contracts/nav-pill-drawer-module.md` | WP04 |  |
-| T019 | Verify `CollapsedHamburger` story is interactive in Storybook | WP04 |  |
-| T020 | Verify dashboard-demo.html imports `skToggleDrawer` from package (FR-010) | WP04 |  |
-| T021 | Audit nav-pill CSS for residual `rgba()`/hex literals; replace with yellow alpha tokens | WP04 |  |
-| T022 | Replace `.dash-card--done { opacity: 0.6 }` cascade with semantic colour tokens | WP04 |  |
-| T023 | Update package README with both import patterns (basic-pill + drawer) | WP04 |  |
-| T024 | Refresh visual baselines for affected stories/demo | WP04 |  |
+| T017 | Verify drawer CSS extraction is complete (no drawer rules in `sk-nav-pill.css`) | WP04 |  | [D] |
+| T018 | Verify `skToggleDrawer` module satisfies `contracts/nav-pill-drawer-module.md` | WP04 |  | [D] |
+| T019 | Verify `CollapsedHamburger` story is interactive in Storybook | WP04 |  | [D] |
+| T020 | Verify dashboard-demo.html imports `skToggleDrawer` from package (FR-010) | WP04 |  | [D] |
+| T021 | Audit nav-pill CSS for residual `rgba()`/hex literals; replace with yellow alpha tokens | WP04 |  | [D] |
+| T022 | Replace `.dash-card--done { opacity: 0.6 }` cascade with semantic colour tokens | WP04 |  | [D] |
+| T023 | Update package README with both import patterns (basic-pill + drawer) | WP04 |  | [D] |
+| T024 | Refresh visual baselines for affected stories/demo | WP04 |  | [D] |
 | T025 | Create `docs/architecture/assets/sk-mermaid-theme.yaml` from current inline themes | WP05 |  |
 | T026 | Create `scripts/render-diagrams.js` (theme injection + mmdc render + `--check`) | WP05 |  |
 | T027 | Migrate every `*.mmd` file to use `%%THEME%%` placeholder | WP05 | [P] |
@@ -56,7 +56,7 @@ Six work packages across four engineering tracks, organized for maximum parallel
 | T031 | Update `package-lock.json` | WP06 |  |
 | T032 | Add `.github/workflows/docs-diagrams.yml` with path filter | WP06 |  |
 | T033 | Smoke-test the gate: deliberately drift a `.mmd` and confirm CI rejection | WP06 |  |
-| T034 | Verify and populate NavPill empty HTML story (FR-005) — added by analyze remediation | WP04 |  |
+| T034 | Verify and populate NavPill empty HTML story (FR-005) — added by analyze remediation | WP04 |  | [D] |
 
 The `[P]` markers above indicate parallelism, not status. Per-WP tracking checkboxes live below.
 
@@ -164,15 +164,15 @@ The `[P]` markers above indicate parallelism, not status. Per-WP tracking checkb
 
 ### Included subtasks
 
-- [ ] T017 Verify drawer CSS extraction is complete (no drawer rules in sk-nav-pill.css) (WP04)
-- [ ] T018 Verify skToggleDrawer module satisfies contracts/nav-pill-drawer-module.md (WP04)
-- [ ] T019 Verify CollapsedHamburger story is interactive in Storybook (WP04)
-- [ ] T020 Verify dashboard-demo.html imports skToggleDrawer from package (FR-010) (WP04)
-- [ ] T021 Audit nav-pill CSS for residual rgba()/hex literals; replace with yellow alpha tokens (WP04)
-- [ ] T022 Replace .dash-card--done { opacity: 0.6 } cascade with semantic colour tokens (WP04)
-- [ ] T023 Update package README with both import patterns (basic-pill + drawer) (WP04)
-- [ ] T024 Refresh visual baselines for affected stories/demo (WP04)
-- [ ] T034 Verify and populate NavPill empty HTML story (FR-005) — added by analyze remediation (WP04)
+- [x] T017 Verify drawer CSS extraction is complete (no drawer rules in sk-nav-pill.css) (WP04)
+- [x] T018 Verify skToggleDrawer module satisfies contracts/nav-pill-drawer-module.md (WP04)
+- [x] T019 Verify CollapsedHamburger story is interactive in Storybook (WP04)
+- [x] T020 Verify dashboard-demo.html imports skToggleDrawer from package (FR-010) (WP04)
+- [x] T021 Audit nav-pill CSS for residual rgba()/hex literals; replace with yellow alpha tokens (WP04)
+- [x] T022 Replace .dash-card--done { opacity: 0.6 } cascade with semantic colour tokens (WP04)
+- [x] T023 Update package README with both import patterns (basic-pill + drawer) (WP04)
+- [x] T024 Refresh visual baselines for affected stories/demo (WP04)
+- [x] T034 Verify and populate NavPill empty HTML story (FR-005) — added by analyze remediation (WP04)
 
 ### Implementation sketch
 
