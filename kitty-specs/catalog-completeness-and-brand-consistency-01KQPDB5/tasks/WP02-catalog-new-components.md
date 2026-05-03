@@ -19,8 +19,8 @@ subtasks:
 - T010
 - T011
 - T012
-agent: claude
-shell_pid: '1294856'
+agent: "claude:sonnet-4-6:frontend-freddy:implementer"
+shell_pid: "1294856"
 history:
 - timestamp: '2026-05-03T08:00:00Z'
   actor: spec-kitty.tasks
@@ -214,3 +214,7 @@ Reviewer should:
 2. Confirm `import { SkGridDefaultHTML, SkBlogCardDefaultHTML } from '@spec-kitty/html-js'` resolves at the barrel.
 3. Cross-check blog-card visual against `https://spec-kitty.ai/blog`.
 4. Confirm no other component dirs were touched.
+
+## Activity Log
+
+- 2026-05-03T08:57:30Z – claude:sonnet-4-6:frontend-freddy:implementer – shell_pid=1294856 – Assigned agent via action command
