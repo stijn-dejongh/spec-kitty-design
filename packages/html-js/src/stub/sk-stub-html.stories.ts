@@ -1,12 +1,12 @@
 import './sk-stub.css';
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 import { SkStubHTML } from './index';
 
 const meta: Meta = {
   title: 'Primitives/SkStub (HTML)',
   tags: ['autodocs'],
   parameters: { a11y: { disable: false } },
-  render: () => SkStubHTML,
+  render: () => ({ template: SkStubHTML }),
 };
 
 export default meta;
@@ -27,5 +27,5 @@ export const LightMode: Story = {
     backgrounds: { default: 'sk-light' },
     docs: { description: { story: 'Stub placeholder rendered on the light-mode surface for cross-theme verification.' } },
   },
-  render: () => `<div class="sk-light" style="background:var(--sk-surface-page);padding:var(--sk-space-6);display:inline-block;">${SkStubHTML}</div>`,
+  render: () => ({ template: `<div class="sk-light" style="background:var(--sk-surface-page);padding:var(--sk-space-6);display:inline-block;">${SkStubHTML}</div>` }),
 };

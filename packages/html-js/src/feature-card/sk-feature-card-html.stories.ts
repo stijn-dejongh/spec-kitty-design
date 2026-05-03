@@ -1,5 +1,5 @@
 import './sk-feature-card.css';
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 import {
   SkFeatureCardYellowHTML,
   SkFeatureCardGreenHTML,
@@ -34,7 +34,7 @@ export const Default: Story = {
       },
     },
   },
-  render: () => SkFeatureCardYellowHTML,
+  render: () => ({ template: SkFeatureCardYellowHTML }),
 };
 
 export const GreenIcon: Story = {
@@ -45,7 +45,7 @@ export const GreenIcon: Story = {
       },
     },
   },
-  render: () => SkFeatureCardGreenHTML,
+  render: () => ({ template: SkFeatureCardGreenHTML }),
 };
 
 export const PurpleIcon: Story = {
@@ -56,7 +56,7 @@ export const PurpleIcon: Story = {
       },
     },
   },
-  render: () => SkFeatureCardPurpleHTML,
+  render: () => ({ template: SkFeatureCardPurpleHTML }),
 };
 
 export const ColorizedBorders: Story = {
@@ -68,13 +68,13 @@ export const ColorizedBorders: Story = {
       },
     },
   },
-  render: () => `
+  render: () => ({ template: `
     <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:var(--sk-space-4);max-width:900px;">
       ${SkFeatureCardBorderYellowHTML}
       ${SkFeatureCardBorderGreenHTML}
       ${SkFeatureCardBorderPurpleHTML}
     </div>
-  `,
+  ` }),
 };
 
 export const Grid: Story = {
@@ -85,11 +85,11 @@ export const Grid: Story = {
       },
     },
   },
-  render: () => `<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sk-space-4);max-width:600px;">
+  render: () => ({ template: `<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sk-space-4);max-width:600px;">
     ${SkFeatureCardYellowHTML}
     ${SkFeatureCardGreenHTML}
     ${SkFeatureCardPurpleHTML}
-  </div>`,
+  </div>` }),
 };
 
 export const LightMode: Story = {
@@ -102,7 +102,7 @@ export const LightMode: Story = {
       },
     },
   },
-  render: () => `
+  render: () => ({ template: `
     <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
       <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:var(--sk-space-4);max-width:900px;">
         ${SkFeatureCardBorderYellowHTML}
@@ -110,5 +110,5 @@ export const LightMode: Story = {
         ${SkFeatureCardBorderPurpleHTML}
       </div>
     </div>
-  `,
+  ` }),
 };

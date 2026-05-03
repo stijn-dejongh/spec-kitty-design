@@ -1,5 +1,5 @@
 import './sk-form-field.css';
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 import {
   SkFormInputDefaultHTML,
   SkFormInputFocusHTML,
@@ -21,44 +21,44 @@ type Story = StoryObj;
 
 export const FormInputDefault: Story = {
   name: 'FormInput Default',
-  render: () => SkFormInputDefaultHTML,
+  render: () => ({ template: SkFormInputDefaultHTML }),
 };
 
 export const FormInputFocus: Story = {
   name: 'FormInput Focus',
-  render: () => SkFormInputFocusHTML,
+  render: () => ({ template: SkFormInputFocusHTML }),
 };
 
 export const FormInputError: Story = {
   name: 'FormInput Error',
-  render: () => SkFormInputErrorHTML,
+  render: () => ({ template: SkFormInputErrorHTML }),
 };
 
 export const FormInputDisabled: Story = {
   name: 'FormInput Disabled',
-  render: () => SkFormInputDisabledHTML,
+  render: () => ({ template: SkFormInputDisabledHTML }),
 };
 
 export const FormInputFilled: Story = {
   name: 'FormInput Filled',
-  render: () => SkFormInputFilledHTML,
+  render: () => ({ template: SkFormInputFilledHTML }),
 };
 
 export const FormTextareaDefault: Story = {
   name: 'FormTextarea Default',
-  render: () => SkFormTextareaDefaultHTML,
+  render: () => ({ template: SkFormTextareaDefaultHTML }),
 };
 
 export const FormTextareaError: Story = {
   name: 'FormTextarea Error',
-  render: () => SkFormTextareaErrorHTML,
+  render: () => ({ template: SkFormTextareaErrorHTML }),
 };
 
 export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' } },
-  render: () => `
+  render: () => ({ template: `
     <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
       ${SkFormInputDefaultHTML}
     </div>
-  `,
+  ` }),
 };

@@ -1,5 +1,5 @@
 import './sk-section-banner.css';
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 import {
   SkSectionBannerNeutralHTML,
   SkSectionBannerPurpleHTML,
@@ -31,7 +31,7 @@ export const Default: Story = {
       },
     },
   },
-  render: () => SkSectionBannerNeutralHTML,
+  render: () => ({ template: SkSectionBannerNeutralHTML }),
 };
 
 export const Neutral: Story = {
@@ -42,7 +42,7 @@ export const Neutral: Story = {
       },
     },
   },
-  render: () => SkSectionBannerNeutralHTML,
+  render: () => ({ template: SkSectionBannerNeutralHTML }),
 };
 
 export const Purple: Story = {
@@ -53,7 +53,7 @@ export const Purple: Story = {
       },
     },
   },
-  render: () => SkSectionBannerPurpleHTML,
+  render: () => ({ template: SkSectionBannerPurpleHTML }),
 };
 
 export const Green: Story = {
@@ -64,7 +64,7 @@ export const Green: Story = {
       },
     },
   },
-  render: () => SkSectionBannerGreenHTML,
+  render: () => ({ template: SkSectionBannerGreenHTML }),
 };
 
 export const AllVariants: Story = {
@@ -75,13 +75,13 @@ export const AllVariants: Story = {
       },
     },
   },
-  render: () => `
+  render: () => ({ template: `
     <div style="display:flex;flex-direction:column;gap:var(--sk-space-3);align-items:flex-start;">
       ${SkSectionBannerNeutralHTML}
       ${SkSectionBannerPurpleHTML}
       ${SkSectionBannerGreenHTML}
     </div>
-  `,
+  ` }),
 };
 
 export const LightMode: Story = {
@@ -93,7 +93,7 @@ export const LightMode: Story = {
       },
     },
   },
-  render: () => `
+  render: () => ({ template: `
     <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: block; width: 100%;">
       <div style="display:flex;flex-direction:column;gap:var(--sk-space-3);align-items:flex-start;">
         ${SkSectionBannerNeutralHTML}
@@ -101,5 +101,5 @@ export const LightMode: Story = {
         ${SkSectionBannerGreenHTML}
       </div>
     </div>
-  `,
+  ` }),
 };

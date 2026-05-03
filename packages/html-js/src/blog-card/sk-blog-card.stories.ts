@@ -1,6 +1,6 @@
 import '../card/sk-card.css';
 import './sk-blog-card.css';
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 import {
   SkBlogCardDefaultHTML,
   SkBlogCardLongTitleHTML,
@@ -20,7 +20,7 @@ type Story = StoryObj;
 const frame = (html: string) => `<div style="max-width: 420px;">${html}</div>`;
 
 export const Default: Story = {
-  render: () => frame(SkBlogCardDefaultHTML),
+  render: () => ({ template: frame(SkBlogCardDefaultHTML) }),
 };
 
 export const WithoutImage: Story = {
@@ -31,11 +31,11 @@ export const WithoutImage: Story = {
       },
     },
   },
-  render: () => frame(SkBlogCardWithoutImageHTML),
+  render: () => ({ template: frame(SkBlogCardWithoutImageHTML) }),
 };
 
 export const WithoutEyebrow: Story = {
-  render: () => frame(SkBlogCardWithoutEyebrowHTML),
+  render: () => ({ template: frame(SkBlogCardWithoutEyebrowHTML) }),
 };
 
 export const LongTitle: Story = {
@@ -46,7 +46,7 @@ export const LongTitle: Story = {
       },
     },
   },
-  render: () => frame(SkBlogCardLongTitleHTML),
+  render: () => ({ template: frame(SkBlogCardLongTitleHTML) }),
 };
 
 export const Hover: Story = {
@@ -58,14 +58,14 @@ export const Hover: Story = {
       },
     },
   },
-  render: () => frame(SkBlogCardDefaultHTML),
+  render: () => ({ template: frame(SkBlogCardDefaultHTML) }),
 };
 
 export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' } },
-  render: () => `
+  render: () => ({ template: `
     <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
       ${frame(SkBlogCardDefaultHTML)}
     </div>
-  `,
+  ` }),
 };

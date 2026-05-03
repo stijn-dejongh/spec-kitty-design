@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 import './sk-nav-pill.css';
 import './sk-nav-pill-drawer.css';
 import { skToggleDrawer } from './index';
@@ -22,14 +22,14 @@ const meta: Meta = {
       )
       .join('\n    ');
 
-    return `<nav class="sk-nav-pill" aria-label="Primary navigation">
+    return { template: `<nav class="sk-nav-pill" aria-label="Primary navigation">
   <div class="sk-nav-pill__items">
     ${itemsHtml}
   </div>
   <div class="sk-nav-pill__cta">
     <button class="sk-nav-pill__cta-btn" type="button">Book Demo</button>
   </div>
-</nav>`;
+</nav>` };
   },
   argTypes: {
     items: { control: 'object' },
@@ -95,7 +95,7 @@ export const CollapsedHamburger: Story = {
       return story();
     },
   ],
-  render: () => `
+  render: () => ({ template: `
 <div style="resize:horizontal;overflow:hidden;min-width:220px;max-width:800px;border:1px dashed var(--sk-border-default);padding:var(--sk-space-4);">
   <p style="font-size:var(--sk-text-xs);color:var(--sk-fg-muted);margin-bottom:var(--sk-space-3);font-family:var(--sk-font-mono);">
     Drag the right edge to resize and watch the nav collapse below 720 px.
@@ -109,7 +109,6 @@ export const CollapsedHamburger: Story = {
       <a href="#" class="sk-nav-pill__item">Training</a>
     </div>
     <div class="sk-nav-pill__cta" style="display:flex;align-items:center;gap:var(--sk-space-2);">
-      <!-- Hamburger — hidden on desktop, shown on mobile -->
       <button
         class="sk-nav-pill__hamburger"
         aria-label="Open navigation"
@@ -127,7 +126,6 @@ export const CollapsedHamburger: Story = {
       <button class="sk-nav-pill__cta-btn" type="button">Book Demo</button>
     </div>
   </nav>
-  <!-- Drawer: slides open on mobile when hamburger is toggled -->
   <div id="sk-nav-drawer" class="sk-nav-pill__drawer">
     <a href="#" class="sk-nav-pill__item">Platform</a>
     <a href="#" class="sk-nav-pill__item sk-nav-pill__item--active" aria-current="page">Getting Started</a>
@@ -135,12 +133,12 @@ export const CollapsedHamburger: Story = {
     <a href="#" class="sk-nav-pill__item">Blog</a>
     <a href="#" class="sk-nav-pill__item">Training</a>
   </div>
-</div>`,
+</div>` }),
 };
 
 export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' } },
-  render: () => `
+  render: () => ({ template: `
     <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
       <nav class="sk-nav-pill" aria-label="Primary navigation">
         <div class="sk-nav-pill__items">
@@ -153,5 +151,5 @@ export const LightMode: Story = {
         </div>
       </nav>
     </div>
-  `,
+  ` }),
 };

@@ -1,5 +1,5 @@
 import './sk-site-footer.css';
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 import { SkSiteFooterHTML } from './index';
 
 const meta: Meta = {
@@ -11,14 +11,14 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
-  render: () => SkSiteFooterHTML,
+  render: () => ({ template: SkSiteFooterHTML }),
 };
 
 export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' }, layout: 'fullscreen' },
-  render: () => `
+  render: () => ({ template: `
     <div class="sk-light" style="background: var(--sk-surface-page); display: block; width: 100%;">
       ${SkSiteFooterHTML}
     </div>
-  `,
+  ` }),
 };

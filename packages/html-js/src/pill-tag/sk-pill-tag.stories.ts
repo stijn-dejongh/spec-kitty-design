@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 import { SkTagHTML, SkEyebrowPillHTML, type PillTagVariant } from './index';
 import './sk-pill-tag.css';
 
@@ -14,7 +14,7 @@ const meta: Meta = {
       },
     },
   },
-  render: (args) => SkTagHTML(args['label'] ?? 'v1.0.0', args['variant'] ?? 'default'),
+  render: (args) => ({ template: SkTagHTML(args['label'] ?? 'v1.0.0', args['variant'] ?? 'default') }),
   argTypes: {
     label: { control: 'text' },
     variant: {
@@ -62,7 +62,7 @@ export const AllVariants: Story = {
       },
     },
   },
-  render: () => `
+  render: () => ({ template: `
     <div style="display:flex;gap:var(--sk-space-2);flex-wrap:wrap;align-items:center;">
       ${SkTagHTML('v1.0.0')}
       ${SkTagHTML('Breaking', 'breaking')}
@@ -70,7 +70,7 @@ export const AllVariants: Story = {
       ${SkTagHTML('Skills Pack', 'purple')}
       ${SkTagHTML('Schema Gate', 'yellow')}
     </div>
-  `,
+  ` }),
 };
 
 export const EyebrowPill: Story = {
@@ -81,12 +81,12 @@ export const EyebrowPill: Story = {
       },
     },
   },
-  render: () => `
+  render: () => ({ template: `
     <div style="display:flex;gap:var(--sk-space-2);flex-wrap:wrap;align-items:center;">
       ${SkEyebrowPillHTML('For software teams adopting agentic coding')}
       ${SkEyebrowPillHTML('Open-source CLI quickstart')}
     </div>
-  `,
+  ` }),
 };
 
 export const LightMode: Story = {
@@ -98,7 +98,7 @@ export const LightMode: Story = {
       },
     },
   },
-  render: () => `
+  render: () => ({ template: `
     <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block;">
       <div style="display:flex;gap:var(--sk-space-2);flex-wrap:wrap;align-items:center;">
         ${SkTagHTML('v1.0.0')}
@@ -108,5 +108,5 @@ export const LightMode: Story = {
         ${SkTagHTML('Schema Gate', 'yellow')}
       </div>
     </div>
-  `,
+  ` }),
 };

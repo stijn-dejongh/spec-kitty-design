@@ -1,6 +1,6 @@
 import './sk-card.css';
 import '../pill-tag/sk-pill-tag.css';
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta = {
   title: 'Components/Card',
@@ -10,7 +10,7 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
-  render: () => `<article class="sk-card" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Default card content</p></article>`,
+  render: () => ({ template: `<article class="sk-card" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Default card content</p></article>` }),
 };
 
 export const Blue: Story = {
@@ -21,7 +21,7 @@ export const Blue: Story = {
       },
     },
   },
-  render: () => `<article class="sk-card sk-card--blue" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Blue tint card — information context. Hover to see full accent border.</p></article>`,
+  render: () => ({ template: `<article class="sk-card sk-card--blue" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Blue tint card — information context. Hover to see full accent border.</p></article>` }),
 };
 
 export const Purple: Story = {
@@ -32,15 +32,15 @@ export const Purple: Story = {
       },
     },
   },
-  render: () => `<article class="sk-card sk-card--purple" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Purple tint card — feature context. Hover to see full accent border.</p></article>`,
+  render: () => ({ template: `<article class="sk-card sk-card--purple" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Purple tint card — feature context. Hover to see full accent border.</p></article>` }),
 };
 
 export const Inset: Story = {
-  render: () => `<article class="sk-card sk-card--inset" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Inset card — nested content</p></article>`,
+  render: () => ({ template: `<article class="sk-card sk-card--inset" style="max-width:360px"><p style="color:var(--sk-fg-default);margin:0">Inset card — nested content</p></article>` }),
 };
 
 export const BlogCardExample: Story = {
-  render: () => `
+  render: () => ({ template: `
     <article class="sk-card" style="max-width:400px">
       <div style="display:flex;gap:var(--sk-space-2);margin-bottom:var(--sk-space-4)">
         <span class="sk-tag sk-tag--green">Release</span>
@@ -55,17 +55,17 @@ export const BlogCardExample: Story = {
       </p>
       <a href="#" style="font-size:var(--sk-text-sm);color:var(--sk-color-yellow);text-decoration:none">Read the post →</a>
     </article>
-  `,
+  ` }),
 };
 
 export const LightMode: Story = {
   parameters: { backgrounds: { default: 'sk-light' } },
-  render: () => `
+  render: () => ({ template: `
     <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: flex; gap: var(--sk-space-4); flex-wrap: wrap;">
       <article class="sk-card" style="max-width:200px">Default</article>
       <article class="sk-card sk-card--blue" style="max-width:200px">Blue</article>
       <article class="sk-card sk-card--purple" style="max-width:200px">Purple</article>
       <article class="sk-card sk-card--inset" style="max-width:200px">Inset</article>
     </div>
-  `,
+  ` }),
 };

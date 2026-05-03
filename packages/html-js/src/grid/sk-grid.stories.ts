@@ -1,6 +1,6 @@
 import './sk-grid.css';
 import '../card/sk-card.css';
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta = {
   title: 'Components/SkGrid',
@@ -35,9 +35,9 @@ export const Default: Story = {
       },
     },
   },
-  render: () => `<div class="sk-grid" style="max-width: 640px;">
+  render: () => ({ template: `<div class="sk-grid" style="max-width: 640px;">
   ${threeCards}
-</div>`,
+</div>` }),
 };
 
 /** Two equal columns. Collapses to single column below 720 px. */
@@ -49,9 +49,9 @@ export const TwoColumn: Story = {
       },
     },
   },
-  render: () => `<div class="sk-grid sk-grid--cols-2 sk-grid--gap-4" style="max-width: 640px;">
+  render: () => ({ template: `<div class="sk-grid sk-grid--cols-2 sk-grid--gap-4" style="max-width: 640px;">
   ${fourCards}
-</div>`,
+</div>` }),
 };
 
 /** Three equal columns. Collapses to single column below 720 px. */
@@ -63,9 +63,9 @@ export const ThreeColumn: Story = {
       },
     },
   },
-  render: () => `<div class="sk-grid sk-grid--cols-3 sk-grid--gap-4" style="max-width: 960px;">
+  render: () => ({ template: `<div class="sk-grid sk-grid--cols-3 sk-grid--gap-4" style="max-width: 960px;">
   ${threeCards}
-</div>`,
+</div>` }),
 };
 
 /** Four equal columns. Collapses to single column below 720 px. */
@@ -77,9 +77,9 @@ export const FourColumn: Story = {
       },
     },
   },
-  render: () => `<div class="sk-grid sk-grid--cols-4 sk-grid--gap-4" style="max-width: 1200px;">
+  render: () => ({ template: `<div class="sk-grid sk-grid--cols-4 sk-grid--gap-4" style="max-width: 1200px;">
   ${fourCards}
-</div>`,
+</div>` }),
 };
 
 /**
@@ -95,9 +95,9 @@ export const Responsive: Story = {
       },
     },
   },
-  render: () => `<div class="sk-grid sk-grid--cols-3 sk-grid--gap-6">
+  render: () => ({ template: `<div class="sk-grid sk-grid--cols-3 sk-grid--gap-6">
   ${threeCards}
-</div>`,
+</div>` }),
 };
 
 /** Light-mode variant: three-column grid on a warm cream background. */
@@ -110,11 +110,11 @@ export const LightMode: Story = {
       },
     },
   },
-  render: () => `
+  render: () => ({ template: `
     <div class="sk-light" style="background: var(--sk-surface-page); padding: var(--sk-space-6); display: inline-block; width: 100%;">
       <div class="sk-grid sk-grid--cols-3 sk-grid--gap-4">
         ${threeCards}
       </div>
     </div>
-  `,
+  ` }),
 };
