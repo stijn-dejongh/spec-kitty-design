@@ -51,7 +51,7 @@ Six work packages across four engineering tracks, organized for maximum parallel
 | T026 | Create `scripts/render-diagrams.js` (theme injection + mmdc render + `--check`) | WP05 |  | [D] |
 | T027 | Migrate every `*.mmd` file to use `%%THEME%%` placeholder | WP05 | [D] |
 | T028 | Regenerate every `*.svg` via the new script and commit | WP05 |  | [D] |
-| T029 | Add `docs/architecture/assets/README.md` with workflow instructions | WP05 |  |
+| T029 | Add `docs/architecture/assets/README.md` with workflow instructions | WP05 |  | [D] |
 | T030 | Pin `@mermaid-js/mermaid-cli` in `package.json` (devDependencies) | WP06 |  |
 | T031 | Update `package-lock.json` | WP06 |  |
 | T032 | Add `.github/workflows/docs-diagrams.yml` with path filter | WP06 |  |
@@ -203,7 +203,7 @@ The `[P]` markers above indicate parallelism, not status. Per-WP tracking checkb
 - [x] T026 Create scripts/render-diagrams.js (theme injection + mmdc render + --check) (WP05)
 - [x] T027 [P] Migrate every *.mmd file to use %%THEME%% placeholder (WP05)
 - [x] T028 Regenerate every *.svg via the new script and commit (WP05)
-- [ ] T029 Add docs/architecture/assets/README.md with workflow instructions (WP05)
+- [x] T029 Add docs/architecture/assets/README.md with workflow instructions (WP05)
 
 ### Implementation sketch
 
