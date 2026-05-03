@@ -15,8 +15,8 @@ subtasks:
 - T031
 - T032
 - T033
-agent: "claude:opus-4-7:node-norris:implementer"
-shell_pid: "1451395"
+agent: ~
+shell_pid: ~
 history:
 - timestamp: '2026-05-03T08:00:00Z'
   actor: spec-kitty.tasks
