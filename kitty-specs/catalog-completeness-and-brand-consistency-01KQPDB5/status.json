@@ -1,7 +1,7 @@
 {
-  "event_count": 16,
-  "last_event_id": "01KQQ284FN06EF5AF7R6QCSQ6X",
-  "materialized_at": "2026-05-03T14:00:34.549205+00:00",
+  "event_count": 17,
+  "last_event_id": "01KQQ395N9EPMYNRMSAJ6WYBSN",
+  "materialized_at": "2026-05-03T14:18:37.097925+00:00",
   "mission_number": "",
   "mission_slug": "catalog-completeness-and-brand-consistency-01KQPDB5",
   "mission_type": "software-dev",
@@ -12,17 +12,17 @@
     "claimed": 0,
     "done": 0,
     "for_review": 2,
-    "in_progress": 2,
+    "in_progress": 1,
     "in_review": 0,
-    "planned": 2
+    "planned": 3
   },
   "work_packages": {
     "WP01": {
-      "actor": "claude:sonnet-4-6:frontend-freddy:implementer",
-      "force_count": 1,
-      "lane": "in_progress",
-      "last_event_id": "01KQPGWR1E7WT7FX54YS675T1P",
-      "last_transition_at": "2026-05-03T08:57:15.566179+00:00"
+      "actor": "user",
+      "force_count": 2,
+      "lane": "planned",
+      "last_event_id": "01KQQ395N9EPMYNRMSAJ6WYBSN",
+      "last_transition_at": "2026-05-03T14:18:37.097925+00:00"
     },
     "WP02": {
       "actor": "codex:gpt-5:frontend-freddy:implementer",
