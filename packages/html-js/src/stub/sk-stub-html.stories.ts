@@ -20,3 +20,11 @@ export const Mobile: Story = {
 export const Desktop: Story = {
   parameters: { viewport: { defaultViewport: 'desktop' } },
 };
+
+export const LightMode: Story = {
+  parameters: {
+    backgrounds: { default: 'sk-light' },
+    docs: { description: { story: 'Stub placeholder rendered on the light-mode surface for cross-theme verification.' } },
+  },
+  render: () => `<div data-theme="light" style="background:var(--sk-surface-page);padding:var(--sk-space-6);display:inline-block;">${SkStubHTML}</div>`,
+};

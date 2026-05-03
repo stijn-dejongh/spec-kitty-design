@@ -35,3 +35,14 @@ export const Hover: Story = {
     await userEvent.hover(stub);
   },
 };
+
+export const LightMode: Story = {
+  render: () => ({
+    template: `
+      <div data-theme="light" style="background:var(--sk-surface-page);padding:var(--sk-space-6);display:inline-block;">
+        <sk-stub></sk-stub>
+      </div>
+    `,
+    moduleMetadata: { imports: [SkStubComponent] },
+  }),
+};

@@ -26,11 +26,12 @@
 }
 
 /* Tint colours: rgba channels derived from the token values.
-   Accepted deviation from C-103: hardcoded rgb channels for tint bg.
+   Yellow chip now uses --sk-color-yellow-alpha-15 token (WP03, mission-review DRIFT-2 remediation).
+   Green and purple have no alpha tokens yet — accepted deviation per mission-review-01KQPDB5J5EK82K39TF1MPQA7H.
    Token reference: --sk-color-yellow=#F5C518, --sk-color-green=#8FCB8F,
    --sk-color-purple=#B8A9E0 */
 .sk-feature-card__icon-chip--yellow {
-  background: rgba(245, 197, 24, 0.12);
+  background: var(--sk-color-yellow-alpha-15);
   color: var(--sk-color-yellow);
 }
 

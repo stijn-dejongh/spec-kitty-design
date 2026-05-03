@@ -34,3 +34,17 @@ export const ListOfThree: Story = {
     moduleMetadata: { imports: [SkCheckBulletComponent] },
   }),
 };
+
+export const LightMode: Story = {
+  render: () => ({
+    template: `
+      <div data-theme="light" style="background:var(--sk-surface-page);padding:var(--sk-space-6);display:inline-block;">
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+          <sk-check-bullet text="Cross-theme verification of check-bullet on light surface."></sk-check-bullet>
+          <sk-check-bullet text="Token colours pick up the light-mode overrides automatically."></sk-check-bullet>
+        </ul>
+      </div>
+    `,
+    moduleMetadata: { imports: [SkCheckBulletComponent] },
+  }),
+};
