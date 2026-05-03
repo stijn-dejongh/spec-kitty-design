@@ -17,8 +17,8 @@ subtasks:
 - T027
 - T028
 - T029
-agent: "claude:sonnet-4-6:node-norris:implementer"
-shell_pid: "1295163"
+agent: "claude:opus-4-7:node-norris:implementer"
+shell_pid: "1372503"
 history:
 - timestamp: '2026-05-03T08:00:00Z'
   actor: spec-kitty.tasks
@@ -221,3 +221,4 @@ Reviewer should:
 
 - 2026-05-03T08:57:54Z – claude:sonnet-4-6:node-norris:implementer – shell_pid=1295163 – Assigned agent via action command
 - 2026-05-03T14:18:40Z – claude:sonnet-4-6:node-norris:implementer – shell_pid=1295163 – Moved to planned
+- 2026-05-03T14:19:08Z – claude:opus-4-7:node-norris:implementer – shell_pid=1372503 – Started implementation via action command
