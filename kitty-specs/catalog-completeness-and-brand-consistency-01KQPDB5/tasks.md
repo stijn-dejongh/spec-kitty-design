@@ -47,7 +47,7 @@ Six work packages across four engineering tracks, organized for maximum parallel
 | T022 | Replace `.dash-card--done { opacity: 0.6 }` cascade with semantic colour tokens | WP04 |  | [D] |
 | T023 | Update package README with both import patterns (basic-pill + drawer) | WP04 |  | [D] |
 | T024 | Refresh visual baselines for affected stories/demo | WP04 |  | [D] |
-| T025 | Create `docs/architecture/assets/sk-mermaid-theme.yaml` from current inline themes | WP05 |  |
+| T025 | Create `docs/architecture/assets/sk-mermaid-theme.yaml` from current inline themes | WP05 |  | [D] |
 | T026 | Create `scripts/render-diagrams.js` (theme injection + mmdc render + `--check`) | WP05 |  |
 | T027 | Migrate every `*.mmd` file to use `%%THEME%%` placeholder | WP05 | [P] |
 | T028 | Regenerate every `*.svg` via the new script and commit | WP05 |  |
@@ -199,7 +199,7 @@ The `[P]` markers above indicate parallelism, not status. Per-WP tracking checkb
 
 ### Included subtasks
 
-- [ ] T025 Create docs/architecture/assets/sk-mermaid-theme.yaml from current inline themes (WP05)
+- [x] T025 Create docs/architecture/assets/sk-mermaid-theme.yaml from current inline themes (WP05)
 - [ ] T026 Create scripts/render-diagrams.js (theme injection + mmdc render + --check) (WP05)
 - [ ] T027 [P] Migrate every *.mmd file to use %%THEME%% placeholder (WP05)
 - [ ] T028 Regenerate every *.svg via the new script and commit (WP05)
